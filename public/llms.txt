@@ -1,0 +1,30 @@
+# PortdayGuide
+
+> Independent cruise-port planning guides focused on terminal choice, realistic transfer time, return-to-ship margins, and relevant shore excursions.
+
+Canonical site: https://portdayguide.com/
+Language: English (United States)
+
+## Main sections
+
+- Cruise port guide directory: https://portdayguide.com/ports
+- Free cruise port-day planner: https://portdayguide.com/planner
+- Cruise planning blog: https://portdayguide.com/blog
+- Editorial and research method: https://portdayguide.com/about
+- Affiliate disclosure: https://portdayguide.com/disclosure
+- XML sitemap: https://portdayguide.com/sitemap.xml
+
+## Content model
+
+- Port hubs explain possible berths, transfer assumptions, top activities, 6- and 8-hour planning structures, practical tips, FAQs, and related ports.
+- Focused decision guides compare terminals, transport options, beach access, taxi planning, tender operations, and return timing for selected ports.
+- Blog articles cover cruise-terminal trends, passenger technology, sustainability, and the wider context behind port-day planning.
+- Live Viator fields may include product title, price, pricing unit, rating, review count, duration, availability, and cancellation information. These fields can change independently of editorial copy.
+
+## Important limitations
+
+PortdayGuide is a planning aid, not a cruise line, travel agency, tour operator, transport provider, or safety guarantee. Cruise-line documents and same-day operational instructions control. Readers should verify berth, all-aboard time, meeting point, accessibility, weather, price, cancellation terms, and return transport before acting.
+
+## Attribution and reuse
+
+PortdayGuide text is published for reader use on the website. Third-party photographs, maps, product data, trademarks, and linked sources retain their own licenses and terms. Follow the source and license links shown on each page before reusing third-party material.
