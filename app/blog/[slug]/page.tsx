@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPost, blogPostHtml, blogPostPath } from "@/lib/blog";
+import {
+  blogPost,
+  blogPostHtml,
+  blogPostPath,
+  terminalTransferGuides,
+} from "@/lib/blog";
 import { siteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -52,6 +57,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     isAccessibleForFree: true,
     articleSection: blogPost.category,
     keywords: blogPost.targetKeywords.join(", "),
+    hasPart: terminalTransferGuides.map((guide) => ({
+      "@type": "BlogPosting",
+      "@id": `${siteUrl}${guide.path}`,
+      name: guide.title,
+      url: `${siteUrl}${guide.path}`,
+    })),
     author: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/about` },
     publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/`, logo: { "@type": "ImageObject", url: `${siteUrl}/icon-512.png` } },
   };
@@ -78,7 +89,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         <p className="blog-article-deck">{blogPost.excerpt}</p>
         <div className="blog-article-meta"><span>{blogPost.publishedLabel}</span><span>{blogPost.readTime}</span><span>By {blogPost.author}</span></div>
       </div>
-      <figure className="blog-article-cover"><Image src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority /></figure>
+      <figure className="blog-article-cover"><Image src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority unoptimized /></figure>
     </header>
 
     <div className="blog-article-layout">
@@ -86,6 +97,41 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <article className="blog-article-body">
         <div dangerouslySetInnerHTML={{ __html: blogPostHtml }} />
         <aside className="blog-editorial-note"><strong>PortdayGuide editorial note</strong><p>This article examines industry direction rather than the operating details of one sailing. Terminal assignments, technology, access rules, and shore-power availability can change. Check your cruise line and port authority before travel.</p></aside>
+        <section className="blog-child-guides" aria-labelledby="related-guides-title">
+          <div className="blog-child-guides-heading">
+            <p className="eyebrow"><span /> Terminal &amp; transfer guides</p>
+            <h2 id="related-guides-title">Plan the journey around the terminal.</h2>
+            <p>Use these practical guides to turn the terminal trends above into a smoother cruise-day plan.</p>
+          </div>
+          <div className="blog-child-guide-grid">
+            {terminalTransferGuides.map((guide) => (
+              <Link
+                className="blog-child-guide-card"
+                data-blog-child-card="true"
+                href={guide.path}
+                key={guide.path}
+                aria-label={`Read ${guide.title}`}
+              >
+                <figure className="blog-child-guide-image">
+                  <Image
+                    src={guide.image}
+                    alt={guide.imageAlt}
+                    width={guide.imageWidth}
+                    height={guide.imageHeight}
+                    sizes="(max-width: 700px) calc(100vw - 34px), 360px"
+                    unoptimized
+                  />
+                </figure>
+                <div className="blog-child-guide-content">
+                  <span>{guide.category} · {guide.readTime}</span>
+                  <h3>{guide.cardTitle}</h3>
+                  <p>{guide.excerpt}</p>
+                  <b>Read guide <ArrowIcon /></b>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
         <section className="blog-article-cta"><span>Plan the practical side</span><h2>Build your next port day around the correct terminal.</h2><p>Compare 64 cruise-port guides, then use your real ship times to protect the return before choosing activities.</p><div><Link href="/ports">Explore port guides <ArrowIcon /></Link><Link href="/planner">Open the free planner</Link></div></section>
       </article>
     </div>

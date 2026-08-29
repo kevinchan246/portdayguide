@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FeaturedViatorDeals } from "@/components/FeaturedViatorDeals";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
-import { blogPost, blogPostPath } from "@/lib/blog";
+import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
 import { guideReadMinutes, guideTitle, guideUpdatedLabel } from "@/lib/editorial";
 import { portPath, siteUrl } from "@/lib/seo";
 import { portProfiles } from "@/lib/shorepath";
@@ -78,10 +78,10 @@ export default function Home() {
     </section>
 
     <section className="section home-blog-feature" aria-labelledby="home-blog-title">
-      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> From the blog</p><h2 id="home-blog-title">Cruise ports are changing.</h2><p>Explore the terminal, technology, and sustainability trends shaping the next generation of cruise travel.</p></div>
+      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> From the blog</p><h2 id="home-blog-title">Compare the top Alaska cruise ports.</h2><p>Understand the main routes and departure cities, then explore the highlights at Alaska&apos;s most popular ports of call.</p></div>
       <article className="blog-feature-card">
-        <Link className="blog-feature-image" href={blogPostPath} aria-label={`Read ${blogPost.title}`}><Image src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" /></Link>
-        <div><p className="blog-card-meta"><span>{blogPost.category}</span><span>{blogPost.publishedLabel}</span><span>{blogPost.readTime}</span></p><h2><Link href={blogPostPath}>{blogPost.title}</Link></h2><p>{blogPost.excerpt}</p><Link className="blog-read-link" href={blogPostPath}>Read the article <ArrowIcon /></Link></div>
+        <Link className="blog-feature-image" href={alaskaCruisePortsPath} aria-label={`Read ${alaskaCruisePortsPost.title}`}><Image src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" unoptimized /></Link>
+        <div><p className="blog-card-meta"><span>{alaskaCruisePortsPost.category}</span><span>{alaskaCruisePortsPost.publishedLabel}</span><span>{alaskaCruisePortsPost.readTime}</span></p><h2><Link href={alaskaCruisePortsPath}>{alaskaCruisePortsPost.title}</Link></h2><p>{alaskaCruisePortsPost.excerpt}</p><Link className="blog-read-link" href={alaskaCruisePortsPath}>Read the article <ArrowIcon /></Link></div>
       </article>
       <div className="directory-link"><Link href="/blog">Visit the PortdayGuide blog <ArrowIcon /></Link></div>
     </section>

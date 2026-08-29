@@ -2,6 +2,7 @@ export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
   topic: string;
+  template?: "standard" | "yokohama-terminal-editorial";
   eyebrow: string;
   title: string;
   seoTitle: string;
@@ -35,8 +36,12 @@ export type PortIntentGuide = {
     copy: string;
     query: string;
     campaign: string;
+    matchTerms?: string[];
   };
   sources: Array<{ label: string; url: string; note: string }>;
+  faqs?: Array<{ question: string; answer: string }>;
+  published?: string;
+  modified?: string;
 };
 
 export const portIntentGuides: PortIntentGuide[] = [
@@ -678,6 +683,55 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Official George Town guide", url: "https://www.visitcaymanislands.com/things-to-do/popular-attractions/george-town", note: "Official 10-minute light-traffic drive estimate from George Town." },
       { label: "Official Seven Mile Beach guide", url: "https://www.visitcaymanislands.com/things-to-do/beaches/seven-mile-beach", note: "Beach identity and public-access context." },
     ],
+  },
+  {
+    sourcePortSlug: "yokohama-tokyo",
+    urlPortSlug: "yokohama-tokyo",
+    topic: "things-to-do-near-yokohama-cruise-terminal",
+    template: "yokohama-terminal-editorial",
+    eyebrow: "Yokohama terminal-area guide",
+    title: "Discover the Hidden Gems Near the Yokohama Cruise Terminal",
+    seoTitle: "Things to Do Near Yokohama Cruise Terminal",
+    description: "Discover the best things to do near Yokohama Cruise Terminal, including Chinatown, Yamashita Park, Red Brick Warehouse, Minato Mirai, dining, and transport.",
+    lede: "Use this terminal-area guide to compare nearby sights, food, shopping, local transport, and the easiest ways to reach Osanbashi from Tokyo.",
+    quickAnswer: "Osanbashi is close to Yamashita Park, Chinatown, the Red Brick Warehouse, and the wider Minato Mirai waterfront. Confirm the exact berth first, then group nearby stops and preserve the return to the ship.",
+    reviewed: "July 2026",
+    facts: [
+      { label: "Guide focus", value: "Osanbashi and central Yokohama" },
+      { label: "Easy pair", value: "Yamashita Park + Chinatown" },
+      { label: "Waterfront route", value: "Red Brick Warehouse + Minato Mirai" },
+      { label: "First check", value: "Confirm Osanbashi, Shinko, or Daikoku" },
+    ],
+    fit: {
+      bestFor: "Cruise travelers planning a self-guided day around central Yokohama",
+      minimumWindow: "About 4 hours ashore for a compact central route",
+      diyLevel: "Easy from Osanbashi; terminal-dependent from Shinko or Daikoku",
+      mobility: "Mostly urban walking, with transit or taxi useful for longer routes",
+      weather: "Museums, malls, and dining provide practical rain alternatives",
+      mainRisk: "Following an Osanbashi walking plan from a different Yokohama terminal",
+    },
+    sections: [],
+    steps: [],
+    decision: "Choose a compact Osanbashi-area route when the ship is centrally berthed. Treat Sankeien Garden or Tokyo as a separate main outing rather than another stop on the same short day.",
+    viator: {
+      heading: "Yokohama food tours near Osanbashi",
+      copy: "Compare Yokohama Chinatown street-food walks, ramen experiences, and guided local tastings that fit the dining stops in this guide. Check the meeting point and leave enough time to return to your terminal.",
+      query: "Yokohama Chinatown food tour",
+      campaign: "pdg-yokohama-terminal-dining",
+      matchTerms: ["food", "street food", "ramen", "wagashi", "sweet", "culinary", "cuisine", "noodle", "izakaya", "bar hopping", "eat"],
+    },
+    sources: [
+      { label: "Complete Yokohama port guide", url: "/ports/yokohama-tokyo", note: "Terminal comparison, transport context, timing, and return-aware planning." },
+    ],
+    faqs: [
+      { question: "What makes Yokohama Cruise Terminal stand out?", answer: "Osanbashi is both an international passenger terminal and a waterfront landmark. Its public rooftop promenade offers open space and panoramic harbor and skyline views close to central Yokohama." },
+      { question: "How do I get from Tokyo to Yokohama Cruise Terminal?", answer: "Rail is usually the most economical option, including services such as the JR Tokaido and Keihin-Tohoku lines. A taxi or private transfer can reduce luggage and final-connection friction. Always match the route to Osanbashi, Shinko, or Daikoku as named in the cruise documents." },
+      { question: "Which cultural landmarks near Osanbashi should I prioritize?", answer: "Yokohama Chinatown and the Cup Noodles Museum fit central waterfront plans, while Sankeien Garden is farther away and works better as the main outing. Group nearby stops rather than crossing the city repeatedly." },
+      { question: "Where can I find waterfront views and green space?", answer: "Yamashita Park offers lawns, paths, and harbor views near Osanbashi. The terminal rooftop itself is also a public promenade with panoramic views and seating." },
+      { question: "What dining and shopping areas are near the terminal?", answer: "Chinatown is strong for regional Chinese food, the Red Brick Warehouse combines shops and restaurants in historic buildings, and Minato Mirai offers malls, museums, entertainment, and waterfront dining." },
+    ],
+    published: "2026-07-26",
+    modified: "2026-07-26",
   },
 ];
 

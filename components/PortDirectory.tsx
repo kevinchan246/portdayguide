@@ -10,17 +10,43 @@ import { portNames, portProfiles, portRegions, type PortRegion } from "@/lib/sho
 
 type RegionFilter = "All regions" | PortRegion;
 
+function normalizeSearchText(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
 export function PortDirectory({ initialQuery = "" }: { initialQuery?: string }) {
   const [query, setQuery] = useState(initialQuery);
   const [region, setRegion] = useState<RegionFilter>("All regions");
 
-  const normalizedQuery = query.trim().toLocaleLowerCase();
-  const matches = useMemo(() => portNames.filter((name) => {
-    const profile = portProfiles[name];
-    const matchesRegion = region === "All regions" || profile.region === region;
-    const searchable = [name, profile.country, profile.pier, profile.focus, profile.headline, ...profile.highlights].join(" ").toLocaleLowerCase();
-    return matchesRegion && (!normalizedQuery || searchable.includes(normalizedQuery));
-  }), [normalizedQuery, region]);
+  const normalizedQuery = normalizeSearchText(query);
+  const matches = useMemo(() => {
+    const queryTerms = normalizedQuery.split(/\s+/).filter(Boolean);
+    return portNames.filter((name) => {
+      const profile = portProfiles[name];
+      const matchesRegion = region === "All regions" || profile.region === region;
+      const activityPlaces = Object.values(profile.activities).flat().map((activity) => activity.place);
+      const excursionTitles = profile.excursions.map((excursion) => excursion.title);
+      const searchable = normalizeSearchText([
+        name,
+        profile.slug,
+        profile.region,
+        profile.country,
+        profile.pier,
+        profile.focus,
+        profile.headline,
+        profile.intro,
+        ...profile.highlights,
+        ...activityPlaces,
+        ...excursionTitles,
+      ].join(" "));
+      return matchesRegion && queryTerms.every((term) => searchable.includes(term));
+    });
+  }, [normalizedQuery, region]);
 
   const activeRegions = portRegions.filter((item) => matches.some((name) => portProfiles[name].region === item));
   const reset = () => { setQuery(""); setRegion("All regions"); };

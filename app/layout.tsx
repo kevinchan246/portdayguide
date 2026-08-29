@@ -26,6 +26,17 @@ export const metadata: Metadata = {
     siteName: "PortdayGuide",
   },
   twitter: { card: "summary_large_image", title: "Cruise Port Guides | PortdayGuide", description: "Terminal details, return-time guidance, and live shore excursions." },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },

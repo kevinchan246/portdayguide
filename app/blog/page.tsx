@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { blogPost, blogPostPath } from "@/lib/blog";
+import { alaskaCruisePortsPost } from "@/lib/alaska-blog";
+import { blogPosts } from "@/lib/blog";
 import { siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
     description: "Cruise-port analysis, terminal trends, and practical ideas for better days ashore.",
     url: `${siteUrl}/blog`,
     type: "website",
-    images: [{ url: blogPost.image, alt: blogPost.imageAlt }],
+    images: [{ url: alaskaCruisePortsPost.image, alt: alaskaCruisePortsPost.imageAlt }],
   },
-  twitter: { card: "summary_large_image", images: [blogPost.image] },
+  twitter: { card: "summary_large_image", images: [alaskaCruisePortsPost.image] },
 };
 
 function ArrowIcon() {
@@ -32,13 +33,13 @@ export default function BlogPage() {
     url: pageUrl,
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: 1,
-      itemListElement: [{
+      numberOfItems: blogPosts.length,
+      itemListElement: blogPosts.map((post, index) => ({
         "@type": "ListItem",
-        position: 1,
-        name: blogPost.title,
-        url: `${siteUrl}${blogPostPath}`,
-      }],
+        position: index + 1,
+        name: post.title,
+        url: `${siteUrl}${post.path}`,
+      })),
     },
   };
   const breadcrumbSchema = {
@@ -65,16 +66,16 @@ export default function BlogPage() {
     </section>
 
     <section className="section blog-index-content" aria-labelledby="latest-blog-title">
-      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Latest article</p><h2 id="latest-blog-title">Cruise-port insights.</h2><p>Long-form analysis that complements PortdayGuide&apos;s destination guides and return-aware planning tools.</p></div>
-      <article className="blog-feature-card">
-        <Link className="blog-feature-image" href={blogPostPath} aria-label={`Read ${blogPost.title}`}><Image src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" /></Link>
+      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Latest articles</p><h2 id="latest-blog-title">Cruise-port insights.</h2><p>Practical transportation guides and long-form analysis that complement PortdayGuide&apos;s destination guides and return-aware planning tools.</p></div>
+      <div className="blog-article-list">{blogPosts.map((post, index) => <article className={`blog-feature-card${index === 0 ? "" : " blog-feature-card-secondary"}`} key={post.path}>
+        <Link className="blog-feature-image" href={post.path} aria-label={`Read ${post.title}`}><Image src={post.image} alt={post.imageAlt} width={post.imageWidth} height={post.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" unoptimized /></Link>
         <div>
-          <p className="blog-card-meta"><span>{blogPost.category}</span><span>{blogPost.publishedLabel}</span><span>{blogPost.readTime}</span></p>
-          <h2><Link href={blogPostPath}>{blogPost.title}</Link></h2>
-          <p>{blogPost.excerpt}</p>
-          <Link className="blog-read-link" href={blogPostPath}>Read the article <ArrowIcon /></Link>
+          <p className="blog-card-meta"><span>{post.category}</span><span>{post.publishedLabel}</span><span>{post.readTime}</span></p>
+          <h2><Link href={post.path}>{post.title}</Link></h2>
+          <p>{post.excerpt}</p>
+          <Link className="blog-read-link" href={post.path}>Read the article <ArrowIcon /></Link>
         </div>
-      </article>
+      </article>)}</div>
     </section>
 
     <section className="blog-index-bridge">

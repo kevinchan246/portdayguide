@@ -49,6 +49,17 @@ export type FeaturedViatorProductsPayload = {
   updatedAt: string;
 };
 
+export type AlaskaViatorProductCard = ViatorProductCard & {
+  portName: string;
+  portSlug: string;
+  highlight: string;
+};
+
+export type AlaskaViatorProductsPayload = {
+  products: AlaskaViatorProductCard[];
+  updatedAt: string;
+};
+
 export type ViatorApiErrorPayload = {
   error: "not_configured" | "destination_not_found" | "temporarily_unavailable";
   message: string;

@@ -10,7 +10,11 @@ Language: English (United States)
 - Cruise port guide directory: https://portdayguide.com/ports
 - Free cruise port-day planner: https://portdayguide.com/planner
 - Cruise planning blog: https://portdayguide.com/blog
-- Editorial and research method: https://portdayguide.com/about
+- Alaska cruise ports pillar guide: https://portdayguide.com/blog/alaska-cruise-ports
+- Cruise terminal pillar guide: https://portdayguide.com/blog/future-of-cruise-ship-terminals
+- MCO to Port Canaveral transportation guide: https://portdayguide.com/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral/
+- Things to do near Yokohama Cruise Terminal: https://portdayguide.com/ports/yokohama-tokyo/things-to-do-near-yokohama-cruise-terminal
+- About PortdayGuide: https://portdayguide.com/about
 - Affiliate disclosure: https://portdayguide.com/disclosure
 - XML sitemap: https://portdayguide.com/sitemap.xml
 
@@ -18,7 +22,7 @@ Language: English (United States)
 
 - Port hubs explain possible berths, transfer assumptions, top activities, 6- and 8-hour planning structures, practical tips, FAQs, and related ports.
 - Focused decision guides compare terminals, transport options, beach access, taxi planning, tender operations, and return timing for selected ports.
-- Blog articles cover cruise-terminal trends, passenger technology, sustainability, and the wider context behind port-day planning.
+- Blog articles cover Alaska cruise ports and routes, cruise-terminal trends, passenger technology, sustainability, airport-to-port transportation, and the wider context behind port-day planning.
 - Live Viator fields may include product title, price, pricing unit, rating, review count, duration, availability, and cancellation information. These fields can change independently of editorial copy.
 
 ## Important limitations

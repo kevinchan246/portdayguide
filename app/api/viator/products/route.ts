@@ -1,6 +1,6 @@
 import { profilesBySlug, type PortSlug } from "@/lib/shorepath";
 import { portIntentGuides, type PortIntentGuide } from "@/lib/port-intent-guides";
-import type { FeaturedViatorProductCard, FeaturedViatorProductsPayload, ViatorHighlightRecommendation, ViatorPricingPackageType, ViatorProductCard, ViatorProductsPayload } from "@/lib/viator";
+import type { AlaskaViatorProductCard, AlaskaViatorProductsPayload, FeaturedViatorProductCard, FeaturedViatorProductsPayload, ViatorHighlightRecommendation, ViatorPricingPackageType, ViatorProductCard, ViatorProductsPayload } from "@/lib/viator";
 
 const PRODUCTION_API_ROOT = "https://api.viator.com/partner";
 const SANDBOX_API_ROOT = "https://api.sandbox.viator.com/partner";
@@ -66,6 +66,7 @@ function pricingPackageTypeFromProduct(product: ViatorProduct): ViatorPricingPac
 let destinationCache: { expiresAt: number; items: Destination[] } | null = null;
 const productCache = new Map<string, { expiresAt: number; payload: ViatorProductsPayload }>();
 let featuredCache: { expiresAt: number; payload: FeaturedViatorProductsPayload } | null = null;
+let alaskaPillarCache: { expiresAt: number; payload: AlaskaViatorProductsPayload } | null = null;
 
 async function configuredViator() {
   try {
@@ -377,10 +378,25 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const destination = destinationForPort(destinations, guide.sourcePortSlug, profile.name, profile.country);
   if (!destination) return null;
   const searched = await searchHighlightProducts(apiRoot, apiKey, destination.destinationId, guide.viator.campaign, guide.viator.query);
-  const ranked = [...searched]
-    .sort((a, b) => bestValueScore(b) - bestValueScore(a))
+  const queryWords = normalize(guide.viator.query).split(" ").filter((word) => word.length >= 3 && !genericHighlightWords.has(word));
+  const matchTerms = (guide.viator.matchTerms || []).map(normalize);
+  const intentRelevance = (product: ViatorProductCard) => {
+    const title = normalize(product.title);
+    const description = normalize(product.description);
+    const titleMatches = matchTerms.filter((term) => title.includes(term));
+    if (matchTerms.length && !titleMatches.length) return null;
+    const queryTitleMatches = queryWords.filter((word) => title.includes(word)).length;
+    const queryDescriptionMatches = queryWords.filter((word) => description.includes(word)).length;
+    return bestValueScore(product) + titleMatches.length * 45 + queryTitleMatches * 16 + queryDescriptionMatches * 4;
+  };
+  const ranked = searched
+    .flatMap((product) => {
+      const score = intentRelevance(product);
+      return score === null ? [] : [{ product, score }];
+    })
+    .sort((a, b) => b.score - a.score)
     .slice(0, 4);
-  const products = await addOfficialPricingUnits(apiRoot, apiKey, ranked);
+  const products = await addOfficialPricingUnits(apiRoot, apiKey, ranked.map(({ product }) => product));
   const payload: ViatorProductsPayload = {
     products,
     recommendations: [],
@@ -422,19 +438,85 @@ async function loadFeaturedProducts(apiRoot: string, apiKey: string) {
   return payload;
 }
 
+const alaskaPillarTargets = [
+  { portSlug: "juneau", portName: "Juneau", highlight: "Mendenhall Glacier" },
+  { portSlug: "ketchikan", portName: "Ketchikan", highlight: "Misty Fjords" },
+  { portSlug: "skagway", portName: "Skagway", highlight: "White Pass Railway" },
+  { portSlug: "sitka", portName: "Sitka", highlight: "Fortress of the Bear" },
+  { portSlug: "icy-strait-point", portName: "Icy Strait Point", highlight: "Whale watching" },
+  { portSlug: "ketchikan", portName: "Ketchikan", highlight: "Totem Bight" },
+] as const;
+
+async function loadAlaskaPillarProducts(apiRoot: string, apiKey: string) {
+  if (alaskaPillarCache && alaskaPillarCache.expiresAt > Date.now()) return alaskaPillarCache.payload;
+  const destinations = await getDestinations(apiRoot, apiKey);
+  const campaign = "portdayguide-alaska-cruise-ports";
+  const searches = await Promise.allSettled(alaskaPillarTargets.map(async (target) => {
+    const profile = profilesBySlug[target.portSlug as PortSlug];
+    if (!profile) return null;
+    const destination = destinationForPort(destinations, target.portSlug, profile.name, profile.country);
+    if (!destination) return null;
+    const products = await searchHighlightProducts(apiRoot, apiKey, destination.destinationId, campaign, target.highlight);
+    const ranked = products
+      .flatMap((product, searchPosition) => {
+        const relevance = highlightRelevance(target.highlight, product, searchPosition);
+        return relevance === null ? [] : [{ product, score: relevance + bestValueScore(product) }];
+      })
+      .sort((a, b) => b.score - a.score);
+    if (!ranked[0]) return null;
+    return { ...target, product: ranked[0].product, score: ranked[0].score };
+  }));
+
+  const candidates = searches
+    .flatMap((result) => result.status === "fulfilled" && result.value ? [result.value] : [])
+    .sort((a, b) => b.score - a.score);
+  const uniqueCandidates = [...new Map(candidates.map((candidate) => [candidate.product.productCode, candidate])).values()];
+  const selected: typeof uniqueCandidates = [];
+  const selectedPorts = new Set<string>();
+
+  for (const candidate of uniqueCandidates) {
+    if (selectedPorts.has(candidate.portSlug)) continue;
+    selected.push(candidate);
+    selectedPorts.add(candidate.portSlug);
+    if (selected.length === 4) break;
+  }
+  for (const candidate of uniqueCandidates) {
+    if (selected.length === 4) break;
+    if (selected.some((item) => item.product.productCode === candidate.product.productCode)) continue;
+    selected.push(candidate);
+  }
+
+  const enriched = await addOfficialPricingUnits(apiRoot, apiKey, selected.map(({ product }) => product));
+  const enrichedByCode = new Map(enriched.map((product) => [product.productCode, product]));
+  const products: AlaskaViatorProductCard[] = selected.map((candidate) => ({
+    ...(enrichedByCode.get(candidate.product.productCode) || candidate.product),
+    portName: candidate.portName,
+    portSlug: candidate.portSlug,
+    highlight: candidate.highlight,
+  }));
+  const payload: AlaskaViatorProductsPayload = { products, updatedAt: new Date().toISOString() };
+  alaskaPillarCache = { expiresAt: Date.now() + PRODUCT_CACHE_MS, payload };
+  return payload;
+}
+
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const slug = params.get("port") || "";
   const intent = params.get("intent") || "";
-  const featured = params.get("featured") === "home";
+  const featured = params.get("featured") || "";
   if (!featured && !profilesBySlug[slug as PortSlug]) return Response.json({ error: "destination_not_found", message: "This port is not supported." }, { status: 404 });
   const { apiKey, apiRoot } = await configuredViator();
   if (!apiKey) return Response.json({ error: "not_configured", message: "Live Viator tours are not configured yet." }, { status: 503 });
   try {
-    if (featured) {
+    if (featured === "home") {
       const payload = await loadFeaturedProducts(apiRoot, apiKey);
       return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
     }
+    if (featured === "alaska") {
+      const payload = await loadAlaskaPillarProducts(apiRoot, apiKey);
+      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
+    }
+    if (featured) return Response.json({ error: "destination_not_found", message: "This featured collection is not supported." }, { status: 404 });
     if (intent) {
       const guide = portIntentGuides.find((candidate) => candidate.sourcePortSlug === slug && candidate.topic === intent);
       if (!guide) return Response.json({ error: "destination_not_found", message: "This intent guide is not supported." }, { status: 404 });

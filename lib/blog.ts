@@ -1,3 +1,5 @@
+import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
+
 export const blogPost = {
   slug: "future-of-cruise-ship-terminals",
   title: "The Future of Cruise Ship Terminals",
@@ -7,7 +9,7 @@ export const blogPost = {
   category: "Cruise Industry",
   published: "2026-07-22",
   publishedLabel: "July 22, 2026",
-  modified: "2026-07-23",
+  modified: "2026-07-24",
   author: "PortdayGuide editorial",
   readTime: "8 min read",
   image: "/media/blog/cruise-terminal-aerial.jpg",
@@ -37,6 +39,221 @@ export const blogPost = {
 } as const;
 
 export const blogPostPath = `/blog/${blogPost.slug}`;
+
+export const mcoToPortCanaveralPost = {
+  slug: "mco-to-port-canaveral",
+  title: "Traveling from MCO to Port Canaveral (Best Transportation Options)",
+  cardTitle: "MCO to Port Canaveral transportation options",
+  seoTitle: "MCO to Port Canaveral: Transportation Options",
+  description: "Compare shared shuttles, private transfers, Uber or Lyft, rental cars, and cruise line transfers from Orlando airport (MCO) to Port Canaveral.",
+  excerpt: "Compare the five main ways to travel the roughly 45 miles from Orlando International Airport to Port Canaveral, including timing, cost ranges, and cruise-day tradeoffs.",
+  category: "Cruise Transportation",
+  published: "2026-07-24",
+  publishedLabel: "July 24, 2026",
+  modified: "2026-07-24",
+  author: "PortdayGuide editorial",
+  readTime: "7 min read",
+  image: "/media/blog/passenger-terminal-technology.jpg",
+  imageAlt: "Cruise ship beside a passenger terminal and transfer roadway",
+  imageWidth: 1600,
+  imageHeight: 1073,
+  targetKeywords: [
+    "MCO to Port Canaveral",
+    "Orlando airport to Port Canaveral",
+    "Port Canaveral shuttle",
+    "Uber MCO to Port Canaveral",
+    "Port Canaveral transportation",
+    "MCO cruise transfer",
+  ],
+  toc: [
+    { id: "quick-answer", label: "Quick answer" },
+    { id: "comparison", label: "Options compared" },
+    { id: "driving-route", label: "Driving route" },
+    { id: "shared-shuttle", label: "Shared shuttle" },
+    { id: "private-transfer", label: "Private transfer" },
+    { id: "rideshare", label: "Uber or Lyft" },
+    { id: "rental-car", label: "Rental car" },
+    { id: "cruise-line-transfer", label: "Cruise line transfer" },
+    { id: "choosing", label: "How to choose" },
+    { id: "faq", label: "FAQ" },
+  ],
+} as const;
+
+export const mcoToPortCanaveralPath = `${blogPostPath}/${mcoToPortCanaveralPost.slug}`;
+
+export const terminalTransferGuides = [
+  { ...mcoToPortCanaveralPost, path: mcoToPortCanaveralPath },
+] as const;
+
+export const blogPosts = [
+  { ...alaskaCruisePortsPost, path: alaskaCruisePortsPath },
+  ...terminalTransferGuides,
+  { ...blogPost, path: blogPostPath },
+] as const;
+
+export const mcoToPortCanaveralFaq = [
+  {
+    question: "How early should I leave MCO for Port Canaveral?",
+    answer: "If you are boarding a cruise the same day, build in a substantial buffer. A practical target is to reach the port area three to four hours before the ship's departure window, while following any earlier arrival or check-in requirement from your cruise line.",
+  },
+  {
+    question: "Are there tolls between MCO and Port Canaveral?",
+    answer: "Usually, yes. The common FL-528 route is a toll road. Rideshare and private-transfer pricing may add tolls to the quoted fare, while rental-car travelers should confirm the rental company's toll-payment policy.",
+  },
+  {
+    question: "Is there reliable public transportation from MCO to Port Canaveral?",
+    answer: "There is not usually a simple, direct public-transit journey that works well for cruise-day luggage and timing. Most travelers use a shuttle, private transfer, rideshare, rental car, or cruise line transfer.",
+  },
+  {
+    question: "Can I request a child seat?",
+    answer: "Some shuttle and private-transfer operators offer child seats when requested in advance. Availability and fees vary, and standard rideshare vehicles do not guarantee a suitable seat, so confirm this before booking.",
+  },
+] as const;
+
+export const mcoToPortCanaveralHtml = String.raw`
+<p>Port Canaveral is roughly <strong>45 miles from Orlando International Airport (MCO)</strong>. The drive commonly takes about <strong>45 to 75 minutes</strong>, but weather, traffic, luggage pickup, toll-road conditions, and cruise-day congestion can extend the journey.</p>
+<p>The best transfer is not simply the cheapest listed fare. Group size, luggage, child-seat needs, flight timing, and the amount of schedule protection you want all change which option offers the best value.</p>
+
+<h2 id="quick-answer">Quick Answer: Which MCO Transfer Is Best?</h2>
+<div class="blog-quick-answer">
+  <ul>
+    <li><strong>Best overall for many travelers:</strong> A pre-booked shared shuttle, especially for solo travelers and couples.</li>
+    <li><strong>Fastest and most flexible:</strong> A private car, SUV, or van scheduled around your flight.</li>
+    <li><strong>Most convenient after baggage claim:</strong> Uber or Lyft when the live fare and vehicle size work for your group.</li>
+    <li><strong>Best for adding stops:</strong> A rental car for Cocoa Beach, Kennedy Space Center, groceries, or an overnight stay.</li>
+    <li><strong>Most hands-off for first-time cruisers:</strong> A cruise line transfer when your flight fits the eligible arrival window.</li>
+  </ul>
+</div>
+
+<h2 id="comparison">MCO to Port Canaveral Transportation Compared</h2>
+<div class="blog-table-scroll" role="region" aria-label="MCO to Port Canaveral transportation comparison" tabindex="0">
+  <table>
+    <thead><tr><th>Option</th><th>Typical time</th><th>Typical one-way cost</th><th>Best for</th><th>Watch-outs</th></tr></thead>
+    <tbody>
+      <tr><td>Shared shuttle or van</td><td>60–90 min</td><td>$25–$45+ per person</td><td>Solo travelers, couples, small groups</td><td>Scheduled departures and extra stops</td></tr>
+      <tr><td>Private car, SUV, or van</td><td>45–75 min</td><td>$120–$220+ per vehicle</td><td>Families, groups, tighter timelines</td><td>Operator quality and vehicle capacity vary</td></tr>
+      <tr><td>Uber or Lyft</td><td>45–75 min</td><td>$90–$180+ per ride</td><td>One to three people with manageable luggage</td><td>Surge pricing and limited larger vehicles</td></tr>
+      <tr><td>Rental car</td><td>45–75 min driving</td><td>$60–$120+ per day</td><td>Travelers adding stops or an overnight stay</td><td>Tolls, fuel, return time, and local shuttle logistics</td></tr>
+      <tr><td>Cruise line transfer</td><td>60–90 min</td><td>Varies by cruise line</td><td>First-time cruisers who value simplicity</td><td>Limited times and flight-arrival rules</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><em>These are planning ranges, not live quotes. Prices vary by date, demand, vehicle size, pickup terms, tolls, and operator. Confirm the final total and cancellation policy before booking.</em></p>
+
+<h2 id="driving-route">Driving Route from Orlando Airport to Port Canaveral</h2>
+<p>Most road transfers use <strong>FL-528 East, also called the Beachline Expressway</strong>, toward Florida's Space Coast. The route is direct, but it includes tolls and can slow near the port access roads when several ships are turning over passengers.</p>
+<ul>
+  <li>Allow time for baggage claim before starting your road estimate.</li>
+  <li>Confirm whether tolls are included in a private-transfer quote or added to a rideshare fare.</li>
+  <li>If you are driving, check the rental company's toll policy rather than assuming cash payment is available everywhere.</li>
+  <li>Keep the cruise terminal name and address available; Port Canaveral serves several terminals.</li>
+</ul>
+
+<h2 id="shared-shuttle">Option 1: Shared Shuttle Services</h2>
+<p>Shared shuttles are popular with cruise passengers because they combine a pre-arranged airport pickup with a comparatively low per-person cost. Operators often design their departure windows around the pattern of cruise arrivals and sailings.</p>
+<h3>Advantages</h3>
+<ul>
+  <li>Often less expensive per traveler than a private vehicle.</li>
+  <li>No need to navigate toll roads, return a car, or find port parking.</li>
+  <li>Booking instructions are usually organized around airport and cruise-terminal pickups.</li>
+</ul>
+<h3>Tradeoffs</h3>
+<ul>
+  <li>You may wait for a scheduled departure or other passengers.</li>
+  <li>Multiple terminal or hotel stops can increase total travel time.</li>
+  <li>Very early or late flights may not fit the available schedule.</li>
+</ul>
+<p>Before paying, confirm the MCO pickup zone, maximum wait, luggage allowance, terminal drop-off, child-seat policy, and what happens after a flight delay. Reserve early for holiday weeks and busy cruise weekends.</p>
+
+<h2 id="private-transfer">Option 2: Private Car, SUV, or Van</h2>
+<p>A private transfer offers the most predictable door-to-door experience. It can become cost-competitive when several travelers would otherwise buy individual shuttle tickets, and it is easier to match a larger vehicle to luggage.</p>
+<h3>Advantages</h3>
+<ul>
+  <li>Direct travel without unrelated passenger stops.</li>
+  <li>A scheduled pickup that can account for your flight and party size.</li>
+  <li>More practical for families, mobility needs, and groups carrying several large bags.</li>
+</ul>
+<h3>Tradeoffs</h3>
+<ul>
+  <li>Higher starting cost than a shared seat.</li>
+  <li>The experience depends heavily on the operator and the accuracy of the vehicle booking.</li>
+</ul>
+<p>Use a reputable, licensed and insured operator. Confirm whether the price includes airport fees, tolls, gratuity, waiting time, and a flight-delay grace period. Get the meet-and-greet instructions in writing.</p>
+
+<h2 id="rideshare">Option 3: Rideshare with Uber or Lyft</h2>
+<p>Rideshare works well when you want to request a vehicle after collecting your bags instead of committing to a shuttle schedule. It is often simplest for one or two travelers who can fit comfortably in a standard vehicle.</p>
+<h3>Advantages</h3>
+<ul>
+  <li>On-demand booking and a visible pickup estimate.</li>
+  <li>Direct travel to the cruise terminal or a Port Canaveral-area hotel.</li>
+  <li>Easy comparison between standard and larger vehicle categories.</li>
+</ul>
+<h3>Tradeoffs</h3>
+<ul>
+  <li>Live prices can rise sharply during airport disruptions and busy cruise periods.</li>
+  <li>An available vehicle may not have enough cargo space for every passenger's cruise luggage.</li>
+  <li>Child-seat availability is not guaranteed in a standard request.</li>
+</ul>
+<p>Check the live price after baggage claim, and compare the total for an XL vehicle with a pre-booked private transfer. Count suitcases as well as passengers before choosing the vehicle class.</p>
+
+<h2 id="rental-car">Option 4: Rental Car for More Flexibility</h2>
+<p>A rental car makes the most sense when the airport-to-port drive is part of a wider itinerary. It lets you add Cocoa Beach, Kennedy Space Center, a hotel, restaurants, or last-minute shopping without arranging separate rides.</p>
+<h3>Advantages</h3>
+<ul>
+  <li>Maximum control over stops and departure time.</li>
+  <li>Useful when arriving a day before the cruise.</li>
+  <li>Potentially good value for a family already planning several local trips.</li>
+</ul>
+<h3>Tradeoffs</h3>
+<ul>
+  <li>Fuel, tolls, insurance choices, parking, and one-way charges can change the real cost.</li>
+  <li>Returning the car near the port adds time and may require an additional shuttle to the terminal.</li>
+  <li>Rental-counter and return lines can be unpredictable on busy mornings.</li>
+</ul>
+<p>Confirm the exact return location, opening hours, after-hours rules, and port-shuttle frequency. Do not schedule the return so tightly that one line or missed shuttle creates stress before check-in.</p>
+
+<h2 id="cruise-line-transfer">Option 5: Cruise Line Transfers</h2>
+<p>Many cruise lines sell airport-to-port transportation for eligible passengers. The main benefit is simplicity: the transfer is tied to the cruise line's operating process instead of being a separate ground booking.</p>
+<h3>Advantages</h3>
+<ul>
+  <li>One familiar company for cruise and transfer instructions.</li>
+  <li>Pickup and departure procedures designed around the sailing.</li>
+  <li>A comfortable option for first-time cruisers who value guidance over flexibility.</li>
+</ul>
+<h3>Tradeoffs</h3>
+<ul>
+  <li>Your flight may need to arrive before a specified cutoff.</li>
+  <li>Departures can involve waiting for a group or a larger vehicle to fill.</li>
+  <li>Pricing may be less attractive for several people traveling together.</li>
+</ul>
+<p>Read the cruise line's eligible flight times, meeting-point instructions, baggage rules, and deadline for adding the transfer. A cruise line transfer does not make a risky same-day flight schedule risk-free.</p>
+
+<h2 id="choosing">How to Choose the Best Transfer</h2>
+<p>Use this checklist before comparing the headline prices:</p>
+<ul>
+  <li><strong>Party size:</strong> Individual shuttle seats suit one or two travelers; a private van can offer better group value.</li>
+  <li><strong>Luggage:</strong> Vehicle capacity can become the limiting factor before passenger capacity.</li>
+  <li><strong>Arrival plan:</strong> A flight the day before the cruise gives you more flexibility than a same-day arrival.</li>
+  <li><strong>Schedule protection:</strong> Private transfers are direct, while shared and cruise line transfers may include a wait.</li>
+  <li><strong>Stops:</strong> A rental car is the clearest choice when sightseeing or shopping is part of the route.</li>
+  <li><strong>Child seats or accessibility:</strong> Confirm these needs with the operator before booking, not at pickup.</li>
+</ul>
+<p>For a same-day flight, the safest planning move is to avoid treating the normal drive time as the complete transfer window. Airport delays, baggage claim, vehicle pickup, toll-road traffic, and terminal entry all sit outside the best-case estimate.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>How early should I leave MCO for Port Canaveral?</h3>
+<p>If you are boarding a cruise the same day, build in a substantial buffer. A practical target is to reach the port area three to four hours before the ship's departure window, while following any earlier arrival or check-in requirement from your cruise line.</p>
+<h3>Are there tolls between MCO and Port Canaveral?</h3>
+<p>Usually, yes. The common FL-528 route is a toll road. Rideshare and private-transfer pricing may add tolls to the quoted fare, while rental-car travelers should confirm the rental company's toll-payment policy.</p>
+<h3>Is there reliable public transportation from MCO to Port Canaveral?</h3>
+<p>There is not usually a simple, direct public-transit journey that works well for cruise-day luggage and timing. Most travelers use a shuttle, private transfer, rideshare, rental car, or cruise line transfer.</p>
+<h3>Can I request a child seat?</h3>
+<p>Some shuttle and private-transfer operators offer child seats when requested in advance. Availability and fees vary, and standard rideshare vehicles do not guarantee a suitable seat, so confirm this before booking.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Traveling from MCO to Port Canaveral is straightforward once the transfer matches your group, luggage, budget, and arrival plan. A shared shuttle is a strong default for one or two travelers, while a private vehicle becomes more attractive as the group grows. Rideshare offers convenience, a rental car supports a wider itinerary, and a cruise line transfer prioritizes simplicity.</p>
+<p>Whichever option you choose, verify the current price, pickup point, terminal, cancellation terms, and delay policy. If possible, arrive in the Orlando or Port Canaveral area the day before sailing so one flight disruption does not put the cruise at risk.</p>
+`;
 
 export const blogPostHtml = String.raw`
 <p>Cruise ship terminals are the gateways to adventure. They connect travelers to the vast oceans and distant lands. These terminals are more than just a ship dock; they are bustling hubs of activity.</p>
