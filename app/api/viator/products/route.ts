@@ -68,22 +68,12 @@ const productCache = new Map<string, { expiresAt: number; payload: ViatorProduct
 let featuredCache: { expiresAt: number; payload: FeaturedViatorProductsPayload } | null = null;
 let alaskaPillarCache: { expiresAt: number; payload: AlaskaViatorProductsPayload } | null = null;
 
-async function configuredViator() {
-  try {
-    const { env } = await import("cloudflare:workers");
-    const workerEnv = env as unknown as Record<string, string | undefined>;
-    const requestedRoot = workerEnv.VIATOR_API_ROOT?.trim();
-    return {
-      apiKey: workerEnv.VIATOR_API_KEY?.trim(),
-      apiRoot: requestedRoot === SANDBOX_API_ROOT ? SANDBOX_API_ROOT : PRODUCTION_API_ROOT,
-    };
-  } catch {
-    const requestedRoot = process.env.VIATOR_API_ROOT?.trim();
-    return {
-      apiKey: process.env.VIATOR_API_KEY?.trim(),
-      apiRoot: requestedRoot === SANDBOX_API_ROOT ? SANDBOX_API_ROOT : PRODUCTION_API_ROOT,
-    };
-  }
+function configuredViator() {
+  const requestedRoot = process.env.VIATOR_API_ROOT?.trim();
+  return {
+    apiKey: process.env.VIATOR_API_KEY?.trim(),
+    apiRoot: requestedRoot === SANDBOX_API_ROOT ? SANDBOX_API_ROOT : PRODUCTION_API_ROOT,
+  };
 }
 
 const destinationAliases: Record<string, string[]> = {
