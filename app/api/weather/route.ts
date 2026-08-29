@@ -68,7 +68,7 @@ export async function GET(request: Request) {
             ? "Add warm layers and choose transport with a sheltered fallback."
             : "Conditions currently support the planned route; recheck before leaving the ship.";
 
-    return Response.json({ available: true, forecast: { date, summary, lowC, highC, windKph, precipitationMm: Math.round(precipitationMm * 10) / 10, planNote }, source: "MET Norway" }, { headers: { "Cache-Control": "public, max-age=1800, s-maxage=3600" } });
+    return Response.json({ available: true, forecast: { date, summary, lowC, highC, windKph, precipitationMm: Math.round(precipitationMm * 10) / 10, planNote }, source: "MET Norway" }, { headers: { "Cache-Control": "public, max-age=1800, s-maxage=3600", "Netlify-Vary": "query" } });
   } catch {
     return Response.json({ available: false, reason: "Weather is temporarily unavailable; the port plan still works without it." }, { status: 503 });
   }

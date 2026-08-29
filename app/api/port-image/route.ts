@@ -87,7 +87,7 @@ export async function GET(request: Request) {
   if (!slug || !profilesBySlug[slug]) return Response.json({ error: "port_not_found" }, { status: 404 });
   try {
     const payload = await loadPortImage(slug);
-    return Response.json(payload, { headers: { "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000" } });
+    return Response.json(payload, { headers: { "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000", "Netlify-Vary": "query" } });
   } catch (error) {
     console.error("Port image lookup failed", error instanceof Error ? error.message : "Unknown error");
     return Response.json({ error: "temporarily_unavailable" }, { status: 503, headers: { "Retry-After": "60" } });

@@ -500,11 +500,11 @@ export async function GET(request: Request) {
   try {
     if (featured === "home") {
       const payload = await loadFeaturedProducts(apiRoot, apiKey);
-      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
+      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400", "Netlify-Vary": "query" } });
     }
     if (featured === "alaska") {
       const payload = await loadAlaskaPillarProducts(apiRoot, apiKey);
-      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
+      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400", "Netlify-Vary": "query" } });
     }
     if (featured) return Response.json({ error: "destination_not_found", message: "This featured collection is not supported." }, { status: 404 });
     if (intent) {
@@ -512,11 +512,11 @@ export async function GET(request: Request) {
       if (!guide) return Response.json({ error: "destination_not_found", message: "This intent guide is not supported." }, { status: 404 });
       const payload = await loadIntentProducts(apiRoot, apiKey, guide);
       if (!payload) return Response.json({ error: "destination_not_found", message: "Viator has no matching destination for this guide." }, { status: 404 });
-      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
+      return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400", "Netlify-Vary": "query" } });
     }
     const payload = await loadProducts(apiRoot, apiKey, slug);
     if (!payload) return Response.json({ error: "destination_not_found", message: "Viator has no matching destination for this port." }, { status: 404 });
-    return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400" } });
+    return Response.json(payload, { headers: { "Cache-Control": "public, max-age=900, s-maxage=1800, stale-while-revalidate=86400", "Netlify-Vary": "query" } });
   } catch (error) {
     console.error("Viator product lookup failed", error instanceof Error ? error.message : "Unknown error");
     return Response.json({ error: "temporarily_unavailable", message: "Live Viator tours are temporarily unavailable." }, { status: 503, headers: { "Retry-After": "60" } });

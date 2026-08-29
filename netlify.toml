@@ -4,3 +4,8 @@
 [build.environment]
   NODE_VERSION = "22.13.0"
   NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"

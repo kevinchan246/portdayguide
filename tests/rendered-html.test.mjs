@@ -52,7 +52,7 @@ function visibleWordCount(html) {
 
 test("renders a focused, search-first cruise homepage", async () => {
   const html = await render();
-  assert.match(html, /Cruise Port Guides &amp; Shore Excursions \| PortdayGuide/i);
+  assert.match(html, /<title>Cruise Port Guides &amp; Shore Excursions \| PortdayGuide<\/title>/i);
   assert.match(html, /Cruise port guides &amp; shore excursions/i);
   assert.match(html, /Search your cruise port/i);
   assert.match(html, /name="q"/i);
@@ -435,6 +435,21 @@ test("Viator endpoint keeps the API key server-side and fails safely until confi
   const data = await response.json();
   assert.equal(data.error, "not_configured");
   assert.doesNotMatch(JSON.stringify(data), /exp-api-key|VIATOR_API_KEY/i);
+});
+
+test("varies Netlify API caches by application query parameters and serves the manifest with its standard MIME type", async () => {
+  const root = new URL("../", import.meta.url);
+  const [viator, weather, portImage, netlifyConfig] = await Promise.all([
+    readFile(new URL("app/api/viator/products/route.ts", root), "utf8"),
+    readFile(new URL("app/api/weather/route.ts", root), "utf8"),
+    readFile(new URL("app/api/port-image/route.ts", root), "utf8"),
+    readFile(new URL("netlify.toml", root), "utf8"),
+  ]);
+  assert.equal((viator.match(/"Netlify-Vary":\s*"query"/g) || []).length, 4);
+  assert.equal((weather.match(/"Netlify-Vary":\s*"query"/g) || []).length, 1);
+  assert.equal((portImage.match(/"Netlify-Vary":\s*"query"/g) || []).length, 1);
+  assert.match(netlifyConfig, /for\s*=\s*"\/manifest\.webmanifest"/);
+  assert.match(netlifyConfig, /Content-Type\s*=\s*"application\/manifest\+json; charset=utf-8"/);
 });
 
 test("Viator price units come from API pricingPackageType and never default to per adult", async () => {
