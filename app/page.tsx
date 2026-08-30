@@ -9,7 +9,7 @@ import { portPath, siteUrl } from "@/lib/seo";
 import { portProfiles } from "@/lib/shorepath";
 
 export const metadata: Metadata = {
-  title: "Cruise Port Guides & Shore Excursions",
+  title: "Cruise Port Guides & Shore Excursions | PortdayGuide",
   description: "Plan a safer cruise port day with terminal details, realistic return-time guidance, and live shore excursions for popular ports worldwide.",
   alternates: { canonical: siteUrl },
 };

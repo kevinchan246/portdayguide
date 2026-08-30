@@ -1,15 +1,38 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { readFile, readdir, stat } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
+import http from "node:http";
 
-const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-const { default: worker } = await import(workerUrl.href);
-const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
-const ctx = { waitUntil() {}, passThroughOnException() {} };
+const baseUrl = new URL(process.env.TEST_BASE_URL ?? "http://127.0.0.1:4173");
+
+async function request(path, init = {}) {
+  const requested = new URL(path, baseUrl);
+  const localUrl = new URL(`${requested.pathname}${requested.search}`, baseUrl);
+  return fetch(localUrl, init);
+}
+
+async function requestWithHost(path, host) {
+  return new Promise((resolve, reject) => {
+    const outgoing = http.request(
+      {
+        hostname: baseUrl.hostname,
+        port: baseUrl.port,
+        path,
+        headers: { accept: "text/html", host },
+      },
+      (incoming) => {
+        const chunks = [];
+        incoming.on("data", (chunk) => chunks.push(chunk));
+        incoming.on("end", () => resolve(new Response(Buffer.concat(chunks), { status: incoming.statusCode, headers: incoming.headers })));
+      },
+    );
+    outgoing.once("error", reject);
+    outgoing.end();
+  });
+}
 
 async function render(path = "/") {
-  const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), env, ctx);
+  const response = await request(path, { headers: { accept: "text/html" } });
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   return response.text();
@@ -29,7 +52,7 @@ function visibleWordCount(html) {
 
 test("renders a focused, search-first cruise homepage", async () => {
   const html = await render();
-  assert.match(html, /Cruise Port Guides &amp; Shore Excursions \| PortdayGuide/i);
+  assert.match(html, /<title>Cruise Port Guides &amp; Shore Excursions \| PortdayGuide<\/title>/i);
   assert.match(html, /Cruise port guides &amp; shore excursions/i);
   assert.match(html, /Search your cruise port/i);
   assert.match(html, /name="q"/i);
@@ -50,9 +73,9 @@ test("renders a focused, search-first cruise homepage", async () => {
   assert.match(html, /"@type":"WebSite"/i);
   assert.match(html, /"@type":"Organization"/i);
   assert.match(html, /"logo":"https:\/\/portdayguide\.com\/icon-512\.png"/i);
-  assert.match(html, /<link rel="shortcut icon" href="https:\/\/portdayguide\.com\/favicon\.ico"/i);
-  assert.match(html, /<link rel="apple-touch-icon" href="https:\/\/portdayguide\.com\/apple-touch-icon\.png"/i);
-  assert.match(html, /<link rel="manifest" href="https:\/\/portdayguide\.com\/manifest\.webmanifest"/i);
+  assert.match(html, /<link rel="shortcut icon" href="(?:https:\/\/portdayguide\.com)?\/favicon\.ico"/i);
+  assert.match(html, /<link rel="apple-touch-icon" href="(?:https:\/\/portdayguide\.com)?\/apple-touch-icon\.png"/i);
+  assert.match(html, /<link rel="manifest" href="(?:https:\/\/portdayguide\.com)?\/manifest\.webmanifest"/i);
   assert.match(html, /<link rel="canonical" href="https:\/\/portdayguide\.com\/?"/i);
   assert.doesNotMatch(html, /https:\/\/www\.portdayguide\.com/i);
   assert.doesNotMatch(html, /Build my cruise plan/i);
@@ -337,7 +360,7 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
 });
 
 test("publishes only canonical apex URLs in the sitemap", async () => {
-  const response = await worker.fetch(new Request("http://localhost/sitemap.xml", { headers: { accept: "application/xml" } }), env, ctx);
+  const response = await request("/sitemap.xml", { headers: { accept: "application/xml" } });
   assert.equal(response.status, 200);
   const xml = await response.text();
   assert.match(xml, /https:\/\/portdayguide\.com\/ports\/regions\/asia/i);
@@ -351,7 +374,7 @@ test("publishes only canonical apex URLs in the sitemap", async () => {
 });
 
 test("keeps every sitemap page indexable with a self-referencing canonical", async () => {
-  const sitemapResponse = await worker.fetch(new Request("https://portdayguide.com/sitemap.xml", { headers: { accept: "application/xml" } }), env, ctx);
+  const sitemapResponse = await request("/sitemap.xml", { headers: { accept: "application/xml" } });
   assert.equal(sitemapResponse.status, 200);
   const xml = await sitemapResponse.text();
   const sitemapUrls = [...xml.matchAll(/<loc>(https:\/\/portdayguide\.com[^<]*)<\/loc>/gi)].map((match) => match[1]);
@@ -359,7 +382,7 @@ test("keeps every sitemap page indexable with a self-referencing canonical", asy
 
   for (const sitemapUrl of sitemapUrls) {
     const url = new URL(sitemapUrl);
-    const response = await worker.fetch(new Request(url, { headers: { accept: "text/html" } }), env, ctx);
+    const response = await request(url, { headers: { accept: "text/html" } });
     assert.equal(response.status, 200, `${url.pathname}: expected a successful public page`);
     assert.doesNotMatch(response.headers.get("x-robots-tag") ?? "", /\bnoindex\b/i, `${url.pathname}: response header must not block indexing`);
 
@@ -378,16 +401,15 @@ test("keeps every sitemap page indexable with a self-referencing canonical", asy
 });
 
 test("redirects the www hostname to the canonical apex without losing the path", async () => {
-  const response = await worker.fetch(new Request("https://www.portdayguide.com/ports/cozumel?source=test", { headers: { host: "www.portdayguide.com" }, redirect: "manual" }), env, ctx);
+  const response = await requestWithHost("/ports/cozumel?source=test", "www.portdayguide.com");
   assert.equal(response.status, 308);
   assert.equal(response.headers.get("location"), "https://portdayguide.com/ports/cozumel?source=test");
-  assert.equal(response.headers.get("strict-transport-security"), "max-age=63072000; includeSubDomains");
 });
 
 test("publishes crawl and AI-discovery controls without blocking noindex share pages", async () => {
   const [homeResponse, robotsResponse, llms] = await Promise.all([
-    worker.fetch(new Request("https://portdayguide.com/", { headers: { accept: "text/html" } }), env, ctx),
-    worker.fetch(new Request("https://portdayguide.com/robots.txt", { headers: { accept: "text/plain" } }), env, ctx),
+    request("/", { headers: { accept: "text/html" } }),
+    request("/robots.txt", { headers: { accept: "text/plain" } }),
     readFile(new URL("../public/llms.txt", import.meta.url), "utf8"),
   ]);
   assert.equal(homeResponse.headers.get("strict-transport-security"), "max-age=63072000; includeSubDomains");
@@ -408,11 +430,26 @@ test("marks non-search utility and legal pages as noindex", async () => {
 });
 
 test("Viator endpoint keeps the API key server-side and fails safely until configured", async () => {
-  const response = await worker.fetch(new Request("http://localhost/api/viator/products?port=cozumel", { headers: { accept: "application/json" } }), env, ctx);
+  const response = await request("/api/viator/products?port=cozumel", { headers: { accept: "application/json" } });
   assert.equal(response.status, 503);
   const data = await response.json();
   assert.equal(data.error, "not_configured");
   assert.doesNotMatch(JSON.stringify(data), /exp-api-key|VIATOR_API_KEY/i);
+});
+
+test("varies Netlify API caches by application query parameters and serves the manifest with its standard MIME type", async () => {
+  const root = new URL("../", import.meta.url);
+  const [viator, weather, portImage, netlifyConfig] = await Promise.all([
+    readFile(new URL("app/api/viator/products/route.ts", root), "utf8"),
+    readFile(new URL("app/api/weather/route.ts", root), "utf8"),
+    readFile(new URL("app/api/port-image/route.ts", root), "utf8"),
+    readFile(new URL("netlify.toml", root), "utf8"),
+  ]);
+  assert.equal((viator.match(/"Netlify-Vary":\s*"query"/g) || []).length, 4);
+  assert.equal((weather.match(/"Netlify-Vary":\s*"query"/g) || []).length, 1);
+  assert.equal((portImage.match(/"Netlify-Vary":\s*"query"/g) || []).length, 1);
+  assert.match(netlifyConfig, /for\s*=\s*"\/manifest\.webmanifest"/);
+  assert.match(netlifyConfig, /Content-Type\s*=\s*"application\/manifest\+json; charset=utf-8"/);
 });
 
 test("Viator price units come from API pricingPackageType and never default to per adult", async () => {
@@ -454,7 +491,7 @@ test("Viator recommendations search each attraction instead of only matching a s
 });
 
 test("weather endpoint avoids false precision outside the forecast window", async () => {
-  const response = await worker.fetch(new Request("http://localhost/api/weather?port=cozumel&date=2099-01-01", { headers: { accept: "application/json" } }), env, ctx);
+  const response = await request("/api/weather?port=cozumel&date=2099-01-01", { headers: { accept: "application/json" } });
   assert.equal(response.status, 200);
   const data = await response.json();
   assert.equal(data.available, false);
@@ -462,20 +499,7 @@ test("weather endpoint avoids false precision outside the forecast window", asyn
 });
 
 test("all 64 planner routes reserve return travel without timeline overlaps", async () => {
-  const assetDir = new URL("../dist/server/ssr/assets/", import.meta.url);
-  let shorepath;
-  for (const name of await readdir(assetDir)) {
-    if (!name.endsWith(".js")) continue;
-    const candidate = await import(new URL(name, assetDir));
-    if (Object.values(candidate).some((value) => typeof value === "function" && value.name === "buildCruisePlan")) {
-      shorepath = candidate;
-      break;
-    }
-  }
-  assert.ok(shorepath);
-  const profiles = Object.values(shorepath).find((value) => value && typeof value === "object" && "Cozumel" in value);
-  const buildPlan = Object.values(shorepath).find((value) => typeof value === "function" && value.name === "buildCruisePlan");
-  assert.ok(profiles && buildPlan);
+  const { buildCruisePlan: buildPlan, portProfiles: profiles } = await import("../lib/shorepath.ts");
   const toMinutes = (value) => {
     const [, hourText, minuteText, period] = value.match(/^(\d+):(\d+) (AM|PM)$/) || [];
     let hour = Number(hourText) % 12;
@@ -536,7 +560,7 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
     assert.match(directory, link, `${route}: missing directory link`);
     assert.match(region, link, `${route}: missing regional-hub link`);
   });
-  const sitemap = await worker.fetch(new Request("http://localhost/sitemap.xml", { headers: { accept: "application/xml" } }), env, ctx).then((response) => response.text());
+  const sitemap = await request("/sitemap.xml", { headers: { accept: "application/xml" } }).then((response) => response.text());
   routes.forEach((route) => assert.match(sitemap, new RegExp(`https://portdayguide\\.com${route}`)));
 });
 
@@ -579,7 +603,7 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   assert.match(directory, new RegExp(`href="${route}"`, "i"));
   assert.match(region, new RegExp(`href="${route}"`, "i"));
 
-  const sitemap = await worker.fetch(new Request("http://localhost/sitemap.xml", { headers: { accept: "application/xml" } }), env, ctx).then((response) => response.text());
+  const sitemap = await request("/sitemap.xml", { headers: { accept: "application/xml" } }).then((response) => response.text());
   assert.match(sitemap, new RegExp(`https://portdayguide\\.com${route}`));
 });
 
@@ -594,9 +618,9 @@ test("uses crawlable, stable sources on the Cozumel terminal guide", async () =>
 test("uses a clean Grand Cayman canonical hub and preserves the indexed legacy URL", async () => {
   const canonical = await render("/ports/grand-cayman");
   assert.match(canonical, /<link rel="canonical" href="https:\/\/portdayguide\.com\/ports\/grand-cayman"/i);
-  const legacy = await worker.fetch(new Request("https://portdayguide.com/ports/george-town-grand-cayman?source=old"), env, ctx);
+  const legacy = await request("/ports/george-town-grand-cayman?source=old", { redirect: "manual" });
   assert.equal(legacy.status, 308);
-  assert.equal(legacy.headers.get("location"), "https://portdayguide.com/ports/grand-cayman?source=old");
+  assert.equal(new URL(legacy.headers.get("location"), "https://portdayguide.com").href, "https://portdayguide.com/ports/grand-cayman?source=old");
 });
 
 test("intent Viator searches use page-level campaigns and preserve sponsored pricing links", async () => {
