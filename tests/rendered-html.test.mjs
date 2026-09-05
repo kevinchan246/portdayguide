@@ -543,7 +543,7 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
     assert.equal((html.match(/<h1\b/gi) || []).length, 1, `${route}: expected one H1`);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://portdayguide\\.com${route}"`, "i"), `${route}: wrong canonical`);
     assert.match(html, /Port Day Fit/i, `${route}: missing Port Day Fit`);
-    assert.match(html, /The decision in one minute/i, `${route}: missing answer-first content`);
+    assert.match(html, /<section class="intent-answer"[\s\S]*?<span>Quick answer<\/span>/i, `${route}: missing answer-first content`);
     assert.match(html, /Sources &amp; verification/i, `${route}: missing source context`);
     assert.match(html, /Build my [\s\S]{0,80} port day/i, `${route}: missing post-page planner conversion`);
     assert.match(html, /"@type":"Article"/i, `${route}: missing Article schema`);
@@ -562,6 +562,20 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
   });
   const sitemap = await request("/sitemap.xml", { headers: { accept: "application/xml" } }).then((response) => response.text());
   routes.forEach((route) => assert.match(sitemap, new RegExp(`https://portdayguide\\.com${route}`)));
+
+  const westBay = await render("/ports/roatan/west-bay-beach-from-cruise-port");
+  assert.match(westBay, /<title>How to Get to West Bay Beach From Roatán Cruise Port<\/title>/i);
+  assert.match(westBay, /How do you get to West Bay Beach from the cruise port\?/i);
+  assert.match(westBay, /How much return time should you keep from West Bay\?/i);
+  assert.match(westBay, /href="\/ports\/roatan\/mahogany-bay-vs-coxen-hole"/i);
+  assert.match(westBay, /"dateModified":"2026-09-05"/i);
+
+  const sevenMileBeach = await render("/ports/grand-cayman/seven-mile-beach-from-port");
+  assert.match(sevenMileBeach, /<title>How to Get to Seven Mile Beach From Grand Cayman Port<\/title>/i);
+  assert.match(sevenMileBeach, /How do you get to Seven Mile Beach from the cruise port\?/i);
+  assert.match(sevenMileBeach, /How far is Seven Mile Beach from the cruise port\?/i);
+  assert.match(sevenMileBeach, /href="\/ports\/grand-cayman\/tender-guide"/i);
+  assert.match(sevenMileBeach, /"dateModified":"2026-09-05"/i);
 });
 
 test("publishes the Yokohama terminal-area article with affiliate and reciprocal guide links", async () => {
