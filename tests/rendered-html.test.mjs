@@ -653,8 +653,11 @@ test("intent Viator searches use page-level campaigns and preserve sponsored pri
   ]);
   assert.match(route, /guide\.viator\.campaign/);
   assert.match(route, /guide\.viator\.query/);
+  assert.match(route, /guide\.viator\.searchQueries/);
   assert.match(route, /guide\.viator\.matchTerms/);
   assert.match(route, /guide\.viator\.excludeTerms/);
+  assert.match(route, /guide\.viator\.urlTerms/);
+  assert.match(route, /urlTerms\.some\(\(term\) => productUrl\.includes\(term\)\)/);
   assert.match(route, /excludeTerms\.some\(\(term\) => title\.includes\(term\)\)/);
   assert.match(route, /titleMatches/);
   assert.match(route, /slice\(0, 4\)/);
@@ -662,8 +665,10 @@ test("intent Viator searches use page-level campaigns and preserve sponsored pri
   assert.match(cards, /viatorPriceUnitLabel\(product\.pricingPackageType\)/);
   assert.match(guides, /pdg-costa-maya-to-mahahual/);
   assert.match(guides, /pdg-grand-cayman-seven-mile-beach/);
+  assert.match(guides, /Grand Cayman Seven Mile Beach cruise port transfer/);
   assert.match(guides, /matchTerms:\s*\["Seven Mile Beach", "7 Mile Beach"\]/);
-  assert.match(guides, /excludeTerms:\s*\["airport", "scooter", "rental", "jet car"\]/);
+  assert.match(guides, /excludeTerms:\s*\["airport", "scooter", "rental", "jet car", "negril", "montego bay", "rick's cafe"\]/);
+  assert.match(guides, /urlTerms:\s*\["Grand Cayman"\]/);
   assert.match(guides, /pdg-yokohama-terminal-dining/);
   assert.match(guides, /Yokohama Chinatown food tour/);
 });

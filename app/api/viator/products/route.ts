@@ -367,13 +367,20 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const destinations = await getDestinations(apiRoot, apiKey);
   const destination = destinationForPort(destinations, guide.sourcePortSlug, profile.name, profile.country);
   if (!destination) return null;
-  const searched = await searchHighlightProducts(apiRoot, apiKey, destination.destinationId, guide.viator.campaign, guide.viator.query);
-  const queryWords = normalize(guide.viator.query).split(" ").filter((word) => word.length >= 3 && !genericHighlightWords.has(word));
+  const searchQueries = guide.viator.searchQueries?.length ? guide.viator.searchQueries : [guide.viator.query];
+  const searchResults = await Promise.allSettled(searchQueries.map((query) => searchHighlightProducts(apiRoot, apiKey, destination.destinationId, guide.viator.campaign, query)));
+  const searched = [...new Map(searchResults
+    .flatMap((result) => result.status === "fulfilled" ? result.value : [])
+    .map((product) => [product.productCode, product])).values()];
+  const queryWords = normalize(searchQueries.join(" ")).split(" ").filter((word) => word.length >= 3 && !genericHighlightWords.has(word));
   const matchTerms = (guide.viator.matchTerms || []).map(normalize);
   const excludeTerms = (guide.viator.excludeTerms || []).map(normalize);
+  const urlTerms = (guide.viator.urlTerms || []).map(normalize);
   const intentRelevance = (product: ViatorProductCard) => {
     const title = normalize(product.title);
     const description = normalize(product.description);
+    const productUrl = normalize(product.productUrl);
+    if (urlTerms.length && !urlTerms.some((term) => productUrl.includes(term))) return null;
     if (excludeTerms.some((term) => title.includes(term))) return null;
     const titleMatches = matchTerms.filter((term) => title.includes(term));
     if (matchTerms.length && !titleMatches.length) return null;
