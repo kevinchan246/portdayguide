@@ -92,6 +92,23 @@ test("renders the planner as a separate page", async () => {
   assert.match(html, /\(optional\)/i);
 });
 
+test("serves credited editorial photos independently of Viator", async () => {
+  const catalog = JSON.parse(await readFile(new URL("../lib/editorial-photos.json", import.meta.url), "utf8"));
+  for (const [slug, photos] of Object.entries(catalog)) {
+    const html = await render(`/ports/${slug}`);
+    for (const photo of photos) {
+      assert.ok(html.includes(`data-editorial-photo="${photo.slug}"`));
+      assert.ok(html.includes(photo.author));
+      assert.ok(html.includes(photo.licenseUrl));
+      const response = await request(`/media/editorial/${photo.slug}.webp`);
+      assert.equal(response.status, 200);
+      assert.match(response.headers.get("content-type"), /image\/webp/);
+      assert.ok((await response.arrayBuffer()).byteLength > 10000);
+    }
+    assert.equal((html.match(/data-editorial-photo=/g) || []).length, photos.length);
+  }
+});
+
 test("renders a search-friendly port guide with booking disclosure", async () => {
   const html = await render("/ports/cozumel");
   assert.match(html, /<title>Cozumel Cruise Port Guide: Terminals, Transport &amp; Excursions<\/title>/i);
