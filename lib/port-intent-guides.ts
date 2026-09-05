@@ -8,6 +8,7 @@ export type PortIntentGuide = {
   seoTitle: string;
   description: string;
   lede: string;
+  quickAnswerHeading?: string;
   quickAnswer: string;
   reviewed: string;
   facts: Array<{ label: string; value: string }>;
@@ -294,11 +295,12 @@ export const portIntentGuides: PortIntentGuide[] = [
     topic: "west-bay-beach-from-cruise-port",
     eyebrow: "Roatán beach transport decision",
     title: "West Bay Beach From Roatán Cruise Port: Transport & Timing",
-    seoTitle: "West Bay Beach From Roatán Cruise Port: 2026 Guide",
-    description: "Plan West Bay Beach from Mahogany Bay or Coxen Hole with realistic drive times, taxi versus transfer choices, beach access, and a conservative ship-return plan.",
+    seoTitle: "How to Get to West Bay Beach From Roatán Cruise Port",
+    description: "How to get to West Bay Beach from Mahogany Bay or Coxen Hole, with realistic drive times, taxi and transfer choices, beach access, and a safe return plan.",
     lede: "West Bay is Roatán's headline beach and reef zone, but it is not the beach attached to Mahogany Bay. Reaching it means a road transfer from either cruise terminal and a deliberate return plan.",
+    quickAnswerHeading: "How do you get to West Bay Beach from the cruise port?",
     quickAnswer: "Plan roughly 20 minutes from Coxen Hole or 30 minutes from Mahogany Bay in light traffic, then add pickup and congestion time. For a cruise day, a round-trip transfer or port-aware driver is usually stronger than relying on two unrelated taxi rides. Leave West Bay early enough to be ship-side about two hours before official all-aboard when roads are busy or weather is changing.",
-    reviewed: "July 2026",
+    reviewed: "September 2026",
     facts: [
       { label: "From Coxen Hole", value: "About 20 min in light traffic" },
       { label: "From Mahogany Bay", value: "About 30 min in light traffic" },
@@ -315,14 +317,14 @@ export const portIntentGuides: PortIntentGuide[] = [
     },
     sections: [
       {
-        heading: "West Bay, Tabyana, and West End are not the same stop",
+        heading: "Is West Bay Beach the same as Tabyana or West End?",
         paragraphs: [
           "West Bay is the beach zone at the island's western end. Tabyana is a marketed section of West Bay used by some excursion and cruise-line products. West End is a separate village and boat-diving hub farther along the coast. Product titles sometimes combine the names, so read the actual drop-off, included chair or resort, and transport details.",
           "A water taxi can connect West End and West Bay, but it does not replace the road transfer from Mahogany Bay or Coxen Hole. Adding West End is only sensible when the operator builds it into the route and the return time remains protected.",
         ],
       },
       {
-        heading: "Taxi, driver, or resort transfer",
+        heading: "How to get to West Bay Beach from Mahogany Bay or Coxen Hole",
         paragraphs: [
           "A taxi can work, especially from Coxen Hole, but agree on price, passenger count, waiting, and the return arrangement before leaving. A dedicated driver offers more control for a family or mixed-mobility group. A resort transfer or excursion costs more but may bundle the chair, facilities, and a scheduled return.",
           "The words “round trip” are not enough. Verify the exact terminal gate, the West Bay venue, who to contact, the last return, and whether the vehicle waits or returns later. Port pickup claims must name your terminal, because Mahogany Bay and Coxen Hole have different gates and operator procedures.",
@@ -330,7 +332,7 @@ export const portIntentGuides: PortIntentGuide[] = [
         bullets: ["Save the driver's WhatsApp contact offline", "Screenshot the terminal pickup instructions", "Confirm whether the beach chair, restroom, shower, snorkel gear, or entrance is included", "Carry a dry bag and a change of clothes if snorkeling"],
       },
       {
-        heading: "Build the day around the return road",
+        heading: "How much return time should you keep from West Bay?",
         paragraphs: [
           "The outward ride often feels easy because everyone is leaving the port. The return can concentrate beach departures, island traffic, and weather at the same time. Treat the quoted drive time as a best-case movement estimate, not the full buffer.",
           "PortdayGuide uses a 120-minute ship-side margin for Roatán. A conservative plan leaves West Bay earlier than that margin so there is time for road travel, the terminal gate, and the walk to the ship. Do not add a sanctuary, zipline, and island loop unless one operator controls the complete route and the ship window clearly supports it.",
@@ -338,7 +340,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       },
     ],
     comparison: {
-      heading: "West Bay transport choices",
+      heading: "Taxi, private driver, or resort transfer?",
       columns: ["Option", "Best for", "What to confirm", "Main drawback"],
       rows: [
         ["Taxi", "Flexible independent day", "Fare, return pickup, terminal", "You manage both timing and availability"],
@@ -365,7 +367,9 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Discover Roatán West Bay guide", url: "https://discoverroatan.net/west-bay-beach-excursion/", note: "Beach-zone identity, light-traffic estimates from both terminals, and day-pass context." },
       { label: "Roatán Tourism Bureau terminal guide", url: "https://roatantourismbureau.com/community-updates/cruise-ports-roatan-coxen-hole-mahogany-bay", note: "Terminal differences and transport availability." },
       { label: "PortdayGuide Roatán hub", url: "/ports/roatan", note: "Full port-return and weather framework." },
+      { label: "Mahogany Bay vs Coxen Hole guide", url: "/ports/roatan/mahogany-bay-vs-coxen-hole", note: "Terminal-specific pickup rules and the practical differences between Roatán's two cruise ports." },
     ],
+    modified: "2026-09-05",
   },
   {
     sourcePortSlug: "cozumel",
@@ -611,11 +615,12 @@ export const portIntentGuides: PortIntentGuide[] = [
     topic: "seven-mile-beach-from-port",
     eyebrow: "Grand Cayman beach transport decision",
     title: "Seven Mile Beach From Grand Cayman Cruise Port",
-    seoTitle: "Seven Mile Beach From Grand Cayman Cruise Port Guide",
-    description: "Reach Seven Mile Beach from George Town cruise port by taxi or public bus, choose the right beach access, and return in time for the last tender.",
+    seoTitle: "How to Get to Seven Mile Beach From Grand Cayman Port",
+    description: "How to get to Seven Mile Beach from Grand Cayman's George Town tender port by taxi, public bus, or transfer, with access points, fares, and a safe return plan.",
     lede: "Seven Mile Beach is close to George Town but not one single entrance with one set of facilities. The right plan chooses a specific access point and leaves enough time for road traffic and the tender back to the ship.",
+    quickAnswerHeading: "How do you get to Seven Mile Beach from the cruise port?",
     quickAnswer: "From central George Town, Seven Mile Beach is about a 10-minute drive in light traffic. Taxis are simplest; public bus routes 1 and 2 serve the Seven Mile Beach/West Bay corridor and official fares start at CI$2.50. Choose a named access such as Governor's Beach or Cemetery Beach, check facilities, and return to the tender area well before the cruise line's last-tender time.",
-    reviewed: "July 2026",
+    reviewed: "September 2026",
     facts: [
       { label: "Light-traffic drive", value: "About 10 min from George Town center" },
       { label: "Public bus", value: "Routes 1 and 2; fares start at CI$2.50" },
@@ -632,21 +637,21 @@ export const portIntentGuides: PortIntentGuide[] = [
     },
     sections: [
       {
-        heading: "Pick a beach access before choosing transport",
+        heading: "Which Seven Mile Beach access should cruise passengers use?",
         paragraphs: [
           "Seven Mile Beach is a coastline, not a single attraction gate. Governor's Beach is an official public access known for sand, water, and some natural shade; Cemetery Beach is another public access farther north. Hotel and beach-club areas may attach chairs, food, restrooms, or fees to their facilities even though the shoreline itself is public.",
           "Ask what matters to your group: restroom, restaurant, chair rental, reliable taxi pickup, snorkeling, shade, or the shortest ride. A driver who hears only “Seven Mile Beach” may choose a convenient commercial stop that is not the quiet public beach you expected.",
         ],
       },
       {
-        heading: "Taxi versus public bus",
+        heading: "How to get to Seven Mile Beach from George Town",
         paragraphs: [
           "A taxi is the strongest cruise-day choice for families, mobility needs, beach gear, or anyone who wants a specific access point. Agree on the destination and fare before leaving, and ask how to arrange the return. Shared cruise-day vans may also operate, but confirm the exact beach and price.",
           "The Cayman Islands Department of Tourism states that public bus routes 1 and 2 connect George Town with Seven Mile Beach and West Bay, with fares starting at CI$2.50. Buses can be flagged along the route and accept Cayman or U.S. dollars. The lower price comes with less control over waiting, stop location, space, and return timing.",
         ],
       },
       {
-        heading: "Build the last tender into the beach day",
+        heading: "How far is Seven Mile Beach from the cruise port?",
         paragraphs: [
           "The official tourism site describes Seven Mile Beach as about a 10-minute drive from George Town center, but light-traffic road time is not the whole return. Add time to leave the sand, find transport, move through traffic, walk to the correct tender area, clear security, and queue for the boat.",
           "Use the cruise line's last-tender announcement as the hard limit and aim to reach the waterfront much earlier. On a crowded multi-ship day, the return queue itself can be part of the port experience. A final downtown meal after the beach is only sensible when it keeps you beside the tender landing with the buffer intact.",
@@ -655,7 +660,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       },
     ],
     comparison: {
-      heading: "Seven Mile Beach access choices",
+      heading: "Taxi, public bus, or beach transfer?",
       columns: ["Option", "Best for", "Cost pattern", "Cruise-day tradeoff"],
       rows: [
         ["Taxi", "Specific access, families, gear", "Fare agreed before travel", "Costs more but gives more control"],
@@ -682,7 +687,9 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Cayman Islands official transport guide", url: "https://www.visitcaymanislands.com/planning/getting-around", note: "Public bus routes, starting fare, payment, and operating context." },
       { label: "Official George Town guide", url: "https://www.visitcaymanislands.com/things-to-do/popular-attractions/george-town", note: "Official 10-minute light-traffic drive estimate from George Town." },
       { label: "Official Seven Mile Beach guide", url: "https://www.visitcaymanislands.com/things-to-do/beaches/seven-mile-beach", note: "Beach identity and public-access context." },
+      { label: "Grand Cayman tender guide", url: "/ports/grand-cayman/tender-guide", note: "Tender arrival, last-tender timing, and George Town landing-area planning." },
     ],
+    modified: "2026-09-05",
   },
   {
     sourcePortSlug: "yokohama-tokyo",
