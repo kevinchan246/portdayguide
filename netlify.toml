@@ -5,6 +5,12 @@
   NODE_VERSION = "22.13.0"
   NETLIFY_NEXT_SKEW_PROTECTION = "true"
 
+[[redirects]]
+  from = "https://verdant-souffle-f6e570.netlify.app/*"
+  to = "https://portdayguide.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/manifest.webmanifest"
   [headers.values]

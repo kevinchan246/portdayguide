@@ -400,10 +400,15 @@ test("keeps every sitemap page indexable with a self-referencing canonical", asy
   }
 });
 
-test("redirects the www hostname to the canonical apex without losing the path", async () => {
-  const response = await requestWithHost("/ports/cozumel?source=test", "www.portdayguide.com");
-  assert.equal(response.status, 308);
-  assert.equal(response.headers.get("location"), "https://portdayguide.com/ports/cozumel?source=test");
+test("redirects alternate production hostnames to the canonical apex without losing the path", async () => {
+  const [wwwResponse, netlifyResponse] = await Promise.all([
+    requestWithHost("/ports/cozumel?source=test", "www.portdayguide.com"),
+    requestWithHost("/ports/cozumel?source=test", "verdant-souffle-f6e570.netlify.app"),
+  ]);
+  assert.equal(wwwResponse.status, 308);
+  assert.equal(wwwResponse.headers.get("location"), "https://portdayguide.com/ports/cozumel?source=test");
+  assert.equal(netlifyResponse.status, 301);
+  assert.equal(netlifyResponse.headers.get("location"), "https://portdayguide.com/ports/cozumel?source=test");
 });
 
 test("publishes crawl and AI-discovery controls without blocking noindex share pages", async () => {
@@ -450,6 +455,8 @@ test("varies Netlify API caches by application query parameters and serves the m
   assert.equal((portImage.match(/"Netlify-Vary":\s*"query"/g) || []).length, 1);
   assert.match(netlifyConfig, /for\s*=\s*"\/manifest\.webmanifest"/);
   assert.match(netlifyConfig, /Content-Type\s*=\s*"application\/manifest\+json; charset=utf-8"/);
+  assert.match(netlifyConfig, /from\s*=\s*"https:\/\/verdant-souffle-f6e570\.netlify\.app\/\*"/);
+  assert.match(netlifyConfig, /to\s*=\s*"https:\/\/portdayguide\.com\/:splat"/);
 });
 
 test("Viator price units come from API pricingPackageType and never default to per adult", async () => {
@@ -646,13 +653,22 @@ test("intent Viator searches use page-level campaigns and preserve sponsored pri
   ]);
   assert.match(route, /guide\.viator\.campaign/);
   assert.match(route, /guide\.viator\.query/);
+  assert.match(route, /guide\.viator\.searchQueries/);
   assert.match(route, /guide\.viator\.matchTerms/);
+  assert.match(route, /guide\.viator\.excludeTerms/);
+  assert.match(route, /guide\.viator\.urlTerms/);
+  assert.match(route, /urlTerms\.some\(\(term\) => productUrl\.includes\(term\)\)/);
+  assert.match(route, /excludeTerms\.some\(\(term\) => title\.includes\(term\)\)/);
   assert.match(route, /titleMatches/);
   assert.match(route, /slice\(0, 4\)/);
   assert.match(cards, /rel="sponsored nofollow noopener"/);
   assert.match(cards, /viatorPriceUnitLabel\(product\.pricingPackageType\)/);
   assert.match(guides, /pdg-costa-maya-to-mahahual/);
   assert.match(guides, /pdg-grand-cayman-seven-mile-beach/);
+  assert.match(guides, /Grand Cayman Seven Mile Beach cruise port transfer/);
+  assert.match(guides, /matchTerms:\s*\["Seven Mile Beach", "7 Mile Beach"\]/);
+  assert.match(guides, /excludeTerms:\s*\["airport", "scooter", "rental", "jet car", "negril", "montego bay", "rick's cafe"\]/);
+  assert.match(guides, /urlTerms:\s*\["Grand Cayman"\]/);
   assert.match(guides, /pdg-yokohama-terminal-dining/);
   assert.match(guides, /Yokohama Chinatown food tour/);
 });
