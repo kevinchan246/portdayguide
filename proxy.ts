@@ -14,6 +14,13 @@ export function proxy(request: NextRequest) {
     canonical.pathname = canonical.pathname.replace("/ports/george-town-grand-cayman", "/ports/grand-cayman");
     return secure(NextResponse.redirect(canonical, 308));
   }
+  if (hostname === "verdant-souffle-f6e570.netlify.app") {
+    const canonical = request.nextUrl.clone();
+    canonical.protocol = "https:";
+    canonical.hostname = "portdayguide.com";
+    canonical.port = "";
+    return secure(NextResponse.redirect(canonical, 301));
+  }
   if (hostname === "www.portdayguide.com") {
     const canonical = request.nextUrl.clone();
     canonical.protocol = "https:";

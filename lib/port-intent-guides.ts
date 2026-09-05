@@ -38,6 +38,7 @@ export type PortIntentGuide = {
     query: string;
     campaign: string;
     matchTerms?: string[];
+    excludeTerms?: string[];
   };
   sources: Array<{ label: string; url: string; note: string }>;
   faqs?: Array<{ question: string; answer: string }>;
@@ -680,8 +681,10 @@ export const portIntentGuides: PortIntentGuide[] = [
     viator: {
       heading: "Seven Mile Beach transfers and beach stops",
       copy: "Compare a bundled transfer with the full taxi or bus plan. Check the named beach access, facilities, pickup, and return time rather than booking only from the words “Seven Mile Beach.”",
-      query: "Seven Mile Beach Grand Cayman cruise port transportation",
+      query: "Seven Mile Beach shore excursion Grand Cayman",
       campaign: "pdg-grand-cayman-seven-mile-beach",
+      matchTerms: ["Seven Mile Beach", "7 Mile Beach"],
+      excludeTerms: ["airport", "scooter", "rental", "jet car"],
     },
     sources: [
       { label: "Cayman Islands official transport guide", url: "https://www.visitcaymanislands.com/planning/getting-around", note: "Public bus routes, starting fare, payment, and operating context." },

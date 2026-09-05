@@ -370,9 +370,11 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const searched = await searchHighlightProducts(apiRoot, apiKey, destination.destinationId, guide.viator.campaign, guide.viator.query);
   const queryWords = normalize(guide.viator.query).split(" ").filter((word) => word.length >= 3 && !genericHighlightWords.has(word));
   const matchTerms = (guide.viator.matchTerms || []).map(normalize);
+  const excludeTerms = (guide.viator.excludeTerms || []).map(normalize);
   const intentRelevance = (product: ViatorProductCard) => {
     const title = normalize(product.title);
     const description = normalize(product.description);
+    if (excludeTerms.some((term) => title.includes(term))) return null;
     const titleMatches = matchTerms.filter((term) => title.includes(term));
     if (matchTerms.length && !titleMatches.length) return null;
     const queryTitleMatches = queryWords.filter((word) => title.includes(word)).length;
