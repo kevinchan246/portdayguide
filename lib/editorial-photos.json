@@ -1,0 +1,10 @@
+{
+  "cozumel": [
+    {"slug":"chankanaab-park","file":"Chankanaab Park, Cozumel - panoramio - James Willamor.jpg","alt":"Beach and waterfront at Chankanaab Park, Cozumel","caption":"Chankanaab Park, Cozumel","author":"James Willamor","year":"2005","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"},
+    {"slug":"san-gervasio-casa-grande","file":"San Gervasio, La Casa Grande, en Cozumel, México.jpg","alt":"La Casa Grande stone ruins at San Gervasio, Cozumel","caption":"La Casa Grande at San Gervasio","author":"Saúl Peláez S.","year":"2013","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"}
+  ],
+  "juneau": [
+    {"slug":"mendenhall-glacier","file":"Mendenhall Glacier (Alaska).jpg","alt":"Mendenhall Glacier and its lake near Juneau, photographed in 2010","caption":"Mendenhall Glacier — historical view; glacier extent and access change over time","author":"Jay Galvin","year":"2010","license":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/"},
+    {"slug":"downtown-juneau-docks","file":"Downtown Juneau and Douglas Island.jpg","alt":"Downtown Juneau, cruise docks and Douglas Island viewed from the Mount Roberts Tramway","caption":"Juneau's downtown waterfront and cruise docks from the Mount Roberts Tramway","author":"Mark Hogan","year":"2014","license":"CC BY-SA 2.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/2.0/"}
+  ]
+}
