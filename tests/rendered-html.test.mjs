@@ -90,6 +90,11 @@ test("renders the planner as a separate page", async () => {
   assert.match(html, /Port date/i);
   assert.match(html, /Ship name/i);
   assert.match(html, /\(optional\)/i);
+  assert.match(html, /"@type":"WebApplication"/i);
+  assert.match(html, /"applicationCategory":"TravelApplication"/i);
+  assert.match(html, /"isAccessibleForFree":true/i);
+  assert.match(html, /"price":"0"/i);
+  assert.match(html, /"url":"https:\/\/portdayguide\.com\/planner"/i);
 });
 
 test("renders a search-friendly port guide with booking disclosure", async () => {
@@ -156,6 +161,11 @@ test("renders the expanded 64-port directory with Alaska and Asia guides", async
   assert.match(directory, /Alaska &amp; Pacific Northwest/i);
   assert.match(directory, />Asia</i);
   assert.match(directory, /Civitavecchia \(Rome\)/i);
+  assert.match(directory, /"@type":"CollectionPage"/i);
+  assert.match(directory, /"@type":"ItemList"/i);
+  assert.match(directory, /"numberOfItems":64/i);
+  assert.match(directory, /"url":"https:\/\/portdayguide\.com\/ports\/cozumel"/i);
+  assert.match(directory, /"url":"https:\/\/portdayguide\.com\/ports\/singapore"/i);
   const searchedDirectory = await render("/ports?q=Japan");
   assert.match(searchedDirectory, /value="Japan"/i);
   assert.match(searchedDirectory, /Yokohama \(Tokyo\)/i);
