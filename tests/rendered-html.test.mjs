@@ -129,6 +129,30 @@ test("gives Nassau and Grand Cayman distinct editorial structures with preserved
   }
 });
 
+test("differentiates Cozumel area routes from Juneau weather decisions", async () => {
+  for (const [slug, marker, photos] of [
+    ["cozumel", "area-routes", ["chankanaab-park", "san-gervasio-casa-grande"]],
+    ["juneau", "weather-branches", ["mendenhall-glacier", "downtown-juneau-docks"]],
+  ]) {
+    const html = await render(`/ports/${slug}`);
+    assert.ok(html.includes(`data-destination-plan="${marker}"`));
+    assert.match(html, /"dateModified":"2026-09-06"/);
+    for (const id of ["overview", "transport", "top-things", "itineraries", "local-tips", "faq"]) {
+      assert.equal((html.match(new RegExp(`id="${id}"`, "g")) || []).length, 1);
+    }
+    for (const photo of photos) assert.equal(html.split(`data-editorial-photo="${photo}"`).length - 1, 1);
+    assert.ok(html.indexOf(`data-editorial-photo="${photos[0]}"`) < html.indexOf('id="top-things"'));
+    assert.ok(html.indexOf(`data-editorial-photo="${photos[1]}"`) > html.indexOf('id="itineraries"'));
+    assert.equal((html.match(/data-activity-excursion-card="true"/g) || []).length, 4);
+    assert.match(html, /Loading current review data/);
+    assert.doesNotMatch(html, /Three realistic ways to move through/);
+    if (slug === "juneau") {
+      assert.match(html, /Public bus is not a glacier shuttle/);
+      assert.match(html, /juneaucapitaltransit.org/);
+    } else assert.match(html, /id="terminals"/);
+  }
+});
+
 test("renders a search-friendly port guide with booking disclosure", async () => {
   const html = await render("/ports/cozumel");
   assert.match(html, /<title>Cozumel Cruise Port Guide: Terminals, Transport &amp; Excursions<\/title>/i);
@@ -167,8 +191,8 @@ test("renders a search-friendly port guide with booking disclosure", async () =>
   assert.doesNotMatch(html, />On this page</i);
   assert.match(html, /aria-label="Guide sections"/i);
   assert.doesNotMatch(html, /href="https:\/\/www\.viator\.com\/searchResults\/all\?text=/i);
-  assert.match(html, /6(?:<!-- -->)?-HOUR PORT DAY/i);
-  assert.match(html, /8(?:<!-- -->)?-HOUR PORT DAY/i);
+  assert.match(html, /data-destination-plan="area-routes"/);
+  assert.match(html, /Heritage route: San Gervasio/);
   assert.match(html, /Return transfer|Terminal-area plan only/i);
   assert.match(html, /Cozumel(?:<!-- -->)? cruise port tips before you go/i);
   assert.match(html, />120 min<\/b> return-to-ship buffer/i);
@@ -207,9 +231,9 @@ test("renders the expanded 64-port directory with Alaska and Asia guides", async
   const juneau = await render("/ports/juneau");
   assert.match(juneau, /Juneau Cruise Port Guide/i);
   assert.match(juneau, /Mendenhall Glacier/i);
-  assert.match(juneau, /Easy downtown, excursion-dependent beyond it/i);
-  assert.match(juneau, /Cruise Critic: Juneau member reviews/i);
-  assert.match(juneau, /dedicated shuttles or taxis are far more practical/i);
+  assert.match(juneau, /data-local-transport="glacier-transfer"/);
+  assert.match(juneau, /official glacier transit directions/i);
+  assert.match(juneau, /Public bus is not a glacier shuttle/i);
   assert.match(juneau, /Top Things to Do &amp; Shore Excursions in (?:<!-- -->)?Juneau/i);
   assert.match(juneau, /Loading matched Viator excursion for Mendenhall Glacier/i);
   assert.match(juneau, /href="\/blog\/alaska-cruise-ports"/i);
@@ -255,7 +279,7 @@ test("all 64 port articles include a detailed editorial guide, map, and credited
     assert.match(html, /Loading matched Viator excursion for/i, `${slug}: missing live excursion matching`);
     assert.doesNotMatch(html, /href="#excursions"/i, `${slug}: contains the removed duplicate excursions anchor`);
     assert.match(html, /Traveler takeaways/i, `${slug}: missing traveler takeaways`);
-    assert.match(html, ["nassau", "grand-cayman"].includes(slug) ? /data-local-transport=/i : /Three realistic ways to move through/i, `${slug}: missing transport guidance`);
+    assert.match(html, ["nassau", "grand-cayman", "cozumel", "juneau"].includes(slug) ? /data-local-transport=/i : /Three realistic ways to move through/i, `${slug}: missing transport guidance`);
     assert.match(html, /Quick answer:/i, `${slug}: missing answer-first summary`);
     assert.match(html, /Related [\s\S]{0,80} cruise port guides/i, `${slug}: missing contextual internal links`);
     assert.match(html, /Plan with current sailing details/i, `${slug}: missing current-detail reminder`);

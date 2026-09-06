@@ -2,8 +2,10 @@ import Link from "next/link";
 import { PortEditorialPhotos } from "./PortEditorialPhotos";
 import { PortTravelerPulse } from "./PortTravelerPulse";
 import styles from "./PortLocalEditorial.module.css";
+import { DestinationOverview, DestinationTransport, DestinationItineraries, DestinationTips } from "./PortDestinationEditorial";
 
 export function LocalOverview({ slug }: { slug: string }) {
+  if (slug === "cozumel" || slug === "juneau") return <DestinationOverview slug={slug} />;
   if (slug === "nassau") return <div className={`overview-copy ${styles.copy}`} data-local-overview="nassau">
     <p className="eyebrow">Choose your direction</p><h2>Nassau cruise port overview: town, beach or boat?</h2>
     <p className="quick-answer"><strong>Quick answer:</strong> Start with downtown Nassau if you want the most flexible independent day. Choose the Queen’s Staircase for history, Junkanoo Beach for a nearby beach outing, or a prebooked boat trip as your main commitment. Keep the final stop close to Prince George Wharf.</p>
@@ -32,6 +34,7 @@ export function LocalOverview({ slug }: { slug: string }) {
 }
 
 export function LocalTransport({ slug }: { slug: string }) {
+  if (slug === "cozumel" || slug === "juneau") return <DestinationTransport slug={slug} />;
   const nassau = slug === "nassau";
   return <section id="transport" className={`section ${styles.copy}`} data-local-transport={nassau ? "walking-route" : "pickup-questions"}>
     {nassau ? <>
@@ -64,6 +67,7 @@ export function LocalTransport({ slug }: { slug: string }) {
 }
 
 export function LocalItineraries({ slug }: { slug: string }) {
+  if (slug === "cozumel" || slug === "juneau") return <DestinationItineraries slug={slug} />;
   if (slug === "nassau") return <section id="itineraries" className={`section ${styles.copy}`} data-local-itinerary="nassau-options">
     <h2>A Nassau day you can shorten without losing the main stop</h2>
     <p>Choose the version that fits your interests, then work backward from all-aboard. A six-hour or eight-hour advertised call includes time you may spend getting off and back onto the ship. The examples below describe priorities, not guaranteed attraction or transfer durations.</p>
@@ -91,6 +95,7 @@ export function LocalItineraries({ slug }: { slug: string }) {
 }
 
 export function LocalTips({ slug }: { slug: string }) {
+  if (slug === "cozumel" || slug === "juneau") return <DestinationTips slug={slug} />;
   return <section id="local-tips" className={`section ${styles.copy}`}>
     <h2>{slug === "nassau" ? "Pack for a walk, even if you plan to swim" : "Keep the return details with you ashore"}</h2>
     {slug === "nassau" ? <p>Bring walking shoes for uneven downtown surfaces, water and sun protection. Keep valuables dry if you choose the beach, and save a map of the port entrance offline. Ask about admission and any requested service fee before accepting a tour or service. Check current opening hours before using an indoor stop as your rain plan.</p> : <p>Save the tender-terminal name, ship time, last-tender time and operator contact details on your phone, with a backup accessible if the battery runs out. Check the fare currency before paying. For a water outing, confirm boarding assistance, swimming expectations and conditions with the operator. A beach photograph illustrates the setting; it cannot verify today’s sand access, sea state or facilities.</p>}
