@@ -1,0 +1,17 @@
+.copy { min-width: 0; }
+.copy h2 { font-size: clamp(25px, 3vw, 34px); line-height: 1.25; margin: 0 0 18px; }
+.copy p, .copy li, .copy dd { line-height: 1.75; }
+.copy h3 { margin: 24px 0 10px; font-size: 22px; }
+.copy a { text-decoration: underline; text-underline-offset: 3px; }
+.scroll { overflow-x: auto; margin: 22px 0; }
+.scroll table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; }
+.scroll th, .scroll td { padding: 14px; border-bottom: 1px solid #dbe3e7; vertical-align: top; min-width: 140px; }
+.scroll th { background: #f1f6f7; }
+.sequence { padding-left: 26px; }
+.sequence li { padding: 0 0 20px 10px; }
+.sequence strong { display: block; }
+.decisions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; }
+.decisions dt { font-weight: 700; margin-top: 16px; }
+.decisions dd { margin: 8px 0; }
+.sources { font-size: 13px; margin-top: 24px; }
+@media (max-width: 640px) { .decisions { grid-template-columns: 1fr; } }

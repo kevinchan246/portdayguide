@@ -1,4 +1,11 @@
 {
+  "nassau": [
+    {"slug":"nassau-queens-staircase","file":"Bahamas - Nassau, Queens Staircase - panoramio.jpg","alt":"Limestone walls and steps of the Queen’s Staircase in Nassau","caption":"Queen’s Staircase: consider the steps when choosing a downtown walking route","author":"Banja-Frans Mulder","year":"2015","license":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/6/6d/Bahamas_-_Nassau%2C_Queens_Staircase_-_panoramio.jpg"}
+  ],
+  "george-town-grand-cayman": [
+    {"slug":"seven-mile-beach-north","file":"Seven Mile Beach Facing North.jpg","alt":"Seven Mile Beach on Grand Cayman facing north, photographed in May 2026","caption":"Seven Mile Beach, May 2026 — choose a named access and pickup point","author":"Coolcaesar","year":"2026","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/9/98/Seven_Mile_Beach_Facing_North.jpg"},
+    {"slug":"camana-bay-waterfront","file":"Camana Bay (5313836300).jpg","alt":"Footbridge and palms at Camana Bay, Grand Cayman, photographed in 2010","caption":"Camana Bay, 2010 — a separate stop from the George Town tender landing","author":"Andie","year":"2010","license":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/2/2b/Camana_Bay_%285313836300%29.jpg"}
+  ],
   "cozumel": [
     {"slug":"chankanaab-park","file":"Chankanaab Park, Cozumel - panoramio - James Willamor.jpg","alt":"Beach and waterfront at Chankanaab Park, Cozumel","caption":"Chankanaab Park, Cozumel","author":"James Willamor","year":"2005","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"},
     {"slug":"san-gervasio-casa-grande","file":"San Gervasio, La Casa Grande, en Cozumel, México.jpg","alt":"La Casa Grande stone ruins at San Gervasio, Cozumel","caption":"La Casa Grande at San Gervasio","author":"Saúl Peláez S.","year":"2013","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"}

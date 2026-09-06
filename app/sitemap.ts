@@ -3,6 +3,7 @@ import { portNames, portProfiles, portRegions } from "@/lib/shorepath";
 import { intentGuidePath, portIntentGuides } from "@/lib/port-intent-guides";
 import { blogPosts } from "@/lib/blog";
 import { portPath, regionPath, siteUrl } from "@/lib/seo";
+import { localGuideEdition } from "@/lib/local-guide-editions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date("2026-07-27");
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : path === "/ports" ? .9 : path === "/blog" ? .75 : path === "/planner" ? .7 : .5,
   }));
   const regions = portRegions.map((region) => ({ url: `${siteUrl}${regionPath(region)}`, lastModified: updated, changeFrequency: "monthly" as const, priority: .8 }));
-  const guides = portNames.map((name) => ({ url: `${siteUrl}${portPath(portProfiles[name].slug)}`, lastModified: updated, changeFrequency: "monthly" as const, priority: .8 }));
+  const guides = portNames.map((name) => ({ url: `${siteUrl}${portPath(portProfiles[name].slug)}`, lastModified: localGuideEdition(portProfiles[name].slug)?.modified ?? updated, changeFrequency: "monthly" as const, priority: .8 }));
   const intentGuides = portIntentGuides.map((guide) => ({ url: `${siteUrl}${intentGuidePath(guide)}`, lastModified: guide.modified ? new Date(guide.modified) : updated, changeFrequency: "monthly" as const, priority: .85 }));
   const blogRoutes = blogPosts.map((post) => ({ url: `${siteUrl}${post.path}`, lastModified: new Date(post.modified), changeFrequency: "monthly" as const, priority: post.path.split("/").length > 3 ? .85 : .8 }));
   return [...staticRoutes, ...regions, ...guides, ...intentGuides, ...blogRoutes];

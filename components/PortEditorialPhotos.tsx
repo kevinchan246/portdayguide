@@ -2,10 +2,11 @@ import photos from "@/lib/editorial-photos.json";
 import { commonsFilePageUrl } from "@/lib/port-photos";
 import styles from "./PortEditorialPhotos.module.css";
 
-export function PortEditorialPhotos({ slug }: { slug: string }) {
-  const entries = photos[slug as keyof typeof photos];
+export function PortEditorialPhotos({ slug, photoSlug }: { slug: string; photoSlug?: string }) {
+  const all = photos[slug as keyof typeof photos];
+  const entries = photoSlug ? all?.filter((photo) => photo.slug === photoSlug) : all;
   if (!entries) return null;
-  return <div className={styles.grid} aria-label="Featured places in this guide">
+  return <div className={photoSlug ? styles.single : styles.grid} aria-label="Featured places in this guide">
     {entries.map((photo) => <figure key={photo.slug} className={styles.photo} data-editorial-photo={photo.slug}>
       {/* Local, licensed photographs remain available without a Viator response. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
