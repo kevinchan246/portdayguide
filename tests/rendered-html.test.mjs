@@ -95,7 +95,8 @@ test("renders the planner as a separate page", async () => {
 test("serves credited editorial photos independently of Viator", async () => {
   const catalog = JSON.parse(await readFile(new URL("../lib/editorial-photos.json", import.meta.url), "utf8"));
   for (const [slug, photos] of Object.entries(catalog)) {
-    const html = await render(`/ports/${slug}`);
+    const canonicalSlug = slug === "george-town-grand-cayman" ? "grand-cayman" : slug;
+    const html = await render(`/ports/${canonicalSlug}`);
     for (const photo of photos) {
       assert.ok(html.includes(`data-editorial-photo="${photo.slug}"`));
       assert.ok(html.includes(photo.author));
@@ -106,6 +107,25 @@ test("serves credited editorial photos independently of Viator", async () => {
       assert.ok((await response.arrayBuffer()).byteLength > 10000);
     }
     assert.equal((html.match(/data-editorial-photo=/g) || []).length, photos.length);
+  }
+});
+
+test("gives Nassau and Grand Cayman distinct editorial structures with preserved anchors", async () => {
+  const nassau = await render("/ports/nassau");
+  const cayman = await render("/ports/grand-cayman");
+  assert.match(nassau, /<caption>Which Nassau outing fits your group\?/);
+  assert.match(nassau, /data-local-itinerary="nassau-options"/);
+  assert.match(cayman, /data-local-itinerary="cayman-countback"/);
+  assert.ok(nassau.indexOf('id="transport"') < nassau.indexOf('id="itineraries"'));
+  assert.ok(cayman.indexOf('id="itineraries"') < cayman.indexOf('id="transport"'));
+  for (const html of [nassau, cayman]) {
+    for (const id of ["overview", "transport", "top-things", "itineraries", "local-tips", "faq"]) {
+      assert.equal((html.match(new RegExp(`id="${id}"`, "g")) || []).length, 1);
+    }
+    assert.doesNotMatch(html, /Three realistic ways to move through/);
+    assert.match(html, /"dateModified":"2026-09-06"/);
+    assert.match(html, /Updated(?:<!-- -->)? Sep 6, 2026|Updated (?:<!-- -->)?Sep 6, 2026/);
+    assert.match(html, /Loading current review data/);
   }
 });
 
@@ -235,7 +255,7 @@ test("all 64 port articles include a detailed editorial guide, map, and credited
     assert.match(html, /Loading matched Viator excursion for/i, `${slug}: missing live excursion matching`);
     assert.doesNotMatch(html, /href="#excursions"/i, `${slug}: contains the removed duplicate excursions anchor`);
     assert.match(html, /Traveler takeaways/i, `${slug}: missing traveler takeaways`);
-    assert.match(html, /Three realistic ways to move through/i, `${slug}: missing transport comparison`);
+    assert.match(html, ["nassau", "grand-cayman"].includes(slug) ? /data-local-transport=/i : /Three realistic ways to move through/i, `${slug}: missing transport guidance`);
     assert.match(html, /Quick answer:/i, `${slug}: missing answer-first summary`);
     assert.match(html, /Related [\s\S]{0,80} cruise port guides/i, `${slug}: missing contextual internal links`);
     assert.match(html, /Plan with current sailing details/i, `${slug}: missing current-detail reminder`);
