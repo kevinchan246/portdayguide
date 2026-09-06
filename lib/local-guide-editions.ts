@@ -1,4 +1,6 @@
 export const localGuideEditions = {
+  cozumel: { modified: "2026-09-06", label: "Sep 6, 2026", readMinutes: 7 },
+  juneau: { modified: "2026-09-06", label: "Sep 6, 2026", readMinutes: 7 },
   nassau: { modified: "2026-09-06", label: "Sep 6, 2026", readMinutes: 7 },
   "george-town-grand-cayman": { modified: "2026-09-06", label: "Sep 6, 2026", readMinutes: 7 },
 };
