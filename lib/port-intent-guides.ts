@@ -2,7 +2,7 @@ export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
   topic: string;
-  template?: "standard" | "yokohama-terminal-editorial";
+  template?: "standard" | "yokohama-terminal-editorial" | "beach-transfer";
   eyebrow: string;
   title: string;
   seoTitle: string;
@@ -296,6 +296,7 @@ export const portIntentGuides: PortIntentGuide[] = [
     sourcePortSlug: "roatan",
     urlPortSlug: "roatan",
     topic: "west-bay-beach-from-cruise-port",
+    template: "beach-transfer",
     eyebrow: "Roatán beach transport decision",
     title: "West Bay Beach From Roatán Cruise Port: Transport & Timing",
     seoTitle: "How to Get to West Bay Beach From Roatán Cruise Port",
@@ -372,7 +373,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "PortdayGuide Roatán hub", url: "/ports/roatan", note: "Full port-return and weather framework." },
       { label: "Mahogany Bay vs Coxen Hole guide", url: "/ports/roatan/mahogany-bay-vs-coxen-hole", note: "Terminal-specific pickup rules and the practical differences between Roatán's two cruise ports." },
     ],
-    modified: "2026-09-05",
+    modified: "2026-09-06",
   },
   {
     sourcePortSlug: "cozumel",
@@ -616,6 +617,7 @@ export const portIntentGuides: PortIntentGuide[] = [
     sourcePortSlug: "george-town-grand-cayman",
     urlPortSlug: "grand-cayman",
     topic: "seven-mile-beach-from-port",
+    template: "beach-transfer",
     eyebrow: "Grand Cayman beach transport decision",
     title: "Seven Mile Beach From Grand Cayman Cruise Port",
     seoTitle: "How to Get to Seven Mile Beach From Grand Cayman Port",
@@ -700,7 +702,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Official Seven Mile Beach guide", url: "https://www.visitcaymanislands.com/things-to-do/beaches/seven-mile-beach", note: "Beach identity and public-access context." },
       { label: "Grand Cayman tender guide", url: "/ports/grand-cayman/tender-guide", note: "Tender arrival, last-tender timing, and George Town landing-area planning." },
     ],
-    modified: "2026-09-05",
+    modified: "2026-09-06",
   },
   {
     sourcePortSlug: "yokohama-tokyo",

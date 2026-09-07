@@ -5,6 +5,7 @@ import { IntentViatorCards } from "@/components/IntentViatorCards";
 import { PortDayFit } from "@/components/PortDayFit";
 import { PortHeroImage } from "@/components/PortHeroImage";
 import { YokohamaTerminalArticle } from "@/components/YokohamaTerminalArticle";
+import { BeachTransferArticle } from "@/components/BeachTransferArticle";
 import { portPhotos, portPhotoUrl } from "@/lib/port-photos";
 import { intentGuide, intentGuidePath, intentGuidesForPort, portIntentGuides } from "@/lib/port-intent-guides";
 import { portPath, siteUrl } from "@/lib/seo";
@@ -97,6 +98,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
 
         <PortDayFit fit={guide.fit} />
 
+        {guide.template === "beach-transfer" ? <BeachTransferArticle guide={guide} /> : <>
         {guide.sections.map((section) => <section className="intent-copy-section" key={section.heading}><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
 
         {guide.comparison && <section className="intent-comparison"><h2>{guide.comparison.heading}</h2><div className="intent-table-wrap"><table><thead><tr>{guide.comparison.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>{guide.comparison.rows.map((row) => <tr key={row.join("-")}>{row.map((cell, index) => index === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></section>}
@@ -106,6 +108,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
         <section className="intent-verdict"><span>PortdayGuide verdict</span><h2>Who should choose this plan?</h2><p>{guide.decision}</p></section>
 
         <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName={profile.name} heading={guide.viator.heading} />
+        </>}
 
         <section className="intent-sources"><span>Sources & verification</span><h2>What this guide is based on</h2><p>PortdayGuide compares current destination or port references with cruise-day timing. Prices, operations, sea conditions, and terminal assignments can change; the cruise line and same-day posted information control.</p><ul>{guide.sources.map((source) => <li key={source.url}>{source.url.startsWith("/") ? <Link href={source.url}>{source.label}</Link> : <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>}<span>{source.note}</span></li>)}</ul></section>
 

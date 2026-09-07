@@ -636,14 +636,38 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
   assert.match(westBay, /How do you get to West Bay Beach from the cruise port\?/i);
   assert.match(westBay, /How much return time should you keep from West Bay\?/i);
   assert.match(westBay, /href="\/ports\/roatan\/mahogany-bay-vs-coxen-hole"/i);
-  assert.match(westBay, /"dateModified":"2026-09-05"/i);
+  assert.match(westBay, /"dateModified":"2026-09-06"/i);
 
   const sevenMileBeach = await render("/ports/grand-cayman/seven-mile-beach-from-port");
   assert.match(sevenMileBeach, /<title>How to Get to Seven Mile Beach From Grand Cayman Port<\/title>/i);
   assert.match(sevenMileBeach, /How do you get to Seven Mile Beach from the cruise port\?/i);
   assert.match(sevenMileBeach, /How far is Seven Mile Beach from the cruise port\?/i);
   assert.match(sevenMileBeach, /href="\/ports\/grand-cayman\/tender-guide"/i);
-  assert.match(sevenMileBeach, /"dateModified":"2026-09-05"/i);
+  assert.match(sevenMileBeach, /"dateModified":"2026-09-06"/i);
+});
+
+test("gives the beach transfer guides distinct bodies and one contextual booking module", async () => {
+  const cases = [
+    ["/ports/roatan/west-bay-beach-from-cruise-port", "west-bay-terminal-briefing", "What should be written in a West Bay booking?", "How much return time should you keep from West Bay?"],
+    ["/ports/grand-cayman/seven-mile-beach-from-port", "seven-mile-access-selector", "What does the lower bus fare leave you to arrange?", "Use two return checkpoints"],
+  ];
+  for (const [path, variant, before, after] of cases) {
+    const html = await render(path);
+    assert.ok(html.includes(`data-beach-article="${variant}"`));
+    assert.equal((html.match(/id="intent-booking-title"/g) || []).length, 1);
+    assert.ok(html.indexOf(before) < html.indexOf('id="intent-booking-title"'));
+    assert.ok(html.indexOf(after) > html.indexOf('id="intent-booking-title"'));
+    assert.doesNotMatch(html, /A cruise-safe sequence/);
+    assert.match(html, /"dateModified":"2026-09-06"/);
+    assert.match(html, /Affiliate disclosure/);
+  }
+  const beach = await render(cases[1][0]);
+  assert.match(beach, /<caption>Turn the beach plan into a specific destination<\/caption>/);
+  assert.equal((beach.match(/data-editorial-photo="seven-mile-beach-north"/g) || []).length, 1);
+  assert.match(beach, /Coolcaesar/);
+  const standard = await render("/ports/costa-maya/to-mahahual");
+  assert.match(standard, /A cruise-safe sequence/);
+  assert.doesNotMatch(standard, /data-beach-article=/);
 });
 
 test("publishes the Yokohama terminal-area article with affiliate and reciprocal guide links", async () => {
