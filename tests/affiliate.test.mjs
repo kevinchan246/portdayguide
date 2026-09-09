@@ -4,6 +4,7 @@ import { affiliateLinkEvent, validateAffiliateEvent, summarizeAffiliateEvents, A
 import { selectRoatanProducts, roatanProductGroup } from "../lib/roatan-products.ts";
 import { createHandler } from "../netlify/functions/affiliate-click.mjs";
 import { removeExpiredClicks } from "../netlify/functions/affiliate-retention.mjs";
+import { compareTransportQuotes, isCozumelDriverOption } from "../lib/cozumel-transport.ts";
 
 const event = { type: "click", page: "/ports/roatan/west-bay-beach-from-cruise-port", product: "123P4", campaign: "pdg-roatan-west-bay-from-port", placement: "roatan-beach" };
 const context = { deploy: { context: "production" } };
@@ -98,4 +99,31 @@ test("Roatán selection reserves both choices, excludes unrelated tours and neve
   assert.deepEqual(selectRoatanProducts(products.slice(0, 3)).map(product => product.productCode), ["a", "b", "c"]);
   assert.deepEqual(selectRoatanProducts(products.slice(5)), []);
   assert.deepEqual(selectRoatanProducts([products[3]]), [products[3]]);
+});
+
+test("Cozumel driver selection rejects self-drive adventures and unrelated transport", () => {
+  assert.ok(isCozumelDriverOption({ title: "Explore Cozumel your Way Private Island Tour with Pro Guide", description: "Your own air-conditioned vehicle and professional driver-guide." }));
+  assert.ok(isCozumelDriverOption({ title: "Private Driver and Custom Tour", description: "Choose your stops." }));
+  for (const product of [
+    { title: "Private Jeep Tour", description: "Driver available." },
+    { title: "Customizable Private Buggy Tour", description: "Guide and driver." },
+    { title: "Private Island Tour", description: "Take the wheel and drive yourself with a driver-guide leading the way." },
+    { title: "Private Island Tour", description: "Driver not included." },
+    { title: "Private Airport Transfer", description: "Professional driver." },
+    { title: "Private Walking Food Tour", description: "Meet your guide downtown." },
+  ]) assert.equal(isCozumelDriverOption(product), false, product.title);
+});
+
+test("whole-party comparison adds unequal return fares and separate extras without multiplying vehicle totals", () => {
+  const result = compareTransportQuotes({ passengers: "5", outward: "30.10", back: "40.20", taxiExtras: "100", driver: "160", driverExtras: "50" });
+  assert.deepEqual(result, { people: 5, taxiTotal: 170.3, driverTotal: 210, difference: 39.7 });
+  assert.equal(compareTransportQuotes({ passengers: "4", outward: "10", back: "10", taxiExtras: "0", driver: "20", driverExtras: "0" }).difference, 0);
+});
+
+test("quote comparison never treats missing or invalid amounts as a free fare", () => {
+  const quote = { passengers: "4", outward: "", back: "", taxiExtras: "0", driver: "", driverExtras: "0" };
+  assert.deepEqual(compareTransportQuotes(quote), { people: 4, taxiTotal: null, driverTotal: null, difference: null });
+  for (const passengers of ["0", "-1", "2.5", "31", ""]) assert.equal(compareTransportQuotes({ ...quote, passengers }), null);
+  for (const outward of ["-5", "1e2", "1.234", "100001", "NaN"]) assert.equal(compareTransportQuotes({ ...quote, outward, back: "5" }).taxiTotal, null);
+  assert.equal(compareTransportQuotes({ ...quote, outward: "0", back: "0" }).taxiTotal, 0);
 });
