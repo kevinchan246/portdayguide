@@ -705,6 +705,9 @@ footer > small { grid-column: 1/3; margin-top: 25px; padding-top: 20px; border-t
 .intent-booking .section-heading h2 { color: white; }
 .intent-booking .affiliate-notice { margin: 0 0 25px; background: rgba(255,255,255,.08); color: #b9ced8; }
 .intent-viator-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.intent-product-group + .intent-product-group { margin-top: 28px; }
+.intent-product-group > h3 { margin: 0 0 8px; font-size: 1rem; color: white; }
+.intent-product-group > p { margin: 0 0 16px; color: #d6e5e9; font-size: .8rem; line-height: 1.6; }
 .intent-viator-card { display: grid; grid-template-columns: 150px 1fr; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: white; }
 .intent-viator-card > img { width: 100%; height: 100%; min-height: 210px; object-fit: cover; }
 .intent-viator-card > div { display: flex; align-items: flex-start; flex-direction: column; padding: 19px; }

@@ -1,5 +1,6 @@
 import { profilesBySlug, type PortSlug } from "@/lib/shorepath";
 import { portIntentGuides, type PortIntentGuide } from "@/lib/port-intent-guides";
+import { selectRoatanProducts } from "@/lib/roatan-products";
 import type { AlaskaViatorProductCard, AlaskaViatorProductsPayload, FeaturedViatorProductCard, FeaturedViatorProductsPayload, ViatorHighlightRecommendation, ViatorPricingPackageType, ViatorProductCard, ViatorProductsPayload } from "@/lib/viator";
 
 const PRODUCTION_API_ROOT = "https://api.viator.com/partner";
@@ -393,9 +394,11 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
       const score = intentRelevance(product);
       return score === null ? [] : [{ product, score }];
     })
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 4);
-  const products = await addOfficialPricingUnits(apiRoot, apiKey, ranked.map(({ product }) => product));
+    .sort((a, b) => b.score - a.score);
+  const rankedProducts = ranked.map(({ product }) => product);
+  const selected = guide.sourcePortSlug === "roatan" && guide.topic === "west-bay-beach-from-cruise-port"
+    ? selectRoatanProducts(rankedProducts) : rankedProducts.slice(0, 4);
+  const products = await addOfficialPricingUnits(apiRoot, apiKey, selected);
   const payload: ViatorProductsPayload = {
     products,
     recommendations: [],
