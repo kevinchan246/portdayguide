@@ -33,7 +33,7 @@ export function AlaskaViatorPicks() {
       const priceUnit = viatorPriceUnitLabel(product.pricingPackageType);
       return <a
         className="intent-viator-card"
-        href={product.productUrl}
+        data-affiliate-placement="alaska-products" data-affiliate-product={product.productCode} href={product.productUrl}
         target="_blank"
         rel="sponsored nofollow noopener"
         key={`${product.portSlug}-${product.productCode}`}

@@ -40,7 +40,7 @@ function stopServer() {
 
 try {
   await waitForServer();
-  const tests = spawn(process.execPath, ["--experimental-strip-types", "--test", "tests/rendered-html.test.mjs"], {
+  const tests = spawn(process.execPath, ["--experimental-strip-types", "--test", "tests/rendered-html.test.mjs", "tests/affiliate.test.mjs"], {
     cwd: new URL("../", import.meta.url),
     env: { ...process.env, TEST_BASE_URL: baseUrl, VIATOR_API_KEY: "" },
     stdio: "inherit",

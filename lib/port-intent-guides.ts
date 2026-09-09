@@ -362,9 +362,10 @@ export const portIntentGuides: PortIntentGuide[] = [
     ],
     decision: "West Bay is worth the transfer when beach quality and reef access are the main reason for going ashore. Mahogany Bay's own beach is the better choice when a traveler wants the lowest-effort day or when the usable call is too short for a relaxed West Bay block.",
     viator: {
-      heading: "West Bay transfers and beach breaks",
+      heading: "Choose a beach day or a private island outing",
       copy: "Compare only products that state a Roatán cruise-port pickup and identify the beach or resort. The live price should be weighed against round-trip transport and included facilities.",
       query: "West Bay Beach Roatan cruise port pickup resort pass",
+      searchQueries: ["West Bay Beach Roatan cruise port pickup resort pass", "Roatan private customizable chocolate rum history tour"],
       campaign: "pdg-roatan-west-bay-from-port",
     },
     sources: [
@@ -373,7 +374,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "PortdayGuide Roatán hub", url: "/ports/roatan", note: "Full port-return and weather framework." },
       { label: "Mahogany Bay vs Coxen Hole guide", url: "/ports/roatan/mahogany-bay-vs-coxen-hole", note: "Terminal-specific pickup rules and the practical differences between Roatán's two cruise ports." },
     ],
-    modified: "2026-09-06",
+    modified: "2026-09-07",
   },
   {
     sourcePortSlug: "cozumel",

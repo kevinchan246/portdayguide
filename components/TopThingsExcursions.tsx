@@ -50,7 +50,7 @@ export function TopThingsExcursions({ portSlug, portName, items }: { portSlug: s
 
           {!data && !failed && <div className="activity-match-skeleton" aria-label={`Loading matched Viator excursion for ${item.name}`}><span /><div><i /><i /><i /></div></div>}
 
-          {product && <div className="activity-live-match" data-live-excursion-match>
+          {product && <div className="activity-live-match" data-live-excursion-match data-affiliate-placement="activity-match" data-affiliate-product={product.productCode}>
             <a className="activity-match-image" href={product.productUrl} target="_blank" rel="sponsored nofollow noopener" aria-label={`${product.title}, opens on Viator`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={product.imageUrl} alt={product.imageAlt} loading="lazy" />

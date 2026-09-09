@@ -31,7 +31,7 @@ export function FeaturedViatorDeals() {
   return <div className="viator-product-grid featured-viator-grid">
     {data.products.map((product) => {
       const priceUnit = viatorPriceUnitLabel(product.pricingPackageType);
-      return <a className="viator-product-card" href={product.productUrl} target="_blank" rel="sponsored nofollow noopener" key={product.productCode} aria-label={`${product.title} in ${product.portName}, opens on Viator`}>
+      return <a className="viator-product-card" data-affiliate-placement="featured-products" data-affiliate-product={product.productCode} href={product.productUrl} target="_blank" rel="sponsored nofollow noopener" key={product.productCode} aria-label={`${product.title} in ${product.portName}, opens on Viator`}>
       <div className="viator-card-image">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={product.imageUrl} alt={product.imageAlt} loading="lazy" />

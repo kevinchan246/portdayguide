@@ -636,7 +636,7 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
   assert.match(westBay, /How do you get to West Bay Beach from the cruise port\?/i);
   assert.match(westBay, /How much return time should you keep from West Bay\?/i);
   assert.match(westBay, /href="\/ports\/roatan\/mahogany-bay-vs-coxen-hole"/i);
-  assert.match(westBay, /"dateModified":"2026-09-06"/i);
+  assert.match(westBay, /"dateModified":"2026-09-07"/i);
 
   const sevenMileBeach = await render("/ports/grand-cayman/seven-mile-beach-from-port");
   assert.match(sevenMileBeach, /<title>How to Get to Seven Mile Beach From Grand Cayman Port<\/title>/i);
@@ -658,7 +658,7 @@ test("gives the beach transfer guides distinct bodies and one contextual booking
     assert.ok(html.indexOf(before) < html.indexOf('id="intent-booking-title"'));
     assert.ok(html.indexOf(after) > html.indexOf('id="intent-booking-title"'));
     assert.doesNotMatch(html, /A cruise-safe sequence/);
-    assert.match(html, /"dateModified":"2026-09-06"/);
+    assert.ok(html.includes(`"dateModified":"${variant === "west-bay-terminal-briefing" ? "2026-09-07" : "2026-09-06"}"`));
     assert.match(html, /Affiliate disclosure/);
   }
   const beach = await render(cases[1][0]);
