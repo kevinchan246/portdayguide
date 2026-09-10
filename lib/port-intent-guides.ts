@@ -2,7 +2,7 @@ export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
   topic: string;
-  template?: "standard" | "yokohama-terminal-editorial" | "beach-transfer" | "cozumel-taxi";
+  template?: "standard" | "yokohama-terminal-editorial" | "tokyo-yokohama-transfer" | "beach-transfer" | "cozumel-taxi";
   eyebrow: string;
   title: string;
   seoTitle: string;
@@ -758,6 +758,60 @@ export const portIntentGuides: PortIntentGuide[] = [
     ],
     published: "2026-07-26",
     modified: "2026-07-26",
+  },
+  {
+    sourcePortSlug: "yokohama-tokyo",
+    urlPortSlug: "yokohama-tokyo",
+    topic: "tokyo-to-yokohama-cruise-terminal",
+    template: "tokyo-yokohama-transfer",
+    eyebrow: "Tokyo to Yokohama embarkation guide",
+    title: "Tokyo to Yokohama Cruise Terminal: Train, Taxi & Transfers",
+    seoTitle: "Tokyo to Yokohama Cruise Terminal: Train & Transfers",
+    description: "Compare trains, taxis, and private transfers from Tokyo hotels to Yokohama cruise terminals, with luggage advice and routes for Osanbashi, Shinko, and Daikoku.",
+    lede: "Choose your route from Tokyo around the terminal in your cruise documents, the luggage you can manage, and the time you must arrive for embarkation.",
+    quickAnswerHeading: "How do you get from Tokyo to Yokohama Cruise Terminal?",
+    quickAnswer: "For Osanbashi, take the JR Tokaido Line from Tokyo Station to Yokohama, then the Minatomirai Line to Nihon-odori and walk to the terminal. For Shinko, use the Minatomirai Line to Bashamichi and the terminal walking connection. For Daikoku, plan a taxi from Shin-Koyasu or Motomachi-Chukagai, or a confirmed cruise transfer; central-terminal walking directions do not apply. A taxi or private transfer from your Tokyo hotel can simplify travel with heavy luggage. Confirm the exact terminal and check-in deadline before choosing.",
+    reviewed: "September 2026",
+    facts: [
+      { label: "Journey direction", value: "Tokyo hotel or city → Yokohama cruise terminal" },
+      { label: "Terminal check", value: "Osanbashi, Shinko, or Daikoku" },
+      { label: "Train decision", value: "Include station changes and the final connection" },
+      { label: "Arrival deadline", value: "Use your cruise line’s check-in instructions" },
+    ],
+    fit: {
+      bestFor: "Travelers leaving a Tokyo hotel to begin a cruise in Yokohama",
+      minimumWindow: "Work backward from the assigned arrival window and final check-in deadline",
+      diyLevel: "Rail suits manageable luggage; the final connection depends on the terminal",
+      mobility: "Check station elevators, walking distances, and vehicle accessibility before choosing",
+      weather: "Rain or heat can make a station-to-terminal walk difficult with cruise luggage",
+      mainRisk: "Booking the wrong terminal or treating a station arrival as completed embarkation travel",
+    },
+    sections: [],
+    steps: [],
+    decision: "Use rail when you can handle your luggage through stations and the final connection. Choose a taxi or private transfer when direct hotel pickup and a confirmed terminal drop-off are worth the extra cost. In either case, follow the cruise line’s embarkation instructions.",
+    viator: {
+      heading: "Tokyo hotel to Yokohama cruise terminal transfers",
+      copy: "Compare private transfers with pickup in Tokyo city and drop-off at Yokohama cruise port. Confirm your hotel address, exact terminal, passenger and luggage capacity, pickup time, and cancellation terms before booking.",
+      query: "Tokyo hotel to Yokohama cruise port private transfer",
+      searchQueries: ["Tokyo hotel to Yokohama cruise port private transfer", "Tokyo city to Yokohama port transfer"],
+      campaign: "pdg-tokyo-to-yokohama-cruise-terminal",
+      matchTerms: ["transfer"],
+    },
+    sources: [
+      { label: "Official Osanbashi terminal access", url: "https://osanbashi.jp/en/access/", note: "Rail routes from Tokyo stations and the final connection from Nihon-odori to Osanbashi." },
+      { label: "City of Yokohama cruise terminal information", url: "https://www.city.yokohama.lg.jp/lang/overseas/port/cruise/terminal_info.html", note: "Separate locations and station connections for Osanbashi, Shinko, and Daikoku." },
+      { label: "Official Shinko and Daikoku access instructions", url: "https://osanbashi.jp/en/other/", note: "Daikoku entry documents, passenger-only access, and organizer-specified arrival timing." },
+      { label: "Minatomirai Line accessibility information", url: "https://www.mm21railway.co.jp/global/english/info/", note: "Official station elevator and accessibility information." },
+      { label: "Yokohama cruise port guide", url: "/ports/yokohama-tokyo", note: "Wider terminal context and planning a stay around your cruise." },
+    ],
+    faqs: [
+      { question: "Can I take a train from Tokyo to Yokohama Cruise Terminal?", answer: "Yes, with a final connection that depends on your terminal. For Osanbashi, travel from Tokyo Station on the JR Tokaido Line to Yokohama, then take the Minatomirai Line to Nihon-odori and walk. Shinko uses a different station connection; Daikoku needs onward road transport." },
+      { question: "Is a train or private transfer better with cruise luggage?", answer: "Rail works when you can manage every bag through stations and the final connection. A taxi or private transfer can simplify the trip with heavy luggage or limited mobility. Confirm vehicle capacity for both passengers and bags, and request any accessibility arrangements before booking." },
+      { question: "Are Osanbashi, Shinko, and Daikoku the same cruise terminal?", answer: "No. They are separate terminals. Nihon-odori serves Osanbashi; Bashamichi is a walking option for Shinko; Daikoku requires an onward road connection. Give your driver or transfer operator the exact terminal shown in your cruise documents." },
+      { question: "What time should I arrive at Yokohama Cruise Terminal?", answer: "Follow the assigned arrival window and final check-in or boarding deadline in your cruise documents, allowing for transport, luggage handling, and delays. Daikoku specifically asks passengers to arrive after the time set by their organizer. The ship’s departure time is not your terminal arrival deadline." },
+    ],
+    published: "2026-09-10",
+    modified: "2026-09-10",
   },
 ];
 

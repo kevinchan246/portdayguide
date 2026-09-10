@@ -9,6 +9,7 @@ function currency(value: number, code: string) {
 }
 
 export function IntentViatorCards({ portSlug, topic, portName, heading }: { portSlug: string; topic: string; portName: string; heading: string }) {
+  const isTokyoTransfer = portSlug === "yokohama-tokyo" && topic === "tokyo-to-yokohama-cruise-terminal";
   const [data, setData] = useState<ViatorProductsPayload | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -32,7 +33,7 @@ export function IntentViatorCards({ portSlug, topic, portName, heading }: { port
       return <a className="intent-viator-card" data-affiliate-placement={placement} data-affiliate-product={product.productCode} href={product.productUrl} target="_blank" rel="sponsored nofollow noopener" key={product.productCode}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={product.imageUrl} alt={product.imageAlt} loading="lazy" />
-        <div><span>{product.duration}{product.freeCancellation ? " · Free cancellation" : ""}</span><h3>{product.title}</h3><p>{product.rating !== null ? `${product.rating.toFixed(1)} ★ · ${product.reviewCount.toLocaleString()} reviews` : "New on Viator"}</p><strong>From {currency(product.price, product.currency)} {priceUnit || ""}</strong><b>View excursion ↗</b></div>
+        <div><span>{product.duration}{product.freeCancellation ? " · Free cancellation" : ""}</span><h3>{product.title}</h3><p>{product.rating !== null ? `${product.rating.toFixed(1)} ★ · ${product.reviewCount.toLocaleString()} reviews` : "New on Viator"}</p><strong>From {currency(product.price, product.currency)} {priceUnit || ""}</strong><b>{isTokyoTransfer ? "Check transfer details ↗" : "View excursion ↗"}</b></div>
       </a>;
     })}
   </div>;
@@ -44,8 +45,8 @@ export function IntentViatorCards({ portSlug, topic, portName, heading }: { port
     ? groups.map(group => {
       const products = data.products.filter(product => roatanProductGroup(product) === group.key);
       return products.length ? <div className="intent-product-group" key={group.key}><h3>{group.heading}</h3><p>{group.copy}</p>{cardGrid(products, `roatan-${group.key}`)}</div> : null;
-    }) : cardGrid(data.products, portSlug === "cozumel" && topic === "taxi-rates" ? "cozumel-driver-options" : "intent-products"))
-    : <div className="intent-viator-grid" aria-label={`Loading relevant ${portName} excursions`}>{[0, 1, 2].map((item) => <div className="viator-card-skeleton" key={item}><span /><div><i /><i /><i /></div></div>)}</div>;
+    }) : cardGrid(data.products, isTokyoTransfer ? "tokyo-hotel-port-transfers" : portSlug === "cozumel" && topic === "taxi-rates" ? "cozumel-driver-options" : "intent-products"))
+    : <div className="intent-viator-grid" aria-label={`Loading relevant ${portName} ${isTokyoTransfer ? "transfers" : "excursions"}`}>{[0, 1, 2].map((item) => <div className="viator-card-skeleton" key={item}><span /><div><i /><i /><i /></div></div>)}</div>;
 
-  return <section className="intent-booking" aria-labelledby="intent-booking-title"><div className="section-heading compact"><p className="eyebrow"><span /> Live booking options</p><h2 id="intent-booking-title">{heading}</h2></div><p className="affiliate-notice"><b>Affiliate disclosure:</b> PortdayGuide may earn a commission if you book through these sponsored links, at no extra cost to you. Viator supplies the live price, unit, rating, availability, and booking terms.</p>{cards}<p className="booking-check">Check the exact meeting point, terminal, duration, accessibility, cancellation terms, and return timing on Viator before booking.</p></section>;
+  return <section className="intent-booking" aria-labelledby="intent-booking-title"><div className="section-heading compact"><p className="eyebrow"><span /> Live booking options</p><h2 id="intent-booking-title">{heading}</h2></div><p className="affiliate-notice"><b>Affiliate disclosure:</b> PortdayGuide may earn a commission if you book through these sponsored links, at no extra cost to you. Viator supplies the live price, unit, rating, availability, and booking terms.</p>{cards}<p className="booking-check">{isTokyoTransfer ? "Confirm Tokyo hotel pickup, the exact Yokohama terminal, luggage capacity, accessibility, arrival window, and cancellation terms on Viator before booking." : "Check the exact meeting point, terminal, duration, accessibility, cancellation terms, and return timing on Viator before booking."}</p></section>;
 }
