@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { PortIntentGuide } from "@/lib/port-intent-guides";
 import { IntentViatorCards } from "./IntentViatorCards";
 import { PortEditorialPhotos } from "./PortEditorialPhotos";
+import { WestBayBookingLink } from "./IntentBookingLinks";
 import styles from "./PortLocalEditorial.module.css";
 import jumpStyles from "./IntentBookingLinks.module.css";
 
@@ -20,6 +21,7 @@ export function BeachTransferArticle({ guide }: { guide: PortIntentGuide }) {
         <div><h3>Mahogany Bay / Isla Tropicale: check the meeting walk</h3><p>Ask whether your provider meets inside the cruise complex or beyond its exit, and how much walking that involves. If stairs, slopes or vehicle steps are a concern, settle the access arrangements before paying for a beach pass.</p></div>
       </div>
       <p>Discover Roatán quotes approximately 20 minutes from Coxen Hole and 30 minutes from Mahogany Bay for its West Bay excursion. These are operator estimates for the road leg, not promised ship-to-beach times. Compare the <Link href="/ports/roatan/mahogany-bay-vs-coxen-hole">two cruise terminals</Link> if your documents use an unfamiliar name.</p>
+      <WestBayBookingLink />
     </section>
     <Copy section={guide.sections[0]} />
     <Copy section={guide.sections[1]} />
