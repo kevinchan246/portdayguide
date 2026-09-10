@@ -3,6 +3,7 @@ import type { PortIntentGuide } from "@/lib/port-intent-guides";
 import { CozumelTransportBudget } from "./CozumelTransportBudget";
 import { IntentViatorCards } from "./IntentViatorCards";
 import styles from "./CozumelTaxiArticle.module.css";
+import jumpStyles from "./IntentBookingLinks.module.css";
 
 function Copy({ section }: { section: PortIntentGuide["sections"][number] }) {
   return <section className="intent-copy-section"><h2>{section.heading}</h2>{section.paragraphs.map(text => <p key={text}>{text}</p>)}{section.bullets && <ul>{section.bullets.map(text => <li key={text}>{text}</li>)}</ul>}</section>;
@@ -28,7 +29,7 @@ export function CozumelTaxiArticle({ guide }: { guide: PortIntentGuide }) {
     </section>
     <CozumelTransportBudget />
     <section className="intent-copy-section">
-      <h2>Compare the quote with the booking confirmation</h2>
+      <h2 id="cozumel-driver-checks" tabIndex={-1} className={jumpStyles.target}>Compare the quote with the booking confirmation</h2>
       <p>For example, <a href="https://cozumelcruiseexcursions.com/cozumel/cozumel-private-island-tours/" target="_blank" rel="noopener noreferrer">Cozumel Cruise Excursions&apos; private island tour</a> separates passenger bands and reserved hours, and lists an air-conditioned van and driver/guide while excluding admissions, food and drinks. That seller&apos;s inclusions do not automatically apply to the Viator products below.</p>
       <ul><li><strong>Group and unit:</strong> a total for your complete party, with the vehicle count and any child or accessibility arrangements confirmed.</li><li><strong>Time and route:</strong> pickup time, included hours, chosen stops and any overtime charges.</li><li><strong>Meeting and return:</strong> the named pier, exact meeting landmark, walking distance and agreed return location and time.</li><li><strong>Extra costs:</strong> admissions, beach facilities, equipment, food and any charges not already in the quote.</li></ul>
       <p>“Private” alone does not mean a chauffeur is included. A Jeep or buggy experience may require a traveler to drive. Read that requirement before treating it as an alternative to a taxi or hired driver.</p>

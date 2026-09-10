@@ -1,0 +1,13 @@
+.costTools { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 24px; padding-top: 20px; border-top: 1px solid #cddfe0; font-size: 15px; line-height: 1.5; }
+.costTools > span { flex-basis: 100%; font-weight: 600; color: #254b5c; }
+.costTools a::after { display: none; }
+.calculator { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; max-width: 100%; padding: 12px 16px; border: 1px solid #075f65; border-radius: 8px; background: #075f65; color: #fff; }
+.calculator:hover, .calculator:focus-visible { background: #043f44; color: #fff; }
+.driverCheck { display: inline-flex; align-items: center; min-height: 44px; color: #075f65; text-decoration: underline; text-underline-offset: 3px; }
+.driverCheck:hover, .beachNote a:hover { color: #043f44; text-decoration-thickness: 2px; }
+.costTools a:focus-visible, .beachNote a:focus-visible { outline: 3px solid #2257d7; outline-offset: 3px; }
+.beachNote { padding-left: 18px; border-left: 3px solid #087e85; color: #254b5c; }
+.beachNote a { color: #075f65; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.target { scroll-margin-top: 24px; }
+.target:focus-visible { outline: 3px solid #087e85; outline-offset: 6px; }
+@media (max-width: 640px) { .calculator { width: 100%; } }

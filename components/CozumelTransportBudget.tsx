@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { compareTransportQuotes, type TransportQuote } from "@/lib/cozumel-transport";
 import styles from "./CozumelTaxiArticle.module.css";
+import jumpStyles from "./IntentBookingLinks.module.css";
 
 export function CozumelTransportBudget() {
   const [quote, setQuote] = useState<TransportQuote>({ passengers: "4", outward: "", back: "", taxiExtras: "0", driver: "", driverExtras: "0" });
@@ -11,7 +12,7 @@ export function CozumelTransportBudget() {
   const format = (amount: number) => new Intl.NumberFormat("en-US", { style: "currency", currency }).format(amount);
   const field = (key: keyof TransportQuote, label: string) => <label>{label}<input type="number" inputMode="decimal" min="0" max="100000" step="0.01" value={quote[key]} onChange={event => setQuote({ ...quote, [key]: event.target.value })} /></label>;
   return <section className={styles.budget} aria-labelledby="transport-budget-title">
-    <h2 id="transport-budget-title">Compare the whole-party cost</h2>
+    <h2 id="transport-budget-title" tabIndex={-1} className={jumpStyles.target}>Compare the whole-party cost</h2>
     <p>Enter quotes you have checked. Use the same currency for every amount and include every vehicle your party needs. Extras mean admissions, waiting charges or other costs missing from each quote.</p>
     <div className={styles.controls}>
       <label>People in your party<input type="number" inputMode="numeric" min="1" max="30" step="1" value={quote.passengers} onChange={event => setQuote({ ...quote, passengers: event.target.value })} /></label>

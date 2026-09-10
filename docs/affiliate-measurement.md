@@ -22,6 +22,10 @@ Roatán selection reserves up to two beach and two private culture/tasting match
 
 ## Read results
 
+Production persistence was confirmed on 2026-09-10 from the owner's Netlify Blobs screenshots. The operator test event is `2026-09-10/42bdb7ce-45f7-4fa5-8515-26c01f5d9626` (Cozumel taxi guide, product `22191P1`, campaign `pdg-cozumel-taxi-rates`, placement `cozumel-driver-options`). Exclude this one known test click from business analysis; the export script includes it unless adjusted during analysis. This confirms click storage, not a booking or commission.
+
+The Cozumel cost-tool entry sits after its quick answer; the Roatán booking link is an inline note at the end of its opening terminal briefing. These purpose-specific entries are ordinary same-page navigation and are not counted as outbound affiliate clicks. Their targets are static comparison/checklist headings, so they remain available when Viator has no matching products. Existing card placement tracking is unchanged; it does not reveal whether a visitor first used a shortcut. These presentation changes do not change article headings, source copy, URLs, metadata, structured data or reviewed dates.
+
 Browse individual records in the authenticated Netlify Blobs UI. For an aggregate CSV, set `NETLIFY_SITE_ID` (Netlify Project ID) and `NETLIFY_AUTH_TOKEN` in a local terminal, then run:
 
 ```sh
