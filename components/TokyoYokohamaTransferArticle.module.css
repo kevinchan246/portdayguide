@@ -1,0 +1,44 @@
+.guide { min-width: 0; color: #254b5c; font-size: 17px; line-height: 1.75; }
+.guide > section, .guide > aside { margin: 54px 0; }
+.guide > section:first-child { margin-top: 0; }
+.guide h2 { margin: 0 0 18px; color: #082d4c; font-size: clamp(24px, 3vw, 32px); line-height: 1.25; letter-spacing: -.025em; scroll-margin-top: 24px; }
+.guide h3 { margin: 0 0 8px; color: #082d4c; font-size: 21px; line-height: 1.35; }
+.guide p { margin: 14px 0; }
+.guide a { text-decoration: underline; text-underline-offset: 3px; }
+.guide a:focus-visible, .guide summary:focus-visible, .tableWrap:focus-visible { outline: 3px solid #087e85; outline-offset: 4px; }
+.answer { border-left: 4px solid #087e85; padding-left: 24px; }
+.answer > p:first-of-type { color: #173f52; font-size: 19px; }
+.guide .scope, .guide .sourceNote { font-size: 14px; line-height: 1.7; }
+.tableWrap { overflow-x: auto; border: 1px solid #d5e2e4; border-radius: 12px; }
+.tableWrap table { width: 100%; border-collapse: collapse; min-width: 610px; text-align: left; }
+.tableWrap caption { padding: 16px; text-align: left; font-weight: 700; background: #f1f6f7; }
+.tableWrap th, .tableWrap td { padding: 18px 16px; border-top: 1px solid #d5e2e4; vertical-align: top; font-size: 15px; }
+.tableWrap thead { background: #e8f1f2; }
+.tableWrap small { font-weight: 400; }
+.routes { list-style: none; padding: 0; margin: 28px 0; border-top: 2px solid #087e85; }
+.routes > li { display: grid; grid-template-columns: 155px minmax(0, 1fr); column-gap: 28px; padding: 24px 0; border-bottom: 1px solid #d5e2e4; }
+.routes h3 { grid-row: span 2; }
+.routes p { margin: 0; }
+.routes p + p { margin-top: 8px; font-size: 15px; }
+.route { font-weight: 700; color: #075f65; }
+.daikoku { padding: 24px; border: 1px solid #d9ded3; background: #f5f5ed; border-radius: 10px; }
+.choices { margin: 24px 0; }
+.choices > div { display: grid; grid-template-columns: 175px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-bottom: 1px solid #d5e2e4; }
+.choices dt { font-weight: 750; color: #075f65; }
+.choices dd { margin: 0; }
+.guide :global(.intent-booking) { font-size: initial; }
+.guide :global(.intent-viator-card) { text-decoration: none; }
+.guide :global(.intent-viator-card) h3 { font-size: .77rem; }
+.arrivalPlan { padding-left: 26px; }
+.arrivalPlan li + li { margin-top: 16px; }
+.faq details { border-bottom: 1px solid #d5e2e4; }
+.faq summary { padding: 18px 0; cursor: pointer; font-weight: 700; color: #082d4c; }
+.sources { padding-top: 30px; border-top: 1px solid #d5e2e4; font-size: 14px; }
+.sources li { margin: 12px 0; }
+.sources span { display: block; }
+.related > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.related > div > a { overflow: hidden; border: 1px solid #d5e2e4; border-radius: 12px; text-decoration: none; background: #fff; }
+.related :global(.port-scenic-photo) { margin: 0; width: 100%; height: 190px; border-radius: 0; }
+.related a > div { padding: 20px; }
+.related p { margin-bottom: 0; font-size: 15px; }
+@media (max-width: 640px) { .guide { font-size: 16px; } .answer { padding-left: 16px; } .routes > li, .choices > div { grid-template-columns: 1fr; gap: 10px; } .routes h3 { grid-row: auto; } .related > div { grid-template-columns: 1fr; } .daikoku { padding: 20px; } }
