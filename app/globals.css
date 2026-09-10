@@ -33,9 +33,10 @@ nav a { position: relative; }
 nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: currentColor; transition: right .2s ease; }
 nav a:hover::after { right: 0; }
 .header-cta { justify-self: end; padding: 14px 23px; border: 2px solid var(--blue); border-radius: 13px; color: var(--blue); font-weight: 800; transition: .2s ease; }
-.header-cta:hover { color: white; background: var(--blue); }
+.header-cta:hover, .header-cta:focus-visible { color: white; background: var(--blue); }
 .menu-toggle { display: none; }
-.simple-header > a:last-child { justify-self: end; font-weight: 750; color: var(--blue); }
+.simple-header > a:last-child { justify-self: end; font-weight: 750; }
+.simple-header > a:last-child:not(.header-cta) { color: var(--blue); }
 
 .commercial-hero { min-height: 560px; display: grid; place-items: center; overflow: hidden; padding: 124px 24px 62px; background: radial-gradient(circle at 50% 8%,#e4f8f5 0,transparent 38%), var(--paper); text-align: center; }
 .commercial-hero-copy { z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; width: min(900px,100%); }
