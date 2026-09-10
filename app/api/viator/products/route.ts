@@ -1,6 +1,7 @@
 import { profilesBySlug, type PortSlug } from "@/lib/shorepath";
 import { portIntentGuides, type PortIntentGuide } from "@/lib/port-intent-guides";
 import { selectRoatanProducts } from "@/lib/roatan-products";
+import { isCozumelDriverOption } from "@/lib/cozumel-transport";
 import type { AlaskaViatorProductCard, AlaskaViatorProductsPayload, FeaturedViatorProductCard, FeaturedViatorProductsPayload, ViatorHighlightRecommendation, ViatorPricingPackageType, ViatorProductCard, ViatorProductsPayload } from "@/lib/viator";
 
 const PRODUCTION_API_ROOT = "https://api.viator.com/partner";
@@ -378,6 +379,7 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const excludeTerms = (guide.viator.excludeTerms || []).map(normalize);
   const urlTerms = (guide.viator.urlTerms || []).map(normalize);
   const intentRelevance = (product: ViatorProductCard) => {
+    if (guide.sourcePortSlug === "cozumel" && guide.topic === "taxi-rates" && !isCozumelDriverOption(product)) return null;
     const title = normalize(product.title);
     const description = normalize(product.description);
     const productUrl = normalize(product.productUrl);

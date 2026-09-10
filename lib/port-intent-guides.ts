@@ -2,7 +2,7 @@ export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
   topic: string;
-  template?: "standard" | "yokohama-terminal-editorial" | "beach-transfer";
+  template?: "standard" | "yokohama-terminal-editorial" | "beach-transfer" | "cozumel-taxi";
   eyebrow: string;
   title: string;
   seoTitle: string;
@@ -458,13 +458,16 @@ export const portIntentGuides: PortIntentGuide[] = [
     sourcePortSlug: "cozumel",
     urlPortSlug: "cozumel",
     topic: "taxi-rates",
+    template: "cozumel-taxi",
     eyebrow: "Cozumel ground-transport decision",
     title: "Cozumel Taxi Rates From Each Cruise Terminal",
     seoTitle: "Cozumel Taxi Rates From Cruise Ports: 2026 Guide",
-    description: "Understand Cozumel cruise-port taxi rates by terminal and destination, including per-vehicle pricing, posted fare boards, group surcharges, and planning ranges.",
+    description: "Compare Cozumel taxi fares by cruise pier and party size, calculate your round-trip group budget, and decide when a private driver is worth booking.",
     lede: "Cozumel taxis do not use meters for cruise-port trips. Fares are organized by origin, destination zone, and group size, which is why a price copied from another pier or another passenger count can be wrong.",
-    quickAnswer: "Check the posted board at your own terminal and agree on the total before entering. Current local references describe cruise-pier fares as covering up to four passengers, with higher charges for five to eight. A useful planning baseline from International Pier or Puerta Maya is about US$8 to downtown, $12 to Chankanaab, $15–17 to several southern beach clubs, and $35 to Punta Sur; posted same-day rates control and Punta Langosta can differ.",
-    reviewed: "July 2026",
+    quickAnswerHeading: "How much should your group budget for Cozumel taxis?",
+    quickAnswer: "Confirm the fare at your own pier for your destination and full party, then add a separately checked return fare and any admissions. The published reference below covers up to four passengers from International Pier or Puerta Maya; it is not a verified September 2026 tariff. Compare a private driver only after matching the group size, route, included time and extras.",
+    reviewed: "September 2026",
+    modified: "2026-09-09",
     facts: [
       { label: "Meter", value: "No; cruise fares use posted destination pricing" },
       { label: "Base group", value: "Commonly up to 4 passengers" },
@@ -524,14 +527,16 @@ export const portIntentGuides: PortIntentGuide[] = [
     ],
     decision: "Use taxis for one clear destination and a simple return. For a family visiting multiple zones, a remote park, or an east-island loop, compare the total taxi budget with a driver-led option that states the terminal and return plan.",
     viator: {
-      heading: "When a driver-led Cozumel tour costs less friction",
+      heading: "Compare private drivers and guided island outings",
       copy: "These live private and small-group options are alternatives to stacking several taxis. Compare the official price unit—per group or per person—with your full round-trip taxi budget.",
       query: "Cozumel private island tour cruise port pickup",
+      searchQueries: ["Cozumel private driver customizable island tour cruise port pickup", "Cozumel private chauffeur driver guide island tour"],
       campaign: "pdg-cozumel-taxi-rates",
     },
     sources: [
       { label: "EverythingCozumel taxi table", url: "https://everythingcozumel.com/taxis-city/", note: "Published Taxi Union schedule, passenger-count rules, and pier-origin table." },
-      { label: "2026 Cozumel taxi guide", url: "https://jetskicozumel.com/taxi-in-cozumel-mexico/", note: "Current planning ranges and zone-based, no-meter explanation." },
+      { label: "Puerta Maya taxi information", url: "https://www.puertamayaport.com/taxi-and-rental-car-information/", note: "Official terminal taxi contact; this page does not publish current fares." },
+      { label: "Private island tour inclusions", url: "https://cozumelcruiseexcursions.com/cozumel/cozumel-private-island-tours/", note: "Seller example of passenger bands, reserved hours, driver/guide and excluded admissions; individual Viator listings have their own terms." },
       { label: "PortdayGuide terminal comparison", url: "/ports/cozumel/which-cruise-terminal", note: "How to identify the correct fare origin and pickup gate." },
     ],
   },

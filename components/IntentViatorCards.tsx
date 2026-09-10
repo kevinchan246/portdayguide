@@ -44,7 +44,7 @@ export function IntentViatorCards({ portSlug, topic, portName, heading }: { port
     ? groups.map(group => {
       const products = data.products.filter(product => roatanProductGroup(product) === group.key);
       return products.length ? <div className="intent-product-group" key={group.key}><h3>{group.heading}</h3><p>{group.copy}</p>{cardGrid(products, `roatan-${group.key}`)}</div> : null;
-    }) : cardGrid(data.products))
+    }) : cardGrid(data.products, portSlug === "cozumel" && topic === "taxi-rates" ? "cozumel-driver-options" : "intent-products"))
     : <div className="intent-viator-grid" aria-label={`Loading relevant ${portName} excursions`}>{[0, 1, 2].map((item) => <div className="viator-card-skeleton" key={item}><span /><div><i /><i /><i /></div></div>)}</div>;
 
   return <section className="intent-booking" aria-labelledby="intent-booking-title"><div className="section-heading compact"><p className="eyebrow"><span /> Live booking options</p><h2 id="intent-booking-title">{heading}</h2></div><p className="affiliate-notice"><b>Affiliate disclosure:</b> PortdayGuide may earn a commission if you book through these sponsored links, at no extra cost to you. Viator supplies the live price, unit, rating, availability, and booking terms.</p>{cards}<p className="booking-check">Check the exact meeting point, terminal, duration, accessibility, cancellation terms, and return timing on Viator before booking.</p></section>;

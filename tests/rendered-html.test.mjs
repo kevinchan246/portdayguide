@@ -646,6 +646,25 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
   assert.match(sevenMileBeach, /"dateModified":"2026-09-06"/i);
 });
 
+test("Cozumel taxi guide preserves fare references and distinguishes them from a whole-party quote", async () => {
+  const html = await render("/ports/cozumel/taxi-rates");
+  assert.match(html, /data-taxi-article="whole-party-quote"/);
+  assert.match(html, /<caption>Published reference: one way from International Pier or Puerta Maya, up to four passengers, USD/);
+  assert.match(html, /not verified these amounts against a September 2026 terminal fare board/);
+  assert.match(html, /About US\$8/);
+  assert.match(html, /About US\$35/);
+  assert.match(html, /id="transport-budget-title"/);
+  assert.match(html, /Outward fare — whole party/);
+  assert.match(html, /Changing the currency clears the amounts/);
+  assert.match(html, /Enter both fares and extras/);
+  assert.equal((html.match(/id="intent-booking-title"/g) || []).length, 1);
+  assert.ok(html.indexOf('id="transport-budget-title"') < html.indexOf('id="intent-booking-title"'));
+  assert.match(html, /"dateModified":"2026-09-09"/);
+  assert.doesNotMatch(html, /A cruise-safe sequence/);
+  const standard = await render("/ports/cozumel/which-cruise-terminal");
+  assert.doesNotMatch(standard, /data-taxi-article|id="transport-budget-title"/);
+});
+
 test("gives the beach transfer guides distinct bodies and one contextual booking module", async () => {
   const cases = [
     ["/ports/roatan/west-bay-beach-from-cruise-port", "west-bay-terminal-briefing", "What should be written in a West Bay booking?", "How much return time should you keep from West Bay?"],

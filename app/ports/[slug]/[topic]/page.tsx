@@ -6,6 +6,7 @@ import { PortDayFit } from "@/components/PortDayFit";
 import { PortHeroImage } from "@/components/PortHeroImage";
 import { YokohamaTerminalArticle } from "@/components/YokohamaTerminalArticle";
 import { BeachTransferArticle } from "@/components/BeachTransferArticle";
+import { CozumelTaxiArticle } from "@/components/CozumelTaxiArticle";
 import { portPhotos, portPhotoUrl } from "@/lib/port-photos";
 import { intentGuide, intentGuidePath, intentGuidesForPort, portIntentGuides } from "@/lib/port-intent-guides";
 import { portPath, siteUrl } from "@/lib/seo";
@@ -98,7 +99,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
 
         <PortDayFit fit={guide.fit} />
 
-        {guide.template === "beach-transfer" ? <BeachTransferArticle guide={guide} /> : <>
+        {guide.template === "beach-transfer" ? <BeachTransferArticle guide={guide} /> : guide.template === "cozumel-taxi" ? <CozumelTaxiArticle guide={guide} /> : <>
         {guide.sections.map((section) => <section className="intent-copy-section" key={section.heading}><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
 
         {guide.comparison && <section className="intent-comparison"><h2>{guide.comparison.heading}</h2><div className="intent-table-wrap"><table><thead><tr>{guide.comparison.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>{guide.comparison.rows.map((row) => <tr key={row.join("-")}>{row.map((cell, index) => index === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></section>}
