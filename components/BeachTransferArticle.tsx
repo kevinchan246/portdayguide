@@ -3,6 +3,7 @@ import type { PortIntentGuide } from "@/lib/port-intent-guides";
 import { IntentViatorCards } from "./IntentViatorCards";
 import { PortEditorialPhotos } from "./PortEditorialPhotos";
 import styles from "./PortLocalEditorial.module.css";
+import jumpStyles from "./IntentBookingLinks.module.css";
 
 function Copy({ section }: { section: PortIntentGuide["sections"][number] }) {
   return <section className="intent-copy-section"><h2>{section.heading}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}{section.bullets && <ul>{section.bullets.map(b => <li key={b}>{b}</li>)}</ul>}</section>;
@@ -23,7 +24,7 @@ export function BeachTransferArticle({ guide }: { guide: PortIntentGuide }) {
     <Copy section={guide.sections[0]} />
     <Copy section={guide.sections[1]} />
     <section className="intent-copy-section" data-booking-checklist="west-bay">
-      <h2>What should be written in a West Bay booking?</h2>
+      <h2 id="west-bay-booking-checks" tabIndex={-1} className={jumpStyles.target}>What should be written in a West Bay booking?</h2>
       <p>Compare the complete beach day, not just the transfer price. A low fare can become a different purchase once a chair, facilities and the journey back are added. Before choosing a taxi, retained driver or resort package, get these details in the confirmation:</p>
       <ul>
         <li><strong>One named beach venue:</strong> the exact resort or access point, rather than only “West Bay” or “Tabyana.”</li>
