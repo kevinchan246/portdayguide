@@ -43,7 +43,6 @@ export function PlanView({ plan, shared = false }: { plan: CruisePlan; shared?: 
 
               <div className="booking-column">
                 <div className="booking-title"><div><p className="card-kicker">BOOKABLE MATCHES</p><h4>Compare live options</h4></div><span>via Viator</span></div>
-                <p className="affiliate-notice"><b>Affiliate disclosure:</b> Some booking links may earn PortdayGuide a commission at no extra cost to you. Prices, availability, pickup, duration, cancellation, and ship-return suitability must be verified on Viator.</p>
                 {day.date && <p className="viator-date-note"><b>Your port date:</b> {formatDate(day.date)}. Select this date on Viator after opening a tour.</p>}
                 <div className="excursion-list">
                   {day.matches.map((match, matchIndex) => (

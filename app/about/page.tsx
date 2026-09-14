@@ -55,7 +55,7 @@ export default function AboutPage() {
       <p>For broader cruise travel ideas and destination trends, visit the <Link href="/blog">PortdayGuide blog</Link>.</p>
 
       <h2>Independent planning with bookable options</h2>
-      <p>PortdayGuide is not a cruise line or tour operator. The site can show live Viator shore excursions alongside independent planning ideas so travelers can compare both approaches. PortdayGuide may earn a commission when a traveler books through an eligible affiliate link, at no extra cost to the traveler. Read the full <Link href="/disclosure">affiliate disclosure</Link> for details.</p>
+      <p>PortdayGuide is not a cruise line or tour operator. The site can show live Viator shore excursions alongside independent planning ideas so travelers can compare both approaches.</p>
 
       <h2>Always confirm the details for your sailing</h2>
       <p>Port operations, berth assignments, tender procedures, opening hours, prices, weather, traffic, and tour availability can change. Before leaving the ship or booking an excursion, confirm the current terminal, meeting point, duration, accessibility, cancellation terms, and return arrangement with the cruise line and provider.</p>
@@ -63,6 +63,6 @@ export default function AboutPage() {
 
       <div className="planner-explainer-links"><Link href="/ports">Browse cruise port guides →</Link><Link href="/planner">Build a free port-day plan →</Link></div>
     </article>
-    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/disclosure">Affiliate disclosure</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide.</small></footer>
+    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide.</small></footer>
   </main>;
 }

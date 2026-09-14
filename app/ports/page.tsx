@@ -29,6 +29,6 @@ export default async function PortsDirectoryPage({ searchParams }: { searchParam
       <div className="directory-intent-grid">{portIntentGuides.map((guide) => <Link href={intentGuidePath(guide)} key={`${guide.sourcePortSlug}-${guide.topic}`}><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>Read decision guide →</b></Link>)}</div>
     </section>
 
-    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><p>Return-aware cruise planning with bookable shore options.</p><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/disclosure">Affiliate disclosure</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify all current port and cruise-line details independently.</small></footer>
+    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><p>Return-aware cruise planning with bookable shore options.</p><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify all current port and cruise-line details independently.</small></footer>
   </main>;
 }

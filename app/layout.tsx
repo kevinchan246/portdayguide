@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { siteUrl } from "@/lib/seo";
 import { AffiliateClickTracker } from "@/components/AffiliateClickTracker";
+import { FooterAffiliateDisclosure } from "@/components/FooterAffiliateDisclosure";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -66,6 +67,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <FooterAffiliateDisclosure />
         <AffiliateClickTracker />
       </body>
     </html>

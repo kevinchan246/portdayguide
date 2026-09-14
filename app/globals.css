@@ -107,7 +107,6 @@ h1 { margin: 0; color: #09274b; font-size: clamp(2.35rem,3.2vw,3.35rem); line-he
 .discovery-card > div:last-child { display: grid; margin-top: 24px; }
 .discovery-card a { display: grid; place-items: center; min-height: 43px; padding: 8px; border: 1px solid #c9dcdf; border-radius: 10px; color: #31566a; font-size: .68rem; font-weight: 820; text-align: center; }
 .discovery-card a:last-child { border-color: var(--blue); color: var(--blue); }
-.affiliate-inline { margin: 16px 0 0; color: #71858e; font-size: .68rem; line-height: 1.5; text-align: center; }
 .latest-guides { padding-top: 82px; }
 .latest-guide-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
 .latest-guide-card { overflow: hidden; border: 1px solid #d7e5e8; border-radius: 18px; background: white; box-shadow: 0 10px 28px rgba(8,45,76,.05); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
@@ -136,8 +135,6 @@ h1 { margin: 0; color: #09274b; font-size: clamp(2.35rem,3.2vw,3.35rem); line-he
 .home-viator-deals .section-heading { margin-bottom: 34px; }
 .home-viator-deals .section-heading h2 { color: white; }
 .home-viator-deals .section-heading > p:last-child { color: #b8ccd4; }
-.home-viator-deals .affiliate-inline { color: #9fb8c2; }
-.home-viator-deals .affiliate-inline a { color: white; text-decoration: underline; text-underline-offset: 3px; }
 .featured-value-badge { position: absolute; top: 10px; left: 10px; padding: 7px 9px; border-radius: 7px; background: #e8fff6; color: #087451; font-size: .62rem; font-weight: 880; }
 .featured-port-link { display: block; margin-bottom: 8px; color: var(--teal); font-size: .62rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .featured-deals-fallback { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px; border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: rgba(255,255,255,.06); }
@@ -257,8 +254,6 @@ h1 { margin: 0; color: #09274b; font-size: clamp(2.35rem,3.2vw,3.35rem); line-he
 .booking-title { display: flex; align-items: start; justify-content: space-between; gap: 15px; }
 .booking-title h4 { margin-top: 5px; }
 .booking-title > span { padding: 7px 9px; border-radius: 999px; background: var(--navy); color: white; font-size: .58rem; font-weight: 800; }
-.affiliate-notice { margin: 0 0 15px; padding: 10px 12px; border-radius: 9px; background: #eef4f4; color: #5d747e; font-size: .62rem; line-height: 1.45; }
-.affiliate-notice.light { margin-bottom: 25px; background: rgba(255,255,255,.08); color: #bad0d8; }
 .viator-date-note { margin: -4px 0 14px; padding: 9px 11px; border-left: 3px solid var(--blue); background: #edf2ff; color: #465f79; font-size: .65rem; line-height: 1.45; }
 .excursion-list { display: grid; gap: 9px; }
 .excursion-card { padding: 16px; border: 1px solid #d6e4e6; border-radius: 13px; background: white; }
@@ -358,6 +353,9 @@ h1 { margin: 0; color: #09274b; font-size: clamp(2.35rem,3.2vw,3.35rem); line-he
 .final-cta { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 85px max(24px,calc((100vw - 1180px)/2)); background: linear-gradient(125deg,#daf4ee,#f7fffc); }
 .final-cta h2 { max-width: 720px; margin: 0; color: #09274b; font-size: clamp(2rem,3.2vw,3.15rem); line-height: 1.06; letter-spacing: -.045em; }
 footer { display: grid; grid-template-columns: 1fr auto; gap: 15px 35px; align-items: center; padding: 50px max(24px,4.4vw); border-top: 1px solid #d8e5e7; background: #f5f9f8; }
+.site-affiliate-disclosure { padding: 0 max(24px,4.4vw) 24px; background: #f5f9f8; color: #617987; }
+.site-affiliate-disclosure small { display: block; font-size: .75rem; line-height: 1.5; }
+.site-affiliate-disclosure a { text-decoration: underline; text-underline-offset: 2px; }
 footer > p { margin: 0; color: #617987; }
 footer > div { grid-column: 2; grid-row: 1/3; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 20px; color: #35566b; font-size: .75rem; font-weight: 700; }
 footer > small { grid-column: 1/3; margin-top: 25px; padding-top: 20px; border-top: 1px solid #d8e5e7; color: #7d9099; font-size: .64rem; line-height: 1.5; }
@@ -470,7 +468,6 @@ footer > small { grid-column: 1/3; margin-top: 25px; padding-top: 20px; border-t
 .native-placement a { flex: 0 0 auto; color: var(--blue-dark); font-size: .78rem; font-weight: 850; }
 .native-link { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 15px; border: 1px solid #83cfc3; border-radius: 10px; background: white; }
 .top-things { padding-top: 55px; }
-.combined-disclosure { max-width: 820px; margin: -8px 0 25px; border: 1px solid #d9e5e7; background: #f5f9f8; }
 .activity-excursion-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
 .activity-excursion-card { min-width: 0; overflow: hidden; border: 1px solid #d3e2e4; border-radius: 20px; background: white; box-shadow: 0 11px 32px rgba(8,45,76,.055); }
 .activity-editorial { padding: 25px 26px 23px; }
@@ -704,8 +701,8 @@ footer > small { grid-column: 1/3; margin-top: 25px; padding-top: 20px; border-t
 .intent-booking { margin: 84px 0; padding: 48px; border-radius: 26px; background: #072b4e; }
 .intent-booking .section-heading { margin-bottom: 22px; }
 .intent-booking .section-heading h2 { color: white; }
-.intent-booking .affiliate-notice { margin: 0 0 25px; background: rgba(255,255,255,.08); color: #b9ced8; }
 .intent-viator-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.intent-viator-grid > .intent-viator-card:only-child { grid-column: 1 / -1; }
 .intent-product-group + .intent-product-group { margin-top: 28px; }
 .intent-product-group > h3 { margin: 0 0 8px; font-size: 1rem; color: white; }
 .intent-product-group > p { margin: 0 0 16px; color: #d6e5e9; font-size: .8rem; line-height: 1.6; }
@@ -1166,6 +1163,7 @@ footer > small { grid-column: 1/3; margin-top: 25px; padding-top: 20px; border-t
 @media print {
   .site-header, .simple-header, .commercial-hero, .proof-ribbon, .planner-section, .results-toolbar, .action-status, .guides-section, .how-section, .saved-section, .final-cta, footer, .share-intro { display: none !important; }
   body, .results-section, .shared-plan-wrap { background: white !important; }
+  .site-affiliate-disclosure { padding: 20px 0 0; color: #000; background: white; }
   .results-section, .shared-plan-wrap { padding: 0; }
   .plan-overview { color: var(--ink); background: white; border: 1px solid var(--line); }
   .plan-overview p, .plan-score span { color: var(--muted); }
