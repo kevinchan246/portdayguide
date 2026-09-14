@@ -22,7 +22,7 @@ Roatán selection reserves up to two beach and two private culture/tasting match
 
 ## Read results
 
-Production persistence was confirmed on 2026-09-10 from the owner's Netlify Blobs screenshots. The operator test event is `2026-09-10/42bdb7ce-45f7-4fa5-8515-26c01f5d9626` (Cozumel taxi guide, product `22191P1`, campaign `pdg-cozumel-taxi-rates`, placement `cozumel-driver-options`). Exclude this one known test click from business analysis; the export script includes it unless adjusted during analysis. This confirms click storage, not a booking or commission.
+Production persistence was confirmed on 2026-09-10 from the owner's Netlify Blobs screenshots. The operator test event is `2026-09-10/42bdb7ce-45f7-4fa5-8515-26c01f5d9626` (Cozumel taxi guide, product `22191P1`, campaign `pdg-cozumel-taxi-rates`, placement `cozumel-driver-options`). Exclude this one known test click from business analysis; the export script now excludes this exact key before aggregation. This confirms click storage, not a booking or commission.
 
 The Cozumel cost-tool entry sits after its quick answer; the Roatán booking link is an inline note at the end of its opening terminal briefing. These purpose-specific entries are ordinary same-page navigation and are not counted as outbound affiliate clicks. Their targets are static comparison/checklist headings, so they remain available when Viator has no matching products. Existing card placement tracking is unchanged; it does not reveal whether a visitor first used a shortcut. These presentation changes do not change article headings, source copy, URLs, metadata, structured data or reviewed dates.
 
@@ -37,3 +37,7 @@ The token is needed only for the operator's export, never in GitHub, browser cod
 After two weeks, use which placements receive clicks to prioritize improvements, alongside GSC page traffic and Viator confirmed/completed bookings. Impression measurement is not part of this first release, so card click-through rate is not yet available.
 
 References: [Netlify Blobs](https://docs.netlify.com/build/data-and-storage/netlify-blobs/), [Functions context and schedules](https://docs.netlify.com/build/functions/api/), [code-based rate limits](https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/).
+
+## Automated reporting
+
+See [automated operations](automated-operations.md) for the daily private report, daily public HTTP check and weekly operating process. Reports contain recorded click events, not visitors or revenue. Aggregates are private and retained for up to one year; raw click retention remains 90 days.
