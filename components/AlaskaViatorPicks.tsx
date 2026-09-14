@@ -59,7 +59,6 @@ export function AlaskaViatorPicks() {
       <p className="eyebrow"><span /> Live booking options</p>
       <h2 id="alaska-viator-title">Compare excursions at Alaska&apos;s featured cruise ports.</h2>
     </div>
-    <p className="affiliate-notice"><b>Affiliate disclosure:</b> PortdayGuide may earn a commission if you book through these sponsored links, at no extra cost to you. Viator supplies the live price, unit, rating, availability, and booking terms.</p>
     {cards}
     <p className="booking-check">Before booking, confirm the exact cruise berth or meeting point, pickup instructions, duration, accessibility, cancellation terms, and enough return time for your ship.</p>
   </section>;

@@ -100,10 +100,9 @@ export default function Home() {
       <div className="section home-viator-deals-inner">
         <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Live Viator picks</p><h2>4 best-value cruise excursions right now.</h2><p>Current options ranked by price, traveler rating, review volume, and free cancellation. Final availability and date-specific prices can change.</p></div>
         <FeaturedViatorDeals />
-        <p className="affiliate-inline">PortdayGuide may earn a commission if you book, at no extra cost to you. <Link href="/disclosure">Affiliate disclosure</Link></p>
       </div>
     </section>
 
-    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/disclosure">Affiliate disclosure</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify current ship times and booking details.</small></footer>
+    <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/planner">Planner</Link><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify current ship times and booking details.</small></footer>
   </main>;
 }

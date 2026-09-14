@@ -19,3 +19,10 @@ This is a public technical log. Business metrics and private reports belong in p
 - The first GitHub-hosted `Live site health` run completed successfully: https://github.com/kevinchan246/portdayguide/actions/runs/34805785786 . The daily schedule is now present on main.
 - ChatGPT daily anomaly checks (90 runs, starting September 14, about 10:00 America/Chicago) and weekly operating work (13 Tuesdays, starting September 15, about 09:00 America/Chicago) were created successfully and enabled. They use verified GitHub and public HTTP access; newly connected private data sources need a successful read before becoming dependencies.
 - Daily private summary code is deployed for 05:07 UTC. Its first execution and private data output remain unverified; inspect the Netlify scheduled function and `affiliate-reports-v1/latest` after it runs. GSC and Viator financial data still need verified access.
+
+## 2026-09-14 — Recommendation layout and disclosure cleanup
+
+- Owner requested full-width cards when a recommendation group has only one product, and one small affiliate notice at the bottom of every page.
+- Added a scoped single-card grid span; removed repeated content notices and footer navigation copies. RootLayout now renders one shared commission notice with the disclosure link, including planner/shared and legal pages. Printed plans retain the bottom notice.
+- Preserved booking links, attribution, source pricing, article content and URLs. Updated disclosure-page placement wording to match the interface.
+- Local lint, production build and all 65 existing tests passed. Production and responsive visual verification follow the PR checks. No affiliate links were clicked.
