@@ -69,7 +69,7 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
         </ul>
 
         <h3>From Tokyo to Yokohama cruise port</h3>
-        <p>Most visitors use rail service from Tokyo to Yokohama. Common choices include the JR Tokaido Line and the Keihin-Tohoku Line. The best station and final connection depend on where the Tokyo journey begins and whether the ship is at Osanbashi, Shinko, or Daikoku.</p>
+        <p>Most visitors use rail service from Tokyo to Yokohama. Common choices include the JR Tokaido Line and the Keihin-Tohoku Line. The best station and final connection depend on where the Tokyo journey begins and whether the ship is at Osanbashi, Shinko, or Daikoku. For embarkation from a Tokyo hotel, compare routes, luggage considerations, and pickup options in our <Link href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal">Tokyo to Yokohama Cruise Terminal guide</Link>.</p>
         <p>A taxi or private car provides a door-to-door alternative. Before booking, confirm the terminal name, pickup procedure, waiting policy, luggage allowance, and what happens if a flight or train is delayed.</p>
 
         <h3>Local transport in Yokohama</h3>
@@ -196,6 +196,10 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
 
     <section className="intent-related-parent" aria-labelledby="related-yokohama-guide">
       <div><span>Related guide</span><h2 id="related-yokohama-guide">Continue planning Yokohama port day</h2></div>
+      <Link href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal">
+        <PortScenicPhoto slug="yokohama-tokyo" name="Yokohama (Tokyo)" country="Japan" />
+        <div><span>Embarkation transport</span><h3>Tokyo to Yokohama Cruise Terminal: Train, Taxi &amp; Transfers</h3><p>Compare train connections, luggage needs, and hotel pickup for your exact Yokohama cruise terminal.</p><b>Read the Tokyo to Yokohama transfer guide →</b></div>
+      </Link>
       <Link href={hub}>
         <PortScenicPhoto slug="yokohama-tokyo" name="Yokohama (Tokyo)" country="Japan" />
         <div><span>Complete port guide</span><h3>Yokohama (Tokyo) Cruise Port Guide</h3><p>Compare Osanbashi, Shinko, and Daikoku, then plan transport, excursions, timing, and a protected return to the ship.</p><b>Open the Yokohama port guide →</b></div>

@@ -732,6 +732,40 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   assert.match(sitemap, new RegExp(`https://portdayguide\\.com${route}`));
 });
 
+test("publishes a distinct Tokyo embarkation guide with terminal-specific routes and reciprocal discovery", async () => {
+  const route = "/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal";
+  const nearby = "/ports/yokohama-tokyo/things-to-do-near-yokohama-cruise-terminal";
+  const html = await render(route);
+  const visible = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  assert.equal((visible.match(/<h1\b/g) || []).length, 1);
+  assert.match(html, /<title>Tokyo to Yokohama Cruise Terminal: Train &amp; Transfers<\/title>/);
+  assert.ok(html.includes(`<link rel="canonical" href="https://portdayguide.com${route}"`));
+  for (const text of ["How do I get from Tokyo to Yokohama Cruise Terminal?", "1-1-4 Kaigandori", "2-11-4 Shinko", "13 Daikoku-Futo", "Tokyo Station", "Shinagawa", "Shibuya", "Shinjuku", "arrive after the specified time", "boarding documentation"]) {
+    assert.ok(visible.includes(text), `missing embarkation guidance: ${text}`);
+  }
+  assert.doesNotMatch(visible, /Port Day Fit|A cruise-safe sequence|Build my Yokohama|return timing on Viator/);
+  assert.match(visible, /Tokyo hotel pickup, the exact Yokohama terminal, luggage capacity/);
+  assert.match(visible, /data-photo-source="Unsplash"/);
+  assert.match(visible, /bady abbas/);
+  assert.match(visible, /href="https:\/\/unsplash.com\/@bady\?utm_source=portdayguide&amp;utm_medium=referral"/);
+  assert.doesNotMatch(visible, /\/_next\/image|\/_vinext\/image/);
+  assert.ok(visible.includes(`href="${nearby}"`));
+  assert.match(visible, /href="\/ports\/yokohama-tokyo"/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(match => JSON.parse(match[1]));
+  assert.equal(schemas.find(schema => schema["@type"] === "Article").mainEntityOfPage, `https://portdayguide.com${route}`);
+  assert.equal(schemas.find(schema => schema["@type"] === "BreadcrumbList").itemListElement.at(-1).item, `https://portdayguide.com${route}`);
+  const faq = schemas.find(schema => schema["@type"] === "FAQPage");
+  const summaries = [...visible.matchAll(/<summary>(.*?)<\/summary>/gs)].map(match => match[1]);
+  assert.deepEqual(summaries, faq.mainEntity.map(item => item.name));
+  for (const item of faq.mainEntity) assert.ok(visible.includes(item.acceptedAnswer.text), `FAQ answer missing from rendered text: ${item.name}`);
+  for (const index of ["/ports/yokohama-tokyo", nearby, "/ports", "/ports/regions/asia"]) {
+    assert.ok((await render(index)).includes(`href="${route}"`), `missing inbound link from ${index}`);
+  }
+  for (const index of ["/sitemap.xml", "/llms.txt"]) {
+    assert.ok((await request(index).then(response => response.text())).includes(`https://portdayguide.com${route}`), `missing discovery entry: ${index}`);
+  }
+});
+
 test("uses crawlable, stable sources on the Cozumel terminal guide", async () => {
   const html = await render("/ports/cozumel/which-cruise-terminal");
   assert.match(html, /href="https:\/\/www\.puertamayaport\.com\/"/i);

@@ -2,6 +2,7 @@ import { profilesBySlug, type PortSlug } from "@/lib/shorepath";
 import { portIntentGuides, type PortIntentGuide } from "@/lib/port-intent-guides";
 import { selectRoatanProducts } from "@/lib/roatan-products";
 import { isCozumelDriverOption } from "@/lib/cozumel-transport";
+import { isTokyoToYokohamaPortTransfer } from "@/lib/tokyo-yokohama-transfer";
 import type { AlaskaViatorProductCard, AlaskaViatorProductsPayload, FeaturedViatorProductCard, FeaturedViatorProductsPayload, ViatorHighlightRecommendation, ViatorPricingPackageType, ViatorProductCard, ViatorProductsPayload } from "@/lib/viator";
 
 const PRODUCTION_API_ROOT = "https://api.viator.com/partner";
@@ -369,8 +370,14 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const destinations = await getDestinations(apiRoot, apiKey);
   const destination = destinationForPort(destinations, guide.sourcePortSlug, profile.name, profile.country);
   if (!destination) return null;
-  const searchQueries = guide.viator.searchQueries?.length ? guide.viator.searchQueries : [guide.viator.query];
-  const searchResults = await Promise.allSettled(searchQueries.map((query) => searchHighlightProducts(apiRoot, apiKey, destination.destinationId, guide.viator.campaign, query)));
+  const isTokyoTransfer = guide.sourcePortSlug === "yokohama-tokyo" && guide.topic === "tokyo-to-yokohama-cruise-terminal";
+  const configuredQueries = guide.viator.searchQueries?.length ? guide.viator.searchQueries : [guide.viator.query];
+  const searchQueries = isTokyoTransfer ? configuredQueries.slice(0, 2) : configuredQueries;
+  // Hotel departures can be catalogued under Tokyo; retain one Yokohama search.
+  const departureDestination = isTokyoTransfer ? destinationForPort(destinations, "tokyo", "Tokyo", profile.country) : null;
+  const searchResults = await Promise.allSettled(searchQueries.map((query, index) => searchHighlightProducts(apiRoot, apiKey,
+    isTokyoTransfer && index === 0 && departureDestination ? departureDestination.destinationId : destination.destinationId,
+    guide.viator.campaign, query)));
   const searched = [...new Map(searchResults
     .flatMap((result) => result.status === "fulfilled" ? result.value : [])
     .map((product) => [product.productCode, product])).values()];
@@ -380,6 +387,7 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const urlTerms = (guide.viator.urlTerms || []).map(normalize);
   const intentRelevance = (product: ViatorProductCard) => {
     if (guide.sourcePortSlug === "cozumel" && guide.topic === "taxi-rates" && !isCozumelDriverOption(product)) return null;
+    if (isTokyoTransfer && !isTokyoToYokohamaPortTransfer(product)) return null;
     const title = normalize(product.title);
     const description = normalize(product.description);
     const productUrl = normalize(product.productUrl);
