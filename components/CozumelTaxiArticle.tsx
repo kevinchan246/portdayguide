@@ -11,14 +11,26 @@ function Copy({ section }: { section: PortIntentGuide["sections"][number] }) {
 
 export function CozumelTaxiArticle({ guide }: { guide: PortIntentGuide }) {
   return <div className={styles.article} data-taxi-article="whole-party-quote">
-    <Copy section={guide.sections[0]} />
     <section className="intent-copy-section">
-      <h2>Read the fare against your actual pier</h2>
+      <h2 id="cozumel-fare-references" tabIndex={-1} className={jumpStyles.target}>Taxi fares by destination and cruise pier</h2>
       <p>Punta Langosta, International Pier and Puerta Maya are different starting points. The <Link href="/ports/cozumel/which-cruise-terminal">terminal comparison</Link> helps identify yours. At the stand, name the destination and number of travelers, then ask for the total for everyone and every vehicle required.</p>
-      <p>Puerta Maya&apos;s <a href="https://www.puertamayaport.com/taxi-and-rental-car-information/" target="_blank" rel="noopener noreferrer">official taxi information</a> provides a taxi contact, but no fare table. The reference below comes from EverythingCozumel; its page shows a May 2025 update. We have not verified these amounts against a September 2026 terminal fare board.</p>
+      <p>The beach clubs below publish their own taxi guidance. These are venue estimates, not a current island-wide tariff; neither page gives a fare effective date. We checked the pages on September 21, 2026. Confirm the price at your departure stand.</p>
+      <div className={styles.table}><table>
+        <caption>Beach-club estimates: USD per taxi, one way, for 1–4 passengers.</caption>
+        <thead><tr><th scope="col">Destination</th><th scope="col">Starting point</th><th scope="col">Published estimate</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Paradise Beach</th><td>Cruise terminal not specified</td><td>About US$16</td><td><a href="https://www.paradisebeachcozumel.com/faqs" target="_blank" rel="noopener noreferrer">Paradise Beach FAQ</a></td></tr>
+          <tr><th scope="row">Nachi Cocom</th><td>Puerta Maya or International Pier</td><td>US$20</td><td><a href="https://cozumelnachicocom.com/faqs/" target="_blank" rel="noopener noreferrer">Nachi Cocom FAQ</a></td></tr>
+          <tr><th scope="row">Nachi Cocom</th><td>Punta Langosta</td><td>US$22</td><td><a href="https://cozumelnachicocom.com/faqs/" target="_blank" rel="noopener noreferrer">Nachi Cocom FAQ</a></td></tr>
+        </tbody>
+      </table></div>
+      <p>Paradise Beach says return taxis wait at the club during the day; ask about the queue before your intended departure. Nachi Cocom says its beach reservation excludes transport. <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" target="_blank" rel="noopener noreferrer">Mr. Sancho&apos;s official all-inclusive day pass</a> also excludes transportation. Add both taxi rides to those day-pass budgets.</p>
+      <h3>Older reference for other destinations</h3>
+      <p>Puerta Maya&apos;s <a href="https://www.puertamayaport.com/taxi-and-rental-car-information/" target="_blank" rel="noopener noreferrer">official taxi information</a> provides a taxi contact, but no fare table. The older reference below comes from <a href="https://everythingcozumel.com/taxis-city/" target="_blank" rel="noopener noreferrer">EverythingCozumel</a>; its page shows a May 2025 update. We have not verified these amounts against a September 2026 terminal fare board. Use this table only as historical planning context.</p>
       {guide.comparison && <div className={styles.table}><table><caption>Published reference: one way from International Pier or Puerta Maya, up to four passengers, USD. Confirm the current board.</caption><thead><tr>{guide.comparison.columns.map(text => <th scope="col" key={text}>{text}</th>)}</tr></thead><tbody>{guide.comparison.rows.map(row => <tr key={row[0]}>{row.map((text, index) => index === 0 ? <th scope="row" key={text}>{text}</th> : <td key={text}>{text}</td>)}</tr>)}</tbody></table></div>}
       <p>Do not apply that four-person reference to a party of five, assume a van has the same fare, or automatically double the outward price. Ask for the return quote separately. A beach admission or resort day pass is a separate purchase unless expressly included.</p>
     </section>
+    <Copy section={guide.sections[0]} />
     <section className="intent-copy-section">
       <h2>Which arrangement fits the day you actually want?</h2>
       <div className={styles.choices}>
