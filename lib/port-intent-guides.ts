@@ -465,9 +465,9 @@ export const portIntentGuides: PortIntentGuide[] = [
     description: "Compare Cozumel taxi fares by cruise pier and party size, calculate your round-trip group budget, and decide when a private driver is worth booking.",
     lede: "Cozumel taxis do not use meters for cruise-port trips. Fares are organized by origin, destination zone, and group size, which is why a price copied from another pier or another passenger count can be wrong.",
     quickAnswerHeading: "How much should your group budget for Cozumel taxis?",
-    quickAnswer: "Confirm the fare at your own pier for your destination and full party, then add a separately checked return fare and any admissions. The published reference below covers up to four passengers from International Pier or Puerta Maya; it is not a verified September 2026 tariff. Compare a private driver only after matching the group size, route, included time and extras.",
+    quickAnswer: "For 1–4 passengers, Paradise Beach publishes an estimate of about US$16 per taxi each way without naming a starting pier. Nachi Cocom lists US$20 from Puerta Maya or International Pier and US$22 from Punta Langosta, one way per cab. These are venue-published estimates, not verified September 2026 terminal tariffs. Confirm your pier's fare, the return ride and any admission costs before comparing a private driver.",
     reviewed: "September 2026",
-    modified: "2026-09-09",
+    modified: "2026-09-21",
     facts: [
       { label: "Meter", value: "No; cruise fares use posted destination pricing" },
       { label: "Base group", value: "Commonly up to 4 passengers" },
@@ -493,27 +493,27 @@ export const portIntentGuides: PortIntentGuide[] = [
       {
         heading: "Useful planning rates—not a substitute for the board",
         paragraphs: [
-          "EverythingCozumel's published Taxi Union table lists rides from International Pier or Puerta Maya at US$8 to downtown, $12 to Chankanaab, $15 to Paradise or San Francisco Beach, $17 to Playa Mia, Mr. Sanchos, or Nachi Cocom, $25 to Playa Palancar, and $35 to Punta Sur for up to four passengers. It says Punta Langosta fares in that table add $1, while another 2026 local guide reports broader market ranges for beach clubs and Punta Sur.",
+          "Paradise Beach's own FAQ gives about US$16 per taxi each way for 1–4 people but does not identify the starting cruise pier. Nachi Cocom's FAQ lists US$20 from Puerta Maya or International Pier and US$22 from Punta Langosta, per cab for up to four people, one way. Neither venue page states a fare effective date; confirm the current board.",
           "Those numbers are a budget tool, not a guarantee. Venue names, zones, group size, road conditions, and current union schedules can change. If the posted board differs, ask the dispatcher to confirm before entering rather than arguing from a screenshot of an old webpage.",
         ],
       },
       {
         heading: "Round-trip cost and return strategy",
         paragraphs: [
-          "A one-way fare is only half the transport budget. Ask the destination how return taxis work, whether staff call them, and how long pickup can take. For remote locations or a multi-stop island loop, a negotiated driver or bookable excursion may be more predictable than several point-to-point rides.",
+          "A one-way fare does not cover the full transport budget. Ask the destination how return taxis work, whether staff call them, and how long pickup can take. For remote locations or a multi-stop island loop, a negotiated driver or bookable excursion may be more predictable than several point-to-point rides.",
           "Keep the final stop on the terminal side of the island. Punta Sur and the east coast deserve earlier departures because the return route is longer and there are fewer fallback vehicles than in San Miguel or the southern beach-club corridor.",
         ],
         bullets: ["Do not enter before the total is agreed", "Confirm vehicle total versus per-person amount", "Ask whether USD or MXN is being quoted", "Keep small bills and avoid relying on change", "Save the exact terminal name for the return"],
       },
     ],
     comparison: {
-      heading: "Cruise-pier taxi budget baseline",
-      columns: ["Destination", "Published baseline", "Planning note"],
+      heading: "Older cruise-pier taxi reference — May 2025 source",
+      columns: ["Destination", "May 2025 reference", "Planning note"],
       rows: [
         ["San Miguel downtown", "About US$8", "Punta Langosta is already downtown; confirm your origin"],
         ["Chankanaab", "About US$12", "Admission is separate"],
-        ["Paradise / San Francisco Beach", "About US$15", "Confirm the exact club name"],
-        ["Playa Mia / Mr. Sanchos / Nachi Cocom", "About US$17", "Day pass or minimum spend is separate"],
+        ["San Francisco Beach", "About US$15", "Confirm the exact club name and current fare"],
+        ["Playa Mia / Mr. Sanchos", "About US$17", "Historical fare reference; check transport inclusions separately"],
         ["Playa Palancar", "About US$25", "Return taxi availability matters"],
         ["Punta Sur", "About US$35", "Park admission and a longer return route are separate"],
       ],
@@ -534,7 +534,10 @@ export const portIntentGuides: PortIntentGuide[] = [
       campaign: "pdg-cozumel-taxi-rates",
     },
     sources: [
-      { label: "EverythingCozumel taxi table", url: "https://everythingcozumel.com/taxis-city/", note: "Published Taxi Union schedule, passenger-count rules, and pier-origin table." },
+      { label: "Paradise Beach official FAQ", url: "https://www.paradisebeachcozumel.com/faqs", note: "Venue taxi estimate for 1–4 people and return-taxi guidance; origin pier and fare effective date are unspecified. Checked September 21, 2026." },
+      { label: "Nachi Cocom official FAQ", url: "https://cozumelnachicocom.com/faqs/", note: "Per-cab estimates by departure pier and excluded transport; fares are subject to change. Checked September 21, 2026." },
+      { label: "Mr. Sancho's official day pass", url: "https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/", note: "The venue's own all-inclusive pass excludes transportation. Checked September 21, 2026." },
+      { label: "EverythingCozumel taxi table", url: "https://everythingcozumel.com/taxis-city/", note: "May 2025 third-party reference for the remaining destinations; not a verified September 2026 fare board." },
       { label: "Puerta Maya taxi information", url: "https://www.puertamayaport.com/taxi-and-rental-car-information/", note: "Official terminal taxi contact; this page does not publish current fares." },
       { label: "Private island tour inclusions", url: "https://cozumelcruiseexcursions.com/cozumel/cozumel-private-island-tours/", note: "Seller example of passenger bands, reserved hours, driver/guide and excluded admissions; individual Viator listings have their own terms." },
       { label: "PortdayGuide terminal comparison", url: "/ports/cozumel/which-cruise-terminal", note: "How to identify the correct fare origin and pickup gate." },

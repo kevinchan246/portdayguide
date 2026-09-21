@@ -659,7 +659,7 @@ test("Cozumel taxi guide preserves fare references and distinguishes them from a
   assert.match(html, /Enter both fares and extras/);
   assert.equal((html.match(/id="intent-booking-title"/g) || []).length, 1);
   assert.ok(html.indexOf('id="transport-budget-title"') < html.indexOf('id="intent-booking-title"'));
-  assert.match(html, /"dateModified":"2026-09-09"/);
+  assert.match(html, /"dateModified":"2026-09-21"/);
   assert.doesNotMatch(html, /A cruise-safe sequence/);
   const standard = await render("/ports/cozumel/which-cruise-terminal");
   assert.doesNotMatch(standard, /data-taxi-article|id="transport-budget-title"/);

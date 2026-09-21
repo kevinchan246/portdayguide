@@ -2,6 +2,16 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-21 — Cozumel fare-source and navigation update
+
+- Started from main `2f713af842c5b7d26111f96b2b67cca43a20a2b1`. Owner authorized executing the existing-page optimization recommended from a privately reviewed acquisition snapshot. Unrelated open PR #4 remains untouched.
+- Reviewed official Paradise Beach and Nachi Cocom FAQs and Mr. Sancho's own day-pass page. Added venue-specific taxi estimates with explicit passenger count, one-way unit, origin limitations and source links; separated them from the older May 2025 third-party table. Neither venue FAQ supplies a tariff effective date, so the guide does not claim a verified current terminal tariff.
+- Removed Paradise Beach and Nachi Cocom from the combined older-price rows. Added the venues' supported return/transport-inclusion guidance and a direct fare-table anchor before the existing whole-party calculator. The calculator and private-driver matching remain unchanged. Cozumel product cards now use a driver/pickup-specific label while preserving links, attribution and pricing units.
+- Preserved article URL, title, canonical, other port articles and the single footer disclosure. Updated the article modification date for the substantive source revision.
+- GSC read access worked on September 20 but the September 21 request reports an ended trial (`payment_required`). No subscription or spending change was made; current traffic beyond the saved snapshot is unavailable. Private click and Viator financial reports remain unverified. All business counts remain private.
+- Updated weekly operating scope to allow evidence-backed improvements to existing acquisition pages while retaining Tokyo transfer monitoring and the original no-expansion/no-quota limits. Validation and deployment are recorded with this change's PR checks; do not treat an unmerged branch as production.
+- Next evidence: compare a complete post-publication traffic period and matched outbound/booking data when available. Do not infer revenue uplift from these edits or from API success.
+
 ## 2026-09-14 — Automation setup
 
 - Confirmed GitHub repository and Netlify production architecture. Main began at `b09919a3a837a1655ecb8ac53e4906587142355f`.
