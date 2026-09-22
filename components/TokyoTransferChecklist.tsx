@@ -49,22 +49,55 @@ export function TokyoTransferChecklist() {
 
   useEffect(() => {
     if (!printing) return;
+    const printMedia = window.matchMedia("print");
+    let printStarted = printMedia.matches;
+    let finished = false;
+    let suppressionTimer: number | undefined;
     const finish = () => {
+      finished = true;
+      window.clearTimeout(suppressionTimer);
       document.body.removeAttribute("data-print-tokyo-checklist");
       setPrinting(false);
     };
+    const markStarted = () => {
+      printStarted = true;
+      window.clearTimeout(suppressionTimer);
+    };
+    const mediaChanged = (event: MediaQueryListEvent) => {
+      if (event.matches) markStarted();
+    };
+    const checkSuppression = () => {
+      // Some embedded browsers silently ignore print(). Never time out a print
+      // session once beforeprint or print media confirms it actually started.
+      if (finished || printStarted) return;
+      suppressionTimer = window.setTimeout(() => {
+        if (finished || printStarted || printMedia.matches) return;
+        finish();
+        setStatus("The print dialog did not open. Try in your regular browser, or copy the checklist link.");
+      }, 1500);
+    };
     document.body.setAttribute("data-print-tokyo-checklist", "true");
+    window.addEventListener("beforeprint", markStarted, { once: true });
     window.addEventListener("afterprint", finish, { once: true });
+    printMedia.addEventListener("change", mediaChanged);
     const frame = window.requestAnimationFrame(() => {
-      try { window.print(); }
-      catch {
+      try {
+        window.print();
+        // print() may defer until load completes; allow that before checking.
+        if (document.readyState === "complete") checkSuppression();
+        else window.addEventListener("load", checkSuppression, { once: true });
+      } catch {
         finish();
         setStatus("Printing is unavailable in this browser. You can copy the checklist link below.");
       }
     });
     return () => {
       window.cancelAnimationFrame(frame);
+      window.clearTimeout(suppressionTimer);
+      window.removeEventListener("load", checkSuppression);
+      window.removeEventListener("beforeprint", markStarted);
       window.removeEventListener("afterprint", finish);
+      printMedia.removeEventListener("change", mediaChanged);
       document.body.removeAttribute("data-print-tokyo-checklist");
     };
   }, [printing]);

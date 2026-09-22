@@ -153,6 +153,45 @@ function transportChoices(profile: PortProfile): TransportChoice[] {
 }
 
 export function portInsight(profile: PortProfile): PortInsight {
+  if (profile.slug === "osaka") return {
+    mode: "Choose one city area after confirming the berth",
+    summary: "Osaka Castle, Dotonbori and Shinsekai are alternative main areas. The Osakako metro routes from Tempozan involve a city journey; reaching Dotonbori from the castle adds another journey. Kyoto requires a separate intercity plan and is not a flexible extra stop.",
+    bestFor: "One main city area: Osaka Castle, Dotonbori or Shinsekai.",
+    friction: "Terminal-to-station access, line changes and the exact tour meeting point all use time beyond the activity itself.",
+    fallback: "Shorten the outdoor plan and choose a covered stop in the same area, or remain near the confirmed terminal. Recheck opening hours and the return route.",
+    travelerThemes: [
+      "Choose the castle or one food district as the main block. Moving between them needs a separate local journey.",
+      "Tempozan routes use Osakako station; another berth can change the first and final mile. Do not assume a shuttle or tour pickup is included.",
+      "Kyoto needs its own berth-to-venue-and-back plan. A short activity in Kyoto does not account for the trip from Osaka and back.",
+    ],
+    sources: [
+      { label: "Japan Tourism Agency: Osaka port access", url: "https://www.mlit.go.jp/kankocho/cruise/detail/029/index.html" },
+      { label: "Osaka Metro: route map", url: "https://subway.osakametro.co.jp/en/guide/routemap.php" },
+    ],
+    transportChoices: [
+      {
+        icon: "↟",
+        label: "Stay near the confirmed terminal",
+        bestFor: "A shorter local plan with fewer transport changes",
+        reality: "Check the pedestrian exit and nearby options with the ship. Dotonbori and the castle are city outings; do not treat them as a walk-out terminal plan or assume a port shuttle runs there.",
+        risk: "Lowest friction",
+      },
+      {
+        icon: "↗",
+        label: "Metro or arranged city transfer",
+        bestFor: "One chosen city area",
+        reality: "For Tempozan, use the Osakako routes below or arrange a licensed taxi or private transfer. Check the whole journey, including station access, changes, the final walk and the return. A car booking must name your exact berth.",
+        risk: "Moderate friction",
+      },
+      {
+        icon: "◎",
+        label: "Prebooked city experience",
+        bestFor: "A guided visit that fits the remaining activity time",
+        reality: "Check the maximum duration, start time and meeting point. A city meeting point requires your own transport unless the listing explicitly includes the correct berth pickup. Kyoto needs a separate longer-day plan.",
+        risk: "Highest commitment",
+      },
+    ],
+  };
   const curated = curatedInsights[profile.slug];
   const [primary, secondary] = profile.highlights;
   return {
