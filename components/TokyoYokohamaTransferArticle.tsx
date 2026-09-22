@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { PortIntentGuide } from "@/lib/port-intent-guides";
 import { IntentViatorCards } from "./IntentViatorCards";
 import { PortScenicPhoto } from "./PortScenicPhoto";
+import { TokyoTransferChecklist } from "./TokyoTransferChecklist";
 import styles from "./TokyoYokohamaTransferArticle.module.css";
 
 const accessUrl = "https://osanbashi.jp/en/access/";
@@ -21,6 +22,7 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
       <h2 id="tokyo-transfer-answer">How do I get from Tokyo to Yokohama Cruise Terminal?</h2>
       <p>{guide.quickAnswer}</p>
       <p className={styles.scope}>This guide starts at a Tokyo hotel or city station and ends at your embarkation terminal. If you are arriving at Haneda or Narita, look up the airport-origin route separately before choosing a city transfer.</p>
+      <div className={styles.quickLinks}><a href="#hotel-to-port-transfers">Compare hotel-to-port transfers ↓</a><a href="#tokyo-transfer-checklist">Free embarkation checklist ↓</a></div>
     </section>
 
     <section aria-labelledby="confirm-yokohama-terminal">
@@ -60,7 +62,9 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
       <p>Minatomirai Railway states that its stations have elevators between street and platform, with some wider gates. The shortest numbered exit can differ from the accessible route. Use the <a href="https://www.mm21railway.co.jp/global/english/station/nihonodori/stationmap.html" target="_blank" rel="noopener noreferrer">Nihon-odori station map</a> when planning Osanbashi access, and ask a provider directly about any wheelchair or boarding assistance.</p>
     </section>
 
-    <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Tokyo to Yokohama" heading={guide.viator.heading} />
+    <div id="hotel-to-port-transfers" className={styles.transferOptions}>
+      <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Tokyo to Yokohama" heading={guide.viator.heading} />
+    </div>
 
     <section aria-labelledby="transfer-costs">
       <h2 id="transfer-costs">Compare the full fare before choosing</h2>
@@ -81,6 +85,8 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
       <ol className={styles.arrivalPlan}><li><strong>Confirm the destination:</strong> named terminal, address, entry documents and any sailing-specific transfer pickup.</li><li><strong>Build the complete journey:</strong> hotel checkout, station access, train waiting and changes, then the terminal walk or taxi.</li><li><strong>Allow for disruption:</strong> choose a departure that leaves room for slower luggage handling or a missed connection while respecting your arrival window.</li></ol>
       <p>Keep the cruise line&apos;s contact and the provider&apos;s pickup instructions available offline. If a train disruption or road delay threatens check-in, contact the cruise line promptly and ask about your options.</p>
     </section>
+
+    <TokyoTransferChecklist />
 
     <section className={styles.faq} aria-labelledby="tokyo-transfer-faq"><h2 id="tokyo-transfer-faq">Before you leave Tokyo</h2>{guide.faqs?.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
 

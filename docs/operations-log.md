@@ -2,6 +2,17 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-22 — Booking fit and organic acquisition rollout
+
+- Owner requested autonomous revenue optimization including acquisition, with manual Viator exports when needed. Started from main `71bf936`; unrelated PR #4 and the previous local worktree were left untouched.
+- Added Osaka-specific independent access directions from official port, metro, attraction and tourism sources. Matched excursion labels now use the maximum stated duration against the guide's editorial activity allowances; unknown/long durations and separate-city Kyoto experiences are not presented as fits for the short city examples. No pickup or return guarantee is inferred. Other port rendering retains its prior behavior.
+- Added a free Tokyo embarkation checklist to the existing guide, with official terminal references, local-only checkboxes, copied share link, isolated print/PDF layout and early navigation to the existing transfer cards. Existing article URLs and Viator campaigns remain unchanged; substantive revision dates updated.
+- Published a curated RSS 2.0 route at `/feeds/pinterest.xml` and two original 1000 x 1500 informative PNG cards for the Tokyo checklist and Cozumel whole-party calculator. Stable item identifiers, claimed-domain destinations, source tags and image/anchor checks are included. No third-party account connection or Pin publication is claimed.
+- Extended existing affiliate click events with an allowlisted current-page `source` label: pinterest, checklist or unspecified. Legacy records remain readable, Viator campaign values are preserved, and no pageview events, cookies, persistent source state or visitor identities were added. Updated the privacy notice, source-aware CSV/daily aggregation and documentation.
+- Confirmed and updated the existing operating automation to Tuesday/Friday mornings; created an acquisition preparation task for Monday/Wednesday/Friday mornings, America/Chicago, within the existing December 13 trial review boundary. The daily anomaly task remains enabled. Shared work limits and no-duplication rules are recorded in `growth-acquisition.md`.
+- Local production build and all 78 tests passed. Lint is clean after removing two unused test fixture variables. Preview, required CI and production publication must be verified against this PR's exact head; this entry alone does not establish a production rollout.
+- Remaining dependencies: the owner supplies a baseline Viator export when available; Pinterest business account/domain claim/native feed connection is not verified. Netlify project/deploy reads work, but browser access to private Blobs is at sign-in and no private report read succeeded. No private metrics, exports or credentials are included here.
+
 ## 2026-09-21 — Cozumel fare-source and navigation update
 
 - Started from main `2f713af842c5b7d26111f96b2b67cca43a20a2b1`. Owner authorized executing the existing-page optimization recommended from a privately reviewed acquisition snapshot. Unrelated open PR #4 remains untouched.

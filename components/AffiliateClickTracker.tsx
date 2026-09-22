@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { affiliateLinkEvent } from "@/lib/affiliate-events.mjs";
+import { affiliateLinkEvent, affiliateSourceFromSearch } from "@/lib/affiliate-events.mjs";
 
 // Event delegation also covers cards loaded after hydration and client-side navigation.
 export function AffiliateClickTracker() {
@@ -15,7 +15,7 @@ export function AffiliateClickTracker() {
       const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[rel~="sponsored"]') : null;
       if (!link) return;
       const card = link.closest<HTMLElement>("[data-affiliate-placement]");
-      const payload = affiliateLinkEvent(link.href, window.location.pathname.replace(/\/$/, "") || "/", card?.dataset.affiliatePlacement || "other-link", card?.dataset.affiliateProduct);
+      const payload = affiliateLinkEvent(link.href, window.location.pathname.replace(/\/$/, "") || "/", card?.dataset.affiliatePlacement || "other-link", card?.dataset.affiliateProduct, affiliateSourceFromSearch(window.location.search));
       if (!payload) return;
       const key = JSON.stringify(payload);
       const now = Date.now();

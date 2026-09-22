@@ -7,6 +7,9 @@
 .guide a { text-decoration: underline; text-underline-offset: 3px; }
 .guide a:focus-visible, .guide summary:focus-visible, .tableWrap:focus-visible { outline: 3px solid #087e85; outline-offset: 4px; }
 .answer { border-left: 4px solid #087e85; padding-left: 24px; }
+.quickLinks { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 20px; font-size: 14px; font-weight: 700; }
+.quickLinks a { color: #075f65; }
+.transferOptions { scroll-margin-top: 24px; }
 .answer > p:first-of-type { color: #173f52; font-size: 19px; }
 .guide .scope, .guide .sourceNote { font-size: 14px; line-height: 1.7; }
 .tableWrap { overflow-x: auto; border: 1px solid #d5e2e4; border-radius: 12px; }

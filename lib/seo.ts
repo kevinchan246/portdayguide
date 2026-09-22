@@ -86,6 +86,7 @@ export function portGuideDescription(profile: PortProfile) {
 }
 
 export function portQuickAnswer(profile: PortProfile) {
+  if (profile.slug === "osaka") return `Confirm whether your ship uses Tempozan, then choose Osaka Castle, Dotonbori or Shinsekai as your main city area. Each is a city journey, and moving between them takes additional time. The examples reserve ${profile.transfer} minutes each way for city transfers and ${profile.buffer} minutes ship-side; Kyoto needs a separate intercity plan.`;
   const access = profile.transfer <= 25
     ? "a relatively compact port day"
     : profile.transfer >= 60
@@ -127,7 +128,7 @@ export function portFaq(profile: PortProfile) {
     },
     {
       question: `What is the best thing to do in ${profile.name} on a cruise day?`,
-      answer: `${profile.highlights[0]} is the strongest first-time anchor in this guide. Treat ${profile.highlights[1]} as an alternative or flexible second block only when it fits the same route and leaves the return margin intact.`,
+      answer: profile.slug === "osaka" ? "Choose Osaka Castle for a castle-focused visit, or Dotonbori or Shinsekai for a food-focused city day. Treat these as alternative main areas; a second area requires another journey. Kyoto needs a separate longer-day plan and is not included in the Osaka city examples." : `${profile.highlights[0]} is the strongest first-time anchor in this guide. Treat ${profile.highlights[1]} as an alternative or flexible second block only when it fits the same route and leaves the return margin intact.`,
     },
     {
       question: `How early should I return to the ship in ${profile.name}?`,

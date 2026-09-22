@@ -153,6 +153,45 @@ function transportChoices(profile: PortProfile): TransportChoice[] {
 }
 
 export function portInsight(profile: PortProfile): PortInsight {
+  if (profile.slug === "osaka") return {
+    mode: "Choose one city area after confirming the berth",
+    summary: "Choose Osaka Castle, Dotonbori or Shinsekai. Combining areas adds city travel; Kyoto needs a separate intercity plan.",
+    bestFor: "One main city area: Osaka Castle, Dotonbori or Shinsekai.",
+    friction: "Station access, transfers and meeting-point travel need additional time.",
+    fallback: "Choose a covered stop nearby. Recheck opening hours and return transport.",
+    travelerThemes: [
+      "Choose the castle or one food district; moving between them requires another journey.",
+      "Tempozan routes use Osakako station. Other berths need different access; do not assume a shuttle or pickup is included.",
+      "A short Kyoto activity does not account for the intercity round trip from Osaka.",
+    ],
+    sources: [
+      { label: "Japan Tourism Agency: Osaka port access", url: "https://www.mlit.go.jp/kankocho/cruise/detail/029/index.html" },
+      { label: "Osaka Metro: route map", url: "https://subway.osakametro.co.jp/en/guide/routemap.php" },
+    ],
+    transportChoices: [
+      {
+        icon: "↟",
+        label: "Stay near the confirmed terminal",
+        bestFor: "A shorter local plan with fewer transport changes",
+        reality: "Ask the ship about pedestrian exits and nearby options. Dotonbori and the castle require city transport; a port shuttle is not assumed.",
+        risk: "Lowest friction",
+      },
+      {
+        icon: "↗",
+        label: "Metro or arranged city transfer",
+        bestFor: "One chosen city area",
+        reality: "Use the Osakako routes below or arrange a licensed taxi or private transfer. Include station access, changes and walking; confirm your berth and return arrangement.",
+        risk: "Moderate friction",
+      },
+      {
+        icon: "◎",
+        label: "Prebooked city experience",
+        bestFor: "A guided visit that fits the remaining activity time",
+        reality: "Check maximum duration, start time and meeting point. Arrange city transport unless your berth pickup is explicitly included. Plan Kyoto separately.",
+        risk: "Highest commitment",
+      },
+    ],
+  };
   const curated = curatedInsights[profile.slug];
   const [primary, secondary] = profile.highlights;
   return {

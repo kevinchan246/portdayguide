@@ -3,14 +3,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { runInNewContext } from "node:vm";
 import ts from "typescript";
-import { affiliateLinkEvent, validateAffiliateEvent, summarizeAffiliateEvents, AFFILIATE_STORE } from "../lib/affiliate-events.mjs";
+import { affiliateLinkEvent, affiliateSourceFromSearch, validateAffiliateEvent, summarizeAffiliateEvents, AFFILIATE_STORE } from "../lib/affiliate-events.mjs";
 import { selectRoatanProducts, roatanProductGroup } from "../lib/roatan-products.ts";
 import { createHandler } from "../netlify/functions/affiliate-click.mjs";
 import { removeExpiredClicks } from "../netlify/functions/affiliate-retention.mjs";
 import { compareTransportQuotes, isCozumelDriverOption } from "../lib/cozumel-transport.ts";
 import { isTokyoToYokohamaPortTransfer } from "../lib/tokyo-yokohama-transfer.ts";
 
-const event = { type: "click", page: "/ports/roatan/west-bay-beach-from-cruise-port", product: "123P4", campaign: "pdg-roatan-west-bay-from-port", placement: "roatan-beach" };
+const event = { type: "click", page: "/ports/roatan/west-bay-beach-from-cruise-port", product: "123P4", campaign: "pdg-roatan-west-bay-from-port", placement: "roatan-beach", source: "unspecified" };
 const context = { deploy: { context: "production" } };
 const endpoint = "https://portdayguide.com/.netlify/functions/affiliate-click";
 function request(body = event, headers = {}, url = endpoint) {
@@ -32,6 +32,30 @@ test("rejects private paths, query strings and oversized dimensions; discards ex
   }
   assert.equal(validateAffiliateEvent({ ...event, product: "x".repeat(121) }), null);
   assert.deepEqual(validateAffiliateEvent({ ...event, email: "do-not-store@example.com", ip: "192.0.2.1", itinerary: "private" }), event);
+});
+
+test("source tags use only the two allowed values and never change the Viator campaign", () => {
+  const href = "https://www.viator.com/tours/Roatan/Tour/d4132-123P4?pid=P123&campaign=pdg-roatan-west-bay-from-port";
+  for (const source of ["pinterest", "checklist"]) {
+    const tag = affiliateSourceFromSearch(`?utm_source=${source}&utm_campaign=do-not-store@example.com&email=private`);
+    assert.equal(tag, source);
+    assert.deepEqual(affiliateLinkEvent(href, event.page, event.placement, undefined, tag), { ...event, source });
+  }
+  for (const search of ["", "?utm_source=someone@example.com", "?utm_source=Pinterest", "?utm_source=pinterest&utm_source=checklist", "?utm_source=pinterest&utm_source=pinterest", "?utm_medium=pinterest", `?utm_source=pinterest&extra=${"x".repeat(4096)}`, null]) {
+    assert.equal(affiliateSourceFromSearch(search), "unspecified");
+  }
+  // No previous source is retained after leaving a tagged page.
+  affiliateSourceFromSearch("?utm_source=pinterest");
+  assert.equal(affiliateSourceFromSearch(""), "unspecified");
+});
+
+test("legacy and invalid sources become unspecified without retaining submitted identifiers", () => {
+  const legacy = { ...event };
+  delete legacy.source;
+  assert.deepEqual(validateAffiliateEvent(legacy), event);
+  for (const source of ["https://example.com/private", "someone@example.com", "x".repeat(10000), ["pinterest"], { source: "pinterest" }, null]) {
+    assert.deepEqual(validateAffiliateEvent({ ...legacy, source, utm_source: "private", referrer: "https://example.com/private" }), event);
+  }
 });
 
 test("saves concurrent clicks with unique keys and only permitted fields", async () => {
@@ -75,6 +99,16 @@ test("aggregate separates placements and counts clicks rather than inventing vis
   assert.equal(rows[0].clicks, 2);
   assert.equal(rows[1].clicks, 1);
   assert.ok(rows.every(row => !("visitors" in row) && !("revenue" in row)));
+});
+
+test("aggregate groups source-tagged clicks separately and combines legacy with unspecified", () => {
+  const legacy = { ...event };
+  delete legacy.source;
+  const rows = summarizeAffiliateEvents([legacy, event, { ...event, source: "pinterest" }, { ...event, source: "checklist" }, { ...event, source: "private@example.com" }]);
+  assert.deepEqual(rows.map(({ source, clicks }) => ({ source, clicks })), [
+    { source: "unspecified", clicks: 3 }, { source: "pinterest", clicks: 1 }, { source: "checklist", clicks: 1 },
+  ]);
+  assert.ok(rows.every(row => row.campaign === event.campaign && !("visitors" in row) && !("bookings" in row)));
 });
 
 test("retention processes pagination and leaves the 90-day boundary and other keys intact", async () => {

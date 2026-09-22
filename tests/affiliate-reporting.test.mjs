@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { KNOWN_TEST_KEYS, lastCompleteDays, readClickDays, reportDates, saveDailyReport, removeExpiredReports } from "../lib/affiliate-reporting.mjs";
+import { KNOWN_TEST_KEYS, combineClickDays, lastCompleteDays, readClickDays, reportDates, saveDailyReport, removeExpiredReports } from "../lib/affiliate-reporting.mjs";
 import { createReportHandler } from "../netlify/functions/affiliate-daily-report.mjs";
 
 const event = { type: "click", page: "/ports/cozumel/taxi-rates", product: "22191P1", campaign: "pdg-cozumel-taxi-rates", placement: "cozumel-driver-options", date: "2026-09-10" };
@@ -26,6 +26,19 @@ test("exclude only the known test key, preserve other same-day clicks and pagina
   assert.equal(day.excludedTestClicks, 1);
   assert.equal(day.invalidRecords, 1);
   assert.equal(day.rows[0].clicks, 2);
+  assert.equal(day.rows[0].source, "unspecified");
+});
+
+test("combining old reports and tagged rows preserves source groups and the total click count", () => {
+  const row = { page: event.page, product: event.product, campaign: event.campaign, placement: event.placement, clicks: 2 };
+  const combined = combineClickDays([
+    { rows: [row, { ...row, source: "pinterest", clicks: 3 }] },
+    { rows: [{ ...row, source: "unspecified", clicks: 1 }, { ...row, source: "pinterest", clicks: 2 }, { ...row, source: "checklist", clicks: 1 }, { ...row, source: "someone@example.com", clicks: 1 }] },
+  ]);
+  assert.deepEqual(combined.map(({ source, clicks }) => ({ source, clicks })), [
+    { source: "pinterest", clicks: 5 }, { source: "unspecified", clicks: 4 }, { source: "checklist", clicks: 1 },
+  ]);
+  assert.equal(combined.reduce((sum, row) => sum + row.clicks, 0), 10);
 });
 
 test("retries produce deterministic archives without double counting", async () => {
@@ -41,6 +54,8 @@ test("retries produce deterministic archives without double counting", async () 
   assert.equal(first.previous7Days.length, 0);
   assert.equal(first.dataSources.completedCommission, "not_collected");
   assert.equal("revenue" in first, false);
+  assert.equal(first.schemaVersion, 2);
+  assert.match(first.sourceScope, /no cross-page attribution/);
 });
 
 test("failed or missing reads and record caps do not publish an incomplete latest report", async () => {
