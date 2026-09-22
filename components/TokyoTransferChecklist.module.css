@@ -1,0 +1,66 @@
+.checklist { scroll-margin-top: 24px; padding: 30px; border: 1px solid #c9dddc; border-radius: 14px; background: #f5faf9; }
+.heading .kicker { margin: 0 0 10px; color: #075f65; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.heading > p:last-child { max-width: 640px; }
+.toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; }
+.toolbar button { min-height: 44px; padding: 10px 17px; border: 1px solid #075f65; border-radius: 7px; background: #075f65; color: white; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.toolbar button + button { background: white; color: #075f65; }
+.toolbar button:hover { background: #05494e; color: white; }
+.toolbar button:focus-visible, .items input:focus-visible, .linkFallback input:focus-visible { outline: 3px solid #087e85; outline-offset: 4px; }
+.toolbar button:disabled { opacity: .65; cursor: wait; }
+.progress { margin-left: auto; font-size: 13px; color: #3a625e; }
+.checklist .status { margin: 8px 0; min-height: 22px; font-size: 13px; }
+.linkFallback { display: block; font-size: 14px; font-weight: 700; }
+.linkFallback input { display: block; width: 100%; padding: 10px; margin: 6px 0 18px; border: 1px solid #a7c2c0; border-radius: 6px; background: white; color: #173f52; font-size: 14px; }
+.items { list-style: none; margin: 0; padding: 0; }
+.items li { border-top: 1px solid #d6e5e2; }
+.items label { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; cursor: pointer; }
+.items input { flex: 0 0 auto; width: 20px; height: 20px; margin: 3px 0 0; accent-color: #075f65; }
+.items strong { display: block; color: #082d4c; font-size: 16px; line-height: 1.45; }
+.items label > span > span { display: block; margin-top: 5px; font-size: 14px; line-height: 1.6; }
+.checklist .sessionNote { margin: 4px 0 24px; color: #4a686a; font-size: 12px; }
+.terminals { padding: 22px; border: 1px solid #d6e5e2; border-radius: 10px; background: white; }
+.terminals h3 { margin: 0 0 16px; color: #082d4c; font-size: 19px; }
+.terminals dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
+.terminals dt { margin-bottom: 7px; color: #075f65; font-size: 15px; font-weight: 750; }
+.terminals dd { margin: 0; font-size: 13px; line-height: 1.6; }
+.terminals dd span { display: block; margin-top: 8px; color: #496974; }
+.terminals > p { margin: 16px 0 0; font-size: 12px; line-height: 1.6; }
+.sources { margin: 24px 0 0; font-size: 13px; }
+.sources strong { color: #082d4c; }
+.sources ul { display: flex; flex-wrap: wrap; column-gap: 22px; row-gap: 7px; list-style: none; margin: 8px 0 0; padding: 0; }
+.checklist .nextStep { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid #d6e5e2; font-size: 14px; }
+.printSheet { display: none; }
+@media (max-width: 640px) {
+  .checklist { padding: 22px 18px; }
+  .toolbar { align-items: stretch; gap: 10px; }
+  .toolbar button { flex: 1 1 auto; }
+  .progress { flex-basis: 100%; margin-left: 0; }
+  .terminals { padding: 18px; }
+  .terminals dl { grid-template-columns: 1fr; gap: 16px; }
+  .terminals dl > div + div { border-top: 1px solid #d6e5e2; padding-top: 14px; }
+}
+@media print {
+  :global(body[data-print-tokyo-checklist="true"]) > :not(.printSheet) { display: none !important; }
+  .printSheet { display: block !important; margin: 0; padding: 0; color: #111; background: white; font-family: Arial, sans-serif; font-size: 9pt; line-height: 1.3; }
+  .printSheet .printBrand { margin: 0 0 5pt; color: #444; font-size: 8pt; font-weight: 700; letter-spacing: 1pt; }
+  .printSheet h1 { margin: 0 0 6pt; color: #111; font-size: 22pt; line-height: 1.2; }
+  .printSheet > p { margin: 5pt 0 10pt; }
+  .writingLines { margin: 12pt 0; }
+  .writingLines p { margin: 8pt 0; font-size: 9pt; }
+  .printItems { list-style: none; margin: 12pt 0; padding: 0; }
+  .printItems li { display: flex; align-items: flex-start; gap: 8pt; margin: 9pt 0; break-inside: avoid; }
+  .printCheck { flex: 0 0 10pt; width: 10pt; height: 10pt; margin-top: 1pt; border: 1px solid #555; font-size: 9pt; line-height: 10pt; text-align: center; }
+  .printItems strong { font-size: 10pt; }
+  .printItems p { margin: 3pt 0 0; }
+  .printSheet .terminals { margin: 12pt 0; padding: 10pt; border: 1px solid #aaa; border-radius: 0; break-inside: avoid; }
+  .printSheet .terminals h3 { margin: 0 0 8pt; font-size: 11pt; color: #111; }
+  .printSheet .terminals dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10pt; }
+  .printSheet .terminals dl > div { padding: 0; border: 0; }
+  .printSheet .terminals dt { margin-bottom: 4pt; color: #111; font-size: 9pt; }
+  .printSheet .terminals dd, .printSheet .terminals > p { font-size: 8pt; line-height: 1.4; }
+  .printSheet .terminals dd span { margin-top: 4pt; color: #333; }
+  .printSheet .terminals > p { margin-top: 8pt; }
+  .printSheet .printSources, .printSheet .printReturn { font-size: 8pt; line-height: 1.4; }
+  .printSheet a { color: #111; text-decoration: underline; overflow-wrap: anywhere; }
+  .printReturn { padding-top: 7pt; border-top: 1px solid #aaa; }
+}

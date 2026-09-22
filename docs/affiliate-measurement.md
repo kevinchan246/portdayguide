@@ -41,3 +41,11 @@ References: [Netlify Blobs](https://docs.netlify.com/build/data-and-storage/netl
 ## Automated reporting
 
 See [automated operations](automated-operations.md) for the daily private report, daily public HTTP check and weekly operating process. Reports contain recorded click events, not visitors or revenue. Aggregates are private and retained for up to one year; raw click retention remains 90 days.
+
+## Acquisition source labels (September 22, 2026)
+
+Affiliate click events now include one bounded `source`: `pinterest`, `checklist`, or `unspecified`. This is derived only from recognized `utm_source` values on the page at the time of the click. Unknown or repeated source parameters become `unspecified`. No raw query string, referrer, cookie, session storage or visitor identifier is collected. Viator campaign values and booking links remain unchanged. Historical events without this field remain valid and group under `unspecified`.
+
+This can distinguish recorded affiliate-click events from labeled entry links. It cannot count acquired visitors, track a person across pages, establish a last-touch channel, prove which click caused a booking, or produce a visitor conversion rate. A reader who navigates to a clean URL loses the source label. There are no synthetic production analytics clicks for this rollout.
+
+Viator orders and commissions are supplied by the owner as manual CSV exports on request. Use Performance Trends by campaign and the Gross Bookings Report, covering matching periods. Keep source exports, booking details and revenue out of this public repository. Request only the report needed for a concrete decision; do not make recurring maintenance depend on its arrival.

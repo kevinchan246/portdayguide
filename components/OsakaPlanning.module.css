@@ -1,0 +1,22 @@
+.intro {
+  margin: 0 0 22px;
+  padding: 22px 26px;
+  border: 1px solid #c7dcde;
+  border-radius: 16px;
+  background: #edf7f5;
+  color: #284b5d;
+}
+
+.intro h3 { margin: 0 0 10px; color: var(--navy); font-size: 1.1rem; }
+.intro p { margin: 9px 0; font-size: .78rem; line-height: 1.6; }
+.sources { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 12px; font-size: .68rem; }
+.sources a { color: var(--blue-dark); text-decoration: underline; text-underline-offset: 3px; }
+.route { margin-top: 16px; color: #345b6b; font-size: .75rem; line-height: 1.6; }
+.route summary { cursor: pointer; font-weight: 800; }
+.route p { margin-top: 10px; min-height: 0; }
+.qualification { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid #799bab; background: #fff; color: #345466; font-size: .68rem; line-height: 1.55; }
+.qualification[data-status="long-call"], .qualification[data-status="separate-city"], .qualification[data-status="unconfirmed"] { border-color: #aa783e; background: #fff9ee; color: #714c27; }
+
+@media (max-width: 600px) {
+  .intro { padding: 19px; }
+}

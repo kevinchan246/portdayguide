@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { localGuideEdition } from "@/lib/local-guide-editions";
+import { localGuideEdition, portContentUpdate } from "@/lib/local-guide-editions";
 import { LocalOverview, LocalTransport, LocalItineraries, LocalTips } from "@/components/PortLocalEditorial";
 import { PortHeroImage } from "@/components/PortHeroImage";
 import { PortEditorialPhotos } from "@/components/PortEditorialPhotos";
@@ -113,6 +113,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
   const fit = marketFit(profile.region);
   const isCozumel = profile.slug === "cozumel";
   const edition = localGuideEdition(profile.slug);
+  const contentUpdate = portContentUpdate(profile.slug);
   const isCayman = profile.slug === "george-town-grand-cayman";
   const insight = portInsight(profile);
   const faq = portFaq(profile);
@@ -136,7 +137,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
     headline: isCozumel ? "Cozumel Cruise Port Guide: Terminals, Transport, Map & Top Excursions" : guideTitle(profile),
     description: portGuideDescription(profile),
     datePublished: guideUpdatedIso,
-    dateModified: edition?.modified ?? guideUpdatedIso,
+    dateModified: contentUpdate?.modified ?? guideUpdatedIso,
     mainEntityOfPage: guideUrl,
     image: portPhotoUrl(profile.slug),
     inLanguage: "en-US",
@@ -160,7 +161,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
 
     <section className="port-guide-hero"><PortHeroImage slug={profile.slug} name={profile.name} /><div className="port-guide-hero-copy"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/ports">Port guides</Link><span>/</span><Link href={regionPath(profile.region)}>{profile.region}</Link><span>/</span><span aria-current="page">{profile.name}</span></nav><p className="eyebrow"><span /> {profile.country} cruise-port guide</p><h1>{isCozumel ? "Cozumel Cruise Port Guide: Terminals, Transport, Map & Top Excursions" : `${profile.name} Cruise Port Guide`}</h1><h2>{profile.headline}</h2><p>{profile.intro}</p><div className="guide-facts"><span>{isCozumel ? <><b>120 min</b> return-to-ship buffer</> : <><b>{profile.buffer} min</b> minimum ship-side margin</>}</span><span><b>{profile.cost["$$"]}</b> typical day</span><span><b>{profile.pier}</b> possible berth</span></div></div></section>
 
-    <div className="guide-meta-bar"><span>Updated {edition?.label ?? guideUpdatedLabel}</span><span>{edition?.readMinutes ?? guideReadMinutes(profile)} min read</span><span>By <Link href="/about">PortdayGuide</Link></span></div>
+    <div className="guide-meta-bar"><span>Updated {contentUpdate?.label ?? guideUpdatedLabel}</span><span>{edition?.readMinutes ?? guideReadMinutes(profile)} min read</span><span>By <Link href="/about">PortdayGuide</Link></span></div>
     <nav className="guide-contents" aria-label="Guide sections"><a href="#overview">Overview</a>{isCozumel && <a href="#terminals">Cruise terminals</a>}{isCayman && <a href="#itineraries">Return timeline</a>}<a href="#transport">Transport</a><a href="#top-things">Things to do & excursions</a>{!isCayman && <a href="#itineraries">{edition ? "Choose your day" : "6 & 8 hour plans"}</a>}<a href="#local-tips">Local tips</a><a href="#faq">FAQ</a></nav>
 
     <section className="section port-overview" id="overview">
@@ -218,7 +219,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
       <div className="native-placement"><div><span>{fit.label}</span><p>{fit.items.join(" · ")}</p></div><ViatorDestinationLink portSlug={profile.slug} portName={profile.name} className="native-link" /></div>
     </section></>}
 
-    <section className="section top-things" id="top-things"><div className="section-heading"><p className="eyebrow"><span /> Editorial picks + live options</p><h2>Top Things to Do & Shore Excursions in {profile.name}</h2><p>{isCozumel ? "Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. Chankanaab is the strongest first-time anchor; San Miguel is a flexible add-on; Punta Sur is route-dependent; and San Gervasio is the heritage alternative." : "Choose one main direction, then compare the independent plan with a relevant current excursion. Exact place matches are labeled as recommended excursions; broader alternatives are labeled as similar experiences. When there is no credible match, the independent plan stands on its own."}</p></div>{!edition && <PortEditorialPhotos slug={profile.slug} />}<TopThingsExcursions portSlug={profile.slug} portName={profile.name} items={profile.highlights.map((highlight, index) => ({ name: highlight, note: highlightPlanningNote(profile, index), priority: index === 0 ? "Best main anchor" : index === 1 ? "Flexible second choice" : index === 2 ? "Route-dependent option" : "Alternative plan" }))} /></section>
+    <section className="section top-things" id="top-things"><div className="section-heading"><p className="eyebrow"><span /> Editorial picks + live options</p><h2>Top Things to Do & Shore Excursions in {profile.name}</h2><p>{isCozumel ? "Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. Chankanaab is the strongest first-time anchor; San Miguel is a flexible add-on; Punta Sur is route-dependent; and San Gervasio is the heritage alternative." : profile.slug === "osaka" ? "Choose one city area, then check whether the activity duration, meeting point and return plan fit your call. Kyoto is a separate-city option." : "Choose one main direction, then compare the independent plan with a relevant current excursion. Exact place matches are labeled as recommended excursions; broader alternatives are labeled as similar experiences. When there is no credible match, the independent plan stands on its own."}</p></div>{!edition && <PortEditorialPhotos slug={profile.slug} />}<TopThingsExcursions portSlug={profile.slug} portName={profile.name} items={profile.highlights.map((highlight, index) => ({ name: highlight, note: highlightPlanningNote(profile, index), priority: index === 0 ? "Best main anchor" : index === 1 ? "Flexible second choice" : index === 2 ? "Route-dependent option" : "Alternative plan" }))} /></section>
 
     {edition ? !isCayman && <LocalItineraries slug={profile.slug} /> : <>    <section className="section time-plans" id="itineraries"><div className="section-heading"><p className="eyebrow"><span /> Time-stitched itineraries</p><h2>{isCozumel ? "Cozumel port-day itineraries: 6 hours vs. 8 hours" : `${profile.name} itinerary for a 6- or 8-hour port call`}</h2><p>A 6- or 8-hour window starts when you can leave the terminal and ends at official all-aboard—not ship departure. Each version separately reserves the typical return transfer and the ship-side margin. These are planning structures, not promises about live traffic, attraction opening, or the time your ship will clear.</p></div><div className="time-plan-grid">{([6, 8] as const).map((hours) => <article key={hours}><div><span>{hours}-HOUR PORT DAY</span><b>{profile.transfer} min return · {Math.max(profile.buffer, 120 - profile.transfer)} min ship-side</b></div><ol>{itinerary(profile, hours).map((step) => <li key={`${hours}-${step.time}`}><time>{step.time}</time><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></article>)}</div><p className="return-warning"><strong>Return rule: begin the return journey at least two hours before official all-aboard, or earlier when this port’s transfer and ship-side margin require it. Add more time for tenders, traffic, weather, mobility needs, or distant pickups.</strong></p></section></>}
 

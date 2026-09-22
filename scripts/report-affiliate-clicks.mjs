@@ -9,7 +9,7 @@ if (!process.env.NETLIFY_SITE_ID || !process.env.NETLIFY_AUTH_TOKEN) {
 }
 const store = getStore({ name: AFFILIATE_STORE, siteID: process.env.NETLIFY_SITE_ID, token: process.env.NETLIFY_AUTH_TOKEN, consistency: "strong" });
 const days = await readClickDays(store, dates, { maxRecords: 50000, deadline: Date.now() + 300000 });
-const columns = ["page", "product", "campaign", "placement", "clicks"];
+const columns = ["page", "product", "campaign", "placement", "source", "clicks"];
 const quote = value => `"${String(value).replaceAll('"', '""')}"`;
 console.log(columns.join(","));
 for (const row of combineClickDays(days)) console.log(columns.map(key => quote(row[key])).join(","));

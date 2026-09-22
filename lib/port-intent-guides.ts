@@ -814,7 +814,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { question: "What time should I arrive at Yokohama Cruise Terminal?", answer: "Follow the assigned arrival window and final check-in or boarding deadline in your cruise documents, allowing for transport, luggage handling, and delays. Daikoku specifically asks passengers to arrive after the time set by their organizer. The ship’s departure time is not your terminal arrival deadline." },
     ],
     published: "2026-09-10",
-    modified: "2026-09-10",
+    modified: "2026-09-22",
   },
 ];
 

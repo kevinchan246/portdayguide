@@ -8,3 +8,9 @@ export const localGuideEditions = {
 export function localGuideEdition(slug: string) {
   return localGuideEditions[slug as keyof typeof localGuideEditions];
 }
+
+// Content revisions can update metadata without switching the page's editorial template.
+export function portContentUpdate(slug: string) {
+  if (slug === "osaka") return { modified: "2026-09-22", label: "Sep 22, 2026" };
+  return localGuideEdition(slug);
+}
