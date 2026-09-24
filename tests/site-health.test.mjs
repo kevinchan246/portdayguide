@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { PAGE_PATHS, PRODUCTION_ORIGIN, checkPage, checkProducts, checkRobots, checkSitemap, classifyStatus, inspectTarget, parseBaseUrl } from "../lib/site-health.mjs";
 
-const html = (path = "/planner", extra = "") => `<html><head><link rel="canonical" href="${PRODUCTION_ORIGIN}${path}">${extra}</head><body><h1>Plan a port day</h1></body></html>`;
+const body = "Use this practical port guide to compare terminal directions, travel time, meeting points, luggage limits, and return options before choosing your route.";
+const html = (path = "/planner", extra = "") => `<html><head><link rel="canonical" href="${PRODUCTION_ORIGIN}${path}">${extra}</head><body><h1>Plan a port day</h1><p>${body}</p><a href="/ports/yokohama-tokyo">Yokohama port guide</a></body></html>`;
 const codes = issues => issues.map(item => item.code);
 const campaign = "pdg-tokyo-to-yokohama";
 const productUrl = `https://www.viator.com/tours/Tokyo/Transfer/d334-123P1?pid=P123&campaign=${campaign}`;
@@ -14,6 +15,14 @@ test("production pages reject meta and header noindex; deploy preview noindex is
   assert.ok(codes(checkPage(html(), "/planner", { robotsHeader: "googlebot: noindex" })).includes("production_noindex"));
   assert.ok(codes(checkPage(html("/planner", '<meta name="googlebot" content="none">'), "/planner")).includes("production_noindex"));
   assert.deepEqual(checkPage(html("/planner", '<meta name="robots" content="noindex">'), "/planner", { preview: true, robotsHeader: "noindex" }), []);
+});
+
+test("production pages keep crawlable text, internal links and search snippets available", () => {
+  assert.ok(codes(checkPage(html("/planner", '<meta name="robots" content="max-snippet:0">'), "/planner")).includes("production_snippet_blocked"));
+  assert.ok(codes(checkPage(html("/planner", '<meta name="bingbot" content="nosnippet">'), "/planner")).includes("production_snippet_blocked"));
+  assert.ok(codes(checkPage(html(), "/planner", { robotsHeader: "nosnippet" })).includes("production_snippet_blocked"));
+  assert.ok(codes(checkPage(html().replace(`<p>${body}</p>`, ""), "/planner")).includes("crawlable_body_missing"));
+  assert.ok(codes(checkPage(html().replace('<a href="/ports/yokohama-tokyo">Yokohama port guide</a>', ""), "/planner")).includes("internal_link_missing"));
 });
 
 test("canonical must be absolute and point to the same production page, including on previews", () => {
@@ -50,11 +59,13 @@ test("empty inventory is a warning, malformed API data is a failure", () => {
   assert.ok(codes(checkProducts(JSON.stringify({ products: [] }))).includes("products_campaign_invalid"));
 });
 
-test("robots honors path-specific rules, Googlebot groups, allow precedence and preview exclusion", () => {
+test("robots honors path-specific rules, search crawler groups, allow precedence and preview exclusion", () => {
   const sitemap = `\nSitemap: ${PRODUCTION_ORIGIN}/sitemap.xml`;
   assert.deepEqual(checkRobots(`User-agent: *\nAllow: /\nDisallow: /api/${sitemap}`), []);
   assert.ok(codes(checkRobots(`User-agent: *\nDisallow: /${sitemap}`)).includes("robots_blocks_page"));
   assert.ok(codes(checkRobots(`User-agent: *\nAllow: /\nUser-agent: Googlebot\nDisallow: /ports/${sitemap}`)).includes("robots_blocks_page"));
+  assert.ok(codes(checkRobots(`User-agent: *\nAllow: /\nUser-agent: Bingbot\nDisallow: /ports/${sitemap}`)).includes("robots_blocks_page"));
+  assert.ok(codes(checkRobots(`User-agent: *\nAllow: /\nUser-agent: OAI-SearchBot\nDisallow: /ports/${sitemap}`)).includes("robots_blocks_page"));
   assert.ok(codes(checkRobots(`User-agent: *\nDisallow: /*cruise-terminal$${sitemap}`)).includes("robots_blocks_page"));
   assert.deepEqual(checkRobots(`User-agent: *\nDisallow: /\nAllow: /${sitemap}`), []);
   assert.deepEqual(checkRobots("User-agent: *\nDisallow: /", { preview: true }), []);
