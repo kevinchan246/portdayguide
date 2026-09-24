@@ -2,6 +2,15 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-24 — AI search health regression coverage
+
+- Reviewed current main `bb8e1f4cbddb449efd3c46e8b6a1bb14e0917824`, the operating runbooks and open PRs. Draft article PR #19 and unrelated older PR #4 were left untouched.
+- The latest GitHub-hosted `Live site health` run completed successfully on September 23: <https://github.com/kevinchan246/portdayguide/actions/runs/35898476055>. Its artifact checked at `2026-09-23T17:51:39.004Z` and passed all eight targets with no warnings: 12 general Yokohama products and one direction-matched Tokyo-to-Yokohama transfer.
+- The existing checker covered wildcard and Googlebot robots rules, production indexing directives, self-canonicals and sitemap membership. It did not detect a crawler-specific Bingbot or OAI-SearchBot block, disabled result snippets, missing crawlable body text, or a page with no internal link. These were regression-coverage gaps, not evidence that the live site was blocked or deindexed.
+- Extended the bounded GET-only checker to cover those cases. OAI-SearchBot search crawling remains separate from GPTBot training controls; no crawler policy, DNS, structured data, `llms.txt`, affiliate link, account or permission was changed.
+- The expanded production inspection at `2026-09-24T15:59:58.638Z` passed all eight targets with zero warnings or failures. Robots, sitemap, four focus pages and both product endpoints returned HTTP 200; inventory remained 12 general products and one direction-matched transfer. No sponsored link was followed and no click event was sent.
+- Lint, production build (99 routes), all 79 tests and the focused 10-test health suite passed. Exact-head required CI, Netlify preview and post-merge production deployment still determine publication status; this entry alone does not claim release.
+
 ## 2026-09-23 — Acquisition readiness review; no content expansion
 
 - Reviewed current main `d80d4ee57297588a5e64bc0eac79c1a373cfa0cb`, both operating runbooks, recent commits and PRs. PR #16 updated Cozumel on September 21; PR #17 delivered the September 22 setup batch. The only open PR was unrelated #4, which remains untouched. No duplicate page, image, feed item or landing-page revision was made.
