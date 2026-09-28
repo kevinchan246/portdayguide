@@ -33,6 +33,19 @@ Follow the existing branch -> lint/tests -> PR -> required checks -> exact-head 
 
 ## Measurement and owner requests
 
+### Fixed question sample and editorial handoff
+
+Keep at most five directly read, dated traveler questions. Review actual AI-product citations monthly or at the existing milestones; record platform, observation date, language/region, original question and the exact cited site URL. Search-engine results and generated answers are not evidence of a ChatGPT Search, Google AI or Copilot citation. Never record unavailable access as no citations.
+
+- **AQ-01 (retained September 28, 2026):** "How plentiful/accessible are taxis normally at the port in Cozumel?" Source: [DISboards, September 7, 2026](https://www.disboards.com/threads/kuza-theme-park-on-your-own-taxis-in-cozumel.3986265/), with follow-up discussion through September 11. Context: a family comparing independently purchased KUZÁ admission plus taxis with a cruise-line package also struggled to match ticket inclusions. This is one qualitative question, not measured search volume or evidence of general taxi availability. No traveler identity is retained.
+- Existing `/ports/cozumel/taxi-rates` already covers exact pier, whole-vehicle costs and a return plan. The narrower potential gap is matching admission inclusions before comparing package totals. [KUZÁ's own ticket catalogue](https://kuzapark.com/tickets/), read September 28, distinguishes Escape and Full Experience; the latter lists water-park and zipline access. Do not copy forum prices or infer that cruise-line packages are equivalent. The linked Disney package page could not be read because of a redirect loop. Its sailing-specific inclusions, availability and price therefore remain unverified.
+- Handoff to revenue/content work: after the observation window and weekly allowance permit, consider a small comparison checklist within the existing guide only if the package comparison can be sourced on both sides. No new article or Pin is authorized by this single observation. PR #19 remains the separate Osaka article in progress.
+- AI citation baseline, September 28: ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copilot **not checked**; no actual product-result surface was read. Language/region and cited URL are unavailable. Retain this question for the October 14 review; do not fill the sample with invented questions.
+
+### New-page indexing handoff
+
+Follow the September 27 owner rule in `automated-operations.md`: after production verification, batch new indexable canonical URLs into one Chinese GSC Request indexing reminder. Deduplicate against the operations log; drafts and existing-URL edits do not trigger a reminder. This task never submits indexing requests itself.
+
 - Existing affiliate events can label a current-page entry as `pinterest`, `checklist`, or `unspecified`. No visitor ID, source persistence or pageview counter is introduced. Events are not visits or bookings; do not infer a conversion rate without a valid denominator.
 - For a missing or stale source, write unavailable, not zero. Netlify connector project/deploy access does not prove private Blobs read access. Public product API success is not Viator financial reporting access.
 - The owner manually supplies Viator CSV files. For the baseline, request the last 60 days of Performance Trends split by campaign and the Gross Bookings Report with booking date, travel date, status, campaign/product when available, and commission. Customer names, email addresses and payment details are unnecessary. Do not request credentials.

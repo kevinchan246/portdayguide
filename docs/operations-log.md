@@ -2,6 +2,16 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-28 — Acquisition evidence and transient endpoint follow-up
+
+- Started from main `83111b685a7a5e600db2b0f378a3e2da531242f6`; reviewed all three operating documents, recent commits and open PRs. Draft #19 and unrelated #4 remain untouched. The September 22 existing-page/feed improvement is still inside seven days; preserve the separate SEO article slot and the Cozumel observation window. No reader-facing article, URL, image, feed item or publication date changed.
+- Used three bounded topic searches and attempted to read three question threads. Two Reddit threads were inaccessible; retained one directly read September 7 DISboards question with dated follow-ups, plus first-party KUZÁ ticket evidence, as AQ-01 in the acquisition runbook. No forum prices, traveler identities, contact details, search-volume estimate or third-party messages were retained. The Disney comparison page was unavailable; the candidate remains a research handoff, not a publishable package recommendation.
+- The latest hosted health run, <https://github.com/kevinchan246/portdayguide/actions/runs/36338064284>, checked at `2026-09-27T17:44:47.269Z`: seven passes, zero empty-inventory warnings, and HTTP 503 after two attempts at the focused Tokyo-to-Yokohama transfer endpoint. General inventory was 12. This did not establish a whole-site outage.
+- The current-main GET-only checker at `2026-09-28T15:06:24.676Z` passed all eight targets, with no warnings: 12 general products and one focused transfer. The transfer passed on its second attempt; intermittent failure remains an observation, with no verified code cause. No speculative code fix, irrelevant product substitution, sponsored navigation or simulated click was performed.
+- All five production Pinterest feed tests passed: exact RSS/source match, two unchanged GUIDs and September 22 dates, correct source parameters, both PNG responses and both destination anchors. Existing images remain original 1000 x 1500 assets. Account claim, native feed connection and actual imported Pins remain unverified; feed health is not distribution success.
+- Added one fixed high-intent question for future AI-product checks. Actual ChatGPT Search, Google AI and Bing/Copilot citations were not checked. Synchronized the owner's new-page GSC reminder rule during this normal runbook update. No new production page since September 27 was found, so no indexing reminder was triggered or submission claimed.
+- This is documentation-only work and consumes no substantive content slot. Required CI and Netlify preview must pass at the exact PR head before merge. Keep the October 14, November 13 and December 13 evidence reviews; no repeated account or financial-export request was issued.
+
 ## 2026-09-24 — AI search health regression coverage
 
 - Reviewed current main `bb8e1f4cbddb449efd3c46e8b6a1bb14e0917824`, the operating runbooks and open PRs. Draft article PR #19 and unrelated older PR #4 were left untouched.
