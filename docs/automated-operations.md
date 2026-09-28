@@ -34,6 +34,10 @@ Owner authorization: on 2026-09-14 the owner approved starting the agreed low-ma
 - Keep an operational entry in `docs/operations-log.md`: timestamp, checked commit, actual change/PR, validation, data availability and next evidence needed. This repository is public: no private traffic, click totals, bookings, earnings, exports or credentials in the log. Report those privately to the owner only after verified access.
 - Send a brief Chinese update with completed work and material exceptions. Routine healthy daily runs need no separate chat notification. Never send email, Slack, outreach or messages to third parties without explicit authorization.
 
+## New-page GSC reminder (owner instruction, September 27, 2026)
+
+After a new public article or page is deployed, verify its production HTTP 200, exact `https://portdayguide.com` canonical and indexability before reminding the owner in Chinese. Include each title and full canonical URL, with `GSC → URL inspection → paste URL → Request indexing`. Combine a release's URLs into one reminder and deduplicate by canonical against the public operations log. Record only the URL and reminder actually sent; never claim submission or indexing without evidence. Drafts, previews, undeployed pages, incorrect redirects and noindex pages do not qualify. Existing-URL edits do not automatically need another reminder. The daily check looks for missed reminders only for pages newly published from September 27 onward. No paid GSC connection or automatic submission is required. Preserve all existing schedules and content allowances.
+
 ## Read private reports
 
 Use the authenticated Netlify Blobs UI or the existing read-only operator credentials. Store credentials outside the repository and outside `NEXT_PUBLIC_` variables:
