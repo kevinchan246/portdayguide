@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-29 — Bounded ChatGPT source classification
+
+- Started from main `b8c20505075ba7421cae25d3bd125dcadbbee481`; reviewed the operating documents, recent commits, open PRs, latest hosted health result and current Netlify production deployment. Draft #19 and unrelated #4 remain untouched. This measurement change is the single existing-site improvement for the rolling seven-day allowance; the separate long-tail article slot remains reserved.
+- The existing outbound event accepted only Pinterest, checklist and unspecified current-page labels. OpenAI's publisher FAQ, checked September 29, documents `utm_source=chatgpt.com` on ChatGPT search referrals. Added one bounded `ai-search` category for that exact tag or an HTTPS `chatgpt.com` referring host when no tag is present.
+- The stored event still contains only page, product, Viator campaign, placement, calendar date and the coarse source category. Full URLs, query strings, referrers, prompts, cookies, session state and visitor identifiers are not retained. Explicit unknown or repeated tags remain unspecified; Google AI traffic is not inferred from ordinary Google traffic, and Bing/Copilot remains unspecified without a verified exact referral signal.
+- The category describes recorded sponsored-link clicks only. It does not establish an AI citation, acquired visitor, cross-page attribution, booking, completed commission or payment. Existing records and Viator campaign values remain compatible. No synthetic production click was sent.
+- Updated focused event/report tests, measurement documentation and the public privacy notice. Local lint, the 79-test suite and the 99-route production build passed. Exact-head CI/Netlify preview and post-merge production health remain release gates. No public URL was added, so no GSC indexing reminder is triggered.
+
 ## 2026-09-28 — Acquisition evidence and transient endpoint follow-up
 
 - Started from main `83111b685a7a5e600db2b0f378a3e2da531242f6`; reviewed all three operating documents, recent commits and open PRs. Draft #19 and unrelated #4 remain untouched. The September 22 existing-page/feed improvement is still inside seven days; preserve the separate SEO article slot and the Cozumel observation window. No reader-facing article, URL, image, feed item or publication date changed.
