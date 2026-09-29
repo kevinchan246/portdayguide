@@ -34,13 +34,24 @@ test("rejects private paths, query strings and oversized dimensions; discards ex
   assert.deepEqual(validateAffiliateEvent({ ...event, email: "do-not-store@example.com", ip: "192.0.2.1", itinerary: "private" }), event);
 });
 
-test("source tags use only the two allowed values and never change the Viator campaign", () => {
+test("source tags and recognized AI referrals stay bounded and never change the Viator campaign", () => {
   const href = "https://www.viator.com/tours/Roatan/Tour/d4132-123P4?pid=P123&campaign=pdg-roatan-west-bay-from-port";
   for (const source of ["pinterest", "checklist"]) {
     const tag = affiliateSourceFromSearch(`?utm_source=${source}&utm_campaign=do-not-store@example.com&email=private`);
     assert.equal(tag, source);
     assert.deepEqual(affiliateLinkEvent(href, event.page, event.placement, undefined, tag), { ...event, source });
   }
+  assert.equal(affiliateSourceFromSearch("?utm_source=chatgpt.com&utm_medium=referral"), "ai-search");
+  assert.deepEqual(affiliateLinkEvent(href, event.page, event.placement, undefined, "ai-search"), { ...event, source: "ai-search" });
+  for (const referrer of ["https://chatgpt.com/c/example", "https://www.chatgpt.com/share/example"]) {
+    assert.equal(affiliateSourceFromSearch("", referrer), "ai-search");
+  }
+  for (const referrer of ["http://chatgpt.com/c/example", "https://chatgpt.com.evil.test/", "not a URL", `https://chatgpt.com/${"x".repeat(4096)}`]) {
+    assert.equal(affiliateSourceFromSearch("", referrer), "unspecified");
+  }
+  // An explicit unknown or ambiguous tag is not replaced by a referring host.
+  assert.equal(affiliateSourceFromSearch("?utm_source=unknown", "https://chatgpt.com/"), "unspecified");
+  assert.equal(affiliateSourceFromSearch("?utm_source=chatgpt.com&utm_source=chatgpt.com", "https://chatgpt.com/"), "unspecified");
   for (const search of ["", "?utm_source=someone@example.com", "?utm_source=Pinterest", "?utm_source=pinterest&utm_source=checklist", "?utm_source=pinterest&utm_source=pinterest", "?utm_medium=pinterest", `?utm_source=pinterest&extra=${"x".repeat(4096)}`, null]) {
     assert.equal(affiliateSourceFromSearch(search), "unspecified");
   }
@@ -104,9 +115,9 @@ test("aggregate separates placements and counts clicks rather than inventing vis
 test("aggregate groups source-tagged clicks separately and combines legacy with unspecified", () => {
   const legacy = { ...event };
   delete legacy.source;
-  const rows = summarizeAffiliateEvents([legacy, event, { ...event, source: "pinterest" }, { ...event, source: "checklist" }, { ...event, source: "private@example.com" }]);
+  const rows = summarizeAffiliateEvents([legacy, event, { ...event, source: "pinterest" }, { ...event, source: "checklist" }, { ...event, source: "ai-search" }, { ...event, source: "private@example.com" }]);
   assert.deepEqual(rows.map(({ source, clicks }) => ({ source, clicks })), [
-    { source: "unspecified", clicks: 3 }, { source: "pinterest", clicks: 1 }, { source: "checklist", clicks: 1 },
+    { source: "unspecified", clicks: 3 }, { source: "pinterest", clicks: 1 }, { source: "checklist", clicks: 1 }, { source: "ai-search", clicks: 1 },
   ]);
   assert.ok(rows.every(row => row.campaign === event.campaign && !("visitors" in row) && !("bookings" in row)));
 });
