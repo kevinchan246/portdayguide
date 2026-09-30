@@ -42,6 +42,13 @@ Keep at most five directly read, dated traveler questions. Review actual AI-prod
 - Handoff to revenue/content work: after the observation window and weekly allowance permit, consider a small comparison checklist within the existing guide only if the package comparison can be sourced on both sides. No new article or Pin is authorized by this single observation. PR #19 remains the separate Osaka article in progress.
 - AI citation baseline, September 28: ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copilot **not checked**; no actual product-result surface was read. Language/region and cited URL are unavailable. Retain this question for the October 14 review; do not fill the sample with invented questions.
 
+### September 30 question-sample addition
+
+- **AQ-02 (retained September 30, 2026):** "Does anyone know if there are taxis that fit 2 adults and 3 kids? If so, about how much per way?" Source: [DISboards, July 14, 2026](https://www.disboards.com/threads/paradise-beach-cozumel.3984400/), about Paradise Beach, with replies through July 16. This is one dated family-transport question, not measured demand volume. No traveler identity or reply prices are retained.
+- [Paradise Beach's official FAQ](https://www.paradisebeachcozumel.com/faqs), re-read September 30, gives a USD estimate for only 1–4 people and does not name the origin pier or fare effective date. It does not verify a five-person fare, child-seat provision, van availability or a guaranteed return pickup. Do not extend the four-person estimate to this family or treat community replies as an official tariff.
+- Coverage decision: the existing Cozumel taxi guide already distinguishes passenger bands, exact pier, vehicle totals and a separate return plan, while its calculator accepts multiple vehicles. Retain AQ-02 for the fixed AI-question sample, but do not create a duplicate article or Pin. Any later five-person example needs a current first-party quote with pier, passenger count, vehicle capacity, currency and both directions, plus the existing observation/quota gates.
+- AI-result observation for AQ-02: ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copilot **not checked**; no actual AI-product result was read. Source question language is English; test language/region and cited URLs are unavailable. The sample now contains two questions; next scheduled evidence review remains October 14.
+
 ### New-page indexing handoff
 
 Follow the September 27 owner rule in `automated-operations.md`: after production verification, batch new indexable canonical URLs into one Chinese GSC Request indexing reminder. Deduplicate against the operations log; drafts and existing-URL edits do not trigger a reminder. This task never submits indexing requests itself.
