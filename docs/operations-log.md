@@ -2,6 +2,16 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-30 — Family-taxi evidence and acquisition readiness
+
+- Reviewed current main `54d3d3c27a476b7e3cd04f487865c546c6b23589`, all three operating documents, recent commits and open PRs. Netlify production deploy `6abbd074b5580900086616c6` is ready at that exact commit. Latest hosted health run [36613492306](https://github.com/kevinchan246/portdayguide/actions/runs/36613492306), September 29, succeeded. Draft article #19 and unrelated #4 remain untouched.
+- September 29 PR #22 occupies the shared existing-site improvement allowance. Preserve the separate long-tail article slot and the Cozumel observation window. No public page, feed item, image, GUID, publication date or crawler rule changed; this documentation-only record consumes no content slot.
+- Three bounded topic searches and three directly read public pages yielded one additional dated family-taxi question, retained as AQ-02 with official-source limitations and existing-guide coverage. The KUZA thread duplicated AQ-01; the Osaka listing was not a dated traveler question. No forum fare, traveler identity, contact detail or search-volume inference was adopted. No third-party messages or sponsored clicks were sent.
+- All five current-main production feed tests passed: exact RSS match, two stable September 22 resources, owned 1000 x 1500 PNGs, Pinterest source parameters and both destination anchors. Native account claim/feed connection and actual Pin import remain unverified, not failed. No new distribution success or commercial performance is claimed.
+- GET-only health inspection at `2026-09-30T15:12:06.857Z` passed seven targets but received HTTP 503 after two attempts from the focused Tokyo-to-Yokohama transfer endpoint. General inventory returned 12 products. A targeted follow-up at `2026-09-30T15:12:43.293Z` returned HTTP 200 and one transfer. This is another transient recurrence, not a verified root-cause repair or whole-site outage. Retain it for the health task; do not substitute unrelated products or change the API speculatively.
+- Actual AI-product citations remain not checked. Private acquisition and financial results remain unavailable in this run; no repeat export/account request was issued. No new public canonical URL exists, so no GSC reminder is triggered. Preserve October 14, November 13 and December 13 reviews.
+- Release gates: local lint, focused production feed validation and whitespace check; required CI and Netlify preview on the exact PR head before merge, then production deployment verification. This entry does not itself claim those later gates have passed.
+
 ## 2026-09-29 — Bounded ChatGPT source classification
 
 - Started from main `b8c20505075ba7421cae25d3bd125dcadbbee481`; reviewed the operating documents, recent commits, open PRs, latest hosted health result and current Netlify production deployment. Draft #19 and unrelated #4 remain untouched. This measurement change is the single existing-site improvement for the rolling seven-day allowance; the separate long-tail article slot remains reserved.
