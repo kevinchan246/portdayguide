@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-30 — Owner-requested scenic Pinterest variants
+
+- Started from main `043e6b374ddf279542aa94865c0d0b9621ce6ce1`. The owner confirmed the domain claim, saved RSS connection and public **Cruise Port Guides & Tips** board with the original two Pins visible. Individual Pin URLs and actual outbound click/UTM behavior remain unverified; no traffic or revenue result is inferred.
+- Prepared two expressly requested scenic variants for the existing Cozumel budget tool and Tokyo–Yokohama departure checklist, dated `2026-09-30T22:54:43Z`. The original two images, feed entries, IDs and dates stay unchanged. New IDs preserve the same matching guide anchors and source parameters; no article, canonical URL or affiliate campaign is added or changed.
+- Recorded licensed source photographs, location limits and AI-assisted re-rendering in `pinterest-image-sources.md`; both new feed descriptions say “Photo-based illustration.” The coast does not identify a beach club, and the Yokohama skyline does not identify a cruise terminal. No fare or transport guarantee is invented.
+- Updated the acquisition runbook with the owner's scenic-photo preference and Pinterest's official weekly-original-content guidance. This requested two-variant batch is a scoped exception; future weekly limits and the reserved article slot remain unchanged. Three to five variants are optional, with no daily volume quota.
+- Release gates remain image/anchor inspection, existing feed checks, lint/build, exact-head CI/preview and production verification. This entry does not claim those gates or actual publication of the two new Pins. No new indexable page means no GSC indexing reminder is needed; observe the new Pins separately after feed deployment.
+
 ## 2026-09-30 — Owner-supplied Pinterest domain verification
 
 - Started from main `e4bf92e41d05dbdf6e4e798a9004722ab049a3d0`. The owner is setting up the PortdayGuide Pinterest business profile and supplied its personalized HTML verification tag. Added that public tag to the root document head, following Pinterest's [HTML verification instructions](https://help.pinterest.com/en/business/article/claim-your-website).
