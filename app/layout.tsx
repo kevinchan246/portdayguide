@@ -61,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <head>
+        <meta name="p:domain_verify" content="e7dc439bf37e11511c191ae223dc97e8" />
         <link rel="dns-prefetch" href="https://www.openstreetmap.org" />
       </head>
       <body

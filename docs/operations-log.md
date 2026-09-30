@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-09-30 — Owner-supplied Pinterest domain verification
+
+- Started from main `e4bf92e41d05dbdf6e4e798a9004722ab049a3d0`. The owner is setting up the PortdayGuide Pinterest business profile and supplied its personalized HTML verification tag. Added that public tag to the root document head, following Pinterest's [HTML verification instructions](https://help.pinterest.com/en/business/article/claim-your-website).
+- This is a separately requested account-connection setup step, not an article or feed-content update. Article draft #19 and unrelated #4 remain untouched; no new page or GSC indexing reminder is needed.
+- Release acceptance requires lint, production build/tests, exact-head CI/preview checks, and a GET of the production homepage confirming the exact tag inside its head. The owner then completes the claim in Pinterest using `https://portdayguide.com`.
+- Local lint, the 99-route production build and all 79 existing tests passed. A separate parser confirmed the exact tag appears once inside the built homepage head; pre-deploy GET-only production health passed 8/8. Hosted checks and the final production-tag verification still determine rollout status.
+- A deployed tag does not confirm Pinterest accepted the claim. Native RSS connection and imported Pins remain unverified until observed in Pinterest. The existing feed, campaign parameters and image resources are unchanged.
+
 ## 2026-09-30 — Family-taxi evidence and acquisition readiness
 
 - Reviewed current main `54d3d3c27a476b7e3cd04f487865c546c6b23589`, all three operating documents, recent commits and open PRs. Netlify production deploy `6abbd074b5580900086616c6` is ready at that exact commit. Latest hosted health run [36613492306](https://github.com/kevinchan246/portdayguide/actions/runs/36613492306), September 29, succeeded. Draft article #19 and unrelated #4 remain untouched.
