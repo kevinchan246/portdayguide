@@ -1,6 +1,6 @@
 # Kaiyukan From Osaka Cruise Port: Does It Fit a Short Call?
 
-If your ship is confirmed at **Tempozan**, Kaiyukan is a practical nearby outing to investigate before committing to a cross-city excursion. The Japan Tourism Agency places Tempozan Harbor Village, which contains the aquarium, next to Osaka port. However, proximity alone does not make a ticket usable: you need an admission slot that leaves room for the visit, the walk back and your ship's boarding instructions. This advice does not apply automatically to another Osaka berth. [Official port-area guide, page 2](https://www.mlit.go.jp/kankocho/cruise/detail/029/documents/kanko.pdf).
+**Yes—if your ship is confirmed at Tempozan and an available timed ticket fits your return deadline.** Kaiyukan is a nearby independent outing; allow about two hours inside, plus your actual terminal exit, walking, admission and return allowances. The Japan Tourism Agency places Tempozan Harbor Village, which contains the aquarium, next to Osaka port. However, proximity alone does not make a ticket usable: you need an admission slot that leaves room for the visit, the walk back and your ship's boarding instructions. This advice does not apply automatically to another Osaka berth. [Official port-area guide, page 2](https://www.mlit.go.jp/kankocho/cruise/detail/029/documents/kanko.pdf).
 
 The key decision is **which entry time fits**, not how many attractions you can add. Osaka's tourism bureau suggests 120 minutes for the aquarium visit. Treat that as a reference for time inside, not a ship-to-ship excursion duration. [Osaka Convention & Tourism Bureau](https://osaka-info.jp/en/spot/osaka-aquarium-kaiyukan/).
 
@@ -22,13 +22,17 @@ Use your group's actual walking and assistance needs in place of those example a
 
 Check the aquarium's [operating calendar](https://www.kaiyukan.com/info/hours/) for your visit date. An early ship arrival does not imply that the aquarium is open, and general seasonal hours are not a substitute for that day's calendar. If the first available entry is too late, keep the day local without buying an aquarium ticket you cannot use comfortably.
 
-## Buy the admission you can use—not an attractive starting price
+## Choose the ticket only after the time fits
 
 Kaiyukan's own ticket page says admission uses variable pricing and recommends advance e-tickets with a specified date and time. It also warns that a same-day ticket may not allow entry at your preferred time. Check the date, slot, age categories and total in **Japanese yen (JPY)** before payment; this guide does not quote a fixed current admission price. [Official tickets and price calendar](https://www.kaiyukan.com/info/ticket/kaiyukan/).
 
 For a family, total the tickets for each traveler rather than multiplying an adult headline price by everyone. Add any food, transport from a different berth and optional activities separately. A ticket for the aquarium is not evidence of cruise-terminal pickup or an escorted return.
 
-Before paying, read the specific seller's change, cancellation and late-arrival terms. If your ship misses Osaka or arrives late, do not assume that an independent attraction ticket has the same protection as a cruise-line excursion. Keep the confirmation accessible on your phone and agree where the group will regroup after the visit.
+For official e-tickets, Kaiyukan specifies **15-minute entry slots** and asks you to sign in to Webket before adding tickets. If you are late, first try changing the time in Webket. The aquarium says late visitors can still enter if a change is unavailable, but people booked for that slot have priority, so you may wait. That is not a reason to book a slot your ship is unlikely to meet. [Official e-ticket instructions](https://www.kaiyukan.com/about/news/20582.html).
+
+The same official instructions say credit-card purchases can be self-cancelled in Webket through the visit day without a cancellation fee, except after a receipt has been issued; refund timing depends on the card company. Recheck the terms attached to your purchase, especially with a different seller. A missed port call does not itself submit a cancellation. Save your confirmation and account access before going ashore.
+
+Start from the aquarium's own ticket page: its [June 12, 2026 notice](https://www.kaiyukan.com/about/news/20615.html) warns about impersonating ticket sites and names the official website, Klook, KKday and Trip.com as authorized routes. This guide links the official page rather than an unverified seller.
 
 For this local outing, start with the official admission option. A private guide or transfer is useful only if it solves a real access or assistance need and explicitly covers your berth, date and return. A broad Osaka sightseeing product is not a substitute for a matching aquarium ticket.
 
@@ -38,12 +42,12 @@ Kaiyukan recommends leaving strollers at its designated entrance-area storage, a
 
 The aquarium lists a limited supply of loan wheelchairs and staff-assisted elevator guidance when needed. Its published accessible toilets include the entrance building's second floor before admission and the sixth floor inside. These facilities do **not** establish step-free access from your ship's gangway through the terminal to the aquarium. Confirm that separate approach with the cruise line, and discuss equipment or assistance needs directly with the attraction. [Official accessibility information](https://www.kaiyukan.com/info/area/barrierfree/).
 
-For a port call, carry the essentials you need ashore and avoid adding suitcases to a short sightseeing visit. If this is a disembarkation day and you have cruise luggage, arrange storage separately before using this plan; no locker size, availability or luggage service is promised here.
+**Rolling suitcases cannot go into the aquarium.** Kaiyukan's [luggage rules effective April 24, 2026](https://www.kaiyukan.com/about/news/20515.html) prohibit carry cases and carts, as well as oversized items. Its [illustrated rules](https://www.kaiyukan.com/assets/pdf/rule/list_of_rule_changes.pdf) distinguish permitted strollers and walking aids from luggage carts. On a normal port call, leave cruise luggage aboard. On disembarkation day, arrange storage and its collection time before buying admission; do not assume that a suitably sized locker will be free.
 
 ## Make the aquarium the outing, then reassess
 
-If your entry slot, visit and return fit, let Kaiyukan be the main commitment. After leaving, check the clock before deciding on food or another nearby stop. Do not buy a multi-attraction bundle merely because the venues are close: each extra admission adds its own waiting and visiting time.
+**Plan one continuous aquarium visit.** [Kaiyukan ended re-entry on June 15, 2026](https://www.kaiyukan.com/about/news/20564.html), so do not schedule lunch outside halfway through and expect to return on the same admission. If your entry slot, visit and return fit, let Kaiyukan be the main commitment. After leaving, check the clock before deciding on food or another nearby stop. Do not buy a multi-attraction bundle merely because the venues are close: each extra admission adds its own waiting and visiting time.
 
 If your priority is Dotonbori, Osaka Castle or a guided city outing, use the [Osaka cruise port guide](https://portdayguide.com/ports/osaka) to choose that as a different main plan. The city-transfer examples there are not a walking-time estimate for Kaiyukan. For the aquarium option, finish by returning through the passenger entrance confirmed by your ship, with the original return allowance intact.
 
-*Sources checked September 24, 2026. This is a source-based planning guide, not a report of a personal visit. Berth assignments, admission prices, entry slots and operating arrangements can change; recheck your sailing and visit date before booking.*
+*Sources checked October 1, 2026. This is a source-based planning guide, not a report of a personal visit. Berth assignments, admission prices, entry slots and operating arrangements can change; recheck your sailing and visit date before booking.*

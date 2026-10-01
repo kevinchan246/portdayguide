@@ -15,7 +15,7 @@ export function AffiliateClickTracker() {
       const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[rel~="sponsored"]') : null;
       if (!link) return;
       const card = link.closest<HTMLElement>("[data-affiliate-placement]");
-      const payload = affiliateLinkEvent(link.href, window.location.pathname.replace(/\/$/, "") || "/", card?.dataset.affiliatePlacement || "other-link", card?.dataset.affiliateProduct, affiliateSourceFromSearch(window.location.search));
+      const payload = affiliateLinkEvent(link.href, window.location.pathname.replace(/\/$/, "") || "/", card?.dataset.affiliatePlacement || "other-link", card?.dataset.affiliateProduct, affiliateSourceFromSearch(window.location.search, document.referrer));
       if (!payload) return;
       const key = JSON.stringify(payload);
       const now = Date.now();

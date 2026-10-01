@@ -258,7 +258,8 @@ test("all 64 port articles include a detailed editorial guide, map, and credited
   const titles = new Set();
   for (const slug of uniqueSlugs) {
     const html = await render(`/ports/${slug}`);
-    const words = visibleWordCount(html);
+    // Related-guide navigation grows independently of the port editorial body.
+    const words = visibleWordCount(html.replace(/<section class="section port-topic-cluster"[\s\S]*?<\/section>/i, ""));
     const title = html.match(/<title>(.*?)<\/title>/i)?.[1];
     assert.ok(title, `${slug}: missing title`);
     assert.ok(!titles.has(title), `${slug}: duplicate title ${title}`);
@@ -832,4 +833,24 @@ test("renders the affiliate disclosure page", async () => {
   const html = await render("/disclosure");
   assert.match(html, /How PortdayGuide may earn money/i);
   assert.match(html, /does not sell, operate, fulfill, change, or refund tours/i);
+});
+
+test("Kaiyukan article exposes its independent ticket decision and connected canonical route", async () => {
+  const path = "/ports/osaka/kaiyukan-from-cruise-port";
+  const html = await render(path);
+  const body = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  assert.match(body, /data-kaiyukan-article="entry-time-decision"/);
+  assert.equal((body.match(/<h1\b/g) || []).length, 1);
+  assert.match(body, /<link rel="canonical" href="https:\/\/portdayguide.com\/ports\/osaka\/kaiyukan-from-cruise-port"/);
+  assert.match(body, /name="robots" content="index, follow"/);
+  for (const essential of ["Tempozan", "Central Pier North", "14:00", "11:00", "15-minute entry slots", "June 15, 2026", "April 24, 2026", "Japanese yen (JPY)", "October 1, 2026"]) assert.ok(body.includes(essential), essential);
+  assert.doesNotMatch(body, /Port Day Fit|id="intent-booking-title"|data-viator-product|A cruise-safe sequence/);
+  assert.match(body, /href="\/ports\/osaka"/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  const article = schemas.find(s => s["@type"] === "Article");
+  assert.equal(article.mainEntityOfPage, `https://portdayguide.com${path}`);
+  assert.equal(article.datePublished, "2026-10-01");
+  assert.ok(!schemas.some(s => s["@type"] === "FAQPage"));
+  for (const entry of ["/ports/osaka", "/ports", "/ports/regions/asia"]) assert.ok((await render(entry)).includes(`href="${path}"`), entry);
+  assert.ok((await (await request("/sitemap.xml")).text()).includes(`https://portdayguide.com${path}`));
 });

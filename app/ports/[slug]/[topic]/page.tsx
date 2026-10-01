@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IntentViatorCards } from "@/components/IntentViatorCards";
+import { OsakaKaiyukanArticle } from "@/components/OsakaKaiyukanArticle";
 import { PortDayFit } from "@/components/PortDayFit";
 import { PortHeroImage } from "@/components/PortHeroImage";
 import { YokohamaTerminalArticle } from "@/components/YokohamaTerminalArticle";
@@ -96,7 +97,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     <div className="intent-meta"><span>Reviewed {guide.reviewed}</span><span>By PortdayGuide editorial</span><Link href="/about">About PortdayGuide</Link></div>
 
     <article className={`intent-article${isYokohamaTerminalArticle ? " intent-editorial-article" : ""}`}>
-      {isYokohamaTerminalArticle ? <YokohamaTerminalArticle guide={guide} hub={hub} /> : guide.template === "tokyo-yokohama-transfer" ? <TokyoYokohamaTransferArticle guide={guide} hub={hub} /> : <>
+      {guide.template === "osaka-kaiyukan" ? <OsakaKaiyukanArticle /> : isYokohamaTerminalArticle ? <YokohamaTerminalArticle guide={guide} hub={hub} /> : guide.template === "tokyo-yokohama-transfer" ? <TokyoYokohamaTransferArticle guide={guide} hub={hub} /> : <>
         <section className="intent-answer" aria-labelledby="quick-answer-title"><span>Quick answer</span><h2 id="quick-answer-title">{guide.quickAnswerHeading || "The decision in one minute"}</h2><p>{guide.quickAnswer}</p>{guide.template === "cozumel-taxi" && <CozumelCostLinks />}<div>{guide.facts.map((fact) => <dl key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></dl>)}</div></section>
 
         <PortDayFit fit={guide.fit} />

@@ -32,13 +32,13 @@ test("exclude only the known test key, preserve other same-day clicks and pagina
 test("combining old reports and tagged rows preserves source groups and the total click count", () => {
   const row = { page: event.page, product: event.product, campaign: event.campaign, placement: event.placement, clicks: 2 };
   const combined = combineClickDays([
-    { rows: [row, { ...row, source: "pinterest", clicks: 3 }] },
+    { rows: [row, { ...row, source: "pinterest", clicks: 3 }, { ...row, source: "ai-search", clicks: 2 }] },
     { rows: [{ ...row, source: "unspecified", clicks: 1 }, { ...row, source: "pinterest", clicks: 2 }, { ...row, source: "checklist", clicks: 1 }, { ...row, source: "someone@example.com", clicks: 1 }] },
   ]);
   assert.deepEqual(combined.map(({ source, clicks }) => ({ source, clicks })), [
-    { source: "pinterest", clicks: 5 }, { source: "unspecified", clicks: 4 }, { source: "checklist", clicks: 1 },
+    { source: "pinterest", clicks: 5 }, { source: "unspecified", clicks: 4 }, { source: "ai-search", clicks: 2 }, { source: "checklist", clicks: 1 },
   ]);
-  assert.equal(combined.reduce((sum, row) => sum + row.clicks, 0), 10);
+  assert.equal(combined.reduce((sum, row) => sum + row.clicks, 0), 12);
 });
 
 test("retries produce deterministic archives without double counting", async () => {
