@@ -10,7 +10,40 @@ export const metadata: Metadata = {
 };
 
 export default function PlannerPage() {
+  const pageUrl = `${siteUrl}/planner`;
+  const applicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "PortdayGuide Cruise Port Day Planner",
+    description: "Build a multi-port cruise itinerary with ship times, realistic return buffers, mobility preferences, weather checks, and shore excursion ideas.",
+    url: pageUrl,
+    applicationCategory: "TravelApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript and a modern web browser",
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Multi-port cruise itinerary planning",
+      "Return-to-ship time buffers",
+      "Mobility and pace preferences",
+      "Weather-aware port-day guidance",
+      "Shore excursion ideas",
+    ],
+    provider: {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "PortdayGuide",
+      url: `${siteUrl}/`,
+    },
+    inLanguage: "en-US",
+  };
+
   return <main className="planner-page">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(applicationSchema) }} />
     <header className="simple-header planner-header"><Link className="brand" href="/">PortdayGuide<span>.</span></Link><nav><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/planner" aria-current="page">Free planner</Link></nav><Link className="header-cta" href="/ports">Find a port</Link></header>
     <section className="planner-page-intro"><p className="eyebrow"><span /> Free cruise planner</p><h1>Plan every port day.</h1><p>Add your ship times and preferences. PortdayGuide protects the return trip before suggesting what fits.</p></section>
     <CruisePlanner />
