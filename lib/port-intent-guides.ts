@@ -2,7 +2,7 @@ export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
   topic: string;
-  template?: "standard" | "yokohama-terminal-editorial" | "tokyo-yokohama-transfer" | "beach-transfer" | "cozumel-taxi";
+  template?: "osaka-kaiyukan" | "standard" | "yokohama-terminal-editorial" | "tokyo-yokohama-transfer" | "beach-transfer" | "cozumel-taxi";
   eyebrow: string;
   title: string;
   seoTitle: string;
@@ -49,6 +49,40 @@ export type PortIntentGuide = {
 };
 
 export const portIntentGuides: PortIntentGuide[] = [
+  {
+  "sourcePortSlug": "osaka",
+  "urlPortSlug": "osaka",
+  "topic": "kaiyukan-from-cruise-port",
+  "template": "osaka-kaiyukan",
+  "eyebrow": "Tempozan aquarium visit",
+  "title": "Kaiyukan From Osaka Cruise Port: Does It Fit a Short Call?",
+  "seoTitle": "Kaiyukan From Osaka Cruise Port: Short-Call Planning",
+  "description": "Plan a Kaiyukan visit from Tempozan: choose a workable entry slot, allow time to return, check ticket costs, and account for children or mobility needs.",
+  "lede": "Match a timed aquarium ticket to your Tempozan port call, with a worked return-time example and the current entry, re-entry and luggage rules.",
+  "quickAnswer": "From a confirmed Tempozan berth, allow about two hours inside Kaiyukan plus terminal exit, walking, admission and return allowances. Book only a timed slot that fits your ship’s boarding instructions.",
+  "reviewed": "October 1, 2026",
+  "facts": [],
+  "fit": {
+    "bestFor": "Independent passengers at Tempozan",
+    "minimumWindow": "Calculate from the ship’s return deadline",
+    "diyLevel": "Confirm the public walking route",
+    "mobility": "Check the ship-to-aquarium approach separately",
+    "weather": "Indoor visit; outdoor approach",
+    "mainRisk": "Buying an entry slot that leaves too little return time"
+  },
+  "sections": [],
+  "steps": [],
+  "decision": "Choose only an entry slot that fits the complete visit and return.",
+  "viator": {
+    "heading": "",
+    "copy": "",
+    "query": "",
+    "campaign": ""
+  },
+  "sources": [],
+  "published": "2026-10-01",
+  "modified": "2026-10-01"
+},
   {
     sourcePortSlug: "costa-maya",
     urlPortSlug: "costa-maya",

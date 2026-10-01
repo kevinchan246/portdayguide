@@ -40,6 +40,14 @@ Use a strong repeated question to improve an existing guide/checklist or prepare
 
 Follow the existing branch -> lint/tests -> PR -> required checks -> exact-head merge -> production verification flow. The operating and acquisition tasks share a maximum of two substantive improvements per seven days and must not churn the same landing page inside its observation window. Priority bug fixes may proceed when necessary.
 
+## Article coordination (September 23 authorization)
+
+The [weekly long-tail article rules and AI-search requirements](automated-operations.md#weekly-long-tail-articles-owner-authorization-september-23-2026) supersede historical no-new-article limits. The Thursday article task owns one new English article per week, with necessary internal links, directory/sitemap changes and records; revenue/acquisition share the other rolling-seven-day substantive slot. Count actual commit times, preserve verified-fault exceptions and individually documented owner exceptions, and reuse held drafts without catch-up batches. Neither a feed change nor a new article authorizes another near-duplicate page or Pin.
+
+Apply the linked individual reader brief, complete answer, non-mechanical structure, most-relevant plus latest 3–5 article comparison, actual first-party source reading, exact-head CI/preview and production gates. In the article PR record structure rationale, compared paths, rewrites/completeness, natural-language question and its berth/direction/time/price conditions, sources, crawlability and matching visible schema. Shared styling is allowed; fixed article skeletons, generic padding and irrelevant product cards are not.
+
+AI-search goals cover ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copilot under the official guidance linked in the operating runbook. Keep the actual body crawlable with valid canonical/index/summary directives and links; verify Googlebot, Bingbot and OAI-SearchBot rules separately from GPTBot/training preferences. Do not invent AI schema or claim citations from readiness checks. Acquisition handles actual Pin import and bounded citation observation; revenue handles private report requests; article publication owns the deduplicated new-URL GSC reminder. All remain within the same budget and review dates.
+
 ## Measurement and owner requests
 
 ### Fixed question sample and editorial handoff
