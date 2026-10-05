@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PortDirectory } from "@/components/PortDirectory";
 import { intentGuidePath, portIntentGuides } from "@/lib/port-intent-guides";
-import { siteUrl } from "@/lib/seo";
-import { portNames } from "@/lib/shorepath";
+import { portPath, siteUrl } from "@/lib/seo";
+import { portNames, portProfiles } from "@/lib/shorepath";
 
 export const metadata: Metadata = {
   title: `${portNames.length} Cruise Port Guides`,
@@ -13,7 +13,30 @@ export const metadata: Metadata = {
 
 export default async function PortsDirectoryPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { q = "" } = await searchParams;
+  const pageUrl = `${siteUrl}/ports`;
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${portNames.length} Cruise Port Guides`,
+    description: "Browse return-aware cruise-port guides across the Caribbean, Alaska, Mexico, Europe, and Asia.",
+    url: pageUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: portNames.length,
+      itemListElement: portNames.map((name, index) => {
+        const profile = portProfiles[name];
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${profile.name} Cruise Port Guide`,
+          url: `${siteUrl}${portPath(profile.slug)}`,
+        };
+      }),
+    },
+  };
+
   return <main className="ports-directory-page">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
     <header className="simple-header"><Link className="brand" href="/">PortdayGuide<span>.</span></Link><nav><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/planner">Cruise planner</Link></nav></header>
 
     <section className="ports-directory-hero">
