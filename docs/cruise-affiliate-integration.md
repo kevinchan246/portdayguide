@@ -20,7 +20,7 @@ Use the following only where the application asks for the corresponding informat
 | Content focus | Cruise ports, terminal transport, independent shore-day planning and route decisions |
 | Promotion model | Editorial website content and relevant contextual links |
 | Proposed first placement | https://portdayguide.com/blog/alaska-cruise-ports |
-| Supporting pages | https://portdayguide.com/about ; https://portdayguide.com/affiliate-disclosure |
+| Supporting pages | https://portdayguide.com/about ; https://portdayguide.com/disclosure |
 | Existing social distribution | Owned RSS for Pinterest; direct social affiliate promotion is not part of this proposed pilot |
 
 Suggested property description:
@@ -44,7 +44,7 @@ Use the approved advertiser and CJ account terms for commissionable components, 
 ## Small integration plan
 
 1. Finish the existing Alaska page's specific pre-booking answer using the [October 5 reader brief](growth-acquisition.md#october-5-pre-booking-question-and-editorial-handoff). Verify the actual sailing endpoints, airport connections and whole-party budget before placing a booking link. Preserve its canonical URL; do not also create the same answer in another article.
-2. Add one contextual, approved destination link after the route comparison. Keep the existing footer disclosure, sponsored link attributes and Viator campaigns. Do not insert it into the Cozumel taxi or Tokyo transfer pages.
+2. Add one contextual, approved destination link after the route comparison. Keep the single footer disclosure and sponsored link attributes; check that the disclosure accurately covers whole-cruise bookings before activation. Preserve Viator campaigns. Do not insert it into the Cozumel taxi or Tokyo transfer pages.
 3. Preserve the exact CJ-generated link. Any optional sub-ID must be permitted by the program and use a fixed page/placement code; never append invented tracking parameters or personal data.
 4. Separate merchants in the outbound event/report design. Current `lib/affiliate-events.mjs` accepts HTTPS Viator URLs with `pid`; a CJ link would currently be ignored. Extend that allowlist only after reading an actual approved link/redirect destination, with a bounded merchant category and compatibility for old Viator records. Preserve current-page Pinterest/checklist/AI source rules and privacy opt-outs; no raw referrers, visitor identities or cross-page state.
 5. Validate classification with synthetic links locally, without navigating sponsored URLs or posting simulated production events. Verify the rendered real link/attributes by GET, use required exact-head CI/Netlify preview, merge that reviewed head, and check production.
