@@ -9,8 +9,12 @@ export function localGuideEdition(slug: string) {
   return localGuideEditions[slug as keyof typeof localGuideEditions];
 }
 
+// Every hub's budget, transport and return guidance was materially revised in
+// this audit. This is an editing date, not a claim of a fresh local fact check.
+const sharedPortContentRevision = { modified: "2026-10-07", label: "Oct 7, 2026" };
+
 // Content revisions can update metadata without switching the page's editorial template.
 export function portContentUpdate(slug: string) {
-  if (slug === "osaka") return { modified: "2026-09-22", label: "Sep 22, 2026" };
-  return localGuideEdition(slug);
+  const local = localGuideEdition(slug);
+  return local && local.modified > sharedPortContentRevision.modified ? local : sharedPortContentRevision;
 }

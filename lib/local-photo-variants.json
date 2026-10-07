@@ -1,0 +1,1921 @@
+{
+  "/media/blog/cruise-port-technology.jpg": {
+    "width": 1600,
+    "height": 1199,
+    "bytes": 153203,
+    "variants": [
+      {
+        "src": "/media/blog/cruise-port-technology-480.webp",
+        "width": 480,
+        "height": 359,
+        "bytes": 7830
+      },
+      {
+        "src": "/media/blog/cruise-port-technology-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 18342
+      },
+      {
+        "src": "/media/blog/cruise-port-technology-1600.webp",
+        "width": 1600,
+        "height": 1199,
+        "bytes": 53948
+      }
+    ]
+  },
+  "/media/blog/cruise-terminal-aerial.jpg": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 242864,
+    "variants": [
+      {
+        "src": "/media/blog/cruise-terminal-aerial-480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 40976
+      },
+      {
+        "src": "/media/blog/cruise-terminal-aerial-800.webp",
+        "width": 800,
+        "height": 800,
+        "bytes": 90848
+      },
+      {
+        "src": "/media/blog/cruise-terminal-aerial-1024.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 124970
+      }
+    ]
+  },
+  "/media/blog/cruise-terminal-interior.jpg": {
+    "width": 1024,
+    "height": 1024,
+    "bytes": 182032,
+    "variants": [
+      {
+        "src": "/media/blog/cruise-terminal-interior-480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 30372
+      },
+      {
+        "src": "/media/blog/cruise-terminal-interior-800.webp",
+        "width": 800,
+        "height": 800,
+        "bytes": 61292
+      },
+      {
+        "src": "/media/blog/cruise-terminal-interior-1024.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 81926
+      }
+    ]
+  },
+  "/media/blog/passenger-terminal-technology.jpg": {
+    "width": 1600,
+    "height": 1073,
+    "bytes": 290488,
+    "variants": [
+      {
+        "src": "/media/blog/passenger-terminal-technology-480.webp",
+        "width": 480,
+        "height": 322,
+        "bytes": 20162
+      },
+      {
+        "src": "/media/blog/passenger-terminal-technology-800.webp",
+        "width": 800,
+        "height": 537,
+        "bytes": 49390
+      },
+      {
+        "src": "/media/blog/passenger-terminal-technology-1600.webp",
+        "width": 1600,
+        "height": 1073,
+        "bytes": 143462
+      }
+    ]
+  },
+  "/media/blog/port-canaveral-sunset.webp": {
+    "width": 1600,
+    "height": 809,
+    "bytes": 117264,
+    "variants": [
+      {
+        "src": "/media/blog/port-canaveral-sunset-480.webp",
+        "width": 480,
+        "height": 243,
+        "bytes": 7530
+      },
+      {
+        "src": "/media/blog/port-canaveral-sunset-800.webp",
+        "width": 800,
+        "height": 404,
+        "bytes": 22484
+      },
+      {
+        "src": "/media/blog/port-canaveral-sunset-1600.webp",
+        "width": 1600,
+        "height": 809,
+        "bytes": 101192
+      }
+    ]
+  },
+  "/media/blog/victoria-cruise-terminal.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 409183,
+    "variants": [
+      {
+        "src": "/media/blog/victoria-cruise-terminal-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 17904
+      },
+      {
+        "src": "/media/blog/victoria-cruise-terminal-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 44910
+      },
+      {
+        "src": "/media/blog/victoria-cruise-terminal-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 212726
+      }
+    ]
+  },
+  "/media/editorial/camana-bay-waterfront.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 125468,
+    "variants": [
+      {
+        "src": "/media/editorial/camana-bay-waterfront-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 35952
+      },
+      {
+        "src": "/media/editorial/camana-bay-waterfront-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 75532
+      },
+      {
+        "src": "/media/editorial/camana-bay-waterfront-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 122592
+      }
+    ]
+  },
+  "/media/editorial/chankanaab-park.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 36934,
+    "variants": [
+      {
+        "src": "/media/editorial/chankanaab-park-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 10762
+      },
+      {
+        "src": "/media/editorial/chankanaab-park-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 20656
+      },
+      {
+        "src": "/media/editorial/chankanaab-park-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 32850
+      }
+    ]
+  },
+  "/media/editorial/downtown-juneau-docks.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 83420,
+    "variants": [
+      {
+        "src": "/media/editorial/downtown-juneau-docks-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 22594
+      },
+      {
+        "src": "/media/editorial/downtown-juneau-docks-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 47784
+      },
+      {
+        "src": "/media/editorial/downtown-juneau-docks-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 78992
+      }
+    ]
+  },
+  "/media/editorial/mendenhall-glacier.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 116756,
+    "variants": [
+      {
+        "src": "/media/editorial/mendenhall-glacier-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 30284
+      },
+      {
+        "src": "/media/editorial/mendenhall-glacier-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 66812
+      },
+      {
+        "src": "/media/editorial/mendenhall-glacier-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 110272
+      }
+    ]
+  },
+  "/media/editorial/nassau-queens-staircase.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 213766,
+    "variants": [
+      {
+        "src": "/media/editorial/nassau-queens-staircase-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 52554
+      },
+      {
+        "src": "/media/editorial/nassau-queens-staircase-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 122718
+      },
+      {
+        "src": "/media/editorial/nassau-queens-staircase-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 208530
+      }
+    ]
+  },
+  "/media/editorial/san-gervasio-casa-grande.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 192412,
+    "variants": [
+      {
+        "src": "/media/editorial/san-gervasio-casa-grande-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 53432
+      },
+      {
+        "src": "/media/editorial/san-gervasio-casa-grande-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 116202
+      },
+      {
+        "src": "/media/editorial/san-gervasio-casa-grande-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 186900
+      }
+    ]
+  },
+  "/media/editorial/seven-mile-beach-north.webp": {
+    "width": 960,
+    "height": 640,
+    "bytes": 70314,
+    "variants": [
+      {
+        "src": "/media/editorial/seven-mile-beach-north-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 21016
+      },
+      {
+        "src": "/media/editorial/seven-mile-beach-north-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 41880
+      },
+      {
+        "src": "/media/editorial/seven-mile-beach-north-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 66670
+      }
+    ]
+  },
+  "/media/ports/amber-cove.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 155274,
+    "variants": [
+      {
+        "src": "/media/ports/amber-cove-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 11414
+      },
+      {
+        "src": "/media/ports/amber-cove-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 28334
+      },
+      {
+        "src": "/media/ports/amber-cove-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 95076
+      }
+    ]
+  },
+  "/media/ports/barcelona.jpg": {
+    "width": 1600,
+    "height": 747,
+    "bytes": 264268,
+    "variants": [
+      {
+        "src": "/media/ports/barcelona-480.webp",
+        "width": 480,
+        "height": 224,
+        "bytes": 23026
+      },
+      {
+        "src": "/media/ports/barcelona-800.webp",
+        "width": 800,
+        "height": 374,
+        "bytes": 59886
+      },
+      {
+        "src": "/media/ports/barcelona-1600.webp",
+        "width": 1600,
+        "height": 747,
+        "bytes": 193572
+      }
+    ]
+  },
+  "/media/ports/basseterre.jpg": {
+    "width": 1600,
+    "height": 885,
+    "bytes": 271226,
+    "variants": [
+      {
+        "src": "/media/ports/basseterre-480.webp",
+        "width": 480,
+        "height": 265,
+        "bytes": 22118
+      },
+      {
+        "src": "/media/ports/basseterre-800.webp",
+        "width": 800,
+        "height": 443,
+        "bytes": 57316
+      },
+      {
+        "src": "/media/ports/basseterre-1600.webp",
+        "width": 1600,
+        "height": 885,
+        "bytes": 197534
+      }
+    ]
+  },
+  "/media/ports/belize-city.jpg": {
+    "width": 1024,
+    "height": 773,
+    "bytes": 94359,
+    "variants": [
+      {
+        "src": "/media/ports/belize-city-480.webp",
+        "width": 480,
+        "height": 362,
+        "bytes": 16116
+      },
+      {
+        "src": "/media/ports/belize-city-800.webp",
+        "width": 800,
+        "height": 604,
+        "bytes": 36906
+      },
+      {
+        "src": "/media/ports/belize-city-1024.webp",
+        "width": 1024,
+        "height": 773,
+        "bytes": 55106
+      }
+    ]
+  },
+  "/media/ports/benoa-bali.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 114620,
+    "variants": [
+      {
+        "src": "/media/ports/benoa-bali-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 9734
+      },
+      {
+        "src": "/media/ports/benoa-bali-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 21550
+      },
+      {
+        "src": "/media/ports/benoa-bali-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 52238
+      }
+    ]
+  },
+  "/media/ports/bridgetown.jpg": {
+    "width": 1024,
+    "height": 673,
+    "bytes": 119546,
+    "variants": [
+      {
+        "src": "/media/ports/bridgetown-480.webp",
+        "width": 480,
+        "height": 315,
+        "bytes": 27990
+      },
+      {
+        "src": "/media/ports/bridgetown-800.webp",
+        "width": 800,
+        "height": 526,
+        "bytes": 56970
+      },
+      {
+        "src": "/media/ports/bridgetown-1024.webp",
+        "width": 1024,
+        "height": 673,
+        "bytes": 75638
+      }
+    ]
+  },
+  "/media/ports/busan.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 163915,
+    "variants": [
+      {
+        "src": "/media/ports/busan-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 12586
+      },
+      {
+        "src": "/media/ports/busan-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 30426
+      },
+      {
+        "src": "/media/ports/busan-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 94438
+      }
+    ]
+  },
+  "/media/ports/cabo-san-lucas.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 293924,
+    "variants": [
+      {
+        "src": "/media/ports/cabo-san-lucas-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 27052
+      },
+      {
+        "src": "/media/ports/cabo-san-lucas-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 71398
+      },
+      {
+        "src": "/media/ports/cabo-san-lucas-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 198232
+      }
+    ]
+  },
+  "/media/ports/castries.jpg": {
+    "width": 1280,
+    "height": 639,
+    "bytes": 106786,
+    "variants": [
+      {
+        "src": "/media/ports/castries-480.webp",
+        "width": 480,
+        "height": 240,
+        "bytes": 14940
+      },
+      {
+        "src": "/media/ports/castries-800.webp",
+        "width": 800,
+        "height": 399,
+        "bytes": 32718
+      },
+      {
+        "src": "/media/ports/castries-1280.webp",
+        "width": 1280,
+        "height": 639,
+        "bytes": 61482
+      }
+    ]
+  },
+  "/media/ports/chan-may-hue-da-nang.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 155136,
+    "variants": [
+      {
+        "src": "/media/ports/chan-may-hue-da-nang-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 11254
+      },
+      {
+        "src": "/media/ports/chan-may-hue-da-nang-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 30002
+      },
+      {
+        "src": "/media/ports/chan-may-hue-da-nang-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 84354
+      }
+    ]
+  },
+  "/media/ports/civitavecchia-rome.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 190025,
+    "variants": [
+      {
+        "src": "/media/ports/civitavecchia-rome-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 15060
+      },
+      {
+        "src": "/media/ports/civitavecchia-rome-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 37478
+      },
+      {
+        "src": "/media/ports/civitavecchia-rome-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 113826
+      }
+    ]
+  },
+  "/media/ports/costa-maya.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 234647,
+    "variants": [
+      {
+        "src": "/media/ports/costa-maya-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 25188
+      },
+      {
+        "src": "/media/ports/costa-maya-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 61196
+      },
+      {
+        "src": "/media/ports/costa-maya-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 150092
+      }
+    ]
+  },
+  "/media/ports/cozumel.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 154098,
+    "variants": [
+      {
+        "src": "/media/ports/cozumel-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 11632
+      },
+      {
+        "src": "/media/ports/cozumel-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 29954
+      },
+      {
+        "src": "/media/ports/cozumel-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 92636
+      }
+    ]
+  },
+  "/media/ports/dubrovnik.jpg": {
+    "width": 1600,
+    "height": 993,
+    "bytes": 367928,
+    "variants": [
+      {
+        "src": "/media/ports/dubrovnik-480.webp",
+        "width": 480,
+        "height": 298,
+        "bytes": 33132
+      },
+      {
+        "src": "/media/ports/dubrovnik-800.webp",
+        "width": 800,
+        "height": 497,
+        "bytes": 84742
+      },
+      {
+        "src": "/media/ports/dubrovnik-1600.webp",
+        "width": 1600,
+        "height": 993,
+        "bytes": 271682
+      }
+    ]
+  },
+  "/media/ports/ensenada.jpg": {
+    "width": 1200,
+    "height": 900,
+    "bytes": 192730,
+    "variants": [
+      {
+        "src": "/media/ports/ensenada-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 33070
+      },
+      {
+        "src": "/media/ports/ensenada-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 70670
+      },
+      {
+        "src": "/media/ports/ensenada-1200.webp",
+        "width": 1200,
+        "height": 900,
+        "bytes": 127000
+      }
+    ]
+  },
+  "/media/ports/falmouth-jamaica.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 358788,
+    "variants": [
+      {
+        "src": "/media/ports/falmouth-jamaica-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 35142
+      },
+      {
+        "src": "/media/ports/falmouth-jamaica-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 89578
+      },
+      {
+        "src": "/media/ports/falmouth-jamaica-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 272660
+      }
+    ]
+  },
+  "/media/ports/fukuoka.jpg": {
+    "width": 1468,
+    "height": 1100,
+    "bytes": 225956,
+    "variants": [
+      {
+        "src": "/media/ports/fukuoka-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 20914
+      },
+      {
+        "src": "/media/ports/fukuoka-800.webp",
+        "width": 800,
+        "height": 599,
+        "bytes": 53788
+      },
+      {
+        "src": "/media/ports/fukuoka-1468.webp",
+        "width": 1468,
+        "height": 1100,
+        "bytes": 147194
+      }
+    ]
+  },
+  "/media/ports/george-town-grand-cayman.jpg": {
+    "width": 1500,
+    "height": 1000,
+    "bytes": 240190,
+    "variants": [
+      {
+        "src": "/media/ports/george-town-grand-cayman-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 18868
+      },
+      {
+        "src": "/media/ports/george-town-grand-cayman-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 54124
+      },
+      {
+        "src": "/media/ports/george-town-grand-cayman-1500.webp",
+        "width": 1500,
+        "height": 1000,
+        "bytes": 170418
+      }
+    ]
+  },
+  "/media/ports/hong-kong.jpg": {
+    "width": 1600,
+    "height": 638,
+    "bytes": 234695,
+    "variants": [
+      {
+        "src": "/media/ports/hong-kong-480.webp",
+        "width": 480,
+        "height": 191,
+        "bytes": 18784
+      },
+      {
+        "src": "/media/ports/hong-kong-800.webp",
+        "width": 800,
+        "height": 319,
+        "bytes": 51362
+      },
+      {
+        "src": "/media/ports/hong-kong-1600.webp",
+        "width": 1600,
+        "height": 638,
+        "bytes": 178768
+      }
+    ]
+  },
+  "/media/ports/icy-strait-point.jpg": {
+    "width": 1600,
+    "height": 1071,
+    "bytes": 277417,
+    "variants": [
+      {
+        "src": "/media/ports/icy-strait-point-480.webp",
+        "width": 480,
+        "height": 321,
+        "bytes": 23834
+      },
+      {
+        "src": "/media/ports/icy-strait-point-800.webp",
+        "width": 800,
+        "height": 536,
+        "bytes": 61768
+      },
+      {
+        "src": "/media/ports/icy-strait-point-1600.webp",
+        "width": 1600,
+        "height": 1071,
+        "bytes": 184080
+      }
+    ]
+  },
+  "/media/ports/jeju.jpg": {
+    "width": 1600,
+    "height": 1066,
+    "bytes": 165216,
+    "variants": [
+      {
+        "src": "/media/ports/jeju-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 17352
+      },
+      {
+        "src": "/media/ports/jeju-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 38488
+      },
+      {
+        "src": "/media/ports/jeju-1600.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 92444
+      }
+    ]
+  },
+  "/media/ports/juneau.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 487976,
+    "variants": [
+      {
+        "src": "/media/ports/juneau-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 33020
+      },
+      {
+        "src": "/media/ports/juneau-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 98056
+      },
+      {
+        "src": "/media/ports/juneau-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 414590
+      }
+    ]
+  },
+  "/media/ports/keelung-taipei.jpg": {
+    "width": 1600,
+    "height": 1064,
+    "bytes": 429487,
+    "variants": [
+      {
+        "src": "/media/ports/keelung-taipei-480.webp",
+        "width": 480,
+        "height": 319,
+        "bytes": 37938
+      },
+      {
+        "src": "/media/ports/keelung-taipei-800.webp",
+        "width": 800,
+        "height": 532,
+        "bytes": 97056
+      },
+      {
+        "src": "/media/ports/keelung-taipei-1600.webp",
+        "width": 1600,
+        "height": 1064,
+        "bytes": 328344
+      }
+    ]
+  },
+  "/media/ports/ketchikan.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 308539,
+    "variants": [
+      {
+        "src": "/media/ports/ketchikan-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 26578
+      },
+      {
+        "src": "/media/ports/ketchikan-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 67298
+      },
+      {
+        "src": "/media/ports/ketchikan-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 218218
+      }
+    ]
+  },
+  "/media/ports/key-west.jpg": {
+    "width": 1471,
+    "height": 1100,
+    "bytes": 186925,
+    "variants": [
+      {
+        "src": "/media/ports/key-west-480.webp",
+        "width": 480,
+        "height": 359,
+        "bytes": 21266
+      },
+      {
+        "src": "/media/ports/key-west-800.webp",
+        "width": 800,
+        "height": 598,
+        "bytes": 44778
+      },
+      {
+        "src": "/media/ports/key-west-1471.webp",
+        "width": 1471,
+        "height": 1100,
+        "bytes": 99496
+      }
+    ]
+  },
+  "/media/ports/kobe.jpg": {
+    "width": 1261,
+    "height": 1100,
+    "bytes": 161260,
+    "variants": [
+      {
+        "src": "/media/ports/kobe-480.webp",
+        "width": 480,
+        "height": 419,
+        "bytes": 20458
+      },
+      {
+        "src": "/media/ports/kobe-800.webp",
+        "width": 800,
+        "height": 698,
+        "bytes": 49142
+      },
+      {
+        "src": "/media/ports/kobe-1261.webp",
+        "width": 1261,
+        "height": 1100,
+        "bytes": 107092
+      }
+    ]
+  },
+  "/media/ports/kralendijk-bonaire.jpg": {
+    "width": 1179,
+    "height": 730,
+    "bytes": 246950,
+    "variants": [
+      {
+        "src": "/media/ports/kralendijk-bonaire-480.webp",
+        "width": 480,
+        "height": 297,
+        "bytes": 42282
+      },
+      {
+        "src": "/media/ports/kralendijk-bonaire-800.webp",
+        "width": 800,
+        "height": 495,
+        "bytes": 104436
+      },
+      {
+        "src": "/media/ports/kralendijk-bonaire-1179.webp",
+        "width": 1179,
+        "height": 730,
+        "bytes": 196338
+      }
+    ]
+  },
+  "/media/ports/laem-chabang-bangkok.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 154323,
+    "variants": [
+      {
+        "src": "/media/ports/laem-chabang-bangkok-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 18922
+      },
+      {
+        "src": "/media/ports/laem-chabang-bangkok-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 37526
+      },
+      {
+        "src": "/media/ports/laem-chabang-bangkok-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 74562
+      }
+    ]
+  },
+  "/media/ports/lisbon.jpg": {
+    "width": 1600,
+    "height": 1026,
+    "bytes": 340064,
+    "variants": [
+      {
+        "src": "/media/ports/lisbon-480.webp",
+        "width": 480,
+        "height": 308,
+        "bytes": 35878
+      },
+      {
+        "src": "/media/ports/lisbon-800.webp",
+        "width": 800,
+        "height": 513,
+        "bytes": 87118
+      },
+      {
+        "src": "/media/ports/lisbon-1600.webp",
+        "width": 1600,
+        "height": 1026,
+        "bytes": 230958
+      }
+    ]
+  },
+  "/media/ports/livorno-florence.jpg": {
+    "width": 1600,
+    "height": 995,
+    "bytes": 290860,
+    "variants": [
+      {
+        "src": "/media/ports/livorno-florence-480.webp",
+        "width": 480,
+        "height": 298,
+        "bytes": 26632
+      },
+      {
+        "src": "/media/ports/livorno-florence-800.webp",
+        "width": 800,
+        "height": 498,
+        "bytes": 66428
+      },
+      {
+        "src": "/media/ports/livorno-florence-1600.webp",
+        "width": 1600,
+        "height": 995,
+        "bytes": 193686
+      }
+    ]
+  },
+  "/media/ports/marseille.jpg": {
+    "width": 1144,
+    "height": 1100,
+    "bytes": 350007,
+    "variants": [
+      {
+        "src": "/media/ports/marseille-480.webp",
+        "width": 480,
+        "height": 462,
+        "bytes": 62174
+      },
+      {
+        "src": "/media/ports/marseille-800.webp",
+        "width": 800,
+        "height": 769,
+        "bytes": 154434
+      },
+      {
+        "src": "/media/ports/marseille-1144.webp",
+        "width": 1144,
+        "height": 1100,
+        "bytes": 274878
+      }
+    ]
+  },
+  "/media/ports/mazatlan.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 79885,
+    "variants": [
+      {
+        "src": "/media/ports/mazatlan-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 6718
+      },
+      {
+        "src": "/media/ports/mazatlan-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 14218
+      },
+      {
+        "src": "/media/ports/mazatlan-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 36186
+      }
+    ]
+  },
+  "/media/ports/montego-bay.jpg": {
+    "width": 1600,
+    "height": 828,
+    "bytes": 230792,
+    "variants": [
+      {
+        "src": "/media/ports/montego-bay-480.webp",
+        "width": 480,
+        "height": 248,
+        "bytes": 18324
+      },
+      {
+        "src": "/media/ports/montego-bay-800.webp",
+        "width": 800,
+        "height": 414,
+        "bytes": 47736
+      },
+      {
+        "src": "/media/ports/montego-bay-1600.webp",
+        "width": 1600,
+        "height": 828,
+        "bytes": 168496
+      }
+    ]
+  },
+  "/media/ports/mykonos.jpg": {
+    "width": 1600,
+    "height": 414,
+    "bytes": 146798,
+    "variants": [
+      {
+        "src": "/media/ports/mykonos-480.webp",
+        "width": 480,
+        "height": 124,
+        "bytes": 14532
+      },
+      {
+        "src": "/media/ports/mykonos-800.webp",
+        "width": 800,
+        "height": 207,
+        "bytes": 35070
+      },
+      {
+        "src": "/media/ports/mykonos-1600.webp",
+        "width": 1600,
+        "height": 414,
+        "bytes": 104022
+      }
+    ]
+  },
+  "/media/ports/nagasaki.jpg": {
+    "width": 1500,
+    "height": 1000,
+    "bytes": 398252,
+    "variants": [
+      {
+        "src": "/media/ports/nagasaki-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 36964
+      },
+      {
+        "src": "/media/ports/nagasaki-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 95974
+      },
+      {
+        "src": "/media/ports/nagasaki-1500.webp",
+        "width": 1500,
+        "height": 1000,
+        "bytes": 310474
+      }
+    ]
+  },
+  "/media/ports/naples.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 397067,
+    "variants": [
+      {
+        "src": "/media/ports/naples-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 27656
+      },
+      {
+        "src": "/media/ports/naples-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 85134
+      },
+      {
+        "src": "/media/ports/naples-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 323612
+      }
+    ]
+  },
+  "/media/ports/nassau.jpg": {
+    "width": 1600,
+    "height": 961,
+    "bytes": 521046,
+    "variants": [
+      {
+        "src": "/media/ports/nassau-480.webp",
+        "width": 480,
+        "height": 288,
+        "bytes": 41204
+      },
+      {
+        "src": "/media/ports/nassau-800.webp",
+        "width": 800,
+        "height": 481,
+        "bytes": 111036
+      },
+      {
+        "src": "/media/ports/nassau-1600.webp",
+        "width": 1600,
+        "height": 961,
+        "bytes": 434346
+      }
+    ]
+  },
+  "/media/ports/ocho-rios.jpg": {
+    "width": 1600,
+    "height": 1060,
+    "bytes": 452014,
+    "variants": [
+      {
+        "src": "/media/ports/ocho-rios-480.webp",
+        "width": 480,
+        "height": 318,
+        "bytes": 34534
+      },
+      {
+        "src": "/media/ports/ocho-rios-800.webp",
+        "width": 800,
+        "height": 530,
+        "bytes": 98166
+      },
+      {
+        "src": "/media/ports/ocho-rios-1600.webp",
+        "width": 1600,
+        "height": 1060,
+        "bytes": 364138
+      }
+    ]
+  },
+  "/media/ports/oranjestad-aruba.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 344441,
+    "variants": [
+      {
+        "src": "/media/ports/oranjestad-aruba-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 32556
+      },
+      {
+        "src": "/media/ports/oranjestad-aruba-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 81810
+      },
+      {
+        "src": "/media/ports/oranjestad-aruba-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 243244
+      }
+    ]
+  },
+  "/media/ports/osaka.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 261570,
+    "variants": [
+      {
+        "src": "/media/ports/osaka-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 26556
+      },
+      {
+        "src": "/media/ports/osaka-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 66298
+      },
+      {
+        "src": "/media/ports/osaka-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 168460
+      }
+    ]
+  },
+  "/media/ports/palma-de-mallorca.jpg": {
+    "width": 1600,
+    "height": 909,
+    "bytes": 232029,
+    "variants": [
+      {
+        "src": "/media/ports/palma-de-mallorca-480.webp",
+        "width": 480,
+        "height": 272,
+        "bytes": 17484
+      },
+      {
+        "src": "/media/ports/palma-de-mallorca-800.webp",
+        "width": 800,
+        "height": 455,
+        "bytes": 46350
+      },
+      {
+        "src": "/media/ports/palma-de-mallorca-1600.webp",
+        "width": 1600,
+        "height": 909,
+        "bytes": 164076
+      }
+    ]
+  },
+  "/media/ports/philipsburg.jpg": {
+    "width": 840,
+    "height": 560,
+    "bytes": 53302,
+    "variants": [
+      {
+        "src": "/media/ports/philipsburg-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 13352
+      },
+      {
+        "src": "/media/ports/philipsburg-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 29198
+      },
+      {
+        "src": "/media/ports/philipsburg-840.webp",
+        "width": 840,
+        "height": 560,
+        "bytes": 31974
+      }
+    ]
+  },
+  "/media/ports/phu-my-ho-chi-minh-city.jpg": {
+    "width": 1600,
+    "height": 1065,
+    "bytes": 464457,
+    "variants": [
+      {
+        "src": "/media/ports/phu-my-ho-chi-minh-city-480.webp",
+        "width": 480,
+        "height": 319,
+        "bytes": 31376
+      },
+      {
+        "src": "/media/ports/phu-my-ho-chi-minh-city-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 94432
+      },
+      {
+        "src": "/media/ports/phu-my-ho-chi-minh-city-1600.webp",
+        "width": 1600,
+        "height": 1065,
+        "bytes": 383728
+      }
+    ]
+  },
+  "/media/ports/phuket.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 304442,
+    "variants": [
+      {
+        "src": "/media/ports/phuket-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 24466
+      },
+      {
+        "src": "/media/ports/phuket-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 64406
+      },
+      {
+        "src": "/media/ports/phuket-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 223086
+      }
+    ]
+  },
+  "/media/ports/piraeus-athens.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 251045,
+    "variants": [
+      {
+        "src": "/media/ports/piraeus-athens-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 21698
+      },
+      {
+        "src": "/media/ports/piraeus-athens-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 55252
+      },
+      {
+        "src": "/media/ports/piraeus-athens-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 173928
+      }
+    ]
+  },
+  "/media/ports/progreso.jpg": {
+    "width": 1600,
+    "height": 1063,
+    "bytes": 152736,
+    "variants": [
+      {
+        "src": "/media/ports/progreso-480.webp",
+        "width": 480,
+        "height": 319,
+        "bytes": 13916
+      },
+      {
+        "src": "/media/ports/progreso-800.webp",
+        "width": 800,
+        "height": 532,
+        "bytes": 31206
+      },
+      {
+        "src": "/media/ports/progreso-1600.webp",
+        "width": 1600,
+        "height": 1063,
+        "bytes": 83508
+      }
+    ]
+  },
+  "/media/ports/puerto-plata.jpg": {
+    "width": 1600,
+    "height": 1019,
+    "bytes": 358264,
+    "variants": [
+      {
+        "src": "/media/ports/puerto-plata-480.webp",
+        "width": 480,
+        "height": 305,
+        "bytes": 35774
+      },
+      {
+        "src": "/media/ports/puerto-plata-800.webp",
+        "width": 800,
+        "height": 510,
+        "bytes": 83282
+      },
+      {
+        "src": "/media/ports/puerto-plata-1600.webp",
+        "width": 1600,
+        "height": 1019,
+        "bytes": 257496
+      }
+    ]
+  },
+  "/media/ports/puerto-vallarta.jpg": {
+    "width": 1600,
+    "height": 645,
+    "bytes": 143778,
+    "variants": [
+      {
+        "src": "/media/ports/puerto-vallarta-480.webp",
+        "width": 480,
+        "height": 193,
+        "bytes": 12500
+      },
+      {
+        "src": "/media/ports/puerto-vallarta-800.webp",
+        "width": 800,
+        "height": 323,
+        "bytes": 30164
+      },
+      {
+        "src": "/media/ports/puerto-vallarta-1600.webp",
+        "width": 1600,
+        "height": 645,
+        "bytes": 87784
+      }
+    ]
+  },
+  "/media/ports/road-town-tortola.jpg": {
+    "width": 1080,
+    "height": 810,
+    "bytes": 162548,
+    "variants": [
+      {
+        "src": "/media/ports/road-town-tortola-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 30450
+      },
+      {
+        "src": "/media/ports/road-town-tortola-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 73528
+      },
+      {
+        "src": "/media/ports/road-town-tortola-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "bytes": 116792
+      }
+    ]
+  },
+  "/media/ports/roatan.jpg": {
+    "width": 800,
+    "height": 600,
+    "bytes": 46506,
+    "variants": [
+      {
+        "src": "/media/ports/roatan-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 12288
+      },
+      {
+        "src": "/media/ports/roatan-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 25858
+      }
+    ]
+  },
+  "/media/ports/roseau-dominica.jpg": {
+    "width": 1156,
+    "height": 594,
+    "bytes": 112714,
+    "variants": [
+      {
+        "src": "/media/ports/roseau-dominica-480.webp",
+        "width": 480,
+        "height": 247,
+        "bytes": 20576
+      },
+      {
+        "src": "/media/ports/roseau-dominica-800.webp",
+        "width": 800,
+        "height": 411,
+        "bytes": 43662
+      },
+      {
+        "src": "/media/ports/roseau-dominica-1156.webp",
+        "width": 1156,
+        "height": 594,
+        "bytes": 69474
+      }
+    ]
+  },
+  "/media/ports/san-juan.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 209033,
+    "variants": [
+      {
+        "src": "/media/ports/san-juan-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 20222
+      },
+      {
+        "src": "/media/ports/san-juan-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 49120
+      },
+      {
+        "src": "/media/ports/san-juan-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 131084
+      }
+    ]
+  },
+  "/media/ports/santorini.jpg": {
+    "width": 1600,
+    "height": 964,
+    "bytes": 246571,
+    "variants": [
+      {
+        "src": "/media/ports/santorini-480.webp",
+        "width": 480,
+        "height": 289,
+        "bytes": 25680
+      },
+      {
+        "src": "/media/ports/santorini-800.webp",
+        "width": 800,
+        "height": 482,
+        "bytes": 60362
+      },
+      {
+        "src": "/media/ports/santorini-1600.webp",
+        "width": 1600,
+        "height": 964,
+        "bytes": 159974
+      }
+    ]
+  },
+  "/media/ports/shanghai.jpg": {
+    "width": 1600,
+    "height": 1068,
+    "bytes": 279882,
+    "variants": [
+      {
+        "src": "/media/ports/shanghai-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 25096
+      },
+      {
+        "src": "/media/ports/shanghai-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 62564
+      },
+      {
+        "src": "/media/ports/shanghai-1600.webp",
+        "width": 1600,
+        "height": 1068,
+        "bytes": 187918
+      }
+    ]
+  },
+  "/media/ports/singapore.jpg": {
+    "width": 1600,
+    "height": 602,
+    "bytes": 183673,
+    "variants": [
+      {
+        "src": "/media/ports/singapore-480.webp",
+        "width": 480,
+        "height": 181,
+        "bytes": 15368
+      },
+      {
+        "src": "/media/ports/singapore-800.webp",
+        "width": 800,
+        "height": 301,
+        "bytes": 39960
+      },
+      {
+        "src": "/media/ports/singapore-1600.webp",
+        "width": 1600,
+        "height": 602,
+        "bytes": 134522
+      }
+    ]
+  },
+  "/media/ports/sitka.jpg": {
+    "width": 1600,
+    "height": 1071,
+    "bytes": 252894,
+    "variants": [
+      {
+        "src": "/media/ports/sitka-480.webp",
+        "width": 480,
+        "height": 321,
+        "bytes": 27446
+      },
+      {
+        "src": "/media/ports/sitka-800.webp",
+        "width": 800,
+        "height": 536,
+        "bytes": 63344
+      },
+      {
+        "src": "/media/ports/sitka-1600.webp",
+        "width": 1600,
+        "height": 1071,
+        "bytes": 145460
+      }
+    ]
+  },
+  "/media/ports/skagway.jpg": {
+    "width": 1280,
+    "height": 870,
+    "bytes": 201809,
+    "variants": [
+      {
+        "src": "/media/ports/skagway-480.webp",
+        "width": 480,
+        "height": 326,
+        "bytes": 25486
+      },
+      {
+        "src": "/media/ports/skagway-800.webp",
+        "width": 800,
+        "height": 544,
+        "bytes": 66278
+      },
+      {
+        "src": "/media/ports/skagway-1280.webp",
+        "width": 1280,
+        "height": 870,
+        "bytes": 148128
+      }
+    ]
+  },
+  "/media/ports/st-georges-grenada.jpg": {
+    "width": 1467,
+    "height": 1100,
+    "bytes": 302535,
+    "variants": [
+      {
+        "src": "/media/ports/st-georges-grenada-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 29854
+      },
+      {
+        "src": "/media/ports/st-georges-grenada-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 75416
+      },
+      {
+        "src": "/media/ports/st-georges-grenada-1467.webp",
+        "width": 1467,
+        "height": 1100,
+        "bytes": 205226
+      }
+    ]
+  },
+  "/media/ports/st-johns-antigua.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 155709,
+    "variants": [
+      {
+        "src": "/media/ports/st-johns-antigua-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 11200
+      },
+      {
+        "src": "/media/ports/st-johns-antigua-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 29560
+      },
+      {
+        "src": "/media/ports/st-johns-antigua-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 89636
+      }
+    ]
+  },
+  "/media/ports/st-thomas.jpg": {
+    "width": 1600,
+    "height": 1060,
+    "bytes": 295539,
+    "variants": [
+      {
+        "src": "/media/ports/st-thomas-480.webp",
+        "width": 480,
+        "height": 318,
+        "bytes": 23424
+      },
+      {
+        "src": "/media/ports/st-thomas-800.webp",
+        "width": 800,
+        "height": 530,
+        "bytes": 60698
+      },
+      {
+        "src": "/media/ports/st-thomas-1600.webp",
+        "width": 1600,
+        "height": 1060,
+        "bytes": 204256
+      }
+    ]
+  },
+  "/media/ports/valletta.jpg": {
+    "width": 1600,
+    "height": 853,
+    "bytes": 254988,
+    "variants": [
+      {
+        "src": "/media/ports/valletta-480.webp",
+        "width": 480,
+        "height": 256,
+        "bytes": 25158
+      },
+      {
+        "src": "/media/ports/valletta-800.webp",
+        "width": 800,
+        "height": 427,
+        "bytes": 62662
+      },
+      {
+        "src": "/media/ports/valletta-1600.webp",
+        "width": 1600,
+        "height": 853,
+        "bytes": 177098
+      }
+    ]
+  },
+  "/media/ports/victoria-bc.jpg": {
+    "width": 1600,
+    "height": 1066,
+    "bytes": 298859,
+    "variants": [
+      {
+        "src": "/media/ports/victoria-bc-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 29494
+      },
+      {
+        "src": "/media/ports/victoria-bc-800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 69266
+      },
+      {
+        "src": "/media/ports/victoria-bc-1600.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 188764
+      }
+    ]
+  },
+  "/media/ports/willemstad-curacao.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 375118,
+    "variants": [
+      {
+        "src": "/media/ports/willemstad-curacao-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 28620
+      },
+      {
+        "src": "/media/ports/willemstad-curacao-800.webp",
+        "width": 800,
+        "height": 534,
+        "bytes": 79100
+      },
+      {
+        "src": "/media/ports/willemstad-curacao-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 296156
+      }
+    ]
+  },
+  "/media/ports/yokohama-tokyo.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 337567,
+    "variants": [
+      {
+        "src": "/media/ports/yokohama-tokyo-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 27218
+      },
+      {
+        "src": "/media/ports/yokohama-tokyo-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 73272
+      },
+      {
+        "src": "/media/ports/yokohama-tokyo-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 267150
+      }
+    ]
+  }
+}

@@ -12,68 +12,36 @@ type AttractionPhotoProps = {
   place: string;
 };
 
-function AttractionPhoto({ imageUrl, photoUrl, photographer, photographerUrl, alt, place }: AttractionPhotoProps) {
+function AttractionPhoto({ imageUrl, photoUrl, photographer, alt, place }: AttractionPhotoProps) {
   return <figure className="intent-attraction-photo" data-photo-source="Unsplash">
     {/* Unsplash-hosted editorial photography, with the photographer and source credited directly below. */}
     {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img src={imageUrl} alt={alt} width="1600" height="1000" loading="lazy" decoding="async" />
-    <figcaption>
-      <a href={photoUrl} target="_blank" rel="noopener noreferrer">{place}</a>. Photo by{" "}
-      <a href={photographerUrl} target="_blank" rel="noopener noreferrer">{photographer}</a>{" "}
-      on Unsplash.
-    </figcaption>
+    <img src={imageUrl} srcSet={`${imageUrl.replace("w=1600", "w=640")} 640w, ${imageUrl} 1600w`} sizes="(max-width: 820px) calc(100vw - 40px), 780px" alt={alt} title={place} width="1600" height="1000" loading="lazy" decoding="async" />
+    <figcaption><a href={photoUrl} target="_blank" rel="noopener noreferrer">{photographer}</a></figcaption>
   </figure>;
 }
 
 export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide; hub: string }) {
   return <>
     <div className="intent-editorial-copy">
-      <p>The Yokohama Cruise Terminal—also known as the Yokohama International Passenger Terminal at Osanbashi Pier—is a gateway to adventure. It is a bustling hub for travelers eager to explore Japan through Yokohama cruise port.</p>
-      <p>Nestled in the heart of Yokohama, this terminal is more than a port: it is a starting point for discovering the city&apos;s hidden gems. From cultural landmarks to vibrant shopping districts, Yokohama offers a rich range of experiences within a practical cruise-day area.</p>
+      <p><strong>From Osanbashi, choose Yamashita Park and Chinatown for a park-and-food walk, or the Red Brick Warehouse and Minato Mirai for a waterfront outing.</strong> These are alternative directions for a compact port day. Choose one main area, check the time left after disembarkation, and keep the return to your ship in the plan.</p>
       <aside className="intent-editorial-note"><strong>Confirm your terminal first.</strong><p>This guide is centered on Osanbashi Pier. Yokohama calls can also use Shinko or Daikoku, whose first-mile transport is different. Use the exact terminal in your cruise documents before following a walking or pickup plan.</p></aside>
 
       <section aria-labelledby="terminal-overview">
-        <h2 id="terminal-overview">Overview of Yokohama Cruise Terminal</h2>
-        <p>The Yokohama Cruise Terminal, also known as Osanbashi Pier and the Osanbashi Yokohama International Passenger Terminal, is an impressive modern landmark and a significant entry point for international cruises. Its distinctive architectural design stands out on Yokohama&apos;s waterfront.</p>
-        <p>Located in the heart of the city, the terminal offers panoramic views of Yokohama&apos;s skyline. It combines modern passenger facilities, access to public transport, and a rooftop garden that is open to the public.</p>
+        <h2 id="terminal-overview">Start with the time you actually have ashore</h2>
+        <p>Osanbashi is the Yokohama International Passenger Terminal. The <a href="https://www.yokohamajapan.com/cruise/terminal/osanbashi/" target="_blank" rel="noopener noreferrer">official visitor guide</a> places Yamashita Park, Chinatown and the Red Brick Warehouse within walking distance. That location helps you build a flexible outing, but your gangway, terminal exit and walking pace still determine when sightseeing begins.</p>
         <ul>
-          <li>Modern facilities for cruise passengers</li>
-          <li>Access to public transport and central Yokohama</li>
-          <li>A public rooftop garden with harbor and skyline views</li>
+          <li><strong>A short or delayed call:</strong> keep a park or waterfront stop that can be shortened.</li>
+          <li><strong>A meal is the priority:</strong> choose Chinatown and leave time to order and eat.</li>
+          <li><strong>A timed museum activity:</strong> check the date and session before extending the walk.</li>
         </ul>
-        <p>The terminal is not only for boarding ships. Its rooftop serves as a public park with green space and seating, making it a useful place to relax before or after exploring the city.</p>
-      </section>
-
-      <section aria-labelledby="terminal-importance">
-        <h2 id="terminal-importance">Why the Terminal Matters to Japan&apos;s Cruise Industry</h2>
-        <p>Yokohama Cruise Terminal holds an important position in Japan&apos;s cruise network. Its proximity to Tokyo makes it a convenient starting or ending point for international itineraries, while its central Yokohama location also supports independent city exploration.</p>
-        <ul>
-          <li>Regional access from Tokyo and beyond</li>
-          <li>Purpose-built facilities for international cruise travelers</li>
-          <li>A major passenger gateway for Yokohama and the wider Tokyo area</li>
-        </ul>
-        <p>Cruise calls also bring travelers directly into Yokohama&apos;s restaurants, shops, museums, and waterfront attractions, connecting the port with the city&apos;s visitor economy.</p>
+        <p>The rooftop observation deck offers a nearby place for harbor views. Keep it as a flexible final stop if permitted access and your boarding instructions allow. A sightseeing plan for a port call is different from filling spare time before embarkation: luggage and your check-in window come first.</p>
       </section>
 
       <section aria-labelledby="getting-to-terminal">
-        <h2 id="getting-to-terminal">Getting to Yokohama Cruise Terminal</h2>
-        <p>Reaching Osanbashi is generally straightforward because central Yokohama is connected with Tokyo and the wider region by frequent rail services. Your best option depends on luggage, group size, budget, and the exact terminal named by the cruise line.</p>
-
-        <h3>Transportation options</h3>
-        <p>Travelers can choose among trains, buses, taxis, and private transfers. Trains are usually the fastest economical choice between Tokyo and Yokohama. Taxis and private transfers offer a direct journey, which can be useful with several bags or a larger group.</p>
-        <ul>
-          <li><strong>Train:</strong> Frequent and economical for travelers who can manage their luggage</li>
-          <li><strong>Bus:</strong> Useful on selected routes, though traffic can make timing less predictable</li>
-          <li><strong>Taxi:</strong> Direct and convenient for the final leg in Yokohama</li>
-          <li><strong>Private transfer:</strong> The lowest-friction option for groups, luggage, or a prearranged pickup</li>
-        </ul>
-
-        <h3>From Tokyo to Yokohama cruise port</h3>
-        <p>Most visitors use rail service from Tokyo to Yokohama. Common choices include the JR Tokaido Line and the Keihin-Tohoku Line. The best station and final connection depend on where the Tokyo journey begins and whether the ship is at Osanbashi, Shinko, or Daikoku. For embarkation from a Tokyo hotel, compare routes, luggage considerations, and pickup options in our <Link href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal">Tokyo to Yokohama Cruise Terminal guide</Link>.</p>
-        <p>A taxi or private car provides a door-to-door alternative. Before booking, confirm the terminal name, pickup procedure, waiting policy, luggage allowance, and what happens if a flight or train is delayed.</p>
-
-        <h3>Local transport in Yokohama</h3>
-        <p>The Yokohama Municipal Subway and local bus network cover central districts and places beyond the easiest walking radius. A compatible IC card simplifies fare payment across much of the local rail and bus system.</p>
+        <h2 id="getting-to-terminal">Arriving from Tokyo, or using a different berth?</h2>
+        <p>For a Tokyo hotel-to-ship journey, use the <Link href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal">Tokyo to Yokohama Cruise Terminal guide</Link> to compare the complete train connection, luggage and vehicle pickup. This page focuses on what to do nearby after your terminal and available time are confirmed.</p>
+        <p>If the ship uses Shinko or Daikoku, first check the <Link href={hub}>Yokohama port guide</Link> and your cruise line&apos;s passenger access arrangements. Do not apply an Osanbashi walking route to a distant berth or assume a shuttle is available for every sailing.</p>
       </section>
     </div>
 
@@ -105,7 +73,8 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
           alt="Cup Noodles display inside the Cup Noodles Museum in Yokohama"
           place="Cup Noodles Museum"
         />
-        <p>The Cup Noodles Museum presents the history and design of instant noodles through interactive exhibits. Its custom cup-noodle activity is popular with families, but timed activities and opening details should be checked before the visit.</p>
+        <p>The Cup Noodles Museum presents the history and design of instant noodles through interactive exhibits. Check the <a href="https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/" target="_blank" rel="noopener noreferrer">official calendar</a> before making it the main stop: the regular closure is Tuesday, or the following day when Tuesday is a national holiday, with additional year-end closures.</p>
+        <p>Museum admission and a noodle-making session are separate decisions. The <a href="https://www.cupnoodles-museum.jp/en/yokohama/guide/faq/" target="_blank" rel="noopener noreferrer">official booking FAQ</a> distinguishes admission from reserved activities; an online My CUPNOODLES Factory package includes a specified activity slot. Choose only a session that fits the walk there, the activity and your return. A general museum ticket does not promise immediate entry to every workshop.</p>
 
         <h3>Sankeien Garden</h3>
         <AttractionPhoto
@@ -116,7 +85,7 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
           alt="A garden path leading to a traditional pavilion in Sankeien Garden"
           place="Sankeien Garden"
         />
-        <p>Sankeien Garden pairs landscaped grounds with historic Japanese buildings. It is farther from Osanbashi than the central waterfront sights, so it works best as a main outing rather than a quick add-on.</p>
+        <p>Sankeien Garden pairs landscaped grounds with historic Japanese buildings. Its <a href="https://www.sankeien.or.jp/en_access/" target="_blank" rel="noopener noreferrer">official access page</a> describes a separate journey by train and bus or road. Compare that journey in both directions before buying admission; treat the garden as the main outing rather than adding it after every central waterfront stop.</p>
 
         <h3>Waterfront parks and views</h3>
         <p>For a lower-commitment plan, Yokohama&apos;s waterfront provides green space, harbor scenery, and direct skyline views without requiring a long trip away from the ship.</p>
@@ -182,9 +151,14 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
       </section>
 
       <section aria-labelledby="final-thoughts">
-        <h2 id="final-thoughts">Final Thoughts</h2>
-        <p>Yokohama Cruise Terminal is a gateway to a city rich in culture and waterfront experiences. A well-paced day can combine Osanbashi views with Yamashita Park and Chinatown, or head toward the Red Brick Warehouse and Minato Mirai. Sankeien Garden is better treated as a separate main outing.</p>
+        <h2 id="final-thoughts">Choose one direction and keep the final stop flexible</h2>
+        <p>Pair Yamashita Park with Chinatown when a waterfront stroll and a meal are the priorities. Choose the Red Brick Warehouse and Minato Mirai when shopping or a museum is the main reason to go ashore. Sankeien is a separate transport-based plan. You do not need to complete every attraction on this page to have a useful port day.</p>
         <p>Confirm the berth first, keep the final stop on the return route, and use the official all-aboard time rather than ship departure as the end of the day.</p>
+      </section>
+      <section className="intent-sources" aria-labelledby="yokohama-nearby-sources">
+        <h2 id="yokohama-nearby-sources">Attraction sources and visit checks</h2>
+        <p>Terminal setting, park location, museum booking conditions and garden access reviewed October 7, 2026. Recheck the calendar and your ship&apos;s instructions for the actual visit date.</p>
+        <ul>{guide.sources.filter(source => !source.url.startsWith("/")).map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a><span>{source.note}</span></li>)}</ul>
       </section>
 
       <section className="intent-editorial-faq" aria-labelledby="yokohama-faq">

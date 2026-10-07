@@ -1,4 +1,11 @@
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
+import { localPhoto, localPhotoSrcSet } from "@/lib/local-photos";
+
+function bodyPhotoHtml(src: string, alt: string, width: number, height: number) {
+  const asset = localPhoto(src);
+  const responsiveSource = asset ? `<source type="image/webp" srcset="${localPhotoSrcSet(src)}" sizes="(max-width: 900px) calc(100vw - 40px), 780px">` : "";
+  return `<picture>${responsiveSource}<img src="${src}" alt="${alt}" loading="lazy" decoding="async" width="${asset?.width ?? width}" height="${asset?.height ?? height}"></picture>`;
+}
 
 export const blogPost = {
   slug: "future-of-cruise-ship-terminals",
@@ -9,13 +16,15 @@ export const blogPost = {
   category: "Cruise Industry",
   published: "2026-07-22",
   publishedLabel: "July 22, 2026",
-  modified: "2026-07-24",
+  modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "8 min read",
-  image: "/media/blog/cruise-terminal-aerial.jpg",
-  imageAlt: "Aerial view of a modern cruise ship terminal with two ships at the dock",
-  imageWidth: 1024,
-  imageHeight: 1024,
+  image: "/media/blog/port-canaveral-sunset.webp",
+  imageAlt: "Cruise ships docked at Port Canaveral beside the harbor at sunset",
+  imageWidth: 1600,
+  imageHeight: 809,
+  imageAuthor: "TerryDOtt",
+  imageCreditHref: "/photo-credits#port-canaveral-sunset",
   targetKeywords: [
     "ship dock",
     "passenger terminal",
@@ -32,7 +41,7 @@ export const blogPost = {
     { id: "innovation", label: "Port innovation" },
     { id: "sustainability", label: "Sustainability" },
     { id: "passenger-technology", label: "Passenger technology" },
-    { id: "case-studies", label: "Leading terminals" },
+    { id: "case-studies", label: "Terminal examples" },
     { id: "economic-impact", label: "Economic impact" },
     { id: "challenges", label: "Challenges ahead" },
   ],
@@ -46,17 +55,19 @@ export const mcoToPortCanaveralPost = {
   cardTitle: "MCO to Port Canaveral transportation options",
   seoTitle: "MCO to Port Canaveral: Transportation Options",
   description: "Compare shared shuttles, private transfers, Uber or Lyft, rental cars, and cruise line transfers from Orlando airport (MCO) to Port Canaveral.",
-  excerpt: "Compare the five main ways to travel the roughly 45 miles from Orlando International Airport to Port Canaveral, including timing, cost ranges, and cruise-day tradeoffs.",
+  excerpt: "Compare five ways to travel from Orlando International Airport to Port Canaveral, including airport pickup, terminal directions, total-cost checks, and cruise-day timing.",
   category: "Cruise Transportation",
   published: "2026-07-24",
   publishedLabel: "July 24, 2026",
-  modified: "2026-07-24",
+  modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "7 min read",
-  image: "/media/blog/passenger-terminal-technology.jpg",
-  imageAlt: "Cruise ship beside a passenger terminal and transfer roadway",
+  image: "/media/blog/port-canaveral-sunset.webp",
+  imageAlt: "Cruise ships docked at Port Canaveral beside the harbor at sunset",
   imageWidth: 1600,
-  imageHeight: 1073,
+  imageHeight: 809,
+  imageAuthor: "TerryDOtt",
+  imageCreditHref: "/photo-credits#port-canaveral-sunset",
   targetKeywords: [
     "MCO to Port Canaveral",
     "Orlando airport to Port Canaveral",
@@ -94,7 +105,7 @@ export const blogPosts = [
 export const mcoToPortCanaveralFaq = [
   {
     question: "How early should I leave MCO for Port Canaveral?",
-    answer: "If you are boarding a cruise the same day, build in a substantial buffer. A practical target is to reach the port area three to four hours before the ship's departure window, while following any earlier arrival or check-in requirement from your cruise line.",
+    answer: "Work backward from the boarding time assigned by your cruise line and its final check-in deadline. Port Canaveral describes MCO as approximately a 45-minute drive away, but baggage claim, vehicle pickup, shuttle waiting, traffic, and terminal entry need additional time. Confirm the transfer provider's flight-arrival cutoff before booking a same-day flight.",
   },
   {
     question: "Are there tolls between MCO and Port Canaveral?",
@@ -111,8 +122,9 @@ export const mcoToPortCanaveralFaq = [
 ] as const;
 
 export const mcoToPortCanaveralHtml = String.raw`
-<p>Port Canaveral is roughly <strong>45 miles from Orlando International Airport (MCO)</strong>. The drive commonly takes about <strong>45 to 75 minutes</strong>, but weather, traffic, luggage pickup, toll-road conditions, and cruise-day congestion can extend the journey.</p>
+<p>Port Canaveral is east of Orlando International Airport (MCO). The <a href="https://www.portcanaveral.com/port-operations/port-facilities/directions-to-the-port" target="_blank" rel="noopener noreferrer">port authority describes the airport as approximately a 45-minute drive away</a>, normally using S.R. 528 East, the Beachline toll road. That is a road estimate, not the full time from landing to check-in: baggage claim, vehicle pickup, shuttle waiting, traffic, and terminal entry are additional.</p>
 <p>The best transfer is not simply the cheapest listed fare. Group size, luggage, child-seat needs, flight timing, and the amount of schedule protection you want all change which option offers the best value.</p>
+<p><em>Airport, port, and cruise-line references checked October 7, 2026. Obtain a quote for your travel date; this guide does not publish current fare estimates.</em></p>
 
 <h2 id="quick-answer">Quick Answer: Which MCO Transfer Is Best?</h2>
 <div class="blog-quick-answer">
@@ -128,17 +140,17 @@ export const mcoToPortCanaveralHtml = String.raw`
 <h2 id="comparison">MCO to Port Canaveral Transportation Compared</h2>
 <div class="blog-table-scroll" role="region" aria-label="MCO to Port Canaveral transportation comparison" tabindex="0">
   <table>
-    <thead><tr><th>Option</th><th>Typical time</th><th>Typical one-way cost</th><th>Best for</th><th>Watch-outs</th></tr></thead>
+    <thead><tr><th>Option</th><th>Time to include</th><th>How to compare cost</th><th>Best for</th><th>Watch-outs</th></tr></thead>
     <tbody>
-      <tr><td>Shared shuttle or van</td><td>60–90 min</td><td>$25–$45+ per person</td><td>Solo travelers, couples, small groups</td><td>Scheduled departures and extra stops</td></tr>
-      <tr><td>Private car, SUV, or van</td><td>45–75 min</td><td>$120–$220+ per vehicle</td><td>Families, groups, tighter timelines</td><td>Operator quality and vehicle capacity vary</td></tr>
-      <tr><td>Uber or Lyft</td><td>45–75 min</td><td>$90–$180+ per ride</td><td>One to three people with manageable luggage</td><td>Surge pricing and limited larger vehicles</td></tr>
-      <tr><td>Rental car</td><td>45–75 min driving</td><td>$60–$120+ per day</td><td>Travelers adding stops or an overnight stay</td><td>Tolls, fuel, return time, and local shuttle logistics</td></tr>
-      <tr><td>Cruise line transfer</td><td>60–90 min</td><td>Varies by cruise line</td><td>First-time cruisers who value simplicity</td><td>Limited times and flight-arrival rules</td></tr>
+      <tr><td>Shared shuttle or van</td><td>Road journey plus scheduled wait and stops</td><td>Per-person fare × number of travelers, plus any fees</td><td>Solo travelers, couples, small groups</td><td>Scheduled departures and extra stops</td></tr>
+      <tr><td>Private car, SUV, or van</td><td>Road journey plus the agreed pickup allowance</td><td>Full vehicle quote for your party and bags</td><td>Families, groups, direct travel</td><td>Operator quality and vehicle capacity vary</td></tr>
+      <tr><td>Uber or Lyft</td><td>Road journey plus app pickup wait</td><td>Live fare for the vehicle category you need</td><td>Small parties with manageable luggage</td><td>Surge pricing and limited larger vehicles</td></tr>
+      <tr><td>Rental car</td><td>Road journey, collection, return, and terminal shuttle</td><td>Rental total, tolls, fuel, and any one-way or parking charges</td><td>Travelers adding stops or an overnight stay</td><td>Local return and shuttle logistics</td></tr>
+      <tr><td>Cruise line transfer</td><td>Road journey plus the line's meeting and departure process</td><td>Quote for all guests on the specific sailing</td><td>First-time cruisers who value simplicity</td><td>Limited times and flight-arrival rules</td></tr>
     </tbody>
   </table>
 </div>
-<p><em>These are planning ranges, not live quotes. Prices vary by date, demand, vehicle size, pickup terms, tolls, and operator. Confirm the final total and cancellation policy before booking.</em></p>
+<p>Compare the complete one-way total for the same party, luggage, pickup time, and cruise terminal. A lower per-person headline fare may cost more for a family; a vehicle quote may exclude fees or waiting. Confirm the final total and cancellation policy before booking.</p>
 
 <h2 id="driving-route">Driving Route from Orlando Airport to Port Canaveral</h2>
 <p>Most road transfers use <strong>FL-528 East, also called the Beachline Expressway</strong>, toward Florida's Space Coast. The route is direct, but it includes tolls and can slow near the port access roads when several ships are turning over passengers.</p>
@@ -146,7 +158,7 @@ export const mcoToPortCanaveralHtml = String.raw`
   <li>Allow time for baggage claim before starting your road estimate.</li>
   <li>Confirm whether tolls are included in a private-transfer quote or added to a rideshare fare.</li>
   <li>If you are driving, check the rental company's toll policy rather than assuming cash payment is available everywhere.</li>
-  <li>Keep the cruise terminal name and address available; Port Canaveral serves several terminals.</li>
+  <li>Confirm your terminal in the cruise documents, then use the <a href="https://www.portcanaveral.com/cruise/directions-parking/cruise-terminal-guide" target="_blank" rel="noopener noreferrer">official terminal arrival guides</a> for its address and drop-off instructions. Enter that terminal, rather than a generic Port Canaveral pin, in a transfer booking.</li>
 </ul>
 
 <h2 id="shared-shuttle">Option 1: Shared Shuttle Services</h2>
@@ -195,6 +207,7 @@ export const mcoToPortCanaveralHtml = String.raw`
   <li>Child-seat availability is not guaranteed in a standard request.</li>
 </ul>
 <p>Check the live price after baggage claim, and compare the total for an XL vehicle with a pre-booked private transfer. Count suitcases as well as passengers before choosing the vehicle class.</p>
+<p>The <a href="https://flymco.com/ground-transportation/ride-share/" target="_blank" rel="noopener noreferrer">airport's official rideshare page</a> lists the usual pickup curbs as Level 2 arrivals at Terminals A and B, and Level 6 arrivals at Terminal C. Follow your app's current pickup instructions and airport signs; a shared-shuttle operator may use a different meeting point.</p>
 
 <h2 id="rental-car">Option 4: Rental Car for More Flexibility</h2>
 <p>A rental car makes the most sense when the airport-to-port drive is part of a wider itinerary. It lets you add Cocoa Beach, Kennedy Space Center, a hotel, restaurants, or last-minute shopping without arranging separate rides.</p>
@@ -227,6 +240,7 @@ export const mcoToPortCanaveralHtml = String.raw`
   <li>Pricing may be less attractive for several people traveling together.</li>
 </ul>
 <p>Read the cruise line's eligible flight times, meeting-point instructions, baggage rules, and deadline for adding the transfer. A cruise line transfer does not make a risky same-day flight schedule risk-free.</p>
+<p>For example, <a href="https://www.royalcaribbean.com/faq/questions/port-arrival-travel-options" target="_blank" rel="noopener noreferrer">Royal Caribbean describes airport-to-pier transfers on sailing day and pier-to-airport transfers on debarkation day</a>, requests flight details, and recommends arranging the transfer ahead of sailing. This is a cruise-line example, not a universal cutoff or a promise that every flight qualifies.</p>
 
 <h2 id="choosing">How to Choose the Best Transfer</h2>
 <p>Use this checklist before comparing the headline prices:</p>
@@ -242,7 +256,7 @@ export const mcoToPortCanaveralHtml = String.raw`
 
 <h2 id="faq">Frequently Asked Questions</h2>
 <h3>How early should I leave MCO for Port Canaveral?</h3>
-<p>If you are boarding a cruise the same day, build in a substantial buffer. A practical target is to reach the port area three to four hours before the ship's departure window, while following any earlier arrival or check-in requirement from your cruise line.</p>
+<p>Work backward from the boarding time assigned by your cruise line and its final check-in deadline. <a href="https://www.portcanaveral.com/cruise/directions-parking/cruise-terminal-guide" target="_blank" rel="noopener noreferrer">Port Canaveral asks guests to follow their assigned boarding time</a>. The approximately 45-minute road estimate does not include baggage claim, vehicle pickup, shuttle waiting, traffic, or terminal entry. Confirm the transfer provider's flight-arrival cutoff before booking a same-day flight.</p>
 <h3>Are there tolls between MCO and Port Canaveral?</h3>
 <p>Usually, yes. The common FL-528 route is a toll road. Rideshare and private-transfer pricing may add tolls to the quoted fare, while rental-car travelers should confirm the rental company's toll-payment policy.</p>
 <h3>Is there reliable public transportation from MCO to Port Canaveral?</h3>
@@ -256,11 +270,9 @@ export const mcoToPortCanaveralHtml = String.raw`
 `;
 
 export const blogPostHtml = String.raw`
-<p>Cruise ship terminals are the gateways to adventure. They connect travelers to the vast oceans and distant lands. These terminals are more than just a ship dock; they are bustling hubs of activity.</p>
-<p>As the cruise industry grows, so does the need for modern passenger terminals. These facilities must accommodate larger ships and more passengers. The evolution of cruise terminals is crucial for the industry's future.</p>
-<p>Sustainability is now a key focus in terminal design. Ports are adopting green practices to reduce their environmental impact. This shift is essential for preserving our oceans.</p>
-<p>Technology is transforming the passenger experience. From automated check-ins to facial recognition, innovations are enhancing convenience and security. These advancements are setting new standards for cruise travel.</p>
-<p>The future of cruise ship terminals is bright. With continued innovation, they will remain vital to the cruise industry.</p>
+<p>A cruise terminal has to move passengers and luggage between a ship and the surrounding city, while handling security, traffic, energy, and waterfront conditions. Terminal design matters to travelers when it changes the time spent waiting, the ease of reaching a pickup point, or the services available during a port call.</p>
+<p>This overview considers passenger flow, shore power, and city connections. These are design priorities, not features guaranteed at every terminal. For a practical airport journey, see the <a href="/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral">MCO to Port Canaveral transfer comparison</a>.</p>
+<p><em>Selected official terminal and shore-power references checked October 7, 2026. Historical project announcements are identified by their original dates; confirm operating arrangements with the port and cruise line for your sailing.</em></p>
 
 <h2 id="terminal-trends">Cruise Terminal Trends at a Glance</h2>
 <p>Future-ready cruise terminals are being designed around five connected priorities:</p>
@@ -289,12 +301,12 @@ export const blogPostHtml = String.raw`
 
 <h2 id="modern-features">Key Features of Modern Passenger Terminals</h2>
 <p>Modern passenger terminals are built with the passenger experience at the forefront. Comfort, efficiency, and safety have become central to terminal design. These features ensure a smooth embarkation and disembarkation process for travelers.</p>
-<p>Cutting-edge technology is integrated throughout these terminals. Facial recognition and automated check-in enhance the speed and security of passenger processing. Such innovations streamline operations, reducing wait times and increasing satisfaction.</p>
+<p>Check-in, security, luggage handoff, and waiting areas must work together. <a href="https://www.miamidade.gov/portmiami/cruise-terminals.page" target="_blank" rel="noopener noreferrer">PortMiami's description of Terminal A</a>, for example, identifies separate luggage drop-off, waiting space, and an expedited security check-in area for international guests. A facility description does not promise a particular processing time on a busy departure day.</p>
 <p>Amenities play a crucial role in passenger terminals. Dining options, retail spaces, and entertainment areas are increasingly common. They cater to various tastes and preferences, offering something for every traveler during their transit.</p>
-<p>Environmentally friendly design elements are now standard. Many terminals utilize sustainable materials, energy-efficient systems, and shore power to minimize emissions. This not only helps protect the environment but also appeals to eco-conscious travelers.</p>
+<p>Environmental design varies by facility. PortMiami lists different LEED certifications for individual terminals, while shore power requires a compatible ship and berth connection. A modern building alone does not establish that a ship will use shore power during your visit.</p>
 <figure>
-  <img src="/media/blog/cruise-terminal-interior.jpg" alt="Interior of a modern cruise passenger terminal with check-in counters" loading="lazy" width="1024" height="1024">
-  <figcaption>A modern passenger terminal brings check-in, wayfinding, and boarding into one connected space.</figcaption>
+  ${bodyPhotoHtml("/media/blog/cruise-terminal-interior.jpg", "Concept illustration of passenger check-in inside a cruise terminal", 1024, 1024)}
+  <figcaption>Concept illustration of terminal check-in.</figcaption>
 </figure>
 <p>Key features of modern terminals include:</p>
 <ul>
@@ -308,12 +320,12 @@ export const blogPostHtml = String.raw`
 
 <h2 id="innovation">Innovations Shaping the Future of Cruise Ports</h2>
 <p>Cruise ports are at the forefront of adopting groundbreaking innovations. These changes are reshaping how cruise terminals operate and engage with passengers. As the industry evolves, new technologies and ideas become pivotal.</p>
-<p>Automation is a major player in this transformation. Self-service kiosks and automated bag drop systems accelerate check-ins and departures. These enhancements ensure a seamless experience for travelers.</p>
+<p>Self-service and digital systems can help manage passenger information, but their value depends on how they fit the terminal's operating process. Clear staff guidance and a workable procedure for passengers who need assistance remain part of the design problem.</p>
 <p>Smart technologies are also enhancing energy efficiency. Terminals are using intelligent systems to manage lighting, heating, and cooling. This helps minimize energy usage while maintaining comfort.</p>
 <p>Connectivity improvements are enhancing passenger interaction. High-speed Wi-Fi and mobile apps facilitate smooth communication and services. Passengers can access real-time updates, directions, and booking options.</p>
 <figure>
-  <img src="/media/blog/cruise-port-technology.jpg" alt="Cruise ship approaching a connected modern port" loading="lazy" width="1600" height="1199">
-  <figcaption>Connected services can link passengers, ships, and terminal operations before a vessel reaches the dock. Photo by <a href="https://unsplash.com/@nazahery" target="_blank" rel="noopener noreferrer">Nazarizal Mohammad</a>.</figcaption>
+  ${bodyPhotoHtml("/media/blog/cruise-port-technology.jpg", "Cruise ship approaching a connected modern port", 1600, 1199)}
+  <figcaption><a href="https://unsplash.com/@nazahery" target="_blank" rel="noopener noreferrer">Nazarizal Mohammad</a></figcaption>
 </figure>
 <p>Innovations at cruise ports include:</p>
 <ul>
@@ -327,7 +339,7 @@ export const blogPostHtml = String.raw`
 
 <h2 id="sustainability">Sustainability and Environmental Initiatives</h2>
 <p>Sustainability is becoming a central focus at cruise ship terminals. Port authorities are implementing eco-friendly practices to minimize their environmental impact. This shift is essential for the future viability of maritime tourism.</p>
-<p>Many cruise terminals are investing in shore power facilities. This technology allows docked ships to switch off their engines and connect to local power. As a result, emissions are significantly reduced while the ship is stationary.</p>
+<p>Shore power lets a compatible ship use electricity from shore instead of running its onboard diesel generators for hotel services at berth. <a href="https://www.canada.ca/en/news/archive/2009/08/shore-power-cruise-ships-canada-place-canadian-first.html" target="_blank" rel="noopener noreferrer">Transport Canada's August 2009 announcement</a> documented the Canada Place cruise-terminal installation in Vancouver. This is an established project example, not a claim that shore power is available to every ship or berth.</p>
 <p>Green building standards are guiding new terminal constructions. These standards ensure energy efficiency and lower carbon footprints. They also emphasize the use of sustainable materials and waste reduction strategies.</p>
 <p>Key sustainability initiatives at cruise ship terminals include:</p>
 <ul>
@@ -340,37 +352,37 @@ export const blogPostHtml = String.raw`
 
 <h2 id="passenger-technology">Technology and the Passenger Experience</h2>
 <p>Advancements in technology are revolutionizing passenger experiences at cruise ship terminals. These innovations streamline operations and ensure smoother journeys. Technology enhances both efficiency and convenience for travelers.</p>
-<p>Automated check-in systems have reduced wait times significantly. Passengers now enjoy faster processing with minimal paperwork. This ease of use is a major advantage for cruise ports globally.</p>
-<p>Facial recognition technology is being implemented at key points. This ensures accurate and swift identification of passengers. It also enhances security, a top priority for terminal operators.</p>
+<p>Digital check-in can move some preparation ahead of arrival, but passengers still need to satisfy their cruise line's document and boarding requirements. A faster online step does not remove security queues, luggage handling, or the time needed to reach the correct building.</p>
+<p>When a terminal offers an automated identity or document check, follow the operator's instructions and ask staff about assistance or an alternative process if needed. Technology should make the journey easier to understand rather than create another unexplained step.</p>
 <figure>
-  <img src="/media/blog/passenger-terminal-technology.jpg" alt="Cruise ship beside a busy passenger terminal roadway" loading="lazy" width="1600" height="1073">
-  <figcaption>Terminal technology must work across the complete passenger journey, including transfers and landside traffic. Photo by <a href="https://unsplash.com/@maranthi" target="_blank" rel="noopener noreferrer">Stephan Hinni</a>.</figcaption>
+  ${bodyPhotoHtml("/media/blog/passenger-terminal-technology.jpg", "Cruise ship beside a busy passenger terminal roadway", 1600, 1073)}
+  <figcaption><a href="https://unsplash.com/@maranthi" target="_blank" rel="noopener noreferrer">Stephan Hinni</a></figcaption>
 </figure>
 <p>Notable technological enhancements include:</p>
 <ul>
   <li><strong>Automated Check-In:</strong> Speeds up passenger processing.</li>
-  <li><strong>Facial Recognition:</strong> Provides enhanced security measures.</li>
+  <li><strong>Identity Checks:</strong> Clear instructions for the process used at the particular terminal.</li>
   <li><strong>Mobile Apps:</strong> Offers real-time updates for passengers.</li>
   <li><strong>Digital Kiosks:</strong> Provides instant access to terminal information.</li>
 </ul>
 <p>Digital solutions are also extending to mobile apps. These apps keep passengers informed about ship schedules and terminal facilities. They also offer personalized travel information, improving overall travel satisfaction.</p>
 <p>As terminals integrate these technologies, they gain a competitive edge. They can better cater to tech-savvy travelers who value efficiency and convenience. The future of cruise ship terminals will be characterized by these cutting-edge technological integrations.</p>
 
-<h2 id="case-studies">Case Studies: Leading Cruise Ship Terminals</h2>
-<p>Some cruise ship terminals stand out for their innovative designs and services. These terminals set benchmarks for the industry. Let's explore a few exemplary cases.</p>
+<h2 id="case-studies">Examples: Different Priorities at Cruise Ship Terminals</h2>
+<p>These examples illustrate different terminal priorities. They are not a ranking of passenger experience or an assessment based on first-hand visits.</p>
 <p>Canada Place in Vancouver combines a working passenger terminal with a highly visible waterfront destination. Its central setting illustrates how a cruise port can connect ship operations, city transport, hotels, and visitor services within the same district.</p>
 <figure>
-  <img src="/media/blog/victoria-cruise-terminal.jpg" alt="Canada Place cruise terminal on Vancouver's waterfront" loading="lazy" width="1600" height="1067">
-  <figcaption>Canada Place demonstrates how a passenger terminal can become part of the destination waterfront. Photo by <a href="https://unsplash.com/@justzht" target="_blank" rel="noopener noreferrer">Haotian Zheng</a>.</figcaption>
+  ${bodyPhotoHtml("/media/blog/victoria-cruise-terminal.jpg", "Canada Place cruise terminal on Vancouver's waterfront", 1600, 1067)}
+  <figcaption><a href="https://unsplash.com/@justzht" target="_blank" rel="noopener noreferrer">Haotian Zheng</a></figcaption>
 </figure>
 <p>The <a href="/ports/victoria-bc">Victoria British Columbia cruise ship terminal</a> is a frequent stop on Alaska itineraries. Its connection to local tourism shows how a terminal can introduce passengers to the region even during a relatively short port call.</p>
-<p>Halifax's cruise ship terminal is renowned for its historical significance. Its strategic location plays a pivotal role in the region's maritime activities. The terminal exemplifies the integration of traditional charm with modern amenities.</p>
-<p>Meanwhile, Cruise Terminal A in Miami is a marvel in cruise terminal design. It is one of the largest in the world and features cutting-edge technology. This terminal prioritizes passenger flow and comfort.</p>
+<p>Halifax offers another shore-power example. <a href="https://www.canada.ca/en/transport-canada/news/2018/11/vancouver-fraser-port-authoritys-completed-shore-power-project-to-reduce-air-pollution.html" target="_blank" rel="noopener noreferrer">Transport Canada's November 2018 project update</a> lists the Port of Halifax's cruise-ship shore-power system among completed projects. The announcement supports that historical installation, not a guarantee of a connection for a particular future call.</p>
+<p>In Miami, <a href="https://www.miamidade.gov/portmiami/cruise-terminals.page" target="_blank" rel="noopener noreferrer">PortMiami identifies Royal Caribbean's Terminal A</a> as a facility opened in 2018 with luggage drop-off, waiting areas, and LEED Silver certification. These concrete features are more useful than assuming every new terminal delivers the same passenger experience.</p>
 <p>These terminals highlight different aspects of success:</p>
 <ul>
   <li><strong>Victoria, BC:</strong> Links with local tourism.</li>
-  <li><strong>Halifax:</strong> Merges history with functionality.</li>
-  <li><strong>Miami:</strong> Showcases advanced technology.</li>
+  <li><strong>Halifax:</strong> A documented cruise shore-power installation.</li>
+  <li><strong>Miami:</strong> Dedicated passenger and luggage spaces in a certified building.</li>
 </ul>
 <p>Such terminals are adaptable, incorporating future trends and passenger feedback. They manage to balance aesthetic appeal with operational excellence.</p>
 <p>The success of these terminals results from the collaboration between cruise lines and port authorities. This partnership is crucial in maintaining high standards and attracting cruise lines. As these terminals continue to innovate, they will lead the way in future cruise experiences.</p>

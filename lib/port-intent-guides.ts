@@ -25,6 +25,7 @@ export type PortIntentGuide = {
     heading: string;
     paragraphs: string[];
     bullets?: string[];
+    links?: Array<{ href: string; label: string; context: string }>;
   }>;
   comparison?: {
     heading: string;
@@ -139,11 +140,12 @@ export const portIntentGuides: PortIntentGuide[] = [
           "The walk is possible for some travelers, but “walkable” is not the same as useful on a port call. The estimate begins after the port exit and does not erase the long ship-to-terminal walk. Midday heat, limited shade, traffic, and the same walk back can turn a nominally free option into the largest time cost of the day.",
           "A taxi makes the most sense for a focused Mahahual day. A prearranged beach transfer makes more sense when the price includes a reserved chair, clear meeting instructions, and round-trip timing that you have verified. A golf cart adds flexibility but also navigation, parking, rental, and return responsibilities; it is not necessary for a simple beach-and-lunch plan.",
         ],
+        links: [{ href: "/ports/costa-maya/port-vs-mahahual", label: "Compare staying in Costa Maya port with visiting Mahahual", context: "Still deciding whether the taxi trip adds enough value?" }],
       },
       {
         heading: "How much return buffer to keep",
         paragraphs: [
-          "For an independent Mahahual visit, aim to be back at the port entrance at least 90 minutes before official all-aboard. Leave the beach earlier when several ships are in port, rain is developing, someone walks slowly, or the taxi supply looks thin.",
+          "PortdayGuide's conservative planning suggestion is to reach the port entrance at least 90 minutes before official all-aboard. This is an editorial allowance, not a port rule or a return guarantee. Leave the beach earlier when several ships are in port, rain is developing, someone walks slowly, or the taxi supply looks thin; follow any earlier deadline from your ship.",
           "Do not use the 5–10 minute road estimate as the total return time. Add time to request or find a taxi, travel, pass port controls, cross the visitor complex, and walk the pier. The buffer is deliberately conservative because a cheap taxi ride is not worth a missed-ship risk.",
         ],
       },
@@ -176,6 +178,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Costa Maya Tourbase transport guide", url: "https://costamayatourbase.com/travel-tips/costa-maya-transportation-and-navigation-advice", note: "Independent cross-check for the short road transfer and walking estimate." },
       { label: "PortdayGuide Costa Maya hub", url: "/ports/costa-maya", note: "Terminal, return-margin, weather, mobility, and excursion context." },
     ],
+    modified: "2026-10-07",
   },
   {
     sourcePortSlug: "costa-maya",
@@ -217,6 +220,7 @@ export const portIntentGuides: PortIntentGuide[] = [
           "Mahahual spreads activity along the waterfront rather than containing it in one cruise village. You can choose a restaurant, beach setup, massage, or simple walk on the malecón, and spending reaches more businesses outside the terminal complex.",
           "The beach is public, but chairs, restrooms, shade, and service are often tied to a restaurant or beach-club purchase. Ask what a minimum spend or day pass includes before sitting down. Seaweed, rocky sections, crowds, and vendor activity vary by location and day, so inspect the exact stretch before committing.",
         ],
+        links: [{ href: "/ports/costa-maya/to-mahahual", label: "Costa Maya port to Mahahual: taxi, walking and return plan", context: "If the beach town is your choice, check the actual journey before choosing a venue." }],
       },
       {
         heading: "The decision by traveler type",
@@ -239,7 +243,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       ],
     },
     steps: [
-      { title: "Check the usable window", text: "Subtract ship clearance time, the pier, and a 90-minute minimum port-entry target from the call." },
+      { title: "Check the usable window", text: "Subtract ship clearance, the pier walk and your return allowance. PortdayGuide suggests a conservative 90-minute port-entry margin; it is not an official minimum." },
       { title: "Check conditions", text: "Rain, wind, heat, sargassum, and the number of ships can change which option feels better." },
       { title: "Choose one environment", text: "Do not pay for a Mahahual setup and then rush back to duplicate the same activities in port." },
       { title: "Price the full choice", text: "For Mahahual, include round-trip taxi plus any minimum spend or day-pass charge." },
@@ -257,6 +261,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "Costa Maya Tourbase transport guide", url: "https://costamayatourbase.com/travel-tips/costa-maya-transportation-and-navigation-advice", note: "Transport comparison and independent-access context." },
       { label: "PortdayGuide Costa Maya hub", url: "/ports/costa-maya", note: "Return timing, weather fallback, and longer-excursion comparison." },
     ],
+    modified: "2026-10-07",
   },
   {
     sourcePortSlug: "roatan",
@@ -297,6 +302,7 @@ export const portIntentGuides: PortIntentGuide[] = [
           "The Port of Roatán opens into Coxen Hole, the island's capital. Local shops, eateries, taxis, and tour dispatch are closer to daily island activity than at Mahogany Bay. The Tourism Bureau also identifies direct transport links toward West End, West Bay, Sandy Bay, and other island zones.",
           "Coxen Hole is not automatically a beach day. West Bay and the reef still need road transport, and the terminal area does not replace a confirmed beach-club or boat meeting point. Use the exact terminal name in every message with a driver or operator.",
         ],
+        links: [{ href: "/ports/roatan/west-bay-beach-from-cruise-port", label: "Plan West Bay Beach from either Roatán terminal", context: "Heading to the beach rather than staying near the ship?" }],
       },
       {
         heading: "Do not choose a terminal—the cruise line does",
@@ -460,6 +466,7 @@ export const portIntentGuides: PortIntentGuide[] = [
           "International Pier, often labeled SSA, and Puerta Maya sit in the southern cruise corridor. Local Cozumel guidance places both about a short taxi ride from the main square. They are near each other but are still separate terminals with different gates and meeting landmarks.",
           "Puerta Maya is a large cruise complex with shops, dining, and current port schedules on its official site. International Pier has its own shopping and taxi area. For independent excursions, “meet outside the port” may mean crossing the full terminal area and gate before seeing the operator's sign.",
         ],
+        links: [{ href: "/ports/cozumel/taxi-rates", label: "Cozumel taxi fares and round-trip group budget", context: "Once the pier is confirmed, compare transport from that exact starting point." }],
       },
       {
         heading: "How to confirm the terminal without guessing by cruise line",
@@ -475,8 +482,8 @@ export const portIntentGuides: PortIntentGuide[] = [
       columns: ["Terminal", "Downtown access", "Best independent fit", "Common planning mistake"],
       rows: [
         ["Punta Langosta", "About 5 min walk to the main square", "San Miguel, food, museum, waterfront", "Assuming southern beaches are walkable"],
-        ["International Pier (SSA)", "Short taxi south of downtown", "Taxis, tours, southern attractions", "Confusing its gate with Puerta Maya"],
-        ["Puerta Maya", "Short taxi south of downtown", "Port amenities, taxis, beach-club route", "Using a downtown meeting point without transfer time"],
+        ["International Pier (SSA)", "Taxi to downtown San Miguel", "Taxis, tours, southern attractions", "Confusing its gate with Puerta Maya"],
+        ["Puerta Maya", "Taxi to downtown San Miguel", "Port amenities, taxis, beach-club route", "Using a downtown meeting point without transfer time"],
       ],
     },
     steps: [
@@ -498,6 +505,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { label: "This Is Cozumel pier guide", url: "https://thisiscozumel.com/tourist-info/91-transport/419-piers-and-cruise-terminals", note: "Three-pier layout and downtown access comparison." },
       { label: "Cruise Critic Cozumel terminal guide", url: "https://www.cruisecritic.com/articles/cozumel-cruise-port-parking-address-amenity-info", note: "Independent cross-check for the three terminal names, locations, and passenger facilities." },
     ],
+    modified: "2026-10-07",
   },
   {
     sourcePortSlug: "cozumel",
@@ -635,6 +643,7 @@ export const portIntentGuides: PortIntentGuide[] = [
           "All-aboard and last-tender instructions from the cruise line are the controlling deadlines. The return trip may include road traffic, a walk through George Town, security, a tender queue, and the boat ride. Arriving at the waterfront at the deadline is not a safe plan.",
           "PortdayGuide protects a large margin in Grand Cayman because the tender is an extra moving part. For Seven Mile Beach, return to George Town early. For Stingray City or other boat tours, use an operator that explicitly serves cruise passengers and states how it handles a delayed tender and return timing.",
         ],
+        links: [{ href: "/ports/grand-cayman/seven-mile-beach-from-port", label: "Choose a Seven Mile Beach access and return transport", context: "Planning an independent beach visit after the tender?" }],
       },
     ],
     comparison: {
@@ -764,12 +773,12 @@ export const portIntentGuides: PortIntentGuide[] = [
     topic: "things-to-do-near-yokohama-cruise-terminal",
     template: "yokohama-terminal-editorial",
     eyebrow: "Yokohama terminal-area guide",
-    title: "Discover the Hidden Gems Near the Yokohama Cruise Terminal",
+    title: "Things to Do Near Yokohama Cruise Terminal: Osanbashi Walks",
     seoTitle: "Things to Do Near Yokohama Cruise Terminal",
-    description: "Discover the best things to do near Yokohama Cruise Terminal, including Chinatown, Yamashita Park, Red Brick Warehouse, Minato Mirai, dining, and transport.",
-    lede: "Use this terminal-area guide to compare nearby sights, food, shopping, local transport, and the easiest ways to reach Osanbashi from Tokyo.",
+    description: "Choose a walking plan from Osanbashi to Yamashita Park, Chinatown or the Red Brick Warehouse; check museum tickets and keep your ship's return time in view.",
+    lede: "Choose one central Yokohama sightseeing route from Osanbashi, with nearby parks, food stops, museum booking checks and a clear return plan.",
     quickAnswer: "Osanbashi is close to Yamashita Park, Chinatown, the Red Brick Warehouse, and the wider Minato Mirai waterfront. Confirm the exact berth first, then group nearby stops and preserve the return to the ship.",
-    reviewed: "July 2026",
+    reviewed: "October 7, 2026",
     facts: [
       { label: "Guide focus", value: "Osanbashi and central Yokohama" },
       { label: "Easy pair", value: "Yamashita Park + Chinatown" },
@@ -796,6 +805,11 @@ export const portIntentGuides: PortIntentGuide[] = [
     },
     sources: [
       { label: "Complete Yokohama port guide", url: "/ports/yokohama-tokyo", note: "Terminal comparison, transport context, timing, and return-aware planning." },
+      { label: "Official Osanbashi visitor information", url: "https://www.yokohamajapan.com/cruise/terminal/osanbashi/", note: "Central-terminal setting, rooftop and nearby walking attractions. Checked October 7, 2026." },
+      { label: "Official Yamashita Park guide", url: "https://www.yokohamajapan.com/things-to-do/detail.php?bbid=190", note: "The waterfront park beside the Osanbashi area. Checked October 7, 2026." },
+      { label: "Cup Noodles Museum hours and fees", url: "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/", note: "Closed-day rule and separate attraction fees. Checked October 7, 2026." },
+      { label: "Cup Noodles Museum booking FAQ", url: "https://www.cupnoodles-museum.jp/en/yokohama/guide/faq/", note: "Museum admission and activity reservations are separate decisions. Checked October 7, 2026." },
+      { label: "Sankeien Garden official access", url: "https://www.sankeien.or.jp/en_access/", note: "A separate transport-based outing rather than a nearby waterfront walking stop. Checked October 7, 2026." },
     ],
     faqs: [
       { question: "What makes Yokohama Cruise Terminal stand out?", answer: "Osanbashi is both an international passenger terminal and a waterfront landmark. Its public rooftop promenade offers open space and panoramic harbor and skyline views close to central Yokohama." },
@@ -805,7 +819,7 @@ export const portIntentGuides: PortIntentGuide[] = [
       { question: "What dining and shopping areas are near the terminal?", answer: "Chinatown is strong for regional Chinese food, the Red Brick Warehouse combines shops and restaurants in historic buildings, and Minato Mirai offers malls, museums, entertainment, and waterfront dining." },
     ],
     published: "2026-07-26",
-    modified: "2026-07-26",
+    modified: "2026-10-07",
   },
   {
     sourcePortSlug: "yokohama-tokyo",

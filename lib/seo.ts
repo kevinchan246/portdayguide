@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import { portProfiles, portRegions, profilesBySlug, type PortProfile, type PortRegion } from "@/lib/shorepath";
 
 export const siteUrl = "https://portdayguide.com";
+
+// Set each website page's social identity explicitly instead of inheriting
+// the homepage's title, description and og:url from the root layout.
+export function websiteMetadata(title: string, description: string, path: string): Metadata {
+  const url = `${siteUrl}${path}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title: `${title} | PortdayGuide`, description, url, type: "website", siteName: "PortdayGuide" },
+    twitter: { card: "summary", title, description },
+  };
+}
 
 const canonicalPortAliases: Record<string, string> = {
   "george-town-grand-cayman": "grand-cayman",
@@ -86,13 +100,8 @@ export function portGuideDescription(profile: PortProfile) {
 }
 
 export function portQuickAnswer(profile: PortProfile) {
-  if (profile.slug === "osaka") return `Confirm whether your ship uses Tempozan, then choose Osaka Castle, Dotonbori or Shinsekai as your main city area. Each is a city journey, and moving between them takes additional time. The examples reserve ${profile.transfer} minutes each way for city transfers and ${profile.buffer} minutes ship-side; Kyoto needs a separate intercity plan.`;
-  const access = profile.transfer <= 25
-    ? "a relatively compact port day"
-    : profile.transfer >= 60
-      ? "a transfer-led port day"
-      : "a port day that benefits from choosing one direction";
-  return `${profile.name} is ${access}. Your ship may use ${profile.pier}. For a first visit, build the day around ${profile.highlights[0]}, keep ${profile.highlights[1]} flexible, allow about ${profile.transfer} minutes for a typical transfer, and protect at least ${profile.buffer} minutes ship-side before official all-aboard.`;
+  if (profile.slug === "osaka") return `Confirm whether your ship uses Tempozan, then choose Osaka Castle, Dotonbori or Shinsekai as your main city area. Each is a city journey, and moving between them takes additional time. The examples reserve ${profile.transfer} minutes each way as an editorial city-transfer allowance and at least ${profile.buffer} minutes ship-side; verify the actual route, and use a separate intercity plan for Kyoto.`;
+  return `Confirm your berth or landing within ${profile.pier} before choosing a route. Compare ${profile.highlights[0]} with ${profile.highlights[1]} as alternative main experiences. The examples reserve ${profile.transfer} minutes each way as an editorial transfer allowance plus at least ${profile.buffer} minutes ship-side before official all-aboard. Check the actual journey, pickup and waiting time, and increase these allowances when your route needs more time.`;
 }
 
 export function portFaq(profile: PortProfile) {
@@ -104,11 +113,11 @@ export function portFaq(profile: PortProfile) {
       },
       {
         question: "What is the best thing to do in Cozumel on a cruise day?",
-        answer: "For many first-time visitors, Chankanaab works well as one main anchor. Add San Miguel only when it is convenient from your terminal and the return buffer remains protected.",
+        answer: "Compare a Chankanaab visit with a downtown San Miguel plan using your exact pier, admission conditions, interests and usable time. Choose one main experience, and add another stop only when it fits the same route and protects the return margin.",
       },
       {
         question: "How early should I return to the ship in Cozumel?",
-        answer: "Start back at least 120 minutes before official all-aboard. That planning window covers an estimated 25-minute transfer plus time at the terminal for traffic, taxi lines, security, and unexpected delays.",
+        answer: "The examples reserve a return lead of at least 120 minutes before official all-aboard, including a provisional 25-minute transfer allowance and time at the terminal. This is an editorial planning margin, not a live journey estimate. Verify your destination-to-pier route and leave earlier for traffic, taxi lines, security or other delays.",
       },
       {
         question: "What if the weather changes in Cozumel?",
@@ -116,11 +125,9 @@ export function portFaq(profile: PortProfile) {
       },
     ];
   }
-  const walkable = profile.transfer <= 25 && !/tender/i.test(profile.pier)
-    ? `Some nearby areas may be practical independently, but walkability depends on the exact berth within ${profile.pier}. Confirm the terminal before treating ${profile.highlights[1]} or another sight as walkable.`
-    : /tender/i.test(profile.pier)
+  const walkable = /tender/i.test(profile.pier)
       ? `${profile.name} includes a tender step, so the usable start time depends on when you get ashore. Do not attach a fixed pickup to the ship's scheduled arrival time without checking the operator's instructions.`
-      : `The main visitor route is not reliably a simple walk from every berth. Plan around ${profile.pier} and allow about ${profile.transfer} minutes for a typical transfer.`;
+      : `Walkability depends on the exact berth within ${profile.pier}, the public terminal exit and your chosen destination. Confirm the permitted walking route and distance; the transfer allowance in this guide is not evidence that a sight is walkable.`;
   return [
     {
       question: `Is ${profile.name} cruise port walkable?`,
@@ -128,11 +135,11 @@ export function portFaq(profile: PortProfile) {
     },
     {
       question: `What is the best thing to do in ${profile.name} on a cruise day?`,
-      answer: profile.slug === "osaka" ? "Choose Osaka Castle for a castle-focused visit, or Dotonbori or Shinsekai for a food-focused city day. Treat these as alternative main areas; a second area requires another journey. Kyoto needs a separate longer-day plan and is not included in the Osaka city examples." : `${profile.highlights[0]} is the strongest first-time anchor in this guide. Treat ${profile.highlights[1]} as an alternative or flexible second block only when it fits the same route and leaves the return margin intact.`,
+      answer: profile.slug === "osaka" ? "Choose Osaka Castle for a castle-focused visit, or Dotonbori or Shinsekai for a food-focused city day. Treat these as alternative main areas; a second area requires another journey. Kyoto needs a separate longer-day plan and is not included in the Osaka city examples." : `Compare ${profile.highlights[0]} and ${profile.highlights[1]} against your interests, actual berth-to-destination route, admission conditions and usable time. Choose one as the main experience; a second stop should fit the same route and leave the return margin intact.`,
     },
     {
       question: `How early should I return to the ship in ${profile.name}?`,
-      answer: `Start the return at least ${Math.max(120, profile.buffer + profile.transfer)} minutes before official all-aboard: about ${profile.transfer} minutes for the typical transfer plus at least ${profile.buffer} minutes ship-side. Add more for tenders, traffic, weather, or mobility needs.`,
+      answer: `The examples reserve at least ${Math.max(120, profile.buffer + profile.transfer)} minutes before official all-aboard for the return, including ${profile.transfer} minutes as an editorial transfer allowance and at least ${profile.buffer} minutes ship-side. Verify the actual ride, waiting, terminal access and any tender step. Use an earlier return when those take longer or when traffic, weather or mobility needs add uncertainty.`,
     },
     {
       question: `What if the weather changes in ${profile.name}?`,

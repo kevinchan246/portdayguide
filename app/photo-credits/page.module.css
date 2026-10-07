@@ -1,0 +1,5 @@
+.credits { margin-top: 36px; }
+.credit { padding: 22px 0; border-top: 1px solid #d8e5e7; scroll-margin-top: 28px; }
+.credit h2 { margin: 0 0 8px; }
+.credit p { margin: 8px 0; color: #587181; font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.credit a { color: #173f58; text-decoration: underline; text-underline-offset: 3px; }

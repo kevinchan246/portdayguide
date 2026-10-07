@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import scenicCredits from "@/lib/scenic-photo-credits.json";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
 import { FeaturedViatorDeals } from "@/components/FeaturedViatorDeals";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
+import { PlanningArticleCards } from "@/components/PlanningArticleCards";
+import { featuredPlanningArticles } from "@/lib/planning-articles";
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
-import { guideReadMinutes, guideTitle, guideUpdatedLabel } from "@/lib/editorial";
-import { portPath, siteUrl } from "@/lib/seo";
+import { guideReadMinutes, guideTitle } from "@/lib/editorial";
+import { portPath, siteUrl, websiteMetadata } from "@/lib/seo";
 import { portProfiles } from "@/lib/shorepath";
 
 export const metadata: Metadata = {
-  title: "Cruise Port Guides & Shore Excursions | PortdayGuide",
-  description: "Plan a safer cruise port day with terminal details, realistic return-time guidance, and live shore excursions for popular ports worldwide.",
-  alternates: { canonical: siteUrl },
+  ...websiteMetadata("Cruise Port Guides & Shore Excursions", "Plan your cruise port day with terminal details, transport comparisons, shore activities and practical return-time guidance.", "/"),
+  title: { absolute: "Cruise Port Guides & Shore Excursions | PortdayGuide" },
 };
 
 const latestPorts = ["Cozumel", "Juneau", "Barcelona", "Yokohama (Tokyo)", "Singapore", "Nassau"] as const;
@@ -62,7 +64,7 @@ export default function Home() {
     </section>
 
     <section className="section latest-guides" id="latest">
-      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Recently updated</p><h2>Latest cruise port guides.</h2><p>Terminal-first guides with realistic return timing and live excursion options.</p></div>
+      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Explore destinations</p><h2>Cruise port guides.</h2><p>Start with your confirmed terminal, compare shore activities, and plan the complete return.</p></div>
       <div className="latest-guide-grid">{latestPorts.map((name) => {
         const profile = portProfiles[name];
         return <Link className="latest-guide-card" href={portPath(profile.slug)} key={name}>
@@ -70,17 +72,23 @@ export default function Home() {
           <div>
             <p><span>{profile.region}</span><span>{guideReadMinutes(profile)} min read</span></p>
             <h3>{guideTitle(profile)}</h3>
-            <small>Updated {guideUpdatedLabel}</small>
+            <small>{profile.country}</small>
           </div>
         </Link>;
       })}</div>
       <div className="directory-link"><Link href="/ports">Browse all cruise port guides <ArrowIcon /></Link></div>
     </section>
 
+    <section className="section home-decision-guides" aria-labelledby="home-decisions-title">
+      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Practical planning guides</p><h2 id="home-decisions-title">Work out the details before you go.</h2><p>Compare a taxi budget, find the right embarkation terminal, or decide what fits your hours ashore.</p></div>
+      <PlanningArticleCards articles={featuredPlanningArticles} />
+      <div className="directory-link"><Link href="/blog">Browse all planning articles <ArrowIcon /></Link></div>
+    </section>
+
     <section className="section home-blog-feature" aria-labelledby="home-blog-title">
       <div className="section-heading discovery-heading"><p className="eyebrow"><span /> From the blog</p><h2 id="home-blog-title">Compare the top Alaska cruise ports.</h2><p>Understand the main routes and departure cities, then explore the highlights at Alaska&apos;s most popular ports of call.</p></div>
       <article className="blog-feature-card">
-        <Link className="blog-feature-image" href={alaskaCruisePortsPath} aria-label={`Read ${alaskaCruisePortsPost.title}`}><Image src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" unoptimized /></Link>
+        <Link className="blog-feature-image" href={alaskaCruisePortsPath} aria-label={`Read ${alaskaCruisePortsPost.title}`}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} sizes="(max-width: 800px) calc(100vw - 40px), 55vw" /><small className="port-card-photo-credit">{scenicCredits.juneau.author}</small></Link>
         <div><p className="blog-card-meta"><span>{alaskaCruisePortsPost.category}</span><span>{alaskaCruisePortsPost.publishedLabel}</span><span>{alaskaCruisePortsPost.readTime}</span></p><h2><Link href={alaskaCruisePortsPath}>{alaskaCruisePortsPost.title}</Link></h2><p>{alaskaCruisePortsPost.excerpt}</p><Link className="blog-read-link" href={alaskaCruisePortsPath}>Read the article <ArrowIcon /></Link></div>
       </article>
       <div className="directory-link"><Link href="/blog">Visit the PortdayGuide blog <ArrowIcon /></Link></div>

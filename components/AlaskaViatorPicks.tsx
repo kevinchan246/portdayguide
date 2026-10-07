@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { viatorPriceUnitLabel, type AlaskaViatorProductsPayload } from "@/lib/viator";
 
 function currency(value: number, code: string) {
@@ -26,9 +27,10 @@ export function AlaskaViatorPicks() {
     return () => controller.abort();
   }, []);
 
-  if (failed || (data && data.products.length < 3)) return null;
+  const status = failed ? "request-failed" : data ? data.products.length ? "available" : "empty" : "loading";
+  const unavailable = status === "request-failed" || status === "empty";
 
-  const cards = data ? <div className="intent-viator-grid" data-alaska-viator-count={data.products.length}>
+  const cards = unavailable ? <p className="booking-check">{failed ? "Current excursion options could not be loaded." : "No matching excursion cards were returned for this collection."} Use the <Link href="/ports/regions/alaska-pacific-northwest">Alaska port guides</Link> to compare local activities and pickup requirements, then check your date directly before booking.</p> : data ? <div className="intent-viator-grid" data-alaska-viator-count={data.products.length}>
     {data.products.map((product) => {
       const priceUnit = viatorPriceUnitLabel(product.pricingPackageType);
       return <a
@@ -54,9 +56,9 @@ export function AlaskaViatorPicks() {
     {[0, 1, 2, 3].map((item) => <div className="viator-card-skeleton" key={item}><span /><div><i /><i /><i /></div></div>)}
   </div>;
 
-  return <section className="intent-booking" aria-labelledby="alaska-viator-title">
+  return <section className="intent-booking" aria-labelledby="alaska-viator-title" data-alaska-viator-status={status}>
     <div className="section-heading compact">
-      <p className="eyebrow"><span /> Live booking options</p>
+      <p className="eyebrow"><span /> {unavailable ? "Excursion planning" : "Live booking options"}</p>
       <h2 id="alaska-viator-title">Compare excursions at Alaska&apos;s featured cruise ports.</h2>
     </div>
     {cards}

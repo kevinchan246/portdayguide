@@ -1,5 +1,9 @@
 # Organic acquisition operating instructions
 
+## Current article distribution allowance — October 7, 2026
+
+The owner approved the eight-week two-article trial described in [operating instructions](automated-operations.md#current-cadence-and-audit-authorization-october-7-2026). A suitable new article receives one matching real-scenery 2:3 Pin and an owned RSS entry as part of its article package; acquisition may finish that package asynchronously. Reserve the independent existing-page/feed allowance separately. The trial permits at most two new-article Pins plus at most one distinct existing-resource Pin per rolling seven days. Do not duplicate a delayed Pin, reset GUID/date, fill a calendar, or claim actual import without evidence. At trial end, new-article production returns to one weekly unless the owner changes direction; that article's Pin remains in its package. These rules supersede historical quota references; keep other verification, source and account boundaries.
+
 Owner request, September 22, 2026: automate the work that improves revenue efficiency, including acquisition. The owner will export Viator reports manually when asked. Keep acquisition truthful, useful, bounded and compatible with the project's existing maintenance budget.
 
 ## Active paths
@@ -26,7 +30,7 @@ Owner request, September 22, 2026: automate the work that improves revenue effic
 - Use the native RSS connection, not unofficial posting bots. Do not register accounts, accept new terms, invent domain claim tokens, buy advertising, or change DNS under this runbook. An actual personalized verification meta tag/file supplied by the owner can be implemented as a separate scoped task.
 - Feed links point to the corresponding owned guide and carry `utm_source=pinterest`. They do not redirect straight to affiliate checkout. Keep each GUID stable and its publication date factual. Never rotate IDs/dates or republish near-identical cards to manufacture frequency.
 - Every creative must connect a useful traveler decision to the matching guide. Prefer properly licensed destination photographs for scenic heroes; owned diagrams remain appropriate when they explain a specific decision. Do not present AI-altered imagery as an unedited photograph or fabricate fares, reviews, maps or travel guarantees. Check mobile legibility, geographic accuracy, source/license records, destination anchors and images before merging.
-- The initial feed had two distinct resources; the separately requested September 30 batch adds two scenic variants of those resources. Future work retains at most one new useful resource in seven days after demand/source review, within the combined two-improvement weekly budget and the reserved new-article slot. A variant consumes the same editorial allowance as other feed work. Do not automatically feed all port pages or multiply near-identical cards to reach a count.
+- The initial feed had two distinct resources; the separately requested September 30 batch adds two scenic variants of those resources. Future work follows the current article distribution allowance above. Count an article’s matching Pin in its article package and any distinct old-resource variant in the separate existing-page/feed allowance. Do not automatically feed all port pages or multiply near-identical cards to reach a count.
 
 ## Opportunity research run
 
@@ -38,11 +42,11 @@ Read the destination's current rules before proposing any posting. Cruise Critic
 
 Use a strong repeated question to improve an existing guide/checklist or prepare one distinct feed resource. If the question is already answered, record the opportunity without creating duplicate content. A no-op is valid when evidence is weak. Commit only public source URLs and technical changes; private traffic, click counts, exports and earnings stay out of GitHub.
 
-Follow the existing branch -> lint/tests -> PR -> required checks -> exact-head merge -> production verification flow. The operating and acquisition tasks share a maximum of two substantive improvements per seven days and must not churn the same landing page inside its observation window. Priority bug fixes may proceed when necessary.
+Follow the existing branch -> lint/tests -> PR -> required checks -> exact-head merge -> production verification flow. The operating and acquisition tasks share the independent existing-page/feed allowance in the current cadence and must not churn the same landing page inside its observation window. Priority bug fixes may proceed when necessary.
 
 ## Article coordination (September 23 authorization)
 
-The [weekly long-tail article rules and AI-search requirements](automated-operations.md#weekly-long-tail-articles-owner-authorization-september-23-2026) supersede historical no-new-article limits. The Thursday article task owns one new English article per week, with necessary internal links, directory/sitemap changes and records; revenue/acquisition share the other rolling-seven-day substantive slot. Count actual commit times, preserve verified-fault exceptions and individually documented owner exceptions, and reuse held drafts without catch-up batches. Neither a feed change nor a new article authorizes another near-duplicate page or Pin.
+The [weekly long-tail article rules and AI-search requirements](automated-operations.md#weekly-long-tail-articles-owner-authorization-september-23-2026) supersede historical no-new-article limits. The article task owns the qualified new-article packages in the current cadence, including necessary links, directory/sitemap changes, records and a suitable matching Pin; revenue/acquisition share the independent existing-page/feed allowance. Count successful production publication times, preserve verified-fault exceptions and individually documented owner exceptions, and reuse held drafts without catch-up batches. Neither a feed change nor a new article authorizes another near-duplicate page or Pin.
 
 Apply the linked individual reader brief, complete answer, non-mechanical structure, most-relevant plus latest 3–5 article comparison, actual first-party source reading, exact-head CI/preview and production gates. In the article PR record structure rationale, compared paths, rewrites/completeness, natural-language question and its berth/direction/time/price conditions, sources, crawlability and matching visible schema. Shared styling is allowed; fixed article skeletons, generic padding and irrelevant product cards are not.
 

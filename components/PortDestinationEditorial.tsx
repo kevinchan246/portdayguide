@@ -10,7 +10,7 @@ export function DestinationOverview({ slug }: Destination) {
     {slug === "cozumel" ? <>
       <h2>Cozumel cruise port overview: let the pier choose the route</h2>
       <p className="quick-answer"><strong>Quick answer:</strong> Confirm Punta Langosta, International Pier or Puerta Maya first. Downtown San Miguel is the simplest walking option from Punta Langosta; southern terminals need their own taxi or excursion pickup plan. Choose one activity area before adding lunch or shopping.</p>
-      <p>Cozumel is an island with several distinct cruise arrivals, not one interchangeable port gate. A tour that starts in downtown San Miguel may be convenient for one ship and require a separate transfer for another. Save the exact terminal name alongside your booking, then check whether the meeting point is inside the terminal, outside its exit or at a different marina.</p>
+      <p>Cozumel is an island with several distinct cruise arrivals, not one interchangeable port gate. Use the <Link href="/ports/cozumel/which-cruise-terminal">Cozumel terminal comparison</Link> to identify your starting point. A tour that starts in downtown San Miguel may be convenient for one ship and require a separate transfer for another. Save the exact terminal name alongside your booking, then check whether the meeting point is inside the terminal, outside its exit or at a different marina.</p>
       <p>The route decision comes before the attraction ranking. Chankanaab is a park-based outing, San Gervasio is a heritage visit, and Punta Sur adds a different travel commitment. Combining all three spends a large share of a short call in transit. Pick the experience you would regret missing and make everything else optional.</p>
       <p>Keep mainland travel separate from an ordinary island itinerary. A ferry connection adds another timetable and return dependency. A mainland excursion needs its own complete ship-to-ship plan; it should not be treated as a quick addition after an island beach visit.</p>
     </> : <>
@@ -20,6 +20,7 @@ export function DestinationOverview({ slug }: Destination) {
       <h3>Three booking checks before comparing prices</h3>
       <ul><li>Which cruise dock or meeting point does the pickup serve?</li><li>Does the advertised duration include every road transfer and the return to your ship area?</li><li>What happens if the ship arrives late or the operator cancels for conditions?</li></ul>
       <p>Do not buy a second fixed-time activity until the first operator’s return arrangements are clear. A combination trip can simplify coordination, but it is still a scheduled commitment rather than extra free time. Ask how long you actually get at the glacier and whether admission or other required charges are included.</p>
+      <p>Still comparing sailings? Use the <Link href="/blog/alaska-cruise-ports">Alaska cruise ports and routes guide</Link> to compare Juneau with the other stops on your itinerary before committing to excursions.</p>
     </>}
   </div>;
 }

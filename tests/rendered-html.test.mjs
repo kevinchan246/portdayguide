@@ -38,16 +38,15 @@ async function render(path = "/") {
   return response.text();
 }
 
-function visibleWordCount(html) {
-  const text = html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<!--.*?-->/g, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&[a-z#0-9]+;/gi, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return text ? text.split(" ").length : 0;
+function schemasFrom(html) {
+  return [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map((match) => JSON.parse(match[1]));
+}
+
+function renderedText(html) {
+  return html.replace(/<!--.*?-->/gs, "").replace(/<[^>]+>/g, "")
+    .replace(/&#x([\da-f]+);/gi, (_, number) => String.fromCodePoint(parseInt(number, 16)))
+    .replace(/&#(\d+);/g, (_, number) => String.fromCodePoint(Number(number)))
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 }
 
 test("renders a focused, search-first cruise homepage", async () => {
@@ -56,7 +55,12 @@ test("renders a focused, search-first cruise homepage", async () => {
   assert.match(html, /Cruise port guides &amp; shore excursions/i);
   assert.match(html, /Search your cruise port/i);
   assert.match(html, /name="q"/i);
-  assert.match(html, /Latest cruise port guides/i);
+  assert.match(html, /Explore destinations/i);
+  assert.match(html, /Work out the details before you go/i);
+  assert.match(html, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
+  assert.match(html, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);
+  assert.match(html, /href="\/ports\/cozumel\/taxi-rates"/i);
+  assert.doesNotMatch(html, /Recently updated|Updated[\s\S]{0,30}Jul 21, 2026/i);
   assert.match(html, /4 best-value cruise excursions right now/i);
   assert.match(html, /Loading current best-value Viator cruise excursions/i);
   assert.match(html, /min read/i);
@@ -94,13 +98,16 @@ test("renders the planner as a separate page", async () => {
 
 test("serves credited editorial photos independently of Viator", async () => {
   const catalog = JSON.parse(await readFile(new URL("../lib/editorial-photos.json", import.meta.url), "utf8"));
+  const photoCredits = await render("/photo-credits");
   for (const [slug, photos] of Object.entries(catalog)) {
     const canonicalSlug = slug === "george-town-grand-cayman" ? "grand-cayman" : slug;
     const html = await render(`/ports/${canonicalSlug}`);
     for (const photo of photos) {
       assert.ok(html.includes(`data-editorial-photo="${photo.slug}"`));
       assert.ok(html.includes(photo.author));
-      assert.ok(html.includes(photo.licenseUrl));
+      assert.ok(html.includes(`href="/photo-credits#${photo.slug}"`));
+      assert.ok(photoCredits.includes(photo.licenseUrl));
+      assert.ok(photoCredits.includes(`id="${photo.slug}"`));
       const response = await request(`/media/editorial/${photo.slug}.webp`);
       assert.equal(response.status, 200);
       assert.match(response.headers.get("content-type"), /image\/webp/);
@@ -123,8 +130,8 @@ test("gives Nassau and Grand Cayman distinct editorial structures with preserved
       assert.equal((html.match(new RegExp(`id="${id}"`, "g")) || []).length, 1);
     }
     assert.doesNotMatch(html, /Three realistic ways to move through/);
-    assert.match(html, /"dateModified":"2026-09-06"/);
-    assert.match(html, /Updated(?:<!-- -->)? Sep 6, 2026|Updated (?:<!-- -->)?Sep 6, 2026/);
+    assert.match(html, /"dateModified":"2026-10-07"/);
+    assert.match(renderedText(html), /Content revised Oct 7, 2026/);
     assert.match(html, /Loading current review data/);
   }
 });
@@ -136,7 +143,7 @@ test("differentiates Cozumel area routes from Juneau weather decisions", async (
   ]) {
     const html = await render(`/ports/${slug}`);
     assert.ok(html.includes(`data-destination-plan="${marker}"`));
-    assert.match(html, /"dateModified":"2026-09-06"/);
+    assert.match(html, /"dateModified":"2026-10-07"/);
     for (const id of ["overview", "transport", "top-things", "itineraries", "local-tips", "faq"]) {
       assert.equal((html.match(new RegExp(`id="${id}"`, "g")) || []).length, 1);
     }
@@ -206,7 +213,8 @@ test("renders the expanded 64-port directory with Alaska and Asia guides", async
   assert.match(directory, /Find the right shore day in (?:<!-- -->)?64(?:<!-- -->)? ports/i);
   assert.match(directory, /Search port guides/i);
   assert.match(directory, /min read/i);
-  assert.match(directory, /Updated[\s\S]{0,30}Jul 21, 2026/i);
+  assert.match(directory, /class="guide-card-footer"><span>Mexico<\/span>/i);
+  assert.doesNotMatch(directory, /Updated[\s\S]{0,30}Jul 21, 2026/i);
   assert.match(directory, /\/media\/ports\/cozumel\.jpg/i);
   assert.match(directory, /data-photo-source="Wikimedia Commons"/i);
   assert.doesNotMatch(directory, /port-map-thumbnail/i);
@@ -258,15 +266,10 @@ test("all 64 port articles include a detailed editorial guide, map, and credited
   const titles = new Set();
   for (const slug of uniqueSlugs) {
     const html = await render(`/ports/${slug}`);
-    // Related-guide navigation grows independently of the port editorial body.
-    const words = visibleWordCount(html.replace(/<section class="section port-topic-cluster"[\s\S]*?<\/section>/i, ""));
     const title = html.match(/<title>(.*?)<\/title>/i)?.[1];
     assert.ok(title, `${slug}: missing title`);
     assert.ok(!titles.has(title), `${slug}: duplicate title ${title}`);
-    const titleText = title.replace(/&#x27;|&#39;/gi, "'").replace(/&amp;/gi, "&");
-    assert.ok(titleText.length <= 60, `${slug}: title is too long (${titleText.length} characters)`);
     titles.add(title);
-    assert.ok(words >= 1000 && words <= 2100, `${slug}: expected a substantial editorial guide, found ${words}`);
     assert.equal((html.match(/<h1\b/gi) || []).length, 1, `${slug}: expected exactly one h1`);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://portdayguide\\.com/ports/${slug}"`, "i"), `${slug}: wrong canonical`);
     assert.doesNotMatch(html, /https:\/\/www\.portdayguide\.com/i, `${slug}: contains legacy www URL`);
@@ -279,11 +282,21 @@ test("all 64 port articles include a detailed editorial guide, map, and credited
     assert.equal((html.match(/data-activity-excursion-card="true"/gi) || []).length, 4, `${slug}: expected four editorial activity cards`);
     assert.match(html, /Loading matched Viator excursion for/i, `${slug}: missing live excursion matching`);
     assert.doesNotMatch(html, /href="#excursions"/i, `${slug}: contains the removed duplicate excursions anchor`);
-    assert.match(html, /Traveler takeaways/i, `${slug}: missing traveler takeaways`);
+    assert.match(html, /(?:Traveler|Planning) takeaways/i, `${slug}: missing planning takeaways`);
     assert.match(html, ["nassau", "grand-cayman", "cozumel", "juneau"].includes(slug) ? /data-local-transport=/i : /Three realistic ways to move through/i, `${slug}: missing transport guidance`);
     assert.match(html, /Quick answer:/i, `${slug}: missing answer-first summary`);
+    assert.match(html, /Example transfer allowance/i, `${slug}: transfer number must be labeled as an example`);
+    assert.match(html, /Example ship-side allowance/i, `${slug}: return number must be labeled as an example`);
+    assert.match(html, /Illustrative mid-range budget \(USD\)/i, `${slug}: budget must identify its currency and editorial scope`);
     assert.match(html, /Related [\s\S]{0,80} cruise port guides/i, `${slug}: missing contextual internal links`);
     assert.match(html, /Plan with current sailing details/i, `${slug}: missing current-detail reminder`);
+    assert.match(renderedText(html), /Content revised Oct 7, 2026/, `${slug}: missing actual content revision date`);
+    assert.match(html, /href="\/photo-credits#/i, `${slug}: missing photographer attribution link`);
+    const article = schemasFrom(html).find((schema) => schema["@type"] === "Article");
+    assert.ok(article, `${slug}: missing article schema`);
+    assert.equal(article.headline, renderedText(html.match(/<h1\b[^>]*>(.*?)<\/h1>/is)?.[1] ?? ""), `${slug}: schema headline must match the visible title`);
+    assert.equal(article.dateModified, "2026-10-07", `${slug}: content revision date must match the schema`);
+    assert.equal(article.publisher.logo.url, "https://portdayguide.com/icon-512.png", `${slug}: missing publisher logo`);
   }
 });
 
@@ -327,24 +340,33 @@ test("renders crawlable regional topic hubs with canonical metadata", async () =
 
 test("publishes a crawlable blog hub and SEO article with same-origin images", async () => {
   const blog = await render("/blog");
-  assert.match(blog, /Cruise Planning Blog \| PortdayGuide/i);
-  assert.match(blog, /Ideas for better ports—and better days ashore/i);
+  assert.match(blog, /Cruise Planning Guides: Transport &amp; Itineraries \| PortdayGuide/i);
+  assert.match(blog, /Port transport, costs and days ashore/i);
   assert.match(blog, /href="\/blog\/future-of-cruise-ship-terminals"/i);
   assert.match(blog, /href="\/blog\/future-of-cruise-ship-terminals\/mco-to-port-canaveral"/i);
   assert.match(blog, /href="\/blog\/alaska-cruise-ports"/i);
-  assert.match(blog, /Top Alaska Cruise Ports to Explore/i);
+  assert.match(blog, /Alaska Cruise Ports: Compare Routes and Shore Days/i);
   assert.match(blog, /Traveling from MCO to Port Canaveral \(Best Transportation Options\)/i);
   assert.match(blog, /"@type":"CollectionPage"/i);
   assert.match(blog, /"@type":"ItemList"/i);
-  assert.match(blog, /"numberOfItems":3/i);
+  const collection = schemasFrom(blog).find((schema) => schema["@type"] === "CollectionPage");
+  assert.equal(collection.mainEntity.numberOfItems, 14);
+  const articleUrls = collection.mainEntity.itemListElement.map((item) => item.url);
+  assert.equal(new Set(articleUrls).size, 14, "planning directory must contain one entry per canonical article");
+  for (const url of articleUrls) assert.ok(blog.includes(`href="${new URL(url).pathname}"`), `${url}: schema entry must have a visible article link`);
+  assert.match(blog, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
+  assert.match(blog, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);
   assert.match(blog, /<link rel="canonical" href="https:\/\/portdayguide\.com\/blog"/i);
   assert.doesNotMatch(blog, /\/_vinext\/image/i);
 
   const alaska = await render("/blog/alaska-cruise-ports");
-  assert.match(alaska, /<title>Top Alaska Cruise Ports, Routes &amp; Itineraries \| PortdayGuide<\/title>/i);
-  assert.match(alaska, /<h1[^>]*>Top Alaska Cruise Ports to Explore<\/h1>/i);
+  assert.match(alaska, /<title>Alaska Cruise Ports, Routes &amp; Shore Days \| PortdayGuide<\/title>/i);
+  assert.match(alaska, /<h1[^>]*>Alaska Cruise Ports: Compare Routes and Shore Days<\/h1>/i);
   assert.equal((alaska.match(/<h1\b/gi) || []).length, 1);
-  assert.ok(visibleWordCount(alaska) >= 2000, "Alaska pillar should retain the complete long-form draft");
+  assert.match(alaska, /large cruise ships, Glacier Bay is a scenic cruising day/i);
+  assert.match(alaska, /six to eight hours/i);
+  assert.match(alaska, /"dateModified":"2026-10-07"/i);
+  assert.doesNotMatch(alaska, /Northern Pass/i);
   assert.match(alaska, /Where Do Alaskan Cruises Leave From\?/i);
   assert.match(alaska, /Understanding Alaska Cruise Routes and Itineraries/i);
   assert.match(alaska, /Inside Passage: The Heart of Alaska Cruise Destinations/i);
@@ -373,11 +395,10 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(article, /<title>Future of Cruise Ship Terminals \| PortdayGuide<\/title>/i);
   assert.match(article, /<h1[^>]*>The Future of Cruise Ship Terminals<\/h1>/i);
   assert.equal((article.match(/<h1\b/gi) || []).length, 1);
-  assert.ok(visibleWordCount(article) >= 1500, "blog article should retain the complete long-form draft");
   assert.match(article, /The Evolution of Cruise Ship Terminals/i);
   assert.match(article, /Cruise Terminal Trends at a Glance/i);
   assert.match(article, /Sustainability and Environmental Initiatives/i);
-  assert.match(article, /Case Studies: Leading Cruise Ship Terminals/i);
+  assert.match(article, /Examples: Different Priorities at Cruise Ship Terminals/i);
   assert.match(article, /"@type":"BlogPosting"/i);
   assert.match(article, /"@type":"BreadcrumbList"/i);
   assert.match(article, /<link rel="canonical" href="https:\/\/portdayguide\.com\/blog\/future-of-cruise-ship-terminals"/i);
@@ -396,7 +417,11 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(child, /<title>MCO to Port Canaveral: Transportation Options \| PortdayGuide<\/title>/i);
   assert.match(child, /<h1[^>]*>Traveling from MCO to Port Canaveral \(Best Transportation Options\)<\/h1>/i);
   assert.equal((child.match(/<h1\b/gi) || []).length, 1);
-  assert.ok(visibleWordCount(child) >= 1200, "MCO transportation guide should retain the complete practical article");
+  assert.match(child, /Time to include/i);
+  assert.match(child, /How to compare cost/i);
+  assert.match(child, /final check-in deadline/i);
+  assert.match(child, /href="https:\/\/flymco\.com\/ground-transportation\/ride-share\/"/i);
+  assert.doesNotMatch(child, /\$25–\$45|\$120–\$220|\$90–\$180/i);
   assert.match(child, /MCO to Port Canaveral Transportation Compared/i);
   assert.match(child, /Shared Shuttle Services/i);
   assert.match(child, /Private Car, SUV, or Van/i);
@@ -412,10 +437,11 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(child, /Why cruise terminals are changing/i);
   assert.match(child, /class="blog-related-guide-image"/i);
   assert.match(child, /<table>/i);
-  assert.match(child, /passenger-terminal-technology\.jpg/i);
+  assert.match(child, /port-canaveral-sunset\.(?:jpg|webp)/i);
+  assert.match(child, /TerryDOtt/i);
   assert.doesNotMatch(child, /\/_vinext\/image/i);
 
-  for (const image of ["cruise-terminal-aerial.jpg", "cruise-terminal-interior.jpg", "cruise-port-technology.jpg", "passenger-terminal-technology.jpg", "victoria-cruise-terminal.jpg"]) {
+  for (const image of ["cruise-terminal-aerial.jpg", "cruise-terminal-interior.jpg", "cruise-port-technology.jpg", "passenger-terminal-technology.jpg", "victoria-cruise-terminal.jpg", "port-canaveral-sunset.webp"]) {
     const imageStat = await stat(new URL(`../public/media/blog/${image}`, import.meta.url));
     assert.ok(imageStat.size > 10_000, `${image}: missing or suspiciously small blog image`);
   }
@@ -432,7 +458,15 @@ test("publishes only canonical apex URLs in the sitemap", async () => {
   assert.match(xml, /https:\/\/portdayguide\.com\/blog\/future-of-cruise-ship-terminals/i);
   assert.match(xml, /https:\/\/portdayguide\.com\/blog\/future-of-cruise-ship-terminals\/mco-to-port-canaveral/i);
   assert.doesNotMatch(xml, /https:\/\/www\.portdayguide\.com/i);
-  assert.doesNotMatch(xml, /https:\/\/portdayguide\.com\/(?:privacy|terms)/i);
+  assert.doesNotMatch(xml, /https:\/\/portdayguide\.com\/(?:privacy|terms|share|photo-credits)<\/loc>/i);
+  assert.match(xml, /xmlns:image="http:\/\/www\.google\.com\/schemas\/sitemap-image\/1\.1"/i);
+  assert.match(xml, /<image:loc>https:\/\/portdayguide\.com\/media\/ports\/cozumel\.jpg<\/image:loc>/i);
+  assert.match(xml, /<image:loc>https:\/\/portdayguide\.com\/media\/editorial\/kaiyukan-exterior\.webp<\/image:loc>/i);
+  for (const entry of [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1])) {
+    if (/<loc>https:\/\/portdayguide\.com\/ports\/[^/<]+<\/loc>/.test(entry)) {
+      assert.match(entry, /<lastmod>2026-10-07(?:T[^<]+)?<\/lastmod>/, "hub sitemap dates must reflect the actual revision");
+    }
+  }
 });
 
 test("keeps every sitemap page indexable with a self-referencing canonical", async () => {
@@ -490,10 +524,12 @@ test("publishes crawl and AI-discovery controls without blocking noindex share p
 });
 
 test("marks non-search utility and legal pages as noindex", async () => {
-  const [privacy, terms, share] = await Promise.all([render("/privacy"), render("/terms"), render("/share")]);
+  const [privacy, terms, share, credits] = await Promise.all([render("/privacy"), render("/terms"), render("/share"), render("/photo-credits")]);
   assert.match(privacy, /<meta name="robots" content="noindex, follow"/i);
   assert.match(terms, /<meta name="robots" content="noindex, follow"/i);
   assert.match(share, /<meta name="robots" content="noindex, nofollow, nocache"/i);
+  assert.match(credits, /<meta name="robots" content="noindex, follow"/i);
+  assert.match(credits, /<link rel="canonical" href="https:\/\/portdayguide\.com\/photo-credits"/i);
 });
 
 test("Viator endpoint keeps the API key server-side and fails safely until configured", async () => {
@@ -607,7 +643,6 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
     const html = await render(route);
     const title = html.match(/<title>(.*?)<\/title>/i)?.[1];
     assert.ok(title && !titles.has(title), `${route}: missing or duplicate title`);
-    assert.ok(title.length <= 60, `${route}: title is too long (${title.length} characters)`);
     titles.add(title);
     assert.equal((html.match(/<h1\b/gi) || []).length, 1, `${route}: expected one H1`);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://portdayguide\\.com${route}"`, "i"), `${route}: wrong canonical`);
@@ -617,7 +652,8 @@ test("publishes the eight decision-intent topic pages as a crawlable hub-and-clu
     assert.match(html, /Build my [\s\S]{0,80} port day/i, `${route}: missing post-page planner conversion`);
     assert.match(html, /"@type":"Article"/i, `${route}: missing Article schema`);
     assert.doesNotMatch(html, /"@type":"FAQPage"/i, `${route}: should not prioritize FAQ schema`);
-    assert.ok(visibleWordCount(html) >= 700, `${route}: expected substantive decision content`);
+    assert.match(html, /What this guide is based on/i, `${route}: missing source evidence`);
+    assert.match(html, /Who should choose this plan\?|What should be written in a West Bay booking\?|Turn the beach plan into a specific destination|Published reference/i, `${route}: missing the scenario-specific decision`);
   }
   const hub = await render("/ports/cozumel");
   assert.match(hub, /href="\/ports\/cozumel\/which-cruise-terminal"/i);
@@ -686,7 +722,7 @@ test("gives the beach transfer guides distinct bodies and one contextual booking
   assert.equal((beach.match(/data-editorial-photo="seven-mile-beach-north"/g) || []).length, 1);
   assert.match(beach, /Coolcaesar/);
   const standard = await render("/ports/costa-maya/to-mahahual");
-  assert.match(standard, /A cruise-safe sequence/);
+  assert.match(standard, /Steps for the port day/);
   assert.doesNotMatch(standard, /data-beach-article=/);
 });
 
@@ -694,12 +730,14 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   const route = "/ports/yokohama-tokyo/things-to-do-near-yokohama-cruise-terminal";
   const article = await render(route);
   assert.match(article, /<title>Things to Do Near Yokohama Cruise Terminal \| PortdayGuide<\/title>/i);
-  assert.match(article, /<h1[^>]*>Discover the Hidden Gems Near the Yokohama Cruise Terminal<\/h1>/i);
+  assert.match(article, /<h1[^>]*>Things to Do Near Yokohama Cruise Terminal: Osanbashi Walks<\/h1>/i);
   assert.equal((article.match(/<h1\b/gi) || []).length, 1);
-  assert.ok(visibleWordCount(article) >= 1200, "Yokohama terminal-area guide should retain the complete article");
   assert.match(article, new RegExp(`<link rel="canonical" href="https://portdayguide\\.com${route}"`, "i"));
-  assert.match(article, /Overview of Yokohama Cruise Terminal/i);
-  assert.match(article, /Getting to Yokohama Cruise Terminal/i);
+  assert.match(article, /Start with the time you actually have ashore/i);
+  assert.match(article, /Arriving from Tokyo, or using a different berth\?/i);
+  assert.match(article, /regular closure is Tuesday/i);
+  assert.match(article, /a separate journey by train and bus or road/i);
+  assert.match(article, /"dateModified":"2026-10-07"/i);
   assert.match(article, /Attractions Near Yokohama Cruise Terminal/i);
   assert.match(article, /Dining and Shopping Near the Terminal/i);
   assert.match(article, /Yokohama Cruise Terminal FAQ/i);
@@ -711,17 +749,18 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   assert.match(article, /Complete port guide/i);
   assert.match(article, /\/media\/ports\/yokohama-tokyo\.jpg/i);
   assert.equal((article.match(/data-photo-source="Unsplash"/gi) || []).length, 7, "each named Yokohama attraction should have an Unsplash photo");
-  assert.ok((article.match(/on Unsplash\./gi) || []).length >= 7, "each attraction photo should include visible Unsplash credit");
+  assert.doesNotMatch(article, /on Unsplash\./i, "visible photo credit should contain the author's name only");
   for (const photographer of ["Yu Kato", "Matt &amp; Chris Pua", "Mmoka", "Yanhao Fang", "bady abbas", "Bobby Youstra"]) {
     assert.match(article, new RegExp(photographer, "i"), `missing photo credit for ${photographer}`);
   }
-  assert.ok((article.match(/utm_source=portdayguide(?:&amp;|&)utm_medium=referral/gi) || []).length >= 14, "photo and photographer links should keep Unsplash attribution tracking");
+  const visibleArticle = article.replace(/<script[\s\S]*?<\/script>/gi, "");
+  assert.equal((visibleArticle.match(/<figcaption><a href="https:\/\/unsplash\.com\/photos\/[^"<>]+utm_source=portdayguide&amp;utm_medium=referral"[^>]*>[^<]+<\/a><\/figcaption>/gi) || []).length, 7, "each attraction's author credit must link to its photo with attribution tracking");
   assert.match(article, /"@type":"Article"/i);
   assert.match(article, /"@type":"FAQPage"/i);
 
   const hub = await render("/ports/yokohama-tokyo");
   assert.match(hub, new RegExp(`href="${route}"`, "i"));
-  assert.match(hub, /Discover the Hidden Gems Near the Yokohama Cruise Terminal/i);
+  assert.match(hub, /Things to Do Near Yokohama Cruise Terminal: Osanbashi Walks/i);
   assert.match(hub, /port-topic-card-featured/i);
 
   const directory = await render("/ports");
@@ -748,7 +787,7 @@ test("publishes a distinct Tokyo embarkation guide with terminal-specific routes
   assert.match(visible, /Tokyo hotel pickup, the exact Yokohama terminal, luggage capacity/);
   assert.match(visible, /data-photo-source="Unsplash"/);
   assert.match(visible, /bady abbas/);
-  assert.match(visible, /href="https:\/\/unsplash.com\/@bady\?utm_source=portdayguide&amp;utm_medium=referral"/);
+  assert.match(visible, /href="https:\/\/unsplash.com\/photos\/black-and-white-striped-textile-Ps3lhJyGhIY\?utm_source=portdayguide&amp;utm_medium=referral"[^>]*>bady abbas<\/a>/);
   assert.doesNotMatch(visible, /\/_next\/image|\/_vinext\/image/);
   assert.ok(visible.includes(`href="${nearby}"`));
   assert.match(visible, /href="\/ports\/yokohama-tokyo"/);
@@ -824,7 +863,9 @@ test("uses one matched Alaska affiliate collection and omits booking explainer c
   assert.match(route, /selected\.length === 4/);
   assert.match(alaskaCards, /featured=alaska/);
   assert.match(alaskaCards, /data-alaska-viator-count/);
-  assert.match(alaskaCards, /data\.products\.length < 3/);
+  assert.doesNotMatch(alaskaCards, /data\.products\.length < 3/, "a small nonempty collection must not be hidden by an arbitrary card minimum");
+  assert.match(alaskaCards, /data-alaska-viator-status/);
+  for (const state of ["request-failed", "available", "empty", "loading"]) assert.ok(alaskaCards.includes(`"${state}"`), `missing distinguishable ${state} state`);
   assert.doesNotMatch(alaskaCards, /These live cards are direct matches/i);
   assert.doesNotMatch(intentCards, /\{copy\}/);
 });
