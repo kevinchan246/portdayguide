@@ -8,7 +8,7 @@ export type PortIntentGuide = {
   seoTitle: string;
   description: string;
   lede: string;
-  image?: { src: string; alt: string; sourceUrl: string; position?: string };
+  image?: { src: string; alt: string; sourceUrl: string; author?: string; position?: string };
   quickAnswerHeading?: string;
   quickAnswer: string;
   reviewed: string;
@@ -67,6 +67,7 @@ export const portIntentGuides: PortIntentGuide[] = [
     "src": "/media/editorial/kaiyukan-exterior.webp",
     "alt": "Osaka Aquarium Kaiyukan's blue and red exterior beside Osaka Bay at Tempozan",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg",
+    "author": "Sakai Yayoi",
     "position": "center 65%"
   },
   "facts": [],

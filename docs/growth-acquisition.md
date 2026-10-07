@@ -52,6 +52,8 @@ AI-search goals cover ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copil
 
 Apply the [article monetization and photography checks](automated-operations.md#article-monetization-and-photography-checks-owner-instruction-october-6-2026) to new writing and relevant existing-page work. Explicitly research and document matching Viator inventory rather than assuming an API connection monetizes every article. Verify actual product fit and sales-status evidence, separate optional activities from the main outing, retain truthful official/related-guide alternatives, and exercise this article's browser cards/fallback and attribution after release. Each article needs licensed, high-quality photography matching its actual subject, with responsive visual inspection. No forced product count, unrelated filler or publishing-cadence change is introduced. The separately requested Kaiyukan revision is an owner-authorized batch; the weekly new-article allowance remains reserved.
 
+Under the owner's October 6 follow-up, show only the photographer's name in visible photo credits, linked to the source or a public attribution page with the required licensing information. Keep complete source, license and processing records. Prefer future imagery compatible with this compact presentation; do not discard a license's required evidence to shorten the UI. The Kaiyukan follow-up preserves its photos and original source links and changes only the visible credit presentation.
+
 ## Measurement and owner requests
 
 ### Fixed question sample and editorial handoff

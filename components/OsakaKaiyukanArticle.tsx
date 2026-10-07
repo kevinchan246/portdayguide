@@ -10,7 +10,7 @@ export function OsakaKaiyukanArticle({ guide }: { guide: PortIntentGuide }) {
     <figure className={styles.photo}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/media/editorial/kaiyukan-whale-shark.webp" srcSet="/media/editorial/kaiyukan-whale-shark-640.webp 640w, /media/editorial/kaiyukan-whale-shark.webp 1200w" sizes="(max-width: 820px) calc(100vw - 40px), 780px" alt="Whale shark swimming among fish inside Osaka Aquarium Kaiyukan" width={1200} height={904} loading="lazy" decoding="async" />
-      <figcaption>An archival view inside Kaiyukan, photographed in 2010. <small>Photo: <a href="https://commons.wikimedia.org/wiki/File:Osaka_Aquarium_Kaiyukan_(5262933558).jpg" target="_blank" rel="noopener noreferrer">Kimon Berlin / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>. Color adjustment: Togabi; resized for web.</small></figcaption>
+      <figcaption>An archival view inside Kaiyukan, photographed in 2010. <small><a href="https://commons.wikimedia.org/wiki/File:Osaka_Aquarium_Kaiyukan_(5262933558).jpg" target="_blank" rel="noopener noreferrer">Kimon Berlin</a></small></figcaption>
     </figure>
     <section>
       <h2>Check the berth before buying the nearby attraction</h2>
@@ -52,6 +52,5 @@ export function OsakaKaiyukanArticle({ guide }: { guide: PortIntentGuide }) {
       fallback={{ href: "https://www.viator.com/tours/Osaka/WA-DAIKO-RHYTHM-QUEST-Japanese-drum-experience/d333-467011P1?mcid=42383&pid=P00311056&campaign=pdg-osaka-kaiyukan-from-cruise-port&medium=api&api_version=2.0", label: "Check the taiko workshop on Viator", productCode: "467011P1", placement: "kaiyukan-nearby-taiko" }} />
     <p>Venue and schedule: <a href="https://www.tempo-harbor-theater.com/en" target="_blank" rel="noopener noreferrer">Tempo Harbor Theater</a>. The theater is at <strong>1-5-10 Kaigandori, Osaka Cultural Center, fourth floor</strong>, a separate entrance from the aquarium. Check the <a href="https://www.tempo-harbor-theater.com/wadaiko-rhythm-quest" target="_blank" rel="noopener noreferrer">workshop instructions</a> or <a href="https://www.tempo-harbor-theater.com/en/utage-live-show" target="_blank" rel="noopener noreferrer">UTAGE program</a> for the experience you select. The published UTAGE rules require guests under 16 to be accompanied by a guardian.</p>
     <p><em>Aquarium planning sources checked October 1, 2026; ticket entry points, nearby-show details and photographs reviewed October 6, 2026. This is a source-based planning guide, not a report of a personal visit. Recheck your sailing and visit date before booking.</em></p>
-    <p className={styles.credit}>Header: Kaiyukan and Osaka Bay, photographed in May 2026. Photo by <a href="https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg" target="_blank" rel="noopener noreferrer">Sakai Yayoi / Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0</a>; resized for web.</p>
   </div>;
 }

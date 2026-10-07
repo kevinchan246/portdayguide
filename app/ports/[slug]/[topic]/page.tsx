@@ -89,7 +89,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
       {guide.image ? <div className="port-hero-photo" data-photo-source="Wikimedia Commons">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={guide.image.src} srcSet={guide.template === "osaka-kaiyukan" ? "/media/editorial/kaiyukan-exterior-800.webp 800w, /media/editorial/kaiyukan-exterior.webp 1600w" : undefined} sizes="100vw" alt={guide.image.alt} width={1600} height={1200} loading="eager" fetchPriority="high" decoding="async" style={{ objectPosition: guide.image.position }} />
-        <small className="port-photo-caption">Photo: <a href={guide.image.sourceUrl} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></small>
+        <small className="port-photo-caption"><a href={guide.image.sourceUrl} target="_blank" rel="noopener noreferrer">{guide.image.author || "Wikimedia Commons"}</a></small>
       </div> : <PortHeroImage slug={profile.slug} name={profile.name} />}
       <div className="intent-hero-overlay" />
       <div className="intent-hero-copy">

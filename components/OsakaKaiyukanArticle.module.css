@@ -7,7 +7,6 @@
 .guide a:focus-visible { outline: 3px solid #087e85; outline-offset: 4px; }
 @media (max-width: 640px) { .guide { font-size: 16px; } .guide > p:first-child { font-size: 18px; } }
 
-.guide .credit { font-size: 13px; border-top: 1px solid #d5e2e4; padding-top: 18px; }
 .photo { margin: 28px 0 36px; }
 .photo img { display: block; width: 100%; height: auto; border-radius: 14px; }
 .photo figcaption { padding-top: 10px; font-size: 14px; line-height: 1.5; }
