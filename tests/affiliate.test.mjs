@@ -9,6 +9,7 @@ import { createHandler } from "../netlify/functions/affiliate-click.mjs";
 import { removeExpiredClicks } from "../netlify/functions/affiliate-retention.mjs";
 import { compareTransportQuotes, isCozumelDriverOption } from "../lib/cozumel-transport.ts";
 import { isTokyoToYokohamaPortTransfer } from "../lib/tokyo-yokohama-transfer.ts";
+import { portIntentGuides } from "../lib/port-intent-guides.ts";
 
 const event = { type: "click", page: "/ports/roatan/west-bay-beach-from-cruise-port", product: "123P4", campaign: "pdg-roatan-west-bay-from-port", placement: "roatan-beach", source: "unspecified" };
 const context = { deploy: { context: "production" } };
@@ -270,6 +271,72 @@ test("Tokyo transfer API searches both catalogs and only returns forward transfe
   assert.deepEqual(payload.products.map(item => item.productCode), ["forward"]);
   assert.equal(payload.products[0].price, 123);
   assert.equal(payload.products[0].pricingPackageType, null);
+});
+
+test("Kaiyukan API only offers the verified nearby theater products and preserves source pricing", async () => {
+  const guide = portIntentGuides.find(item => item.sourcePortSlug === "osaka" && item.topic === "kaiyukan-from-cruise-port");
+  assert.ok(guide);
+  const product = (productCode, title, price = 35) => ({
+    productCode, title, description: "An experience in Osaka.",
+    productUrl: `https://www.viator.com/tours/Osaka/Experience/d333-${productCode}?pid=P123&campaign=${guide.viator.campaign}`,
+    images: [{ variants: [{ width: 720, height: 480, url: "https://example.com/experience.jpg" }] }],
+    duration: { fixedDurationInMinutes: 60 },
+    pricing: { currency: "USD", summary: { fromPrice: price } },
+  });
+  const workshop = product("467011P1", "WA-DAIKO RHYTHM QUEST Japanese drum experience", 45);
+  const performance = product("467011P3", "UTAGE Japanese Music Show at Tempo Harbor Theater", 28);
+  const searches = [];
+  const exports = {};
+  const imports = {
+    "@/lib/shorepath": { profilesBySlug: { osaka: { name: "Osaka", country: "Japan" } } },
+    "@/lib/port-intent-guides": { portIntentGuides: [guide] },
+    "@/lib/roatan-products": { selectRoatanProducts },
+    "@/lib/cozumel-transport": { isCozumelDriverOption },
+    "@/lib/tokyo-yokohama-transfer": { isTokyoToYokohamaPortTransfer },
+  };
+  const source = await readFile(new URL("../app/api/viator/products/route.ts", import.meta.url), "utf8");
+  runInNewContext(ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText, {
+    exports, require: name => { assert.ok(name in imports, name); return imports[name]; },
+    URL, Response, AbortSignal, console,
+    process: { env: { VIATOR_API_KEY: "test-only", VIATOR_API_ROOT: "https://api.sandbox.viator.com/partner" } },
+    fetch: async (url, options) => {
+      const path = new URL(url).pathname;
+      if (path === "/partner/destinations") return Response.json({ destinations: [
+        { destinationId: 1, name: "Japan", type: "COUNTRY" },
+        { destinationId: 333, name: "Osaka", type: "CITY", parentDestinationId: 1 },
+      ] });
+      const body = JSON.parse(options.body);
+      if (path === "/partner/search/freetext") {
+        assert.equal(body.productFiltering.destination, "333");
+        assert.equal(new URL(url).searchParams.get("campaign-value"), "pdg-osaka-kaiyukan-from-cruise-port");
+        searches.push(body.searchTerm);
+        // Similar words alone cannot turn an unverified ticket or another venue into a match.
+        return Response.json({ products: { results: [workshop, performance,
+          product("unverified-aquarium", "Osaka Kaiyukan Aquarium Admission Ticket"),
+          product("generic-tour", "Osaka City Tour with Tempo Harbor Theater stop"),
+          product("wrong-venue", "UTAGE Japanese drum experience at another Osaka theater"),
+        ] } });
+      }
+      assert.equal(path, "/partner/availability/schedules/bulk");
+      assert.deepEqual([...body.productCodes].sort(), ["467011P1", "467011P3"]);
+      return Response.json({ availabilitySchedules: [
+        { productCode: "467011P1", pricingRecords: [{ pricingPackageType: "PER_PERSON" }] },
+      ] });
+    },
+  });
+  const response = await exports.GET(new Request(`https://example.com/api/viator/products?port=osaka&intent=${guide.topic}`));
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.deepEqual(searches, guide.viator.searchQueries);
+  assert.deepEqual(payload.products.map(item => item.productCode).sort(), ["467011P1", "467011P3"]);
+  assert.equal(payload.campaign, "pdg-osaka-kaiyukan-from-cruise-port");
+  for (const item of payload.products) {
+    const original = item.productCode === workshop.productCode ? workshop : performance;
+    assert.equal(item.price, original.pricing.summary.fromPrice);
+    assert.equal(item.currency, "USD");
+    assert.equal(item.productUrl, original.productUrl);
+    assert.equal(item.pricingPackageType, item.productCode === workshop.productCode ? "PER_PERSON" : null);
+  }
 });
 
 test("quote comparison never treats missing or invalid amounts as a free fare", () => {

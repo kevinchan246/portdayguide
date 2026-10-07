@@ -386,6 +386,7 @@ async function loadIntentProducts(apiRoot: string, apiKey: string, guide: PortIn
   const excludeTerms = (guide.viator.excludeTerms || []).map(normalize);
   const urlTerms = (guide.viator.urlTerms || []).map(normalize);
   const intentRelevance = (product: ViatorProductCard) => {
+    if (guide.viator.productCodes?.length && !guide.viator.productCodes.includes(product.productCode)) return null;
     if (guide.sourcePortSlug === "cozumel" && guide.topic === "taxi-rates" && !isCozumelDriverOption(product)) return null;
     if (isTokyoTransfer && !isTokyoToYokohamaPortTransfer(product)) return null;
     const title = normalize(product.title);
