@@ -863,10 +863,8 @@ test("Kaiyukan article keeps official admission separate from verified nearby bo
   assert.match(body, /name="twitter:image" content="https:\/\/portdayguide\.com\/media\/editorial\/kaiyukan-exterior\.webp"/);
   assert.match(body, /src="\/media\/editorial\/kaiyukan-whale-shark\.webp"/);
   assert.match(body, /An archival view inside Kaiyukan, photographed in 2010/);
-  assert.match(body, /Kimon Berlin \/ Wikimedia Commons/);
-  assert.match(body, /href="https:\/\/creativecommons\.org\/licenses\/by-sa\/2\.0\/"/);
-  assert.match(body, /Sakai Yayoi \/ Wikimedia Commons/);
-  assert.match(body, /href="https:\/\/creativecommons\.org\/publicdomain\/zero\/1\.0\/"/);
+  assert.match(body, /href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Osaka_Aquarium_Kaiyukan_\(5262933558\)\.jpg"[^>]*>Kimon Berlin<\/a>/);
+  assert.match(body, /href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Kaiy%C5%ABkan\.jpg"[^>]*>Sakai Yayoi<\/a>/);
   assert.match(body, /href="\/ports\/osaka"/);
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const article = schemas.find(s => s["@type"] === "Article");

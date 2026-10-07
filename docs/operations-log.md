@@ -2,6 +2,13 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-06 — Owner-requested compact Kaiyukan photo credits
+
+- After PR #28, the owner requested author names only in visible photo credits and the same requirement in the scheduled operating tasks. Started from main `261e8fc058ae3ef9459dbfb8f47e9ed7f398aea9`. This is a narrow, separately authorized follow-up to the published Kaiyukan revision; it does not consume the weekly new-article slot.
+- The intended visible credits are linked **Sakai Yayoi** for the exterior and **Kimon Berlin** for the whale-shark photo. Their original Commons image-source links and the full source, license and processing records remain intact. No image file, booking product, API behavior, campaign or canonical URL changes are part of this follow-up.
+- Both operating runbooks and the image-source record now specify author-only visible credits linked to source/public attribution information, with full licensing records retained and compatible imagery preferred for future work. All three corresponding task prompts were updated and read back, with schedules and enabled states unchanged.
+- Local lint, the 100-route production build, all 81 tests and whitespace checks passed. Exact-head CI/preview and production verification remain release gates, to be recorded in the release PR. No sponsored navigation or simulated production event was performed.
+
 ## 2026-10-06 — Owner-requested Kaiyukan booking and photograph revision
 
 - The owner explicitly requested this published article revision and direct publication. Started from main `4f40f664562056221db3bdce8c0ecd4e81671c4f`; unrelated PR #4 is untouched. This is a separately authorized existing-article revision, not a new article or consumption of the reserved weekly article slot. The canonical URL and October 1 publication date stay intact; the review and modification date is October 6.

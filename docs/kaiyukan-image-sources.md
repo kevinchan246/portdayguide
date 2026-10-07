@@ -2,6 +2,12 @@
 
 Source pages, subjects, dimensions, authors and licenses verified on 2026-10-07 UTC (2026-10-06 in Chicago). Both selected files were downloaded from Wikimedia Commons and visually inspected. These are real photographs of Osaka Aquarium Kaiyukan; no generative edits or replacement subjects were used.
 
+## Current visible credit preference — October 6 owner follow-up
+
+The article displays only the linked author names **Sakai Yayoi** and **Kimon Berlin**. Each name retains its original Commons image-source destination, where the source and licensing information can be found. This compact presentation supersedes the initial verbose visible-credit suggestions below. The complete source, author, license, previous adjustments and PortdayGuide processing records remain in this document; neither photo nor its license has changed.
+
+Future imagery should support the same author-only visible credit through an appropriate source or public attribution link. Prefer compatible licenses; do not remove required licensing information merely to achieve shorter display. Creative Commons' [attribution FAQ](https://creativecommons.org/faq/#how-do-i-properly-attribute-material-offered-under-a-creative-commons-license) permits linking to a place where attribution information can be found, and [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/legalcode.en) allows credit in a reasonable manner. Keep the full records available and assess each image's actual terms.
+
 ## Exterior hero
 
 - Subject: Osaka Aquarium Kaiyukan's exterior, entrance plaza and Osaka Bay, photographed from above.
@@ -14,7 +20,7 @@ Source pages, subjects, dimensions, authors and licenses verified on 2026-10-07 
 - Original SHA-256: `ce1b8e208547925e8fdd08e4547d7cbc4b130540d3d535c76bcacec6fb99735f`.
 - License: **CC0 1.0 Universal Public Domain Dedication**, <https://creativecommons.org/publicdomain/zero/1.0/>.
 - Original Commons upload history says the displayed version was adjusted for brightness by the photographer. PortdayGuide made no further color or scene edits.
-- Suggested visible credit: **Photo: Sakai Yayoi / Wikimedia Commons, CC0. Resized for web.** Link the name/source and license.
+- Initial verbose visible-credit suggestion, superseded above: **Photo: Sakai Yayoi / Wikimedia Commons, CC0. Resized for web.**
 - Suggested alt text: **Osaka Aquarium Kaiyukan beside Osaka Bay in the Tempozan waterfront area**.
 - Delivery files: `public/media/editorial/kaiyukan-exterior.webp` (**1600 × 1200**, 472344 bytes); `kaiyukan-exterior-800.webp` (**800 × 600**, 152592 bytes).
 - Processing: EXIF orientation respected; RGB conversion; proportional Lanczos resizing; WebP quality 86, method 6. Full original composition and geometry retained; no crop, object removal or AI retouching.
@@ -33,7 +39,7 @@ Source pages, subjects, dimensions, authors and licenses verified on 2026-10-07 
 - Original SHA-256: `36b67b2a12163be870f6ad3b3f29d8ba53874e6bb1b735e3404e98d1586b48ab`.
 - License used: **Creative Commons Attribution-ShareAlike 2.0 Generic**, <https://creativecommons.org/licenses/by-sa/2.0/>. The Commons file page and Flickr review explicitly list CC BY-SA 2.0.
 - Source history: **Togabi** performed the Commons version's color adjustment on **2018-10-13**. PortdayGuide uses that version; our only changes are proportional resize and WebP encoding. Resized files remain available under **CC BY-SA 2.0**.
-- Suggested visible credit: **Photo: Kimon Berlin / Wikimedia Commons, CC BY-SA 2.0. Color adjustment: Togabi; resized for web.** Link the source and license.
+- Initial verbose visible-credit suggestion, superseded above: **Photo: Kimon Berlin / Wikimedia Commons, CC BY-SA 2.0. Color adjustment: Togabi; resized for web.**
 - Suggested alt text: **Whale shark swimming among fish inside Osaka Aquarium Kaiyukan**.
 - Suggested descriptive caption: **An archival view inside Kaiyukan, photographed in 2010.** This avoids implying a recent site visit or current exhibition conditions.
 - Delivery files: `public/media/editorial/kaiyukan-whale-shark.webp` (**1200 × 904**, 250494 bytes); `kaiyukan-whale-shark-640.webp` (**640 × 482**, 47110 bytes).
