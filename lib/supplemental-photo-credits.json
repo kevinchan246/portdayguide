@@ -1,0 +1,29 @@
+{
+  "port-canaveral-sunset": {
+    "author": "TerryDOtt",
+    "file": "Sunset - Port Canaveral.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_-_Port_Canaveral.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Proportionally resized from the 6050 × 3058 source and compressed as WebP. The scene is unchanged; display frames may crop the photograph."
+  },
+  "kaiyukan-exterior": {
+    "author": "Sakai Yayoi",
+    "file": "Kaiyūkan.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checked": "2026-10-07",
+    "changes": "The photographer adjusted the original brightness. PortdayGuide proportionally resized and compressed the photograph as WebP; display frames may crop it."
+  },
+  "kaiyukan-whale-shark": {
+    "author": "Kimon Berlin",
+    "file": "Osaka Aquarium Kaiyukan (5262933558).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Aquarium_Kaiyukan_(5262933558).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Commons credit: KimonBerlin. Togabi adjusted the source colors in 2018. PortdayGuide proportionally resized and compressed that version as WebP; the scene is unchanged."
+  }
+}

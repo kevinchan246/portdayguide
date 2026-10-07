@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { PlanningArticleCards } from "@/components/PlanningArticleCards";
 import { alaskaCruisePortsPost } from "@/lib/alaska-blog";
-import { blogPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/seo";
+import { planningArticles } from "@/lib/planning-articles";
+import { siteUrl, websiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Cruise Planning Blog",
-  description: "Cruise-port analysis, terminal trends, practical planning ideas, and the changes shaping future days ashore.",
-  alternates: { canonical: `${siteUrl}/blog` },
+  ...websiteMetadata("Cruise Planning Guides: Transport & Itineraries", "Find detailed cruise planning articles on port taxis, airport transfers, beach trips, short shore days and Alaska cruise routes.", "/blog"),
   openGraph: {
-    title: "Cruise Planning Blog | PortdayGuide",
-    description: "Cruise-port analysis, terminal trends, and practical ideas for better days ashore.",
+    title: "Cruise Planning Guides | PortdayGuide",
+    description: "Port transport, complete trip costs, shore-day decisions and cruise routes.",
     url: `${siteUrl}/blog`,
     type: "website",
     images: [{ url: alaskaCruisePortsPost.image, alt: alaskaCruisePortsPost.imageAlt }],
@@ -28,13 +26,13 @@ export default function BlogPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "PortdayGuide Cruise Planning Blog",
-    description: "Cruise-port analysis, terminal trends, practical planning ideas, and the changes shaping future days ashore.",
+    name: "PortdayGuide Cruise Planning Guides",
+    description: "Detailed port transport, cost, shore-day and cruise-route articles.",
     url: pageUrl,
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: blogPosts.length,
-      itemListElement: blogPosts.map((post, index) => ({
+      numberOfItems: planningArticles.length,
+      itemListElement: planningArticles.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name: post.title,
@@ -59,27 +57,19 @@ export default function BlogPage() {
     <section className="blog-index-hero">
       <div>
         <nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span aria-current="page">Blog</span></nav>
-        <p className="eyebrow"><span /> Cruise planning journal</p>
-        <h1>Ideas for better ports—and better days ashore.</h1>
-        <p>Terminal trends, cruise-port technology, and practical planning context for travelers who want to understand what is changing beyond the gangway.</p>
+        <p className="eyebrow"><span /> Cruise planning guides</p>
+        <h1>Port transport, costs and days ashore.</h1>
+        <p>Find the correct terminal, compare the complete journey, and choose a shore plan that fits your time. These detailed articles complement the destination guides.</p>
       </div>
     </section>
 
     <section className="section blog-index-content" aria-labelledby="latest-blog-title">
-      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Latest articles</p><h2 id="latest-blog-title">Cruise-port insights.</h2><p>Practical transportation guides and long-form analysis that complement PortdayGuide&apos;s destination guides and return-aware planning tools.</p></div>
-      <div className="blog-article-list">{blogPosts.map((post, index) => <article className={`blog-feature-card${index === 0 ? "" : " blog-feature-card-secondary"}`} key={post.path}>
-        <Link className="blog-feature-image" href={post.path} aria-label={`Read ${post.title}`}><Image src={post.image} alt={post.imageAlt} width={post.imageWidth} height={post.imageHeight} sizes="(max-width: 800px) 100vw, 55vw" unoptimized /></Link>
-        <div>
-          <p className="blog-card-meta"><span>{post.category}</span><span>{post.publishedLabel}</span><span>{post.readTime}</span></p>
-          <h2><Link href={post.path}>{post.title}</Link></h2>
-          <p>{post.excerpt}</p>
-          <Link className="blog-read-link" href={post.path}>Read the article <ArrowIcon /></Link>
-        </div>
-      </article>)}</div>
+      <div className="section-heading discovery-heading"><p className="eyebrow"><span /> Detailed articles</p><h2 id="latest-blog-title">Choose your planning question.</h2><p>Terminal comparisons, taxi budgets, beach trips, airport transfers and cruise-route choices.</p></div>
+      <PlanningArticleCards articles={planningArticles} />
     </section>
 
     <section className="blog-index-bridge">
-      <div><p className="eyebrow"><span /> Planning a specific stop?</p><h2>Turn the wider trends into a workable port day.</h2><p>Use the port directory for terminal details, transfer assumptions, return timing, and current excursion options.</p></div>
+      <div><p className="eyebrow"><span /> Planning a specific stop?</p><h2>Start with your complete port guide.</h2><p>Use the port directory for berth information, destination choices, transport assumptions and excursion options.</p></div>
       <Link href="/ports">Browse all port guides <ArrowIcon /></Link>
     </section>
 

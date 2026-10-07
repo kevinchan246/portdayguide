@@ -2,14 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PortDirectory } from "@/components/PortDirectory";
 import { intentGuidePath, portIntentGuides } from "@/lib/port-intent-guides";
-import { siteUrl } from "@/lib/seo";
+import { websiteMetadata } from "@/lib/seo";
 import { portNames } from "@/lib/shorepath";
 
-export const metadata: Metadata = {
-  title: `${portNames.length} Cruise Port Guides`,
-  description: "Browse return-aware cruise-port guides across the Caribbean, Alaska, Mexico, Europe, and Asia.",
-  alternates: { canonical: `${siteUrl}/ports` },
-};
+export const metadata: Metadata = websiteMetadata(`${portNames.length} Cruise Port Guides`, "Find your cruise terminal and compare shore-day transport, sights and excursions across the Caribbean, Alaska, Mexico, Europe and Asia.", "/ports");
 
 export default async function PortsDirectoryPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { q = "" } = await searchParams;

@@ -75,8 +75,8 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
 
     <figure className="intent-attraction-photo" data-photo-source="Unsplash">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=1600&q=82" alt="Geometric wooden rooftop deck at Osanbashi passenger terminal in Yokohama" width={1600} height={1000} loading="lazy" decoding="async" />
-      <figcaption><a href="https://unsplash.com/photos/black-and-white-striped-textile-Ps3lhJyGhIY?utm_source=portdayguide&utm_medium=referral" target="_blank" rel="noopener noreferrer">Osanbashi&apos;s rooftop deck</a>. Photo by <a href="https://unsplash.com/@bady?utm_source=portdayguide&utm_medium=referral" target="_blank" rel="noopener noreferrer">bady abbas</a> on Unsplash. Follow your cruise line&apos;s passenger check-in directions when arriving with luggage.</figcaption>
+      <img src="https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=1600&q=82" srcSet="https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=640&q=82 640w, https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=1600&q=82 1600w" sizes="(max-width: 820px) calc(100vw - 40px), 780px" alt="Geometric wooden rooftop deck at Osanbashi passenger terminal in Yokohama" width={1600} height={1000} loading="lazy" decoding="async" />
+      <figcaption><a href="https://unsplash.com/photos/black-and-white-striped-textile-Ps3lhJyGhIY?utm_source=portdayguide&utm_medium=referral" target="_blank" rel="noopener noreferrer">bady abbas</a></figcaption>
     </figure>
 
     <section aria-labelledby="embarkation-arrival-window">

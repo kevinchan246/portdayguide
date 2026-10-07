@@ -10,7 +10,7 @@ import { PortTravelerPulse } from "@/components/PortTravelerPulse";
 import { TopThingsExcursions } from "@/components/TopThingsExcursions";
 import { ViatorDestinationLink } from "@/components/ViatorDestinationLink";
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
-import { guideReadMinutes, guideTitle, guideUpdatedIso, guideUpdatedLabel, highlightPlanningNote } from "@/lib/editorial";
+import { guideReadMinutes, guideUpdatedIso, highlightPlanningNote } from "@/lib/editorial";
 import { intentGuidePath, intentGuidesForPort } from "@/lib/port-intent-guides";
 import { portInsight } from "@/lib/port-insights";
 import { portPhotos, portPhotoUrl } from "@/lib/port-photos";
@@ -18,6 +18,10 @@ import { canonicalPortSlug, portFaq, portGuideDescription, portGuideTitle, portP
 import { portCoordinates, profilesBySlug, type PortRegion, type PortSlug } from "@/lib/shorepath";
 
 const slugs = Object.keys(profilesBySlug) as PortSlug[];
+
+function visibleGuideHeading(profile: (typeof profilesBySlug)[PortSlug]) {
+  return profile.slug === "cozumel" ? "Cozumel Cruise Port Guide: Terminals, Transport, Map & Top Excursions" : `${profile.name} Cruise Port Guide`;
+}
 
 function formatOffset(minutes: number) {
   const hours = Math.floor(minutes / 60);
@@ -41,6 +45,8 @@ function terminalNote(slug: string, pier: string) {
     "yokohama-tokyo": "Osanbashi, Shinko, and Daikoku have different access patterns. Daikoku is not a walk-out city-centre berth.",
     singapore: "Marina Bay Cruise Centre and Singapore Cruise Centre at HarbourFront use different MRT stations and pickup points.",
     phuket: "Deep Sea Port calls and Patong tender calls begin in different parts of the island.",
+    fukuoka: "Chuo Wharf Cruise Center is distinct from Hakata Port International Terminal. Hakozaki uses a different wharf; confirm the assigned cruise berth before choosing the bus stop or pickup address.",
+    busan: "North Port and Yeongdo are different cruise terminals. Use the assigned terminal, rather than the international ferry terminal by default, for your first-mile and return route.",
   };
   return notes[slug] || `Your cruise documents should name the exact berth within “${pier}.” Use that berth—not only the city name—for directions and pickup.`;
 }
@@ -63,16 +69,16 @@ function itinerary(profile: (typeof profilesBySlug)[PortSlug], hours: 6 | 8) {
   const shipSideMargin = total - backAtTerminal;
   const mainStart = profile.transfer;
   if (leaveFinalStop - mainStart < 90) return [
-    { time: "0:00", title: "Confirm the correct terminal", text: `This short window cannot safely absorb the typical ${profile.transfer}-minute trip in each direction plus the protected return lead.` },
+    { time: "0:00", title: "Confirm the correct terminal", text: `This short window cannot absorb the example’s ${profile.transfer}-minute transfer allowance in each direction plus the protected return lead.` },
     { time: `0:30–${formatOffset(Math.max(30, backAtTerminal))}`, title: "Terminal-area plan only", text: "Use a flexible nearby meal, waterfront walk, or terminal facility. Do not commit to the distant headline sights." },
     { time: formatOffset(backAtTerminal), title: "Back at the terminal", text: `Be ship-side with ${shipSideMargin} minutes still protected before all-aboard.` },
   ];
   const mainEnd = Math.max(mainStart + 60, leaveFinalStop - (hours === 8 ? 90 : 60));
   return [
-    { time: `0:00–${formatOffset(mainStart)}`, title: "Outbound transfer", text: `Leave the confirmed terminal and allow about ${profile.transfer} minutes to the main area.` },
+    { time: `0:00–${formatOffset(mainStart)}`, title: "Outbound transfer", text: `The example reserves ${profile.transfer} minutes from the confirmed terminal to your chosen area. Check the actual route before using this schedule.` },
     { time: `${formatOffset(mainStart)}–${formatOffset(mainEnd)}`, title: profile.slug === "osaka" ? "One city area: castle or food district" : profile.highlights[0], text: profile.slug === "osaka" ? "Choose Osaka Castle, Dotonbori or Shinsekai. Another district requires another journey; Kyoto is excluded from this plan." : hours === 6 ? "Keep this as the one main experience." : `Add ${profile.highlights[1]} only when it is genuinely nearby and transport is running comfortably.` },
     { time: `${formatOffset(mainEnd)}–${formatOffset(leaveFinalStop)}`, title: profile.slug === "osaka" ? "Flexible time in the same area" : "Flexible final stop on the return route", text: profile.slug === "osaka" ? "Continue the same visit, eat nearby or return early. Another district needs a revised transport plan." : "Use a short food or waterfront stop only when it does not require a detour." },
-    { time: `${formatOffset(leaveFinalStop)}–${formatOffset(backAtTerminal)}`, title: "Return transfer", text: `Leave the final stop by this time and allow about ${profile.transfer} minutes back.` },
+    { time: `${formatOffset(leaveFinalStop)}–${formatOffset(backAtTerminal)}`, title: "Return transfer", text: `The example reserves ${profile.transfer} minutes for the return. Leave earlier when the confirmed journey or ship instructions require it.` },
     { time: formatOffset(backAtTerminal), title: "Back at the terminal", text: `Arrive ship-side with ${shipSideMargin} minutes still protected before all-aboard.` },
   ];
 }
@@ -100,6 +106,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: portGuideDescription(profile),
       url: `${siteUrl}${portPath(profile.slug)}`,
       type: "article",
+      siteName: "PortdayGuide",
+      publishedTime: guideUpdatedIso,
+      modifiedTime: portContentUpdate(profile.slug)?.modified ?? guideUpdatedIso,
+      section: `${profile.region} cruise port guides`,
       images: [{ url: portPhotoUrl(profile.slug), alt: portPhotos[profile.slug].alt }],
     },
     twitter: { card: "summary_large_image", title: portGuideTitle(profile), description: portGuideDescription(profile), images: [portPhotoUrl(profile.slug)] },
@@ -111,6 +121,9 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
   const profile = profilesBySlug[sourcePortSlug(slug) as PortSlug];
   if (!profile) notFound();
   const fit = marketFit(profile.region);
+  const returnLead = Math.max(120, profile.buffer + profile.transfer);
+  const shipSideMinutes = returnLead - profile.transfer;
+  const heading = visibleGuideHeading(profile);
   const isCozumel = profile.slug === "cozumel";
   const edition = localGuideEdition(profile.slug);
   const contentUpdate = portContentUpdate(profile.slug);
@@ -134,7 +147,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: isCozumel ? "Cozumel Cruise Port Guide: Terminals, Transport, Map & Top Excursions" : guideTitle(profile),
+    headline: heading,
     description: portGuideDescription(profile),
     datePublished: guideUpdatedIso,
     dateModified: contentUpdate?.modified ?? guideUpdatedIso,
@@ -145,7 +158,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
     articleSection: `${profile.region} cruise port guides`,
     about: [{ "@type": "Place", name: profile.name }, { "@type": "Thing", name: "Cruise shore excursions" }],
     author: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/about` },
-    publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/` },
+    publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/`, logo: { "@type": "ImageObject", url: `${siteUrl}/icon-512.png` } },
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -159,19 +172,19 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     <header className="simple-header"><Link className="brand" href="/">PortdayGuide<span>.</span></Link><nav><Link href="/ports">All port guides</Link><Link href="/blog">Blog</Link><Link href="/planner">Cruise planner</Link></nav></header>
 
-    <section className="port-guide-hero"><PortHeroImage slug={profile.slug} name={profile.name} /><div className="port-guide-hero-copy"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/ports">Port guides</Link><span>/</span><Link href={regionPath(profile.region)}>{profile.region}</Link><span>/</span><span aria-current="page">{profile.name}</span></nav><p className="eyebrow"><span /> {profile.country} cruise-port guide</p><h1>{isCozumel ? "Cozumel Cruise Port Guide: Terminals, Transport, Map & Top Excursions" : `${profile.name} Cruise Port Guide`}</h1><h2>{profile.headline}</h2><p>{profile.intro}</p><div className="guide-facts"><span>{isCozumel ? <><b>120 min</b> return-to-ship buffer</> : <><b>{profile.buffer} min</b> minimum ship-side margin</>}</span><span><b>{profile.cost["$$"]}</b> typical day</span><span><b>{profile.pier}</b> possible berth</span></div></div></section>
+    <section className="port-guide-hero"><PortHeroImage slug={profile.slug} name={profile.name} /><div className="port-guide-hero-copy"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/ports">Port guides</Link><span>/</span><Link href={regionPath(profile.region)}>{profile.region}</Link><span>/</span><span aria-current="page">{profile.name}</span></nav><p className="eyebrow"><span /> {profile.country} cruise-port guide</p><h1>{heading}</h1><h2>{profile.headline}</h2><p>{profile.intro}</p><div className="guide-facts"><span>{isCozumel ? <><b>120 min</b> return-to-ship buffer</> : <><b>{shipSideMinutes} min</b> example ship-side allowance</>}</span><span><b>{profile.cost["$$"]}</b> illustrative USD budget</span><span><b>{profile.pier}</b> possible berth</span></div></div></section>
 
-    <div className="guide-meta-bar"><span>Updated {contentUpdate?.label ?? guideUpdatedLabel}</span><span>{edition?.readMinutes ?? guideReadMinutes(profile)} min read</span><span>By <Link href="/about">PortdayGuide</Link></span></div>
+    <div className="guide-meta-bar"><span>Content revised {contentUpdate.label}</span><span>{edition?.readMinutes ?? guideReadMinutes(profile)} min read</span><span>By <Link href="/about">PortdayGuide</Link></span></div>
     <nav className="guide-contents" aria-label="Guide sections"><a href="#overview">Overview</a>{isCozumel && <a href="#terminals">Cruise terminals</a>}{isCayman && <a href="#itineraries">Return timeline</a>}<a href="#transport">Transport</a><a href="#top-things">Things to do & excursions</a>{!isCayman && <a href="#itineraries">{edition ? "Choose your day" : "6 & 8 hour plans"}</a>}<a href="#local-tips">Local tips</a><a href="#faq">FAQ</a></nav>
 
     <section className="section port-overview" id="overview">
       {edition ? <LocalOverview slug={profile.slug} /> : <>      <div className="overview-copy"><p className="eyebrow"><span /> Port overview</p><h2>{profile.name} cruise port overview</h2>
         <p className="quick-answer"><strong>Quick answer:</strong> {isCozumel ? "Cozumel is a relatively compact cruise stop with three different cruise terminals. Pick one main anchor—reef or snorkel, a beach club, nature, or heritage—and keep the final stop on the same side of the island as your terminal so the return stays simple." : portQuickAnswer(profile)}</p>
         <p>Your usable day starts when the ship clears and ends at official all-aboard. Begin with the berth: documents may list <strong>{profile.pier}</strong>, and each location can have different walking routes, tender steps, and pickup zones. Use the cruise line&apos;s exact terminal—not a generic city pin.</p>
-        <p>{isCozumel ? <>The biggest planning mistake at the <strong>Cozumel cruise port</strong> is building an itinerary before confirming the exact pier. Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. Allow about 25 minutes for a typical transfer and begin the return at least 120 minutes before official all-aboard.</> : profile.slug === "osaka" ? <>Choose Osaka Castle, Dotonbori or Shinsekai as one main city area. Moving between them requires a separate local journey. Keep any flexible stop in the same area; Kyoto needs a separate longer-day plan. The city examples reserve {profile.transfer} minutes for each transfer and {profile.buffer} minutes ship-side, rather than predicting live journey times.</> : <>The main choices are {profile.highlights.slice(0, 3).join(", ")}, and {profile.highlights[3]}. Treat them as alternatives. A reliable day pairs one anchor with one flexible stop, allows about {profile.transfer} minutes for a typical transfer, and preserves at least {profile.buffer} minutes ship-side.</>}</p>
+        <p>{isCozumel ? <>The biggest planning mistake at the <strong>Cozumel cruise port</strong> is building an itinerary before confirming the exact pier. Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. The example reserves 25 minutes for a transfer and starts the return at least 120 minutes before official all-aboard. Confirm the complete journey for your chosen terminal and stop.</> : profile.slug === "osaka" ? <>Choose Osaka Castle, Dotonbori or Shinsekai as one main city area. Moving between them requires a separate local journey. Keep any flexible stop in the same area; Kyoto needs a separate longer-day plan. The city examples reserve {profile.transfer} minutes for each transfer and {profile.buffer} minutes ship-side, rather than predicting live journey times.</> : <>The main choices are {profile.highlights.slice(0, 3).join(", ")}, and {profile.highlights[3]}. Treat them as alternatives. The examples reserve {profile.transfer} minutes for each transfer and {shipSideMinutes} minutes ship-side. These are editorial allowances: check the actual journey and keep any second stop flexible.</>}</p>
         <p>{profile.transport} Recheck current opening hours, road or transit conditions, tender procedures, and operator instructions close to sailing.</p>
       </div></>}
-      <aside className="overview-facts" aria-label={`${profile.name} quick facts`}><h3>{profile.name} at a glance</h3><dl><div><dt>Country</dt><dd>{profile.country}</dd></div><div><dt>Terminal to confirm</dt><dd>{profile.pier}</dd></div><div><dt>Planning transfer</dt><dd>About {profile.transfer} minutes each way</dd></div><div><dt>Ship-side margin</dt><dd>At least {profile.buffer} minutes</dd></div><div><dt>Typical mid-range day</dt><dd>{profile.cost["$$"]}</dd></div></dl></aside>
+      <aside className="overview-facts" aria-label={`${profile.name} quick facts`}><h3>{profile.name} at a glance</h3><dl><div><dt>Country</dt><dd>{profile.country}</dd></div><div><dt>Terminal to confirm</dt><dd>{profile.pier}</dd></div><div><dt>Example transfer allowance</dt><dd>{profile.transfer} minutes each way</dd></div><div><dt>Example ship-side allowance</dt><dd>{shipSideMinutes} minutes</dd></div><div><dt>Illustrative mid-range budget (USD)</dt><dd>{profile.cost["$$"]}</dd></div></dl><p>Budget ranges are per-person planning allowances, not current local quotes. Confirm your complete transport and admission cost before booking.</p></aside>
       <figure className="port-map"><iframe title={`${profile.name} cruise port area map`} src={mapEmbedUrl(profile.slug)} loading="lazy" /><figcaption>Orientation map only. Confirm the berth in your cruise documents. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</figcaption></figure>
     </section>
 
@@ -191,7 +204,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
 
     {isCayman && <LocalItineraries slug={profile.slug} />}
     {edition ? <LocalTransport slug={profile.slug} /> : <>    <section className="section port-reality" id="transport">
-      <div className="section-heading compact"><p className="eyebrow"><span /> Transport & traveler perspective</p><h2>How to get around {profile.name} cruise port</h2><p>{isCozumel ? "Most visitors walk from Punta Langosta, use an authorized taxi or private transfer, or prebook a shore excursion. Choose based on your exact terminal and the return plan—not only the advertised attraction." : "Terminal facts, traveler feedback, and transport choices—distilled into the decisions that change the day."}</p></div>
+      <div className="section-heading compact"><p className="eyebrow"><span /> Transport & shore-day planning</p><h2>How to get around {profile.name} cruise port</h2><p>{isCozumel ? "Most visitors walk from Punta Langosta, use an authorized taxi or private transfer, or prebook a shore excursion. Choose based on your exact terminal and the return plan—not only the advertised attraction." : "Start with the assigned berth, then check the route, pickup and complete return before choosing transport."}</p></div>
 
       {isCozumel && <div className="cozumel-transport-primer">
         <article><span>Lowest friction</span><h3>Walk or port shuttle</h3><p>Best for San Miguel when docked at Punta Langosta.</p></article>
@@ -212,16 +225,16 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
 
       <div className="transport-choices"><div className="subsection-heading"><span>Choose by what you want to do</span><h3>Three realistic ways to move through {profile.name}.</h3></div><div className="transport-choice-grid">{insight.transportChoices.map((choice) => <article key={choice.label}><div><span className="transport-icon" aria-hidden="true">{choice.icon}</span><small>{choice.risk}</small></div><h4>{choice.label}</h4><b>Best for: {choice.bestFor}</b><p>{choice.reality}</p></article>)}</div></div>
 
-      <div className="traveler-takeaways"><div><span>Traveler takeaways</span><h3>{profile.slug === "osaka" ? "What the terminal and transit routes mean for your day." : insight.sources.length > 0 ? "What traveler feedback and port logistics keep pointing to." : "What the port layout and current review signals point to."}</h3><p>{profile.slug === "osaka" ? "Planning guidance based on official port access and transit maps. Recheck your berth, current service and complete return route before travel." : insight.sources.length > 0 ? "Paraphrased themes—not quotations or a promise that every visit will feel the same." : "A planning synthesis based on terminal, transfer, and route data; live tour review totals appear above when available."}</p></div><ul>{insight.travelerThemes.map((theme) => <li key={theme}>{theme}</li>)}</ul>{insight.sources.length > 0 && <div className="traveler-sources"><span>Sources checked {profile.slug === "osaka" ? "September" : "July"} 2026:</span>{insight.sources.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>)}</div>}</div>
+      <div className="traveler-takeaways"><div><span>{insight.sourceCheckedLabel || insight.sources.length === 0 ? "Planning takeaways" : "Traveler takeaways"}</span><h3>{profile.slug === "osaka" || insight.sourceCheckedLabel ? "What official access information means for your day." : insight.sources.length > 0 ? "What traveler feedback and port logistics keep pointing to." : "Questions to settle before leaving the terminal."}</h3><p>{profile.slug === "osaka" || insight.sourceCheckedLabel ? "Planning guidance based on the official sources below. Recheck current access and your complete return route before travel." : insight.sources.length > 0 ? "Paraphrased themes—not quotations or a promise that every visit will feel the same." : "Use these planning checks with the ship’s current terminal instructions. Live tour ratings, when available, describe the products shown above."}</p></div><ul>{insight.travelerThemes.map((theme) => <li key={theme}>{theme}</li>)}</ul>{insight.sources.length > 0 && <div className="traveler-sources"><span>Sources checked {insight.sourceCheckedLabel ?? (profile.slug === "osaka" ? "September 2026" : "July 2026")}:</span>{insight.sources.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>)}</div>}</div>
 
-      <div className="return-strip"><div><span>Protect the return</span><p>Start back at least <b>{Math.max(120, profile.buffer + profile.transfer)} minutes before official all-aboard</b>: about {profile.transfer} minutes for travel plus at least {profile.buffer} minutes ship-side.</p></div><div><span>Access check</span><p>{profile.mobility}</p></div></div>
+      <div className="return-strip"><div><span>Protect the return</span><p>Start back at least <b>{returnLead} minutes before official all-aboard</b> in the example: {profile.transfer} minutes allocated to travel plus {shipSideMinutes} minutes ship-side. Use more time when the confirmed route or ship instructions require it.</p></div><div><span>Access check</span><p>{profile.mobility}</p></div></div>
 
       <div className="native-placement"><div><span>{fit.label}</span><p>{fit.items.join(" · ")}</p></div><ViatorDestinationLink portSlug={profile.slug} portName={profile.name} className="native-link" /></div>
     </section></>}
 
-    <section className="section top-things" id="top-things"><div className="section-heading"><p className="eyebrow"><span /> Editorial picks + live options</p><h2>Top Things to Do & Shore Excursions in {profile.name}</h2><p>{isCozumel ? "Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. Chankanaab is the strongest first-time anchor; San Miguel is a flexible add-on; Punta Sur is route-dependent; and San Gervasio is the heritage alternative." : profile.slug === "osaka" ? "Choose one city area, then check whether the activity duration, meeting point and return plan fit your call. Kyoto is a separate-city option." : "Choose one main direction, then compare the independent plan with a relevant current excursion. Exact place matches are labeled as recommended excursions; broader alternatives are labeled as similar experiences. When there is no credible match, the independent plan stands on its own."}</p></div>{!edition && <PortEditorialPhotos slug={profile.slug} />}<TopThingsExcursions portSlug={profile.slug} portName={profile.name} items={profile.highlights.map((highlight, index) => ({ name: highlight, note: highlightPlanningNote(profile, index), priority: index === 0 ? "Best main anchor" : index === 1 ? "Flexible second choice" : index === 2 ? "Route-dependent option" : "Alternative plan" }))} /></section>
+    <section className="section top-things" id="top-things"><div className="section-heading"><p className="eyebrow"><span /> Editorial picks + live options</p><h2>Top Things to Do & Shore Excursions in {profile.name}</h2><p>{isCozumel ? "Treat Chankanaab, San Miguel, Punta Sur, and San Gervasio as alternatives rather than a checklist. Chankanaab is the strongest first-time anchor; San Miguel is a flexible add-on; Punta Sur is route-dependent; and San Gervasio is the heritage alternative." : profile.slug === "osaka" ? "Choose one city area, then check whether the activity duration, meeting point and return plan fit your call. Kyoto is a separate-city option." : "Choose one main direction, then compare the independent plan with a relevant current excursion. Check each listing’s actual stops, admission, pickup and full duration before booking. The independent options remain available when no suitable product is returned."}</p></div>{!edition && <PortEditorialPhotos slug={profile.slug} />}<TopThingsExcursions portSlug={profile.slug} portName={profile.name} items={profile.highlights.map((highlight, index) => ({ name: highlight, note: highlightPlanningNote(profile, index), priority: index === 0 ? "Main option to compare" : index === 1 ? "Another direction" : index === 2 ? "Plan the full route" : "Alternative plan" }))} /></section>
 
-    {edition ? !isCayman && <LocalItineraries slug={profile.slug} /> : <>    <section className="section time-plans" id="itineraries"><div className="section-heading"><p className="eyebrow"><span /> Time-stitched itineraries</p><h2>{isCozumel ? "Cozumel port-day itineraries: 6 hours vs. 8 hours" : `${profile.name} itinerary for a 6- or 8-hour port call`}</h2><p>A 6- or 8-hour window starts when you can leave the terminal and ends at official all-aboard—not ship departure. Each version separately reserves the typical return transfer and the ship-side margin. These are planning structures, not promises about live traffic, attraction opening, or the time your ship will clear.</p></div><div className="time-plan-grid">{([6, 8] as const).map((hours) => <article key={hours}><div><span>{hours}-HOUR PORT DAY</span><b>{profile.transfer} min return · {Math.max(profile.buffer, 120 - profile.transfer)} min ship-side</b></div><ol>{itinerary(profile, hours).map((step) => <li key={`${hours}-${step.time}`}><time>{step.time}</time><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></article>)}</div><p className="return-warning"><strong>Return rule: begin the return journey at least two hours before official all-aboard, or earlier when this port’s transfer and ship-side margin require it. Add more time for tenders, traffic, weather, mobility needs, or distant pickups.</strong></p></section></>}
+    {edition ? !isCayman && <LocalItineraries slug={profile.slug} /> : <>    <section className="section time-plans" id="itineraries"><div className="section-heading"><p className="eyebrow"><span /> Time-stitched itineraries</p><h2>{isCozumel ? "Cozumel port-day itineraries: 6 hours vs. 8 hours" : `${profile.name} itinerary for a 6- or 8-hour port call`}</h2><p>A 6- or 8-hour window starts when you can leave the terminal and ends at official all-aboard—not ship departure. Each version separately reserves an editorial transfer allowance and a ship-side allowance. Confirm actual journey times before using the example. These are planning structures, not promises about live traffic, attraction opening, or the time your ship will clear.</p></div><div className="time-plan-grid">{([6, 8] as const).map((hours) => <article key={hours}><div><span>{hours}-HOUR PORT DAY</span><b>{profile.transfer} min return · {Math.max(profile.buffer, 120 - profile.transfer)} min ship-side</b></div><ol>{itinerary(profile, hours).map((step) => <li key={`${hours}-${step.time}`}><time>{step.time}</time><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></article>)}</div><p className="return-warning"><strong>Return rule: begin the return journey at least two hours before official all-aboard, or earlier when this port’s transfer and ship-side margin require it. Add more time for tenders, traffic, weather, mobility needs, or distant pickups.</strong></p></section></>}
 
     {edition ? <LocalTips slug={profile.slug} /> : <>    <section className="section local-hacks" id="local-tips"><div className="section-heading compact"><p className="eyebrow"><span /> Practical tips</p><h2>{profile.name} cruise port tips before you go</h2><p>Small preparation steps matter more on a port call because there is no spare evening to recover from a wrong terminal, failed connection, poor exchange rate, or missed pickup.</p></div><div className="hack-grid">{(isCozumel ? ["Confirm Punta Langosta, International Pier, or Puerta Maya before booking transport or an excursion.", "Use a bank ATM or pay by card in local currency; decline dynamic currency conversion.", "Download tickets, confirmations, pickup details, and the terminal name before relying on port Wi-Fi.", "Confirm the fare before departure and photograph the posted taxi board when one is available."] : localHacks(profile.region)).map((hack, index) => <article key={hack}><span>{String(index + 1).padStart(2, "0")}</span><p>{hack}</p></article>)}</div></section></>}
 

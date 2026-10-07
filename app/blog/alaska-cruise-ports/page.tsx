@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   alaskaCruisePortGuides,
@@ -9,7 +8,10 @@ import {
   alaskaCruisePortsPost,
 } from "@/lib/alaska-blog";
 import { AlaskaViatorPicks } from "@/components/AlaskaViatorPicks";
-import { portPhotos, portPhotoPath } from "@/lib/port-photos";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
+import { commonsFilePageUrl, portPhotos, portPhotoPath } from "@/lib/port-photos";
+import { localPhotoSrcSet } from "@/lib/local-photos";
+import photoCredits from "@/lib/scenic-photo-credits.json";
 import { siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -45,10 +47,21 @@ function ArrowIcon() {
 
 export default function AlaskaCruisePortsPage() {
   const pageUrl = `${siteUrl}${alaskaCruisePortsPath}`;
+  // Keep the sourced article copy in its editorial module; enhance only the
+  // local image delivery and compact credits at this rendering boundary.
+  let articleHtml = alaskaCruisePortsHtml.replace(/<img src="(\/media\/ports\/[^"<>]+\.jpg)"([^>]*)>/g, (image, src: string) => {
+    const srcSet = localPhotoSrcSet(src);
+    return srcSet ? `<picture><source type="image/webp" srcset="${srcSet}" sizes="(max-width: 800px) calc(100vw - 48px), 820px">${image}</picture>` : image;
+  });
+  for (const guide of alaskaCruisePortGuides) {
+    const credit = photoCredits[guide.slug];
+    const source = commonsFilePageUrl(portPhotos[guide.slug].file);
+    articleHtml = articleHtml.replaceAll(`<a href="${source}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.`, `<a href="/photo-credits#${guide.slug}">${credit.author}</a>`);
+  }
   const viatorInsertionAnchor = '<h2 id="juneau">';
-  const viatorInsertionIndex = alaskaCruisePortsHtml.indexOf(viatorInsertionAnchor);
-  const articleBeforeViator = viatorInsertionIndex >= 0 ? alaskaCruisePortsHtml.slice(0, viatorInsertionIndex) : alaskaCruisePortsHtml;
-  const articleAfterViator = viatorInsertionIndex >= 0 ? alaskaCruisePortsHtml.slice(viatorInsertionIndex) : "";
+  const viatorInsertionIndex = articleHtml.indexOf(viatorInsertionAnchor);
+  const articleBeforeViator = viatorInsertionIndex >= 0 ? articleHtml.slice(0, viatorInsertionIndex) : articleHtml;
+  const articleAfterViator = viatorInsertionIndex >= 0 ? articleHtml.slice(viatorInsertionIndex) : "";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -109,7 +122,7 @@ export default function AlaskaCruisePortsPage() {
         <p className="blog-article-deck">{alaskaCruisePortsPost.excerpt}</p>
         <div className="blog-article-meta"><span>{alaskaCruisePortsPost.publishedLabel}</span><span>{alaskaCruisePortsPost.readTime}</span><span>By {alaskaCruisePortsPost.author}</span></div>
       </div>
-      <figure className="blog-article-cover"><Image src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority unoptimized /></figure>
+      <figure className="blog-article-cover" style={{ position: "relative" }}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) calc(100vw - 48px), 42vw" priority /><figcaption className="port-card-photo-credit"><Link href="/photo-credits#juneau">{photoCredits.juneau.author}</Link></figcaption></figure>
     </header>
 
     <div className="blog-article-layout">
@@ -130,14 +143,14 @@ export default function AlaskaCruisePortsPage() {
             {alaskaCruisePortGuides.map((guide) => (
               <Link className="blog-child-guide-card" data-alaska-port-card="true" href={`/ports/${guide.slug}`} key={guide.slug} aria-label={`Read ${guide.title}`}>
                 <figure className="blog-child-guide-image">
-                  <Image
+                  <LocalPhotoImage
                     src={portPhotoPath(guide.slug)}
                     alt={portPhotos[guide.slug].alt}
                     width={guide.slug === "skagway" ? 1280 : 1600}
                     height={guide.slug === "skagway" ? 870 : guide.slug === "juneau" || guide.slug === "ketchikan" ? 1067 : 1071}
                     sizes="(max-width: 700px) calc(100vw - 34px), 360px"
-                    unoptimized
                   />
+                  <figcaption className="port-card-photo-credit">{photoCredits[guide.slug].author}</figcaption>
                 </figure>
                 <div className="blog-child-guide-content">
                   <span>Alaska cruise port</span>

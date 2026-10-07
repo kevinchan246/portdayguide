@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
 import { notFound } from "next/navigation";
 import {
   blogPost,
@@ -89,7 +89,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         <p className="blog-article-deck">{blogPost.excerpt}</p>
         <div className="blog-article-meta"><span>{blogPost.publishedLabel}</span><span>{blogPost.readTime}</span><span>By {blogPost.author}</span></div>
       </div>
-      <figure className="blog-article-cover"><Image src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority unoptimized /></figure>
+      <figure className="blog-article-cover" style={{ position: "relative" }}><LocalPhotoImage src={blogPost.image} alt={blogPost.imageAlt} width={blogPost.imageWidth} height={blogPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority /><figcaption className="port-card-photo-credit"><Link href={blogPost.imageCreditHref}>{blogPost.imageAuthor}</Link></figcaption></figure>
     </header>
 
     <div className="blog-article-layout">
@@ -113,14 +113,14 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 aria-label={`Read ${guide.title}`}
               >
                 <figure className="blog-child-guide-image">
-                  <Image
+                  <LocalPhotoImage
                     src={guide.image}
                     alt={guide.imageAlt}
                     width={guide.imageWidth}
                     height={guide.imageHeight}
                     sizes="(max-width: 700px) calc(100vw - 34px), 360px"
-                    unoptimized
                   />
+                  <small className="port-card-photo-credit">{guide.imageAuthor}</small>
                 </figure>
                 <div className="blog-child-guide-content">
                   <span>{guide.category} · {guide.readTime}</span>

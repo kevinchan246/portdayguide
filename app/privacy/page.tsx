@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { websiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Notice",
+  ...websiteMetadata("Privacy Notice", "How PortdayGuide processes planner data, shared links and affiliate click measurement.", "/privacy"),
   robots: { index: false, follow: true },
 };
 

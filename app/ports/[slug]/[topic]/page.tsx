@@ -27,12 +27,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const imageUrl = guide.image ? `${siteUrl}${guide.image.src}` : portPhotoUrl(guide.sourcePortSlug);
   const imageAlt = guide.image?.alt || image.alt;
   const canonical = `${siteUrl}${intentGuidePath(guide)}`;
+  const profile = profilesBySlug[guide.sourcePortSlug as PortSlug];
+  const published = guide.published || "2026-07-21";
+  const modified = guide.modified || published;
   const metadataTitle = guide.seoTitle.length > 45 ? { absolute: guide.seoTitle } : guide.seoTitle;
   return {
     title: metadataTitle,
     description: guide.description,
     alternates: { canonical },
-    openGraph: { title: `${guide.seoTitle} | PortdayGuide`, description: guide.description, url: canonical, type: "article", images: [{ url: imageUrl, alt: imageAlt }] },
+    openGraph: { title: `${guide.seoTitle} | PortdayGuide`, description: guide.description, url: canonical, siteName: "PortdayGuide", type: "article", publishedTime: published, modifiedTime: modified, section: `${profile.name} cruise planning`, images: [{ url: imageUrl, alt: imageAlt }] },
     twitter: { card: "summary_large_image", title: guide.seoTitle, description: guide.description, images: [imageUrl] },
   };
 }
@@ -63,7 +66,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     headline: guide.title,
     description: guide.description,
     datePublished: guide.published || "2026-07-21",
-    dateModified: guide.modified || "2026-07-21",
+    dateModified: guide.modified || guide.published || "2026-07-21",
     mainEntityOfPage: url,
     image: guide.image ? `${siteUrl}${guide.image.src}` : portPhotoUrl(guide.sourcePortSlug),
     inLanguage: "en-US",
@@ -71,7 +74,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     articleSection: `${profile.name} cruise planning`,
     about: [{ "@type": "Place", name: profile.name }, { "@type": "Thing", name: guide.eyebrow }],
     author: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/about` },
-    publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/` },
+    publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PortdayGuide", url: `${siteUrl}/`, logo: { "@type": "ImageObject", url: `${siteUrl}/icon-512.png` } },
   };
   const faqSchema = guide.faqs ? {
     "@context": "https://schema.org",
@@ -109,18 +112,18 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
         <PortDayFit fit={guide.fit} />
 
         {guide.template === "beach-transfer" ? <BeachTransferArticle guide={guide} /> : guide.template === "cozumel-taxi" ? <CozumelTaxiArticle guide={guide} /> : <>
-        {guide.sections.map((section) => <section className="intent-copy-section" key={section.heading}><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
+        {guide.sections.map((section) => <section className="intent-copy-section" key={section.heading}><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.links?.map((link) => <p key={link.href}>{link.context} <Link href={link.href}>{link.label}</Link>.</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}
 
         {guide.comparison && <section className="intent-comparison"><h2>{guide.comparison.heading}</h2><div className="intent-table-wrap"><table><thead><tr>{guide.comparison.columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>{guide.comparison.rows.map((row) => <tr key={row.join("-")}>{row.map((cell, index) => index === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></section>}
 
-        <section className="intent-steps"><div><span>Use this on the day</span><h2>A cruise-safe sequence</h2></div><ol>{guide.steps.map((step, index) => <li key={step.title}><b>{String(index + 1).padStart(2, "0")}</b><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></section>
+        <section className="intent-steps"><div><span>Use this on the day</span><h2>Steps for the port day</h2></div><ol>{guide.steps.map((step, index) => <li key={step.title}><b>{String(index + 1).padStart(2, "0")}</b><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></section>
 
         <section className="intent-verdict"><span>PortdayGuide verdict</span><h2>Who should choose this plan?</h2><p>{guide.decision}</p></section>
 
         <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName={profile.name} heading={guide.viator.heading} />
         </>}
 
-        <section className="intent-sources"><span>Sources & verification</span><h2>What this guide is based on</h2><p>PortdayGuide compares current destination or port references with cruise-day timing. Prices, operations, sea conditions, and terminal assignments can change; the cruise line and same-day posted information control.</p><ul>{guide.sources.map((source) => <li key={source.url}>{source.url.startsWith("/") ? <Link href={source.url}>{source.label}</Link> : <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>}<span>{source.note}</span></li>)}</ul></section>
+        <section className="intent-sources"><span>Sources & verification</span><h2>What this guide is based on</h2><p>Sources reflect the review dates shown; transport estimates and editorial timing allowances are not guarantees. Prices, operations, sea conditions and terminal assignments can change. Follow your cruise line&apos;s instructions and check the posted information for your visit.</p><ul>{guide.sources.map((source) => <li key={source.url}>{source.url.startsWith("/") ? <Link href={source.url}>{source.label}</Link> : <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>}<span>{source.note}</span></li>)}</ul></section>
 
         <section className="intent-next"><div><span>Finish the decision</span><h2>Put this route on your ship&apos;s clock.</h2><p>Use your actual arrival, all-aboard time, pace, mobility, and budget. The planner keeps the return margin before suggesting what fits.</p></div><Link href={`/planner?port=${encodeURIComponent(guide.sourcePortSlug)}&from=${encodeURIComponent(guide.topic)}`}>Build my {profile.name} port day <span aria-hidden="true">→</span></Link></section>
 

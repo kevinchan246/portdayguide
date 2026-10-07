@@ -32,12 +32,6 @@ export function TopThingsExcursions({ portSlug, portName, items }: { portSlug: s
   }, [portSlug]);
 
   const recommendationMap = useMemo(() => new Map((data?.recommendations || []).map((recommendation) => [normalize(recommendation.highlight), recommendation])), [data]);
-  const visibleItems = useMemo(() => {
-    // Osaka's independent directions remain useful even when the API has no match.
-    if (isOsaka) return items;
-    if (!data || !data.recommendations?.length) return items;
-    return items.filter((item) => recommendationMap.has(normalize(item.name)));
-  }, [data, items, recommendationMap, isOsaka]);
 
   return <>
     {isOsaka && <aside className={osakaStyles.intro} aria-labelledby="osaka-booking-window">
@@ -48,7 +42,7 @@ export function TopThingsExcursions({ portSlug, portName, items }: { portSlug: s
       <div className={osakaStyles.sources}><a href="https://www.mlit.go.jp/kankocho/cruise/detail/029/index.html" target="_blank" rel="noopener noreferrer">Official Osaka port access ↗</a><a href="https://subway.osakametro.co.jp/en/guide/routemap.php" target="_blank" rel="noopener noreferrer">Osaka Metro route map ↗</a><a href="https://subway.osakametro.co.jp/en/station_guide/C/c11/index.php" target="_blank" rel="noopener noreferrer">Osakako station and access ↗</a></div>
     </aside>}
     <div className="activity-excursion-grid">
-      {visibleItems.map((item, index) => {
+      {items.map((item, index) => {
         const match = recommendationMap.get(normalize(item.name));
         const product = match?.product;
         const independent = isOsaka ? osakaIndependentPlans[item.name] : undefined;

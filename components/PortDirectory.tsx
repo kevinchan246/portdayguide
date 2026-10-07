@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { portPath } from "@/lib/seo";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
-import { guideReadMinutes, guideTitle, guideUpdatedLabel } from "@/lib/editorial";
+import { guideReadMinutes, guideTitle } from "@/lib/editorial";
 import { regionPath } from "@/lib/seo";
 import { portNames, portProfiles, portRegions, type PortRegion } from "@/lib/shorepath";
 
@@ -76,7 +76,7 @@ export function PortDirectory({ initialQuery = "" }: { initialQuery?: string }) 
               <div className="guide-card-meta"><span>{profile.region}</span><span>{guideReadMinutes(profile)} min read</span></div>
               <h3>{guideTitle(profile)}</h3>
               <p>{profile.intro}</p>
-              <div className="guide-card-footer"><span>Updated {guideUpdatedLabel}</span><b>Read guide →</b></div>
+              <div className="guide-card-footer"><span>{profile.country}</span><b>Read guide →</b></div>
             </div>
           </Link>; })}
         </div>

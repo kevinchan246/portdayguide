@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteUrl } from "@/lib/seo";
+import { siteUrl, websiteMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About PortdayGuide",
-  description: "Learn how PortdayGuide helps cruise travelers compare ports, terminals, transport, shore excursions, and return-aware plans for a better day ashore.",
-  alternates: { canonical: `${siteUrl}/about` },
-};
+export const metadata: Metadata = websiteMetadata(
+  "About PortdayGuide",
+  "Learn how PortdayGuide helps cruise travelers compare ports, terminals, transport, shore excursions, and return-aware plans for a better day ashore.",
+  "/about",
+);
 
 export default function AboutPage() {
   const aboutSchema = {

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { websiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Terms of Use",
+  ...websiteMetadata("Terms of Use", "Terms for using PortdayGuide's cruise-port guides, planner, shared plans and external booking links.", "/terms"),
   robots: { index: false, follow: true },
 };
 

@@ -1,0 +1,593 @@
+{
+  "cozumel": {
+    "author": "Caleb George",
+    "file": "Cozumel, Mexico (Unsplash nhXV1T9LVMg).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cozumel,_Mexico_(Unsplash_nhXV1T9LVMg).jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "nassau": {
+    "author": "Quintin Soloviev",
+    "file": "Nassau, Bahamas aerial view (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nassau,_Bahamas_aerial_view_(cropped).jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "costa-maya": {
+    "author": "NormanEinstein",
+    "file": "Costa maya beach.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costa_maya_beach.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "st-thomas": {
+    "author": "Sunil Pereira",
+    "file": "View of St. Thomas.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_St._Thomas.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "roatan": {
+    "author": "Westbrowncanada",
+    "file": "Westbay2106.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westbay2106.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "san-juan": {
+    "author": "Farragutful",
+    "file": "2013 Old San Juan 01.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2013_Old_San_Juan_01.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "philipsburg": {
+    "author": "Clavius66",
+    "file": "Philipsburg and the Great Bay, Sint Maarten, Caribbean.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philipsburg_and_the_Great_Bay,_Sint_Maarten,_Caribbean.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "george-town-grand-cayman": {
+    "author": "rh43",
+    "file": "96-124 S Church St, George Town, Cayman Islands - panoramio (1).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:96-124_S_Church_St,_George_Town,_Cayman_Islands_-_panoramio_(1).jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "rh43"
+  },
+  "falmouth-jamaica": {
+    "author": "SpaceEconomist192",
+    "file": "Falmouth, Jamaica I.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Falmouth,_Jamaica_I.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "ocho-rios": {
+    "author": "Balou46",
+    "file": "JM-ocho rios-hafen-01.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:JM-ocho_rios-hafen-01.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "montego-bay": {
+    "author": "Don Ramey Logan",
+    "file": "Montego Bay Photo Don Ramey Logan.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Montego_Bay_Photo_Don_Ramey_Logan.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Photograph by Don Ramey Logan; Montego Bay Photo Don Ramey Logan.jpg from Wikimedia Commons."
+  },
+  "amber-cove": {
+    "author": "Joe deSousa",
+    "file": "Amber Cove Sunrise (31647461387).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amber_Cove_Sunrise_(31647461387).jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "puerto-plata": {
+    "author": "Robert A. Bixby",
+    "file": "Downtown Puerto Plata Dominican Republic Architecture.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Puerto_Plata_Dominican_Republic_Architecture.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "belize-city": {
+    "author": "James Willamor",
+    "file": "Belize City waterfront.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Belize_City_waterfront.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "User: (WT-shared) Bz3rk at wts wikivoyage"
+  },
+  "key-west": {
+    "author": "Deror avi",
+    "file": "Key West FH020009.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Key_West_FH020009.jpg",
+    "license": "Attribution",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Key_West_FH020009.jpg",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "oranjestad-aruba": {
+    "author": "Chris Favero",
+    "file": "Main port of Aruba (13256378895).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_port_of_Aruba_(13256378895).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "willemstad-curacao": {
+    "author": "Coolcaesar",
+    "file": "Handelskade in Willemstad.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Handelskade_in_Willemstad.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "kralendijk-bonaire": {
+    "author": "Bgabel",
+    "file": "BONAIRE-kralendijk-hafen-2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BONAIRE-kralendijk-hafen-2.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "User: Bgabel at wikivoyage shared"
+  },
+  "bridgetown": {
+    "author": "Acp~commonswiki",
+    "file": "Bridgetown2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridgetown2.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "castries": {
+    "author": "Chensiyuan",
+    "file": "View of Castries Saint Lucia Day248bdriveb.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Castries_Saint_Lucia_Day248bdriveb.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Chensiyuan"
+  },
+  "st-johns-antigua": {
+    "author": "Calyponte",
+    "file": "AntiguaHarborStjohn.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AntiguaHarborStjohn.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "basseterre": {
+    "author": "giggel",
+    "file": "St. Kitts, Karibik - Marina in Basseterre - panoramio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St._Kitts,_Karibik_-_Marina_in_Basseterre_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "giggel"
+  },
+  "road-town-tortola": {
+    "author": "Henry A-W",
+    "file": "Roadtown, Tortola.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roadtown,_Tortola.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Henry aw"
+  },
+  "st-georges-grenada": {
+    "author": "cwi.aida",
+    "file": "St Georges Grenada Fort - panoramio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Georges_Grenada_Fort_-_panoramio.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "cwi.aida"
+  },
+  "roseau-dominica": {
+    "author": "Zeamays",
+    "file": "Roseau Dominica.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roseau_Dominica.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Zeamays at English Wikipedia"
+  },
+  "juneau": {
+    "author": "Ifly6",
+    "file": "Queen Elizabeth (ship, 2010) in Juneau, Alaska 2024-08-15 (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_(ship,_2010)_in_Juneau,_Alaska_2024-08-15_(cropped).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "ketchikan": {
+    "author": "Thomson M",
+    "file": "Downtown Ketchikan - panoramio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Ketchikan_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Thomson M"
+  },
+  "skagway": {
+    "author": "Christopher Michel",
+    "file": "Skagway aerial view.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skagway_aerial_view.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "sitka": {
+    "author": "Gillfoto",
+    "file": "Sitka 84 Elev 135.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sitka_84_Elev_135.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "icy-strait-point": {
+    "author": "Moira Dunworth",
+    "file": "Icy Strait Point, Alaska.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Icy_Strait_Point,_Alaska.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "victoria-bc": {
+    "author": "MARELBU",
+    "file": "Victoria BC, Canada (Johnson Street) - panoramio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoria_BC,_Canada_(Johnson_Street)_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "MARELBU"
+  },
+  "cabo-san-lucas": {
+    "author": "Stan Shebs",
+    "file": "Cabo San Lucas Los Arcos 3.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cabo_San_Lucas_Los_Arcos_3.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "Stan Shebs"
+  },
+  "puerto-vallarta": {
+    "author": "The ed17",
+    "file": "Sunset panorama over Puerto Vallarta, looking out at the Pacific Ocean.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_panorama_over_Puerto_Vallarta,_looking_out_at_the_Pacific_Ocean.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "mazatlan": {
+    "author": "El Nuevo Doge",
+    "file": "Malecón de Mazatlán, 4 de mayo de 2023.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malecón_de_Mazatlán,_4_de_mayo_de_2023.jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "ensenada": {
+    "author": "in-boulder",
+    "file": "Baja09flickr-05 (4258690724).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baja09flickr-05_(4258690724).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "progreso": {
+    "author": "ros k @ getfunky_paris",
+    "file": "Progreso, Yucatan.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Progreso,_Yucatan.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "barcelona": {
+    "author": "M McBey",
+    "file": "Evening light over Barcelona.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "civitavecchia-rome": {
+    "author": "Shapiro1983",
+    "file": "Forte Michelangelo 2014.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Forte_Michelangelo_2014.jpg",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Forte_Michelangelo_2014.jpg",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "naples": {
+    "author": "Richard Nevell",
+    "file": "Napoli - Maschio Angioino - 202209302342 3.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Napoli_-_Maschio_Angioino_-_202209302342_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "livorno-florence": {
+    "author": "Luca Aless",
+    "file": "Livorno, veduta aerea 2015.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Livorno,_veduta_aerea_2015.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "marseille": {
+    "author": "Earth777",
+    "file": "Notre-Dame de la Garde aerial view 2020.jpeg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notre-Dame_de_la_Garde_aerial_view_2020.jpeg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "palma-de-mallorca": {
+    "author": "Thomas Wolf",
+    "file": "Kathedrale von Palma.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kathedrale_von_Palma.jpg",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "© Thomas Wolf, www.foto-tw.de",
+    "authorUrl": "https://www.foto-tw.de/"
+  },
+  "piraeus-athens": {
+    "author": "Nikolaos Diakidis",
+    "file": "Port of Piraeus Panoramic View.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Port_of_Piraeus_Panoramic_View.JPG",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "santorini": {
+    "author": "Norbert Nagel",
+    "file": "Oia - Santorini - Greece - 16.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oia_-_Santorini_-_Greece_-_16.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "mykonos": {
+    "author": "Bernard Gagnon",
+    "file": "Little Venice, Mykonos.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Little_Venice,_Mykonos.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "dubrovnik": {
+    "author": "Zysko serhii",
+    "file": "The walls of the fortress and View of the old city. panorama.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "valletta": {
+    "author": "Mandyy88",
+    "file": "St Sebastian Curtain (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Sebastian_Curtain_(cropped).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "lisbon": {
+    "author": "Vitor Oliveira",
+    "file": "Lisboa - Portugal (52597836992).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lisboa_-_Portugal_(52597836992).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "yokohama-tokyo": {
+    "author": "Akonnchiroll",
+    "file": "Minato Mirai.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minato_Mirai.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "osaka": {
+    "author": "KishujiRapid",
+    "file": "Osaka Castle and Osaka Business Park skyscraper 20260610.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "kobe": {
+    "author": "Martin Falbisoner",
+    "file": "Kobe Port Tower and Maritime Museum, November 2016.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Port_Tower_and_Maritime_Museum,_November_2016.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "nagasaki": {
+    "author": "Tomio344456",
+    "file": "Nagasaki City View from Glover Garden, Nagasaki 2014.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasaki_City_View_from_Glover_Garden,_Nagasaki_2014.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "fukuoka": {
+    "author": "Nryate",
+    "file": "Fukuoka Skyline of Seaside Momochi.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuoka_Skyline_of_Seaside_Momochi.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "busan": {
+    "author": "Glabb",
+    "file": "Gwangan Bridge1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gwangan_Bridge1.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "jeju": {
+    "author": "J. Patrick Fischer",
+    "file": "Jeju - Hallasan.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jeju_-_Hallasan.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "hong-kong": {
+    "author": "Diliff",
+    "file": "Hong Kong Skyline - Dec 2007.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hong_Kong_Skyline_-_Dec_2007.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "singapore": {
+    "author": "Benh LIEU SONG",
+    "file": "Singapore Marina Bay Dusk 2018-02-27.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Marina_Bay_Dusk_2018-02-27.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "keelung-taipei": {
+    "author": "Taiwankengo",
+    "file": "獅球嶺眺望基隆港2017.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:獅球嶺眺望基隆港2017.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "shanghai": {
+    "author": "xiquinhosilva",
+    "file": "Huangpu Park 20124-Shanghai (32208802494).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huangpu_Park_20124-Shanghai_(32208802494).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "laem-chabang-bangkok": {
+    "author": "Lokomotive74",
+    "file": "Laem Chabang.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laem_Chabang.jpg",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "phu-my-ho-chi-minh-city": {
+    "author": "Hoangvantoanajc",
+    "file": "Bờ biển Vũng Tàu.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bờ_biển_Vũng_Tàu.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "chan-may-hue-da-nang": {
+    "author": "Vyacheslav Argenberg",
+    "file": "Hai Van Pass, Vietnam, View southwards.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hai_Van_Pass,_Vietnam,_View_southwards.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph.",
+    "creditLine": "© Vyacheslav Argenberg"
+  },
+  "benoa-bali": {
+    "author": "Anton Ardyanto",
+    "file": "Pantai nusa dua bali saat matahari terbit.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantai_nusa_dua_bali_saat_matahari_terbit.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  },
+  "phuket": {
+    "author": "Bennypc",
+    "file": "Phuket Aerial.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phuket_Aerial.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "checked": "2026-10-07",
+    "changes": "Resized and compressed for web delivery; the scene is unchanged. Display frames may crop the photograph."
+  }
+}

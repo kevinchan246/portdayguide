@@ -1,21 +1,23 @@
-import { commonsFilePageUrl, portPhotoPath, portPhotos } from "@/lib/port-photos";
+import { portPhotoPath, portPhotos } from "@/lib/port-photos";
 
 export const alaskaCruisePortsPost = {
   slug: "alaska-cruise-ports",
-  title: "Top Alaska Cruise Ports to Explore",
-  seoTitle: "Top Alaska Cruise Ports, Routes & Itineraries",
-  description: "Compare the top Alaska cruise ports, departure cities, routes, maps, attractions, and excursions for Juneau, Ketchikan, Skagway, Sitka, Glacier Bay, and more.",
-  excerpt: "Compare Alaska's main cruise routes and departure ports, then explore the highlights, wildlife, history, and excursion choices at its most popular ports of call.",
+  title: "Alaska Cruise Ports: Compare Routes and Shore Days",
+  seoTitle: "Alaska Cruise Ports, Routes & Shore Days",
+  description: "Compare Alaska cruise routes and shore days in Juneau, Ketchikan, Skagway and Sitka, with departure-port checks and the difference between port calls and scenic cruising.",
+  excerpt: "Separate port calls, scenic cruising and embarkation endpoints, then compare the Alaska stops and shore activities that fit your sailing.",
   category: "Alaska Cruises",
   published: "2026-07-27",
   publishedLabel: "July 27, 2026",
-  modified: "2026-07-27",
+  modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "14 min read",
   image: portPhotoPath("juneau"),
   imageAlt: portPhotos.juneau.alt,
   imageWidth: 1600,
   imageHeight: 1067,
+  imageAuthor: "Ifly6",
+  imageCreditHref: "/photo-credits#juneau",
   targetKeywords: [
     "Alaska cruise ports",
     "top Alaska cruise ports",
@@ -73,7 +75,7 @@ export const alaskaCruisePortGuides = [
 export const alaskaCruisePortsFaq = [
   {
     question: "What are the main Alaska cruise routes, and how do they differ?",
-    answer: "The Inside Passage, Gulf of Alaska, and Northern Pass each offer distinct experiences. The Inside Passage features calm, narrow fjords, lush scenery, and classic stops like Juneau, Ketchikan, and Skagway. Gulf of Alaska sailings span broader vistas and often connect to larger hubs, with routes that showcase expansive landscapes and diverse wildlife. The Northern Pass blends cultural ports with stretches of untouched wilderness. Choosing among them depends on whether you prioritize serene fjords and cultural towns, sweeping panoramas and broader geography, or a balanced mix of heritage and raw nature.",
+    answer: "Inside Passage sailings visit Southeast Alaska ports such as Juneau, Ketchikan, and Skagway. A round-trip itinerary returns to its departure city; a cross-gulf itinerary continues to Southcentral Alaska, commonly ending in Seward or Whittier, or runs in the reverse direction. Check both endpoints and the airport transfer before comparing fares. Small-ship and Arctic itineraries are separate options with different routes and logistics.",
   },
   {
     question: "Which departure port should I choose: Seattle, Vancouver, or San Francisco?",
@@ -89,25 +91,14 @@ export const alaskaCruisePortsFaq = [
   },
   {
     question: "What Alaska excursions fit adventure, culture, or wildlife interests?",
-    answer: "Adventure options include glacier helicopter tours, Misty Fjords flightseeing, Harding Icefield hikes, Kenai Fjords boat tours, and Prince William Sound kayaking. Cultural choices include totem parks, Gold Rush sites, Russian heritage, and local museums. Wildlife options include whale watching, eagle viewing, and marine-life centers.",
+    answer: "Adventure options include glacier helicopter tours, Misty Fjords flightseeing, Kenai Fjords boat tours, and Prince William Sound kayaking. The full Harding Icefield hike near Seward takes at least six to eight hours before road transfers and is better considered with a dedicated pre- or post-cruise day. Cultural choices include totem parks, Gold Rush sites, Russian heritage, and local museums. Wildlife options include whale watching, eagle viewing, and marine-life centers; large-ship Glacier Bay visits are scenic cruising rather than a shore excursion.",
   },
 ] as const;
 
-const juneauPhoto = commonsFilePageUrl(portPhotos.juneau.file);
-const ketchikanPhoto = commonsFilePageUrl(portPhotos.ketchikan.file);
-const skagwayPhoto = commonsFilePageUrl(portPhotos.skagway.file);
-const sitkaPhoto = commonsFilePageUrl(portPhotos.sitka.file);
-const icyStraitPhoto = commonsFilePageUrl(portPhotos["icy-strait-point"].file);
-
 export const alaskaCruisePortsHtml = String.raw`
-<p>Embarking on an Alaska cruise is a dream for many travelers. Whether you&apos;re plotting an Alaska cruise itinerary or browsing a map of Alaska cruise ports, the allure of majestic glaciers and diverse wildlife is irresistible.</p>
-<p>Alaska&apos;s cruise ports offer unique experiences and breathtaking scenery. These Alaska cruise destinations each have their own charm and attractions.</p>
-<p>From the bustling streets of Juneau to the serene beauty of Glacier Bay, these classic Alaska cruise stops offer something for everyone.</p>
-<p>The Inside Passage is a popular route, showcasing stunning landscapes and rich history. Many travelers consult an Inside Passage cruise map to understand scenic highlights and narrow channels along the way.</p>
-<p>Cruise itineraries often include stops at iconic ports like Ketchikan and Skagway. These destinations are among the most popular cruise ship stops in Alaska, offering a glimpse into the state&apos;s vibrant culture and past.</p>
-<p>Whether you&apos;re interested in outdoor adventures or cultural tours, Alaska&apos;s ports cater to diverse interests.</p>
-<p>Planning your cruise involves understanding Alaska cruise routes and choosing the right ports to explore. Reviewing an Alaska cruise map can also help you visualize your preferred Alaska cruise path.</p>
-<p>This guide will help you navigate the top Alaska cruise ports, ensuring a memorable journey across some of the most compelling Alaska ports.</p>
+<p><strong>Compare the actual days on each Alaska itinerary before comparing the headline fare.</strong> A Juneau or Ketchikan port call lets you arrange time ashore; a large-ship day in Glacier Bay is scenic cruising; Seward or Whittier may be the start or end of a one-way sailing, with a separate airport journey.</p>
+<p>Start with both cruise endpoints, then choose the stops that match your priorities: glaciers, wildlife, Native heritage, Gold Rush history or a flexible town day. The port guides linked below turn that route comparison into the pickup, transport and return decisions for each call.</p>
+<p><em>Route and park-access references checked October 7, 2026. Confirm the actual sailing itinerary; a port call, an embarkation endpoint, and a scenic cruising day leave different opportunities to go ashore.</em></p>
 
 <h2 id="departure-ports">Where Do Alaskan Cruises Leave From? Major Departure Ports</h2>
 <p>Alaska cruises typically embark from well-known ports in North America. If you&apos;re wondering &quot;where do Alaskan cruises leave from,&quot; the primary gateways make it easy to reach Alaska&apos;s coastlines.</p>
@@ -123,20 +114,16 @@ export const alaskaCruisePortsHtml = String.raw`
 
 <h2 id="routes">Understanding Alaska Cruise Routes and Itineraries</h2>
 <p>Alaska cruise routes offer diverse experiences for travelers. Understanding these routes helps in planning a memorable trip.</p>
-<p>The <strong>Inside Passage</strong> is one of the most popular routes. It features serene water channels and spectacular scenery.</p>
-<p>Cruises through the <strong>Gulf of Alaska</strong> provide another exciting option. These journeys cover more extensive landscapes and diverse wildlife.</p>
+<p><a href="https://www.travelalaska.com/explore-alaska/articles/types-cruises-alaska" target="_blank" rel="noopener noreferrer">Travel Alaska distinguishes Inside Passage and cross-gulf sailings</a>, alongside small-ship and Arctic options. The important booking question is whether your itinerary returns to its starting city or finishes at a different endpoint.</p>
 <ul>
-  <li>Inside Passage: Known for narrow fjords and lush greenery.</li>
-  <li>Gulf of Alaska: Offers wider views and connections to Anchorage.</li>
-  <li>Northern Pass: Blends cultural stops with untouched wilderness.</li>
+  <li><strong>Round-trip Inside Passage:</strong> Southeast Alaska ports followed by a return to the departure city.</li>
+  <li><strong>Cross-gulf, usually one-way:</strong> Inside Passage ports plus the Gulf of Alaska, commonly linking Vancouver or Seattle with Seward or Whittier, or traveling in reverse. Anchorage airport is a separate onward ground journey from those two ports.</li>
+  <li><strong>Small-ship or Arctic itineraries:</strong> Check the specific route and embarkation arrangements rather than treating these as another version of a standard weeklong cruise.</li>
 </ul>
-<p>A typical <strong>Alaska cruise itinerary</strong> might include several key ports and breathtaking voyages. Each stop presents its unique set of attractions.</p>
-<p>Review an Alaska cruise map to compare options and visualize your Alaska cruise path across different regions.</p>
-<p>The choice of itinerary often reflects personal interests and time constraints. Some travelers prefer cultural excursions, while others seek adventure.</p>
-<p>Understanding these routes allows you to tailor your journey. You can maximize the rich experiences Alaska offers through smart planning.</p>
+<p>For a one-way sailing, price flights, nights before or after the cruise, and ground transfers for the complete party. A lower cruise fare does not establish a lower total trip cost. Compare the actual arrival and departure times at each port before reserving fixed-time activities.</p>
 
 <h2 id="inside-passage">Inside Passage: The Heart of Alaska Cruise Destinations</h2>
-<p>The Inside Passage is a standout feature of any Alaska cruise. This scenic route is famous for its tranquil waters and towering mountains. An Inside Passage cruise map—often called an Alaska inner passage map or Alaska inner passage cruise map—can help you follow the corridor&apos;s scenic narrows and notable viewpoints.</p>
+<p>The Inside Passage is a coastal corridor of islands, channels, and mountain scenery. A route map helps show the ports on your sailing; it does not guarantee calm conditions or that every ship uses the same channels.</p>
 <p>Travelers often marvel at the pristine landscapes, spotting wildlife like eagles and seals. The route is a gateway to both natural wonders and unique cultural experiences.</p>
 <p>Cruises along the Inside Passage cover several noteworthy ports. Each stop offers its own blend of history and nature.</p>
 <ul>
@@ -159,7 +146,7 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>Whale Watching</strong>: Best spots nearby for sighting majestic humpbacks.</li>
 </ul>
 <p>A trip to Juneau promises a mix of thrill and tranquility. Whether you&apos;re a nature lover or a history buff, it has something for everyone.</p>
-<figure><img src="${portPhotoPath("juneau")}" alt="${portPhotos.juneau.alt}" loading="lazy" width="1600" height="1067"><figcaption>Juneau&apos;s mountain-lined waterfront and cruise berths. <a href="${juneauPhoto}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.</figcaption></figure>
+<figure><img src="${portPhotoPath("juneau")}" alt="${portPhotos.juneau.alt}" loading="lazy" width="1600" height="1067"><figcaption><a href="/photo-credits#juneau">Ifly6</a></figcaption></figure>
 
 <h2 id="ketchikan">Ketchikan: Totem Poles and Rainforest Adventures</h2>
 <p>Ketchikan is famed for its rich Native American heritage. Known as the &quot;Salmon Capital of the World,&quot; this port bursts with culture and history and is a favorite among Alaska cruise ports.</p>
@@ -173,7 +160,7 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>Tongass National Forest</strong>: Largest national forest in the United States.</li>
 </ul>
 <p>Ketchikan combines history, culture, and stunning natural beauty, making it a favorite stop for many travelers.</p>
-<figure><img src="${portPhotoPath("ketchikan")}" alt="${portPhotos.ketchikan.alt}" loading="lazy" width="1600" height="1067"><figcaption>Ketchikan&apos;s downtown and forested waterfront. <a href="${ketchikanPhoto}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.</figcaption></figure>
+<figure><img src="${portPhotoPath("ketchikan")}" alt="${portPhotos.ketchikan.alt}" loading="lazy" width="1600" height="1067"><figcaption><a href="/photo-credits#ketchikan">ThomsonM</a></figcaption></figure>
 
 <h2 id="skagway">Skagway: Gold Rush History and Scenic Railways</h2>
 <p>Skagway transports you to the colorful days of the Gold Rush. This Alaska port is a living history lesson with its charming, well-preserved buildings and remains one of the enduring Alaska cruise destinations.</p>
@@ -187,7 +174,7 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>Broadway Street</strong>: Central hub with historic charm.</li>
 </ul>
 <p>Skagway is a captivating blend of history, adventure, and breathtaking landscapes.</p>
-<figure><img src="${portPhotoPath("skagway")}" alt="${portPhotos.skagway.alt}" loading="lazy" width="1280" height="870"><figcaption>Skagway between the mountains and water. <a href="${skagwayPhoto}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.</figcaption></figure>
+<figure><img src="${portPhotoPath("skagway")}" alt="${portPhotos.skagway.alt}" loading="lazy" width="1280" height="870"><figcaption><a href="/photo-credits#skagway">Christopher Michel</a></figcaption></figure>
 
 <h2 id="sitka">Sitka: Russian Heritage and Natural Beauty</h2>
 <p>Sitka offers a fascinating mix of cultures and natural wonders. Known for its Russian history, the town displays a unique architectural style not found elsewhere in Alaska, and it remains a captivating addition to many Alaska cruise routes.</p>
@@ -200,10 +187,11 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>St. Michael&apos;s Cathedral</strong>: Explore Russian roots.</li>
   <li><strong>Trails and Wildlife Viewing</strong>: Connect with nature.</li>
 </ul>
-<figure><img src="${portPhotoPath("sitka")}" alt="${portPhotos.sitka.alt}" loading="lazy" width="1600" height="1071"><figcaption>Sitka Sound and its forested islands. <a href="${sitkaPhoto}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.</figcaption></figure>
+<figure><img src="${portPhotoPath("sitka")}" alt="${portPhotos.sitka.alt}" loading="lazy" width="1600" height="1071"><figcaption><a href="/photo-credits#sitka">Gillfoto</a></figcaption></figure>
 
 <h2 id="glacier-bay">Glacier Bay National Park: Majestic Glaciers and Wildlife</h2>
 <p>Glacier Bay National Park stands as a crown jewel on many Alaska cruise itineraries. This UNESCO World Heritage Site is a paradise for nature lovers and adventurers alike.</p>
+<p><strong>For passengers on large cruise ships, Glacier Bay is a scenic cruising day, not a normal stop for going ashore.</strong> The <a href="https://www.nps.gov/glba/planyourvisit/cruising.htm" target="_blank" rel="noopener noreferrer">National Park Service explains that passengers remain aboard while park naturalists join the ship</a>. Small tour vessels and independent park visits have different arrangements; do not book a land activity assuming your large ship will dock here.</p>
 <p>Cruise passengers are often greeted by towering glaciers that create a breathtaking seascape. The park&apos;s vast ice fields are a stunning reminder of Earth&apos;s natural beauty.</p>
 <p>Wildlife enthusiasts will relish the sight of humpback whales breaching the bay&apos;s waters. In addition, sightings of sea lions and bears along the shore add to the experience.</p>
 <p>The park provides an unforgettable backdrop for anyone seeking adventure in raw, untouched nature. A day at Glacier Bay is a serene yet thrilling experience.</p>
@@ -222,7 +210,7 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>Cultural Tours</strong>: Learn about Tlingit heritage.</li>
   <li><strong>Nature Trails</strong>: Explore scenic paths.</li>
 </ul>
-<figure><img src="${portPhotoPath("icy-strait-point")}" alt="${portPhotos["icy-strait-point"].alt}" loading="lazy" width="1600" height="1071"><figcaption>Icy Strait Point&apos;s waterfront landing and surrounding forest. <a href="${icyStraitPhoto}" target="_blank" rel="noopener noreferrer">Photo source: Wikimedia Commons</a>.</figcaption></figure>
+<figure><img src="${portPhotoPath("icy-strait-point")}" alt="${portPhotos["icy-strait-point"].alt}" loading="lazy" width="1600" height="1071"><figcaption><a href="/photo-credits#icy-strait-point">Moira Dunworth</a></figcaption></figure>
 
 <h2 id="haines">Haines: Outdoor Adventure and Native Culture</h2>
 <p>Haines offers both thrilling adventures and rich cultural experiences. This picturesque port is perfect for nature lovers and history enthusiasts alike. Explore vast wilderness areas teeming with wildlife and majestic landscapes.</p>
@@ -237,6 +225,7 @@ export const alaskaCruisePortsHtml = String.raw`
 <h2 id="seward">Seward: Gateway to Kenai Fjords National Park</h2>
 <p>Seward serves as a key entry point to breathtaking Kenai Fjords National Park. Known for stunning fjords and abundant marine life, it captivates nature enthusiasts. Many visitors embark on boat tours to witness these iconic sights.</p>
 <p>Seward is also famous for its thrilling outdoor activities. Hiking the Harding Icefield Trail presents an exciting challenge with rewarding views. Wildlife enthusiasts will appreciate the Alaska SeaLife Center, which showcases local marine species.</p>
+<p>The full Harding Icefield Trail is a strenuous hike. <a href="https://www.nps.gov/kefj/planyourvisit/harding_icefield_trail.htm" target="_blank" rel="noopener noreferrer">NPS advises allowing at least six to eight hours</a>, with road travel to the Exit Glacier area additional. Consider it on a dedicated pre- or post-cruise day, after checking seasonal snow and trail conditions, rather than assuming it fits a short port call or an airport-transfer day.</p>
 <p>Highlights of Seward include:</p>
 <ul>
   <li><strong>Kenai Fjords Boat Tours</strong>: Explore dramatic fjords.</li>
@@ -266,9 +255,8 @@ export const alaskaCruisePortsHtml = String.raw`
 </ul>
 
 <h2 id="planning">Planning Your Alaska Cruise: Maps, Tips, and Excursions</h2>
-<p>Planning an Alaska cruise requires knowing the key ports and routes. A well-planned itinerary enhances your travel experience. Use maps to visualize your journey and anticipate port stops.</p>
-<p>Online tools and brochures offer detailed Alaska cruise maps. Consider pairing an Inside Passage cruise map with a comprehensive map of Alaska cruise ports to see common Alaska cruise routes and compare timing. Studying these maps ensures a smoother trip, allowing for strategic planning and exploration.</p>
-<p>Excursions are a highlight of any Alaska cruise. They provide the chance to engage with Alaska&apos;s natural wonders. From glacier hikes to cultural tours, activities abound for any travel style.</p>
+<p>Use the cruise line&apos;s itinerary and route map for your sailing date. Record the named berth or tender arrangement, arrival time, all-aboard deadline and whether a listed destination is a port call or scenic cruising. Then check each operator&apos;s complete pickup-to-return duration, including road transfers and meeting walks.</p>
+<p>Choose one main commitment per port before adding another fixed booking. Flights and boat trips depend on operating conditions; keep a flexible town option and review the changed-call and cancellation terms before paying.</p>
 <p>Here are some top excursion options:</p>
 <ul>
   <li><strong>Helicopter tours</strong>: Fly over majestic glaciers.</li>
@@ -276,13 +264,12 @@ export const alaskaCruisePortsHtml = String.raw`
   <li><strong>Wildlife viewing</strong>: Spot bears and eagles in their habitat.</li>
 </ul>
 
-<h2 id="conclusion">Conclusion: Choosing the Best Alaska Cruise Ports for Your Adventure</h2>
-<p>Selecting the ideal Alaska cruise ports enhances your journey. Consider your interests and the experiences each port offers. Whether it&apos;s nature, culture, or history, Alaska has it all.</p>
-<p>Each port brings unique charm, inviting you to explore its distinctive features. Make informed choices using maps and itineraries, including an Alaska cruise map or Inside Passage cruise map for clarity. Embark on an adventure that aligns with your travel aspirations for unforgettable memories. Alaska&apos;s beauty awaits those eager to discover its wonders.</p>
+<h2 id="conclusion">Choose the route, then plan the individual shore days</h2>
+<p>Before paying a deposit, compare the complete trip from your arrival airport to your return flight. Once the sailing is chosen, use the individual port guides for berth-specific transport, excursion pickup and your return deadline. Keep scenic cruising and a separate pre- or post-cruise stay distinct from the hours available during a port call.</p>
 
 <h2 id="faq">Q&amp;A</h2>
 <h3>What are the main Alaska cruise routes, and how do they differ?</h3>
-<p>The Inside Passage, Gulf of Alaska, and Northern Pass each offer distinct experiences. The Inside Passage features calm, narrow fjords, lush scenery, and classic stops like Juneau, Ketchikan, and Skagway. Gulf of Alaska sailings span broader vistas and often connect to larger hubs, with routes that showcase expansive landscapes and diverse wildlife. The Northern Pass blends cultural ports with stretches of untouched wilderness. Choosing among them depends on whether you prioritize serene fjords and cultural towns (Inside Passage), sweeping panoramas and broader geography (Gulf), or a balanced mix of heritage and raw nature (Northern Pass).</p>
+<p>Inside Passage sailings visit Southeast Alaska ports such as Juneau, Ketchikan, and Skagway. A round-trip itinerary returns to its departure city; a cross-gulf itinerary continues to Southcentral Alaska, commonly ending in Seward or Whittier, or runs in the reverse direction. Check both endpoints and the airport transfer before comparing fares. Small-ship and Arctic itineraries are separate options with different routes and logistics.</p>
 <h3>Which departure port should I choose: Seattle, Vancouver, or San Francisco?</h3>
 <p>Pick based on convenience and the kind of pre-cruise experience you want. Seattle is often the most convenient for many North American travelers and commonly routes through the Inside Passage. Vancouver pairs natural beauty with a multicultural city vibe and is a favored launch point for Inside Passage sailings. San Francisco adds historic charm and typically connects to longer Alaska routes. All three offer strong passenger facilities and worthwhile pre-cruise sightseeing.</p>
 <h3>I&apos;m a first-time visitor—what are the “can&apos;t-miss” Alaska cruise ports?</h3>
@@ -291,8 +278,8 @@ export const alaskaCruisePortsHtml = String.raw`
 <p>Maps let you visualize routes, ports, and timing so you can match stops to your interests. An Inside Passage cruise map highlights narrow channels, scenic narrows, and viewpoints along the corridor. A broader Alaska cruise map helps compare itineraries across regions, including Gulf of Alaska routes and connections. Using both together clarifies where you&apos;ll sail, which ports you&apos;ll visit, and how to sequence excursions for a smoother, more intentional trip.</p>
 <h3>What excursions fit different interests (adventure, culture, wildlife), and where can I find them?</h3>
 <ul>
-  <li>Adventure: Helicopter tours over glaciers (various ports), Misty Fjords flightseeing (Ketchikan), Harding Icefield hikes and Kenai Fjords boat tours (Seward), kayaking in Prince William Sound (Whittier).</li>
+  <li>Adventure: Helicopter tours over glaciers (various ports), Misty Fjords flightseeing (Ketchikan), Kenai Fjords boat tours (Seward), kayaking in Prince William Sound (Whittier). The full Harding Icefield hike needs at least six to eight hours before road transfers, so consider a dedicated pre- or post-cruise day.</li>
   <li>Culture and history: Totem Bight State Park and Creek Street (Ketchikan), Klondike Gold Rush sites and Broadway Street (Skagway), Sitka National Historical Park and St. Michael&apos;s Cathedral (Sitka), museums in Juneau and the Sheldon Museum in Haines.</li>
-  <li>Wildlife: Whale watching in Juneau, Icy Strait Point, and Glacier Bay; eagles at the Chilkat Bald Eagle Preserve (Haines); marine life at the Alaska SeaLife Center (Seward).<br>Match ports to your priorities to build a balanced mix of activities across your route.</li>
+  <li>Wildlife: Whale watching excursions in Juneau and Icy Strait Point, wildlife viewing from the ship in Glacier Bay, eagles at the Chilkat Bald Eagle Preserve (Haines), and marine life at the Alaska SeaLife Center (Seward). Sightings vary.<br>Match ports to your priorities to build a balanced mix of activities across your route.</li>
 </ul>
 `;

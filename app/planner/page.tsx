@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CruisePlanner } from "@/components/CruisePlanner";
-import { siteUrl } from "@/lib/seo";
+import { websiteMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Free Cruise Port Day Planner",
-  description: "Build a multi-port cruise itinerary with ship times, realistic return buffers, mobility preferences, weather checks, and shore excursion ideas.",
-  alternates: { canonical: `${siteUrl}/planner` },
-};
+export const metadata: Metadata = websiteMetadata(
+  "Free Cruise Port Day Planner",
+  "Build a multi-port cruise itinerary with ship times, realistic return buffers, mobility preferences, weather checks, and shore excursion ideas.",
+  "/planner",
+);
 
 export default function PlannerPage() {
   return <main className="planner-page">

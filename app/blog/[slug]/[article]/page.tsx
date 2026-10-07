@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -11,6 +10,7 @@ import {
   mcoToPortCanaveralPost,
 } from "@/lib/blog";
 import { siteUrl } from "@/lib/seo";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
 
 export function generateStaticParams() {
   return [{ slug: blogPost.slug, article: mcoToPortCanaveralPost.slug }];
@@ -142,7 +142,7 @@ export default async function McoToPortCanaveralPage({
         <p className="blog-article-deck">{mcoToPortCanaveralPost.excerpt}</p>
         <div className="blog-article-meta"><span>{mcoToPortCanaveralPost.publishedLabel}</span><span>{mcoToPortCanaveralPost.readTime}</span><span>By {mcoToPortCanaveralPost.author}</span></div>
       </div>
-      <figure className="blog-article-cover"><Image src={mcoToPortCanaveralPost.image} alt={mcoToPortCanaveralPost.imageAlt} width={mcoToPortCanaveralPost.imageWidth} height={mcoToPortCanaveralPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority unoptimized /></figure>
+      <figure className="blog-article-cover" style={{ position: "relative" }}><LocalPhotoImage src={mcoToPortCanaveralPost.image} alt={mcoToPortCanaveralPost.imageAlt} width={mcoToPortCanaveralPost.imageWidth} height={mcoToPortCanaveralPost.imageHeight} sizes="(max-width: 800px) 100vw, 42vw" priority /><figcaption className="port-card-photo-credit"><Link href={mcoToPortCanaveralPost.imageCreditHref}>{mcoToPortCanaveralPost.imageAuthor}</Link></figcaption></figure>
     </header>
 
     <div className="blog-article-layout">
@@ -151,19 +151,19 @@ export default async function McoToPortCanaveralPage({
         <div dangerouslySetInnerHTML={{ __html: mcoToPortCanaveralHtml }} />
         <aside className="blog-editorial-note">
           <strong>Transportation planning note</strong>
-          <p>Travel times and price ranges are planning estimates, not live quotes. Confirm the current pickup point, total price, toll treatment, terminal, luggage capacity, accessibility, cancellation policy, and flight-delay terms with the provider before travel.</p>
+          <p>Road time is an estimate, and transfer fares require a current quote for your party and travel date. Confirm the current pickup point, total price, toll treatment, terminal, luggage capacity, accessibility, cancellation policy, and flight-delay terms with the provider before travel.</p>
         </aside>
         <section className="blog-related-guides" aria-labelledby="related-guides-title">
           <Link className="blog-related-guide-card" href={blogPostPath} aria-label={`Read ${blogPost.title}`}>
             <figure className="blog-related-guide-image">
-              <Image
+              <LocalPhotoImage
                 src={blogPost.image}
                 alt={blogPost.imageAlt}
                 width={blogPost.imageWidth}
                 height={blogPost.imageHeight}
                 sizes="(max-width: 560px) calc(100vw - 34px), 260px"
-                unoptimized
               />
+              <small className="port-card-photo-credit">{blogPost.imageAuthor}</small>
             </figure>
             <div className="blog-related-guide-content">
               <p className="eyebrow"><span /> Related guide</p>

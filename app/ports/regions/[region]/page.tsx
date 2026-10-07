@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
-import { guideReadMinutes, guideUpdatedLabel } from "@/lib/editorial";
+import { guideReadMinutes } from "@/lib/editorial";
 import { intentGuidePath, portIntentGuides } from "@/lib/port-intent-guides";
-import { portPath, regionBySlug, regionPath, regionSeo, siteUrl } from "@/lib/seo";
+import { portPath, regionBySlug, regionPath, regionSeo, siteUrl, websiteMetadata } from "@/lib/seo";
 import { portProfiles, portRegions, portsByRegion, type PortRegion } from "@/lib/shorepath";
 
 const regionPlanning: Record<PortRegion, Array<{ title: string; text: string }>> = {
@@ -49,12 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
   const region = regionBySlug[slug];
   if (!region) return {};
   const seo = regionSeo[region];
-  return {
-    title: seo.title,
-    description: seo.description,
-    alternates: { canonical: `${siteUrl}${regionPath(region)}` },
-    openGraph: { title: `${seo.title} | PortdayGuide`, description: seo.description, url: `${siteUrl}${regionPath(region)}`, type: "website" },
-  };
+  return websiteMetadata(seo.title, seo.description, regionPath(region));
 }
 
 export default async function RegionGuidePage({ params }: { params: Promise<{ region: string }> }) {
@@ -104,7 +99,7 @@ export default async function RegionGuidePage({ params }: { params: Promise<{ re
 
     <section className="section region-directory" aria-labelledby="region-guides-heading">
       <div className="section-heading compact"><p className="eyebrow"><span /> Choose a port</p><h2 id="region-guides-heading">{region} port guides</h2><p>Each guide covers the terminal, practical transport choices, a return-aware itinerary, weather fallback, and live shore excursions.</p></div>
-      <div className="related-guide-grid region-guide-grid">{profiles.map((profile) => <Link href={portPath(profile.slug)} key={profile.slug} className="related-guide-card"><PortScenicPhoto slug={profile.slug} name={profile.name} country={profile.country} /><div><span>{profile.country} · {guideReadMinutes(profile)} min read</span><h3>{profile.name} cruise port guide</h3><p>{profile.highlights.slice(0, 3).join(" · ")}</p><small>Updated {guideUpdatedLabel}</small></div></Link>)}</div>
+      <div className="related-guide-grid region-guide-grid">{profiles.map((profile) => <Link href={portPath(profile.slug)} key={profile.slug} className="related-guide-card"><PortScenicPhoto slug={profile.slug} name={profile.name} country={profile.country} /><div><span>{profile.country} · {guideReadMinutes(profile)} min read</span><h3>{profile.name} cruise port guide</h3><p>{profile.highlights.slice(0, 3).join(" · ")}</p><small>{profile.country}</small></div></Link>)}</div>
     </section>
 
     {decisionGuides.length > 0 && <section className="section directory-intent-guides" aria-labelledby="region-decision-guides-title">
