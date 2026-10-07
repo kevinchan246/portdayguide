@@ -24,14 +24,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = intentGuide(slug, topic);
   if (!guide) return {};
   const image = portPhotos[guide.sourcePortSlug];
+  const imageUrl = guide.image ? `${siteUrl}${guide.image.src}` : portPhotoUrl(guide.sourcePortSlug);
+  const imageAlt = guide.image?.alt || image.alt;
   const canonical = `${siteUrl}${intentGuidePath(guide)}`;
   const metadataTitle = guide.seoTitle.length > 45 ? { absolute: guide.seoTitle } : guide.seoTitle;
   return {
     title: metadataTitle,
     description: guide.description,
     alternates: { canonical },
-    openGraph: { title: `${guide.seoTitle} | PortdayGuide`, description: guide.description, url: canonical, type: "article", images: [{ url: portPhotoUrl(guide.sourcePortSlug), alt: image.alt }] },
-    twitter: { card: "summary_large_image", title: guide.seoTitle, description: guide.description, images: [portPhotoUrl(guide.sourcePortSlug)] },
+    openGraph: { title: `${guide.seoTitle} | PortdayGuide`, description: guide.description, url: canonical, type: "article", images: [{ url: imageUrl, alt: imageAlt }] },
+    twitter: { card: "summary_large_image", title: guide.seoTitle, description: guide.description, images: [imageUrl] },
   };
 }
 
@@ -63,7 +65,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     datePublished: guide.published || "2026-07-21",
     dateModified: guide.modified || "2026-07-21",
     mainEntityOfPage: url,
-    image: portPhotoUrl(guide.sourcePortSlug),
+    image: guide.image ? `${siteUrl}${guide.image.src}` : portPhotoUrl(guide.sourcePortSlug),
     inLanguage: "en-US",
     isAccessibleForFree: true,
     articleSection: `${profile.name} cruise planning`,
@@ -84,7 +86,11 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     <header className="simple-header"><Link className="brand" href="/">PortdayGuide<span>.</span></Link><nav><Link href={hub}>{profile.name} guide</Link><Link href="/ports">All ports</Link><Link href="/blog">Blog</Link><Link href="/planner">Planner</Link></nav></header>
 
     <section className="intent-hero">
-      <PortHeroImage slug={profile.slug} name={profile.name} />
+      {guide.image ? <div className="port-hero-photo" data-photo-source="Wikimedia Commons">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={guide.image.src} srcSet={guide.template === "osaka-kaiyukan" ? "/media/editorial/kaiyukan-exterior-800.webp 800w, /media/editorial/kaiyukan-exterior.webp 1600w" : undefined} sizes="100vw" alt={guide.image.alt} width={1600} height={1200} loading="eager" fetchPriority="high" decoding="async" style={{ objectPosition: guide.image.position }} />
+        <small className="port-photo-caption">Photo: <a href={guide.image.sourceUrl} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></small>
+      </div> : <PortHeroImage slug={profile.slug} name={profile.name} />}
       <div className="intent-hero-overlay" />
       <div className="intent-hero-copy">
         <nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/ports">Port guides</Link><span>/</span><Link href={hub}>{profile.name}</Link><span>/</span><span aria-current="page">{guide.topic.replaceAll("-", " ")}</span></nav>
@@ -97,7 +103,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     <div className="intent-meta"><span>Reviewed {guide.reviewed}</span><span>By PortdayGuide editorial</span><Link href="/about">About PortdayGuide</Link></div>
 
     <article className={`intent-article${isYokohamaTerminalArticle ? " intent-editorial-article" : ""}`}>
-      {guide.template === "osaka-kaiyukan" ? <OsakaKaiyukanArticle /> : isYokohamaTerminalArticle ? <YokohamaTerminalArticle guide={guide} hub={hub} /> : guide.template === "tokyo-yokohama-transfer" ? <TokyoYokohamaTransferArticle guide={guide} hub={hub} /> : <>
+      {guide.template === "osaka-kaiyukan" ? <OsakaKaiyukanArticle guide={guide} /> : isYokohamaTerminalArticle ? <YokohamaTerminalArticle guide={guide} hub={hub} /> : guide.template === "tokyo-yokohama-transfer" ? <TokyoYokohamaTransferArticle guide={guide} hub={hub} /> : <>
         <section className="intent-answer" aria-labelledby="quick-answer-title"><span>Quick answer</span><h2 id="quick-answer-title">{guide.quickAnswerHeading || "The decision in one minute"}</h2><p>{guide.quickAnswer}</p>{guide.template === "cozumel-taxi" && <CozumelCostLinks />}<div>{guide.facts.map((fact) => <dl key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></dl>)}</div></section>
 
         <PortDayFit fit={guide.fit} />

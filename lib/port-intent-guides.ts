@@ -8,6 +8,7 @@ export type PortIntentGuide = {
   seoTitle: string;
   description: string;
   lede: string;
+  image?: { src: string; alt: string; sourceUrl: string; position?: string };
   quickAnswerHeading?: string;
   quickAnswer: string;
   reviewed: string;
@@ -41,6 +42,7 @@ export type PortIntentGuide = {
     matchTerms?: string[];
     excludeTerms?: string[];
     urlTerms?: string[];
+    productCodes?: string[];
   };
   sources: Array<{ label: string; url: string; note: string }>;
   faqs?: Array<{ question: string; answer: string }>;
@@ -60,7 +62,13 @@ export const portIntentGuides: PortIntentGuide[] = [
   "description": "Plan a Kaiyukan visit from Tempozan: choose a workable entry slot, allow time to return, check ticket costs, and account for children or mobility needs.",
   "lede": "Match a timed aquarium ticket to your Tempozan port call, with a worked return-time example and the current entry, re-entry and luggage rules.",
   "quickAnswer": "From a confirmed Tempozan berth, allow about two hours inside Kaiyukan plus terminal exit, walking, admission and return allowances. Book only a timed slot that fits your ship’s boarding instructions.",
-  "reviewed": "October 1, 2026",
+  "reviewed": "October 6, 2026",
+  "image": {
+    "src": "/media/editorial/kaiyukan-exterior.webp",
+    "alt": "Osaka Aquarium Kaiyukan's blue and red exterior beside Osaka Bay at Tempozan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg",
+    "position": "center 65%"
+  },
   "facts": [],
   "fit": {
     "bestFor": "Independent passengers at Tempozan",
@@ -74,14 +82,16 @@ export const portIntentGuides: PortIntentGuide[] = [
   "steps": [],
   "decision": "Choose only an entry slot that fits the complete visit and return.",
   "viator": {
-    "heading": "",
-    "copy": "",
-    "query": "",
-    "campaign": ""
+    "heading": "Nearby taiko experiences if your return deadline allows",
+    "copy": "A taiko workshop or UTAGE performance at Tempo Harbor Theater can be a separately ticketed option after Kaiyukan, only when the session and return journey fit.",
+    "query": "Tempo Harbor Theater",
+    "searchQueries": ["UTAGE Tempo Harbor Theater", "Wadaiko Rhythm Quest Japanese drum experience"],
+    "campaign": "pdg-osaka-kaiyukan-from-cruise-port",
+    "productCodes": ["467011P1", "467011P3"]
   },
   "sources": [],
   "published": "2026-10-01",
-  "modified": "2026-10-01"
+  "modified": "2026-10-06"
 },
   {
     sourcePortSlug: "costa-maya",

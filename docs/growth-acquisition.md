@@ -48,6 +48,10 @@ Apply the linked individual reader brief, complete answer, non-mechanical struct
 
 AI-search goals cover ChatGPT Search, Google AI Overviews/AI Mode and Bing/Copilot under the official guidance linked in the operating runbook. Keep the actual body crawlable with valid canonical/index/summary directives and links; verify Googlebot, Bingbot and OAI-SearchBot rules separately from GPTBot/training preferences. Do not invent AI schema or claim citations from readiness checks. Acquisition handles actual Pin import and bounded citation observation; revenue handles private report requests; article publication owns the deduplicated new-URL GSC reminder. All remain within the same budget and review dates.
 
+### Per-article booking and image verification (October 6 instruction)
+
+Apply the [article monetization and photography checks](automated-operations.md#article-monetization-and-photography-checks-owner-instruction-october-6-2026) to new writing and relevant existing-page work. Explicitly research and document matching Viator inventory rather than assuming an API connection monetizes every article. Verify actual product fit and sales-status evidence, separate optional activities from the main outing, retain truthful official/related-guide alternatives, and exercise this article's browser cards/fallback and attribution after release. Each article needs licensed, high-quality photography matching its actual subject, with responsive visual inspection. No forced product count, unrelated filler or publishing-cadence change is introduced. The separately requested Kaiyukan revision is an owner-authorized batch; the weekly new-article allowance remains reserved.
+
 ## Measurement and owner requests
 
 ### Fixed question sample and editorial handoff

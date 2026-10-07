@@ -83,3 +83,24 @@ The new route is not implemented, so its rendered body, canonical, robots header
 - Article body lives in `components/OsakaKaiyukanArticle.tsx`; registry drives the existing route, Osaka hub backlink, `/ports` directory and sitemap. Article/Breadcrumb schema mirrors title/date/canonical; no FAQ, rating or AI-specific schema. No affiliate product is verified as suitable, and none is rendered; official tickets are the appropriate purchase path. No sponsored links clicked or production click events sent.
 - Both runbooks now preserve the September 23 weekly-authoring, structure/completeness, AI-search and task-ownership rules within the first article PR, alongside the existing GSC reminder rule. Private analytics and commercial figures are excluded.
 - Local/hosted validation and final production evidence are recorded in the PR and operations log. GSC reminder remains pending until production verification. A deployed route does not prove Google indexing or AI citation. Keep the established review dates and approximately 28-day observation window.
+
+## October 6 existing-article monetization and photo revision
+
+The owner requested suitable Viator options and matching high-quality pictures on the published article, plus direct publication after checks. The October 1 no-affiliate decision remains historical; it does not establish that Viator has no related inventory. This is a separately authorized revision to the same URL, not a new article.
+
+Researched exact admission listings `61600P12` and `107217P131`; current public retrieval exposes no booking interface and includes unresolved redemption/timed-entry details, so they are excluded rather than advertised as confirmed active admission. The `2142OSA_P601` aquarium/bay outing meets in Umeda rather than at Tempozan and remains unsuitable for this independent short-call plan. A private cruise walking guide `429399P3` has a current sales interface and Tempozan meeting, but its sample route does not include Kaiyukan; no generic city-tour card is inserted to fill the gap.
+
+Selected two optional experiences at the adjacent Tempo Harbor Theater, Osaka Cultural Center fourth floor, 1-5-10 Kaigandori: `467011P1` (Wadaiko Rhythm Quest workshop) and `467011P3` (UTAGE performance). Both Viator public pages currently show price/date/traveler selection and Check Availability, independently checked October 6. They are separate purchases, not aquarium admission, transport or a guarantee of a seat on a particular cruise date. Current operator English/Japanese UTAGE weekday schedules conflict and Viator lists about 45 minutes versus approximately an hour in the venue program, so the article does not hardcode days/times and budgets about an hour plus each activity's own arrival instructions and ship-return allowance. The workshop requires arrival 15 minutes early, disallows entry more than five minutes late and is listed as not wheelchair accessible; those conditions are not transferred to the performance. UTAGE requires under-16s to have a guardian. Afternoon/evening sessions may not fit a short call; the optional section explicitly tells the reader to skip an unsuitable session.
+
+Sources actually read:
+- <https://www.viator.com/tours/Osaka/WA-DAIKO-RHYTHM-QUEST-Japanese-drum-experience/d333-467011P1>
+- <https://www.viator.com/tours/Osaka/OSAKA-UTAGE-LIVE-SHOW-at-TEMPO-HARBOR-THEATER/d333-467011P3>
+- <https://www.tempo-harbor-theater.com/en>
+- <https://www.tempo-harbor-theater.com/wadaiko-rhythm-quest>
+- <https://www.tempo-harbor-theater.com/en/utage-live-show>
+- <https://www.tempo-harbor-theater.com/utage-live-show>
+- <https://www.kaiyukan.com/info/ticket/>
+
+The existing berth → backward slot calculation → official purchase → family/luggage → one continuous visit sequence stays intact. The two optional nearby experiences follow the existing reassessment decision and do not require making the aquarium visit longer or changing the return margin. Product-code filtering excludes unreviewed lookalikes and old tickets; existing API supplies current source prices/reviews where available. A clear direct workshop listing fallback does not invent a quote or dated availability. Campaign: `pdg-osaka-kaiyukan-from-cruise-port`; placement: `kaiyukan-nearby-taiko`. The official aquarium ticket route stays available.
+
+Replaced the castle hero with the actual 2026 Kaiyukan exterior, including matching Open Graph/Twitter/Article image. Added a licensed archival whale-shark body photograph clearly labelled 2010. Original sources, authors, licenses, dimensions, conversion and source history are in [the photo record](../kaiyukan-image-sources.md). Responsive WebP sizes retain the real subjects without generative changes. Desktop/mobile, failure/empty-response and production verification belong to the PR release record; no indexing or income outcome is inferred.
