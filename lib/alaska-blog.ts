@@ -125,6 +125,8 @@ export const alaskaCruisePortsHtml = String.raw`
 </ul>
 <p>For a one-way sailing, price flights, nights before or after the cruise, and ground transfers for the complete party. A lower cruise fare does not establish a lower total trip cost. Compare the actual arrival and departure times at each port before reserving fixed-time activities.</p>
 
+<p>Choosing between two specific sailings? Use our <a href="/blog/alaska-one-way-vs-round-trip">one-way versus round-trip Alaska cruise comparison</a> to check the airport connection and calculate the whole-party fare saving needed to cover extra travel costs.</p>
+
 <h2 id="inside-passage">Inside Passage: The Heart of Alaska Cruise Destinations</h2>
 <p>The Inside Passage is a coastal corridor of islands, channels, and mountain scenery. A route map helps show the ports on your sailing; it does not guarantee calm conditions or that every ship uses the same channels.</p>
 <p>Travelers often marvel at the pristine landscapes, spotting wildlife like eagles and seals. The route is a gateway to both natural wonders and unique cultural experiences.</p>

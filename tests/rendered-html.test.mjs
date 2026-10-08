@@ -350,9 +350,9 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(blog, /"@type":"CollectionPage"/i);
   assert.match(blog, /"@type":"ItemList"/i);
   const collection = schemasFrom(blog).find((schema) => schema["@type"] === "CollectionPage");
-  assert.equal(collection.mainEntity.numberOfItems, 14);
+  assert.equal(collection.mainEntity.numberOfItems, 15);
   const articleUrls = collection.mainEntity.itemListElement.map((item) => item.url);
-  assert.equal(new Set(articleUrls).size, 14, "planning directory must contain one entry per canonical article");
+  assert.equal(new Set(articleUrls).size, 15, "planning directory must contain one entry per canonical article");
   for (const url of articleUrls) assert.ok(blog.includes(`href="${new URL(url).pathname}"`), `${url}: schema entry must have a visible article link`);
   assert.match(blog, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
   assert.match(blog, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);
@@ -922,5 +922,25 @@ test("Kaiyukan article keeps official admission separate from verified nearby bo
     assert.ok((await response.arrayBuffer()).byteLength > 10000, photo);
   }
   for (const entry of ["/ports/osaka", "/ports", "/ports/regions/asia"]) assert.ok((await render(entry)).includes(`href="${path}"`), entry);
+  assert.ok((await (await request("/sitemap.xml")).text()).includes(`https://portdayguide.com${path}`));
+});
+
+test("Alaska route decision separates real airport constraints from hypothetical party costs", async () => {
+  const path = "/blog/alaska-one-way-vs-round-trip";
+  const html = await render(path);
+  const body = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  assert.equal((body.match(/<h1\b/g) || []).length, 1);
+  assert.ok(body.includes(`rel="canonical" href="https://portdayguide.com${path}"`));
+  assert.match(body, /name="robots" content="index, follow"/);
+  for (const text of ["Anchorage station arrivals", "Neither timetable supports an afternoon flight", "Illustration only: four travelers, all figures in USD", "$312.50", "One way costs $450 more", "No selected-date seats", "October 8, 2026", "June 2004"]) assert.ok(body.includes(text), text);
+  const affiliate = body.match(/<a\b[^>]*href="[^"]*207018P10\?[^>]+>/)?.[0];
+  assert.ok(affiliate);
+  for (const parameter of ["pid=P00311056", "campaign=pdg-alaska-one-way-vs-round-trip", 'rel="sponsored nofollow noopener noreferrer"']) assert.ok(affiliate.includes(parameter));
+  assert.match(body, /href="\/photo-credits#whittier-alaska-route-decision"[^>]*>Laura Alier<\/a>/);
+  const schema = schemasFrom(html).find(s => s["@type"] === "BlogPosting");
+  assert.equal(schema.mainEntityOfPage, `https://portdayguide.com${path}`);
+  assert.equal(schema.image, "https://portdayguide.com/media/articles/whittier-alaska-route-decision.webp");
+  assert.ok(!schemasFrom(html).some(s => s["@type"] === "FAQPage"));
+  for (const entry of ["/blog", "/blog/alaska-cruise-ports", "/ports/juneau"]) assert.ok((await render(entry)).includes(`href="${path}"`), entry);
   assert.ok((await (await request("/sitemap.xml")).text()).includes(`https://portdayguide.com${path}`));
 });

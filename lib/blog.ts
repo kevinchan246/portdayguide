@@ -1,3 +1,4 @@
+import { alaskaRoutePath, alaskaRoutePost } from "@/lib/alaska-route-decision";
 import { articleCover } from "@/lib/article-covers";
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
 import { localPhoto, localPhotoSrcSet } from "@/lib/local-photos";
@@ -101,6 +102,7 @@ export const terminalTransferGuides = [
 ] as const;
 
 export const blogPosts = [
+  { ...alaskaRoutePost, path: alaskaRoutePath },
   { ...alaskaCruisePortsPost, path: alaskaCruisePortsPath },
   ...terminalTransferGuides,
   { ...blogPost, path: blogPostPath },

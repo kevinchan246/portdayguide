@@ -111,3 +111,13 @@ Treat whole-cruise booking as a candidate second channel alongside shore activit
 No approved CruiseDirect/CJ account or real tracking link was found in the checked source and current owner evidence. Do not invent an ID, claim a partnership, create an account, accept terms or add a booking affiliate link until verified. The revenue task coordinates any necessary one-time account handoff; other tasks do not duplicate it. Acquisition's Alaska evidence/reader brief is in the growth runbook and uses existing editorial allowances. Public source research is not an attributed booking or revenue result.
 
 The [October 6 application packet and integration gates](cruise-affiliate-integration.md) supplies the official signup route, a truthful website profile, the owner's one-time account steps and a scoped Alaska pilot. Existing Viator-only click collection must not be presented as CJ tracking. Confirm approved account terms and real links before changing code; do not repeat the account handoff on later healthy runs without new evidence.
+
+## Independent article photographs — October 7 owner instruction
+
+Each distinct article and port guide needs its own theme-matched original cover photograph. Check the current `lib/article-covers.json`, all source/credit records and the responsive manifest by original photographic identity, not merely URL, filename or encoded hash. A crop, recolor, re-encode, alternate resolution or a repost on another website is still the same photograph. The same target article may reuse its cover in its directory, related cards, hero, social/schema/sitemap and matching Pin. Do not substitute unrelated city imagery or generated scenery.
+
+Keep concise linked-author credits and full licensing/processing records. Inspect the source and final images, run `tests/article-covers.test.mjs`, check desktop/mobile crop, loading and clickable credit, and verify production resources with GET only. If a suitable independent photograph cannot be obtained, retain the draft and report the gap rather than weakening the gate. This rule does not expand cadence or content allowances.
+
+### Confirmed indexing-request handoff
+
+The owner confirmed on October 7 that Request indexing was submitted for `https://portdayguide.com/blog`, `https://portdayguide.com/blog/alaska-cruise-ports` and `https://portdayguide.com/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral`. Preserve the separate confirmed September 30 Tokyo-transfer request. Do not repeat these requests. Submission does not establish crawling/indexing; later status needs new evidence.
