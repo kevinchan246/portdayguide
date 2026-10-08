@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import scenicCredits from "@/lib/scenic-photo-credits.json";
 import { LocalPhotoImage } from "@/components/LocalPhotoImage";
 import { FeaturedViatorDeals } from "@/components/FeaturedViatorDeals";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
@@ -88,7 +87,7 @@ export default function Home() {
     <section className="section home-blog-feature" aria-labelledby="home-blog-title">
       <div className="section-heading discovery-heading"><p className="eyebrow"><span /> From the blog</p><h2 id="home-blog-title">Compare the top Alaska cruise ports.</h2><p>Understand the main routes and departure cities, then explore the highlights at Alaska&apos;s most popular ports of call.</p></div>
       <article className="blog-feature-card">
-        <Link className="blog-feature-image" href={alaskaCruisePortsPath} aria-label={`Read ${alaskaCruisePortsPost.title}`}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} sizes="(max-width: 800px) calc(100vw - 40px), 55vw" /><small className="port-card-photo-credit">{scenicCredits.juneau.author}</small></Link>
+        <Link className="blog-feature-image" href={alaskaCruisePortsPath} aria-label={`Read ${alaskaCruisePortsPost.title}`}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) calc(100vw - 40px), 55vw" /><small className="port-card-photo-credit">{alaskaCruisePortsPost.imageAuthor}</small></Link>
         <div><p className="blog-card-meta"><span>{alaskaCruisePortsPost.category}</span><span>{alaskaCruisePortsPost.publishedLabel}</span><span>{alaskaCruisePortsPost.readTime}</span></p><h2><Link href={alaskaCruisePortsPath}>{alaskaCruisePortsPost.title}</Link></h2><p>{alaskaCruisePortsPost.excerpt}</p><Link className="blog-read-link" href={alaskaCruisePortsPath}>Read the article <ArrowIcon /></Link></div>
       </article>
       <div className="directory-link"><Link href="/blog">Visit the PortdayGuide blog <ArrowIcon /></Link></div>

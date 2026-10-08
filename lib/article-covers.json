@@ -1,0 +1,135 @@
+{
+  "/blog/alaska-cruise-ports": {
+    "src": "/media/editorial/downtown-juneau-docks.webp",
+    "alt": "Downtown Juneau, cruise docks and Douglas Island viewed from the Mount Roberts Tramway in 2014",
+    "width": 960,
+    "height": 640,
+    "author": "Mark Hogan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Juneau_and_Douglas_Island.jpg",
+    "creditHref": "/photo-credits#downtown-juneau-docks"
+  },
+  "/ports/grand-cayman/seven-mile-beach-from-port": {
+    "src": "/media/editorial/seven-mile-beach-north.webp",
+    "alt": "Seven Mile Beach on Grand Cayman looking north along the shoreline",
+    "width": 960,
+    "height": 640,
+    "author": "Coolcaesar",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seven_Mile_Beach_Facing_North.jpg",
+    "creditHref": "/photo-credits#seven-mile-beach-north"
+  },
+  "/ports/osaka/kaiyukan-from-cruise-port": {
+    "src": "/media/editorial/kaiyukan-exterior.webp",
+    "alt": "Osaka Aquarium Kaiyukan's blue and red exterior beside Osaka Bay at Tempozan",
+    "width": 1600,
+    "height": 1200,
+    "author": "Sakai Yayoi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg",
+    "creditHref": "/photo-credits#kaiyukan-exterior",
+    "position": "center 65%"
+  },
+  "/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral": {
+    "src": "/media/blog/port-canaveral-sunset.webp",
+    "alt": "Cruise ships docked at Port Canaveral beside the harbor at sunset",
+    "width": 1600,
+    "height": 809,
+    "author": "TerryDOtt",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_-_Port_Canaveral.jpg",
+    "creditHref": "/photo-credits#port-canaveral-sunset"
+  },
+  "/ports/grand-cayman/tender-guide": {
+    "src": "/media/articles/grand-cayman-ship-from-tender.webp",
+    "alt": "Celebrity Equinox anchored off George Town, Grand Cayman, photographed from a passenger tender in 2011",
+    "width": 1280,
+    "height": 667,
+    "author": "Roger W",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Town_-_Equinox_from_Tender_(5735601144).jpg",
+    "creditHref": "/photo-credits#grand-cayman-ship-from-tender"
+  },
+  "/ports/cozumel/taxi-rates": {
+    "src": "/media/articles/cozumel-punta-langosta-taxi.webp",
+    "alt": "White and red taxi passing the Punta Langosta shopping complex in San Miguel de Cozumel",
+    "width": 1600,
+    "height": 1014,
+    "author": "Sharon Hahn Darlin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:San_Miguel_de_Cozumel,_Quintana_Roo,_Mexico_-_Punta_Langosta.jpg",
+    "creditHref": "/photo-credits#cozumel-punta-langosta-taxi",
+    "position": "30% 65%"
+  },
+  "/ports/cozumel/which-cruise-terminal": {
+    "src": "/media/articles/cozumel-international-terminal-2023.webp",
+    "alt": "International Cruise Terminal waterfront and passenger piers in Cozumel, photographed in 2023",
+    "width": 1280,
+    "height": 720,
+    "author": "Larry D. Moore",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:International_Cruise_Terminal_Cozumel_2023.jpg",
+    "creditHref": "/photo-credits#cozumel-international-terminal-2023",
+    "position": "50% 65%"
+  },
+  "/ports/costa-maya/to-mahahual": {
+    "src": "/media/articles/costa-maya-to-mahahual.webp",
+    "alt": "Pedestrians on Mahahual’s beachfront malecón beside waterfront buildings and palm trees",
+    "width": 1600,
+    "height": 1071,
+    "author": "Juan Ortega",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walking_the_Malecon_(http-www.bluekaymahahual.com)_-_panoramio.jpg",
+    "creditHref": "/photo-credits#costa-maya-to-mahahual",
+    "position": "center"
+  },
+  "/ports/costa-maya/port-vs-mahahual": {
+    "src": "/media/articles/costa-maya-port-vs-mahahual.webp",
+    "alt": "Visitors outside the entrance to the Costa Maya cruise port complex in Mexico",
+    "width": 1600,
+    "height": 900,
+    "author": "Larry D. Moore",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Port_Entrance_Costa_Maya_Quintana_Roo_2023.jpg",
+    "creditHref": "/photo-credits#costa-maya-port-vs-mahahual",
+    "position": "center"
+  },
+  "/ports/roatan/mahogany-bay-vs-coxen-hole": {
+    "src": "/media/articles/roatan-mahogany-bay-cruise-berth.webp",
+    "alt": "Carnival Breeze docked at Mahogany Bay on Roatán, viewed across the water from shore",
+    "width": 1600,
+    "height": 900,
+    "author": "Whiskey5jda",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnival_Breeze_docked_in_Roatan.jpg",
+    "creditHref": "/photo-credits#roatan-mahogany-bay-cruise-berth",
+    "position": "center"
+  },
+  "/ports/roatan/west-bay-beach-from-cruise-port": {
+    "src": "/media/articles/roatan-west-bay-beach.webp",
+    "alt": "West Bay Beach on Roatán viewed north along the shoreline, with palms and beachfront buildings",
+    "width": 1280,
+    "height": 720,
+    "author": "Pi3.124",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roatan_West_Bay_looking_north.jpg",
+    "creditHref": "/photo-credits#roatan-west-bay-beach",
+    "position": "center"
+  },
+  "/blog/future-of-cruise-ship-terminals": {
+    "src": "/media/articles/future-portmiami-terminal-a.webp",
+    "alt": "Royal Caribbean Terminal A at PortMiami, with its glass facade and waterfront berth",
+    "width": 1600,
+    "height": 1200,
+    "author": "Kiran891",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_caribbean_Terminal_A_at_PortMiami_(March_11,_2024).jpg",
+    "creditHref": "/photo-credits#future-portmiami-terminal-a"
+  },
+  "/ports/yokohama-tokyo/things-to-do-near-yokohama-cruise-terminal": {
+    "src": "/media/articles/yokohama-red-brick-warehouse.webp",
+    "alt": "The broad pedestrian plaza beside Yokohama Red Brick Warehouse, with waterfront city landmarks in the distance",
+    "width": 1600,
+    "height": 831,
+    "author": "Nesnad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yokohama_Red_Brick_Warehouse_2023_May_20_various_views_16_01_48_676000.jpeg",
+    "creditHref": "/photo-credits#yokohama-red-brick-warehouse"
+  },
+  "/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal": {
+    "src": "/media/articles/tokyo-yokohama-osanbashi-approach.webp",
+    "alt": "A wooden pedestrian ramp with handrails at Osanbashi Yokohama International Passenger Terminal",
+    "width": 1600,
+    "height": 900,
+    "author": "Matthide127",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20250103_Osanbashi_Yokohama_International_Passenger_Terminal_105619.jpg",
+    "creditHref": "/photo-credits#tokyo-yokohama-osanbashi-approach"
+  }
+}

@@ -6,6 +6,7 @@ import { LocalOverview, LocalTransport, LocalItineraries, LocalTips } from "@/co
 import { PortHeroImage } from "@/components/PortHeroImage";
 import { PortEditorialPhotos } from "@/components/PortEditorialPhotos";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
+import { PlanningArticlePhoto } from "@/components/PlanningArticlePhoto";
 import { PortTravelerPulse } from "@/components/PortTravelerPulse";
 import { TopThingsExcursions } from "@/components/TopThingsExcursions";
 import { ViatorDestinationLink } from "@/components/ViatorDestinationLink";
@@ -199,7 +200,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
     </section>}
 
     {intentGuides.length > 0 && <section className="section port-topic-cluster" aria-labelledby="port-topic-cluster-title"><div className="section-heading compact"><p className="eyebrow"><span /> Plan the decision, not only the destination</p><h2 id="port-topic-cluster-title">Detailed {profile.name} cruise-day guides</h2><p>Use these focused guides for the terminal, transport, beach, and return decisions most likely to change this port day.</p></div><div>{intentGuides.map((guide) => (guide.template === "yokohama-terminal-editorial" || guide.template === "tokyo-yokohama-transfer")
-      ? <Link href={intentGuidePath(guide)} key={guide.topic} className="port-topic-card-featured"><PortScenicPhoto slug={profile.slug} name={profile.name} country={profile.country} /><div><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>{guide.template === "tokyo-yokohama-transfer" ? "Read the Tokyo to Yokohama transfer guide →" : "Read the Yokohama guide →"}</b></div></Link>
+      ? <Link href={intentGuidePath(guide)} key={guide.topic} className="port-topic-card-featured"><PlanningArticlePhoto path={intentGuidePath(guide)} /><div><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>{guide.template === "tokyo-yokohama-transfer" ? "Read the Tokyo to Yokohama transfer guide →" : "Read the Yokohama guide →"}</b></div></Link>
       : <Link href={intentGuidePath(guide)} key={guide.topic}><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>Read the decision guide →</b></Link>)}</div></section>}
 
     {isCayman && <LocalItineraries slug={profile.slug} />}
@@ -241,7 +242,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
     {profile.region === "Alaska & Pacific Northwest" && <section className="section region-pillar-promo" aria-labelledby="alaska-pillar-title">
       <div className="section-heading compact"><p className="eyebrow"><span /> Alaska cruise overview</p><h2 id="alaska-pillar-title">Compare this stop with the top Alaska cruise ports.</h2><p>See the main routes, departure cities, and port-by-port highlights before choosing how this day fits the wider itinerary.</p></div>
       <Link href={alaskaCruisePortsPath} data-alaska-pillar-backlink="true">
-        <PortScenicPhoto slug={profile.slug} name={profile.name} country={profile.country} />
+        <PlanningArticlePhoto path={alaskaCruisePortsPath} />
         <div><span>{alaskaCruisePortsPost.category} · {alaskaCruisePortsPost.readTime}</span><h3>{alaskaCruisePortsPost.title}</h3><p>{alaskaCruisePortsPost.excerpt}</p><b>Read the Alaska pillar guide →</b></div>
       </Link>
     </section>}

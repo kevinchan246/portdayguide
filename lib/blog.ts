@@ -1,3 +1,4 @@
+import { articleCover } from "@/lib/article-covers";
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
 import { localPhoto, localPhotoSrcSet } from "@/lib/local-photos";
 
@@ -6,6 +7,9 @@ function bodyPhotoHtml(src: string, alt: string, width: number, height: number) 
   const responsiveSource = asset ? `<source type="image/webp" srcset="${localPhotoSrcSet(src)}" sizes="(max-width: 900px) calc(100vw - 40px), 780px">` : "";
   return `<picture>${responsiveSource}<img src="${src}" alt="${alt}" loading="lazy" decoding="async" width="${asset?.width ?? width}" height="${asset?.height ?? height}"></picture>`;
 }
+
+const cover = articleCover("/blog/future-of-cruise-ship-terminals")!;
+const transferCover = articleCover("/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral")!;
 
 export const blogPost = {
   slug: "future-of-cruise-ship-terminals",
@@ -19,12 +23,12 @@ export const blogPost = {
   modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "8 min read",
-  image: "/media/blog/port-canaveral-sunset.webp",
-  imageAlt: "Cruise ships docked at Port Canaveral beside the harbor at sunset",
-  imageWidth: 1600,
-  imageHeight: 809,
-  imageAuthor: "TerryDOtt",
-  imageCreditHref: "/photo-credits#port-canaveral-sunset",
+  image: cover.src,
+  imageAlt: cover.alt,
+  imageWidth: cover.width,
+  imageHeight: cover.height,
+  imageAuthor: cover.author,
+  imageCreditHref: cover.creditHref,
   targetKeywords: [
     "ship dock",
     "passenger terminal",
@@ -62,12 +66,12 @@ export const mcoToPortCanaveralPost = {
   modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "7 min read",
-  image: "/media/blog/port-canaveral-sunset.webp",
-  imageAlt: "Cruise ships docked at Port Canaveral beside the harbor at sunset",
-  imageWidth: 1600,
-  imageHeight: 809,
-  imageAuthor: "TerryDOtt",
-  imageCreditHref: "/photo-credits#port-canaveral-sunset",
+  image: transferCover.src,
+  imageAlt: transferCover.alt,
+  imageWidth: transferCover.width,
+  imageHeight: transferCover.height,
+  imageAuthor: transferCover.author,
+  imageCreditHref: transferCover.creditHref,
   targetKeywords: [
     "MCO to Port Canaveral",
     "Orlando airport to Port Canaveral",

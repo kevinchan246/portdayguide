@@ -744,7 +744,7 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   assert.match(article, /Live booking options/i);
   assert.match(article, /Yokohama food tours near Osanbashi/i);
   assert.ok(article.indexOf("Dining and Shopping Near the Terminal") < article.indexOf("Live booking options"), "Viator module should sit inside the dining section");
-  assert.ok(article.indexOf("Live booking options") < article.indexOf("Yokohama Red Brick Warehouse"), "Dining Viator module should appear before the shopping-area subsections");
+  assert.ok(article.indexOf("Live booking options") < article.indexOf("<h3>Yokohama Red Brick Warehouse</h3>"), "Dining Viator module should appear before the shopping-area subsections");
   assert.match(article, /href="\/ports\/yokohama-tokyo"/i);
   assert.match(article, /Complete port guide/i);
   assert.match(article, /\/media\/ports\/yokohama-tokyo\.jpg/i);
@@ -785,9 +785,10 @@ test("publishes a distinct Tokyo embarkation guide with terminal-specific routes
   }
   assert.doesNotMatch(visible, /Port Day Fit|A cruise-safe sequence|Build my Yokohama|return timing on Viator/);
   assert.match(visible, /Tokyo hotel pickup, the exact Yokohama terminal, luggage capacity/);
-  assert.match(visible, /data-photo-source="Unsplash"/);
-  assert.match(visible, /bady abbas/);
-  assert.match(visible, /href="https:\/\/unsplash.com\/photos\/black-and-white-striped-textile-Ps3lhJyGhIY\?utm_source=portdayguide&amp;utm_medium=referral"[^>]*>bady abbas<\/a>/);
+  assert.match(visible, /data-photo-source="Wikimedia Commons"/);
+  assert.match(visible, /\/media\/articles\/tokyo-yokohama-osanbashi-approach/);
+  assert.match(visible, /Matthide127/);
+  assert.match(visible, /href="\/photo-credits#tokyo-yokohama-osanbashi-approach"[^>]*>Matthide127<\/a>/);
   assert.doesNotMatch(visible, /\/_next\/image|\/_vinext\/image/);
   assert.ok(visible.includes(`href="${nearby}"`));
   assert.match(visible, /href="\/ports\/yokohama-tokyo"/);
@@ -905,7 +906,7 @@ test("Kaiyukan article keeps official admission separate from verified nearby bo
   assert.match(body, /src="\/media\/editorial\/kaiyukan-whale-shark\.webp"/);
   assert.match(body, /An archival view inside Kaiyukan, photographed in 2010/);
   assert.match(body, /href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Osaka_Aquarium_Kaiyukan_\(5262933558\)\.jpg"[^>]*>Kimon Berlin<\/a>/);
-  assert.match(body, /href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Kaiy%C5%ABkan\.jpg"[^>]*>Sakai Yayoi<\/a>/);
+  assert.match(body, /href="\/photo-credits#kaiyukan-exterior"[^>]*>Sakai Yayoi<\/a>/);
   assert.match(body, /href="\/ports\/osaka"/);
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const article = schemas.find(s => s["@type"] === "Article");

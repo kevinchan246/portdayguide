@@ -5,11 +5,13 @@ import sharp from "sharp";
 // remain available for social previews, structured data and older links.
 const root = new URL("../", import.meta.url);
 const editorial = Object.values(JSON.parse(await readFile(new URL("lib/editorial-photos.json", root), "utf8"))).flat();
-const inputs = [
+const covers = Object.values(JSON.parse(await readFile(new URL("lib/article-covers.json", root), "utf8")));
+const inputs = [...new Set([
   ...(await readdir(new URL("public/media/ports/", root))).filter((file) => file.endsWith(".jpg")).map((file) => `/media/ports/${file}`),
+  ...covers.map((photo) => photo.src),
   ...editorial.map((photo) => `/media/editorial/${photo.slug}.webp`),
   ...(await readdir(new URL("public/media/blog/", root))).filter((file) => file.endsWith(".jpg") || file === "port-canaveral-sunset.webp").map((file) => `/media/blog/${file}`),
-];
+])];
 
 const manifest = {};
 for (const src of inputs.sort()) {

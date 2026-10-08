@@ -122,7 +122,7 @@ export default function AlaskaCruisePortsPage() {
         <p className="blog-article-deck">{alaskaCruisePortsPost.excerpt}</p>
         <div className="blog-article-meta"><span>{alaskaCruisePortsPost.publishedLabel}</span><span>{alaskaCruisePortsPost.readTime}</span><span>By {alaskaCruisePortsPost.author}</span></div>
       </div>
-      <figure className="blog-article-cover" style={{ position: "relative" }}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) calc(100vw - 48px), 42vw" priority /><figcaption className="port-card-photo-credit"><Link href="/photo-credits#juneau">{photoCredits.juneau.author}</Link></figcaption></figure>
+      <figure className="blog-article-cover" style={{ position: "relative" }}><LocalPhotoImage src={alaskaCruisePortsPost.image} alt={alaskaCruisePortsPost.imageAlt} width={alaskaCruisePortsPost.imageWidth} height={alaskaCruisePortsPost.imageHeight} sizes="(max-width: 800px) calc(100vw - 48px), 42vw" priority /><figcaption className="port-card-photo-credit"><Link href={alaskaCruisePortsPost.imageCreditHref}>{alaskaCruisePortsPost.imageAuthor}</Link></figcaption></figure>
     </header>
 
     <div className="blog-article-layout">

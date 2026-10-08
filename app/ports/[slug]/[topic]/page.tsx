@@ -5,6 +5,7 @@ import { IntentViatorCards } from "@/components/IntentViatorCards";
 import { OsakaKaiyukanArticle } from "@/components/OsakaKaiyukanArticle";
 import { PortDayFit } from "@/components/PortDayFit";
 import { PortHeroImage } from "@/components/PortHeroImage";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
 import { YokohamaTerminalArticle } from "@/components/YokohamaTerminalArticle";
 import { BeachTransferArticle } from "@/components/BeachTransferArticle";
 import { CozumelTaxiArticle } from "@/components/CozumelTaxiArticle";
@@ -89,11 +90,11 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
     <header className="simple-header"><Link className="brand" href="/">PortdayGuide<span>.</span></Link><nav><Link href={hub}>{profile.name} guide</Link><Link href="/ports">All ports</Link><Link href="/blog">Blog</Link><Link href="/planner">Planner</Link></nav></header>
 
     <section className="intent-hero">
-      {guide.image ? <div className="port-hero-photo" data-photo-source="Wikimedia Commons">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={guide.image.src} srcSet={guide.template === "osaka-kaiyukan" ? "/media/editorial/kaiyukan-exterior-800.webp 800w, /media/editorial/kaiyukan-exterior.webp 1600w" : undefined} sizes="100vw" alt={guide.image.alt} width={1600} height={1200} loading="eager" fetchPriority="high" decoding="async" style={{ objectPosition: guide.image.position }} />
-        <small className="port-photo-caption"><a href={guide.image.sourceUrl} target="_blank" rel="noopener noreferrer">{guide.image.author || "Wikimedia Commons"}</a></small>
-      </div> : <PortHeroImage slug={profile.slug} name={profile.name} />}
+      {guide.image ? <><div className="port-hero-photo" data-photo-source="Wikimedia Commons">
+        <LocalPhotoImage src={guide.image.src} sizes={`(max-width: 640px) ${Math.min(guide.image.width ?? 1600, Math.ceil(((guide.image.width ?? 1600) / (guide.image.height ?? 1200)) * 600))}px, 100vw`} alt={guide.image.alt} width={guide.image.width ?? 1600} height={guide.image.height ?? 1200} priority style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: guide.image.position }} />
+      </div>
+        <small className="port-photo-caption"><Link href={guide.image.creditHref ?? guide.image.sourceUrl}>{guide.image.author || "Wikimedia Commons"}</Link></small>
+      </> : <PortHeroImage slug={profile.slug} name={profile.name} />}
       <div className="intent-hero-overlay" />
       <div className="intent-hero-copy">
         <nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/ports">Port guides</Link><span>/</span><Link href={hub}>{profile.name}</Link><span>/</span><span aria-current="page">{guide.topic.replaceAll("-", " ")}</span></nav>

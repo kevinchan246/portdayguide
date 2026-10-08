@@ -12,12 +12,6 @@ export type PlanningArticle = {
   published?: string;
 };
 
-// This article photograph predates the local-photo manifest; retain its measured
-// original dimensions so its fallback img still reserves the correct space.
-const intentArticleImageDimensions: Record<string, { width: number; height: number }> = {
-  "/media/editorial/kaiyukan-exterior.webp": { width: 1600, height: 1200 },
-};
-
 // Keep one discoverable entry per existing canonical article. A missing date is
 // intentionally left missing rather than making an old guide look newly published.
 export const planningArticles: PlanningArticle[] = [
@@ -27,7 +21,7 @@ export const planningArticles: PlanningArticle[] = [
     description: guide.description,
     category: guide.eyebrow,
     portSlug: profilesBySlug[guide.sourcePortSlug]?.slug as PortSlug | undefined,
-    image: guide.image ? { ...guide.image, ...intentArticleImageDimensions[guide.image.src] } : undefined,
+    image: guide.image,
     published: guide.published,
   })),
   ...blogPosts.map((post) => ({
