@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IntentViatorCards } from "@/components/IntentViatorCards";
+import { PlanningArticlePhoto } from "@/components/PlanningArticlePhoto";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
 import type { PortIntentGuide } from "@/lib/port-intent-guides";
 
@@ -171,7 +172,7 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
     <section className="intent-related-parent" aria-labelledby="related-yokohama-guide">
       <div><span>Related guide</span><h2 id="related-yokohama-guide">Continue planning Yokohama port day</h2></div>
       <Link href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal">
-        <PortScenicPhoto slug="yokohama-tokyo" name="Yokohama (Tokyo)" country="Japan" />
+        <PlanningArticlePhoto path="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal" />
         <div><span>Embarkation transport</span><h3>Tokyo to Yokohama Cruise Terminal: Train, Taxi &amp; Transfers</h3><p>Compare train connections, luggage needs, and hotel pickup for your exact Yokohama cruise terminal.</p><b>Read the Tokyo to Yokohama transfer guide →</b></div>
       </Link>
       <Link href={hub}>

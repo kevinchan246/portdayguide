@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { PortIntentGuide } from "@/lib/port-intent-guides";
 import { IntentViatorCards } from "./IntentViatorCards";
+import { LocalPhotoImage } from "@/components/LocalPhotoImage";
+import { PlanningArticlePhoto } from "@/components/PlanningArticlePhoto";
 import { PortScenicPhoto } from "./PortScenicPhoto";
 import { TokyoTransferChecklist } from "./TokyoTransferChecklist";
 import styles from "./TokyoYokohamaTransferArticle.module.css";
@@ -73,11 +75,10 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
       <p>Before booking a transfer, match the pickup direction, hotel address and drop-off terminal to your cruise documents. Check the cancellation deadline and what the provider will do if your sailing changes its berth or arrival arrangements.</p>
     </section>
 
-    <figure className="intent-attraction-photo" data-photo-source="Unsplash">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=1600&q=82" srcSet="https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=640&q=82 640w, https://images.unsplash.com/photo-1608391355752-9e13c87c8d71?auto=format&fit=crop&w=1600&q=82 1600w" sizes="(max-width: 820px) calc(100vw - 40px), 780px" alt="Geometric wooden rooftop deck at Osanbashi passenger terminal in Yokohama" width={1600} height={1000} loading="lazy" decoding="async" />
-      <figcaption><a href="https://unsplash.com/photos/black-and-white-striped-textile-Ps3lhJyGhIY?utm_source=portdayguide&utm_medium=referral" target="_blank" rel="noopener noreferrer">bady abbas</a></figcaption>
-    </figure>
+    {guide.image && <figure className="intent-attraction-photo" data-photo-source="Wikimedia Commons">
+      <LocalPhotoImage src={guide.image.src} alt={guide.image.alt} width={guide.image.width} height={guide.image.height} sizes="(max-width: 820px) calc(100vw - 40px), 780px" />
+      <figcaption><Link href={guide.image.creditHref ?? guide.image.sourceUrl}>{guide.image.author}</Link></figcaption>
+    </figure>}
 
     <section aria-labelledby="embarkation-arrival-window">
       <h2 id="embarkation-arrival-window">Work backward from the check-in window</h2>
@@ -94,7 +95,7 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
 
     <section className={styles.related} aria-labelledby="tokyo-transfer-related"><h2 id="tokyo-transfer-related">Related Yokohama guides</h2><div>
       <Link href={hub}><PortScenicPhoto slug="yokohama-tokyo" name="Yokohama (Tokyo)" country="Japan" /><div><h3>Yokohama (Tokyo) Cruise Port Guide</h3><p>Explore the wider port, local transport and shore-day choices.</p></div></Link>
-      <Link href={nearbyGuide}><PortScenicPhoto slug="yokohama-tokyo" name="Yokohama (Tokyo)" country="Japan" /><div><h3>Things to do near Yokohama Cruise Terminal</h3><p>Plan nearby sights and dining when your luggage and boarding arrangements allow.</p></div></Link>
+      <Link href={nearbyGuide}><PlanningArticlePhoto path={nearbyGuide} /><div><h3>Things to do near Yokohama Cruise Terminal</h3><p>Plan nearby sights and dining when your luggage and boarding arrangements allow.</p></div></Link>
     </div></section>
   </div>;
 }

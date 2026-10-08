@@ -1,3 +1,5 @@
+import articleCovers from "./article-covers.json" with { type: "json" };
+
 export type PortIntentGuide = {
   sourcePortSlug: string;
   urlPortSlug: string;
@@ -8,7 +10,7 @@ export type PortIntentGuide = {
   seoTitle: string;
   description: string;
   lede: string;
-  image?: { src: string; alt: string; sourceUrl: string; author?: string; position?: string };
+  image?: { src: string; alt: string; sourceUrl: string; author?: string; position?: string; width?: number; height?: number; creditHref?: string };
   quickAnswerHeading?: string;
   quickAnswer: string;
   reviewed: string;
@@ -51,7 +53,7 @@ export type PortIntentGuide = {
   modified?: string;
 };
 
-export const portIntentGuides: PortIntentGuide[] = [
+const guides: PortIntentGuide[] = [
   {
   "sourcePortSlug": "osaka",
   "urlPortSlug": "osaka",
@@ -876,6 +878,11 @@ export const portIntentGuides: PortIntentGuide[] = [
     modified: "2026-09-22",
   },
 ];
+
+export const portIntentGuides: PortIntentGuide[] = guides.map((guide) => ({
+  ...guide,
+  image: (articleCovers as Record<string, PortIntentGuide["image"]>)[`/ports/${guide.urlPortSlug}/${guide.topic}`] ?? guide.image,
+}));
 
 export function intentGuide(urlPortSlug: string, topic: string) {
   return portIntentGuides.find((guide) => guide.urlPortSlug === urlPortSlug && guide.topic === topic);

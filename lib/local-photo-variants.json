@@ -1917,5 +1917,274 @@
         "bytes": 267150
       }
     ]
+  },
+  "/media/articles/grand-cayman-ship-from-tender.webp": {
+    "width": 1280,
+    "height": 667,
+    "bytes": 107754,
+    "variants": [
+      {
+        "src": "/media/articles/grand-cayman-ship-from-tender-480.webp",
+        "width": 480,
+        "height": 250,
+        "bytes": 15312
+      },
+      {
+        "src": "/media/articles/grand-cayman-ship-from-tender-800.webp",
+        "width": 800,
+        "height": 417,
+        "bytes": 35962
+      },
+      {
+        "src": "/media/articles/grand-cayman-ship-from-tender-1280.webp",
+        "width": 1280,
+        "height": 667,
+        "bytes": 85988
+      }
+    ]
+  },
+  "/media/editorial/kaiyukan-exterior.webp": {
+    "width": 1600,
+    "height": 1200,
+    "bytes": 472344,
+    "variants": [
+      {
+        "src": "/media/editorial/kaiyukan-exterior-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 152592
+      },
+      {
+        "src": "/media/editorial/kaiyukan-exterior.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 472344
+      }
+    ]
+  },
+  "/media/articles/cozumel-punta-langosta-taxi.webp": {
+    "width": 1600,
+    "height": 1014,
+    "bytes": 260046,
+    "variants": [
+      {
+        "src": "/media/articles/cozumel-punta-langosta-taxi-480.webp",
+        "width": 480,
+        "height": 304,
+        "bytes": 33468
+      },
+      {
+        "src": "/media/articles/cozumel-punta-langosta-taxi-800.webp",
+        "width": 800,
+        "height": 507,
+        "bytes": 81348
+      },
+      {
+        "src": "/media/articles/cozumel-punta-langosta-taxi.webp",
+        "width": 1600,
+        "height": 1014,
+        "bytes": 260046
+      }
+    ]
+  },
+  "/media/articles/cozumel-international-terminal-2023.webp": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 213102,
+    "variants": [
+      {
+        "src": "/media/articles/cozumel-international-terminal-2023-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 28674
+      },
+      {
+        "src": "/media/articles/cozumel-international-terminal-2023-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 81310
+      },
+      {
+        "src": "/media/articles/cozumel-international-terminal-2023.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 213102
+      }
+    ]
+  },
+  "/media/articles/costa-maya-to-mahahual.webp": {
+    "width": 1600,
+    "height": 1071,
+    "bytes": 223138,
+    "variants": [
+      {
+        "src": "/media/articles/costa-maya-to-mahahual-480.webp",
+        "width": 480,
+        "height": 321,
+        "bytes": 31190
+      },
+      {
+        "src": "/media/articles/costa-maya-to-mahahual-800.webp",
+        "width": 800,
+        "height": 536,
+        "bytes": 73952
+      },
+      {
+        "src": "/media/articles/costa-maya-to-mahahual.webp",
+        "width": 1600,
+        "height": 1071,
+        "bytes": 223138
+      }
+    ]
+  },
+  "/media/articles/costa-maya-port-vs-mahahual.webp": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 201102,
+    "variants": [
+      {
+        "src": "/media/articles/costa-maya-port-vs-mahahual-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 25606
+      },
+      {
+        "src": "/media/articles/costa-maya-port-vs-mahahual-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 60330
+      },
+      {
+        "src": "/media/articles/costa-maya-port-vs-mahahual.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 201102
+      }
+    ]
+  },
+  "/media/articles/roatan-mahogany-bay-cruise-berth.webp": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 202702,
+    "variants": [
+      {
+        "src": "/media/articles/roatan-mahogany-bay-cruise-berth-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 18572
+      },
+      {
+        "src": "/media/articles/roatan-mahogany-bay-cruise-berth-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 50586
+      },
+      {
+        "src": "/media/articles/roatan-mahogany-bay-cruise-berth.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 202702
+      }
+    ]
+  },
+  "/media/articles/roatan-west-bay-beach.webp": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 253498,
+    "variants": [
+      {
+        "src": "/media/articles/roatan-west-bay-beach-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 33772
+      },
+      {
+        "src": "/media/articles/roatan-west-bay-beach-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 96364
+      },
+      {
+        "src": "/media/articles/roatan-west-bay-beach.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 253498
+      }
+    ]
+  },
+  "/media/articles/future-portmiami-terminal-a.webp": {
+    "width": 1600,
+    "height": 1200,
+    "bytes": 204522,
+    "variants": [
+      {
+        "src": "/media/articles/future-portmiami-terminal-a-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 22936
+      },
+      {
+        "src": "/media/articles/future-portmiami-terminal-a-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 58044
+      },
+      {
+        "src": "/media/articles/future-portmiami-terminal-a-1600.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 204522
+      }
+    ]
+  },
+  "/media/articles/yokohama-red-brick-warehouse.webp": {
+    "width": 1600,
+    "height": 831,
+    "bytes": 266594,
+    "variants": [
+      {
+        "src": "/media/articles/yokohama-red-brick-warehouse-480.webp",
+        "width": 480,
+        "height": 249,
+        "bytes": 23494
+      },
+      {
+        "src": "/media/articles/yokohama-red-brick-warehouse-800.webp",
+        "width": 800,
+        "height": 415,
+        "bytes": 63606
+      },
+      {
+        "src": "/media/articles/yokohama-red-brick-warehouse-1600.webp",
+        "width": 1600,
+        "height": 831,
+        "bytes": 266594
+      }
+    ]
+  },
+  "/media/articles/tokyo-yokohama-osanbashi-approach.webp": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 84660,
+    "variants": [
+      {
+        "src": "/media/articles/tokyo-yokohama-osanbashi-approach-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 10948
+      },
+      {
+        "src": "/media/articles/tokyo-yokohama-osanbashi-approach-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 27704
+      },
+      {
+        "src": "/media/articles/tokyo-yokohama-osanbashi-approach-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 84660
+      }
+    ]
   }
 }

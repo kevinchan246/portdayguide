@@ -1,4 +1,7 @@
+import { articleCover } from "@/lib/article-covers";
 import { portPhotoPath, portPhotos } from "@/lib/port-photos";
+
+const cover = articleCover("/blog/alaska-cruise-ports")!;
 
 export const alaskaCruisePortsPost = {
   slug: "alaska-cruise-ports",
@@ -12,12 +15,12 @@ export const alaskaCruisePortsPost = {
   modified: "2026-10-07",
   author: "PortdayGuide editorial",
   readTime: "14 min read",
-  image: portPhotoPath("juneau"),
-  imageAlt: portPhotos.juneau.alt,
-  imageWidth: 1600,
-  imageHeight: 1067,
-  imageAuthor: "Ifly6",
-  imageCreditHref: "/photo-credits#juneau",
+  image: cover.src,
+  imageAlt: cover.alt,
+  imageWidth: cover.width,
+  imageHeight: cover.height,
+  imageAuthor: cover.author,
+  imageCreditHref: cover.creditHref,
   targetKeywords: [
     "Alaska cruise ports",
     "top Alaska cruise ports",

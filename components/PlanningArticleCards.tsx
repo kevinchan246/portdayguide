@@ -9,7 +9,7 @@ export function PlanningArticleCards({ articles }: { articles: PlanningArticle[]
     const profile = article.portSlug ? profilesBySlug[article.portSlug] : undefined;
     // Destination photography is illustrative; only an article's own image is
     // described as its specific attraction or terminal.
-    const destinationPhoto = profile && (!article.image || article.path === "/blog/alaska-cruise-ports");
+    const destinationPhoto = profile && !article.image;
     return <article className="planning-article-card" key={article.path}>
       <Link className="planning-article-image" href={article.path} aria-label={`Read ${article.title}`}>
         {destinationPhoto
