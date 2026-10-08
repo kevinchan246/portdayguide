@@ -100,5 +100,15 @@
     "changes": "Created from an official Commons 3840-pixel thumbnail. Proportionally resized from 3840 × 2160 and compressed as WebP. The scene is unchanged; display frames may crop the photograph.",
     "sourceSha1": "8222686fd9f2507695631d1ae388d25969ae20ea",
     "checked": "2026-10-07"
+  },
+  "whittier-alaska-route-decision": {
+    "author": "Laura Alier",
+    "file": "View of Whittier Alaska, Prince William Sound.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Whittier_Alaska,_Prince_William_Sound.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Archival photograph taken June 5, 2004. Article versions proportionally resized from the complete original and compressed as WebP; display frames may crop. The matching Pinterest graphic crops the same photograph and adds typography; no scene content was generated or replaced. Photo and Pin source credit: Laura Alier.",
+    "sourceSha1": "1f428733088ce9fc8f35efa4b1bf2e79c495849e",
+    "checked": "2026-10-08"
   }
 }

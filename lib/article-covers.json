@@ -131,5 +131,14 @@
     "author": "Matthide127",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:20250103_Osanbashi_Yokohama_International_Passenger_Terminal_105619.jpg",
     "creditHref": "/photo-credits#tokyo-yokohama-osanbashi-approach"
+  },
+  "/blog/alaska-one-way-vs-round-trip": {
+    "src": "/media/articles/whittier-alaska-route-decision.webp",
+    "alt": "Archival view of Whittier, Alaska, with a cruise ship, harbor and snow-streaked mountains in June 2004",
+    "width": 1600,
+    "height": 1200,
+    "author": "Laura Alier",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Whittier_Alaska,_Prince_William_Sound.jpg",
+    "creditHref": "/photo-credits#whittier-alaska-route-decision"
   }
 }

@@ -29,7 +29,7 @@ export const planningArticles: PlanningArticle[] = [
     title: post.title,
     description: post.excerpt,
     category: post.category,
-    portSlug: post.path === "/blog/alaska-cruise-ports" ? "juneau" as PortSlug : undefined,
+    portSlug: post.path.startsWith("/blog/alaska-") ? "juneau" as PortSlug : undefined,
     image: { src: post.image, alt: post.imageAlt, author: "imageAuthor" in post ? post.imageAuthor : undefined, width: post.imageWidth, height: post.imageHeight },
     published: post.published,
   })),

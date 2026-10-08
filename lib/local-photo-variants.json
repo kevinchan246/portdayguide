@@ -2186,5 +2186,30 @@
         "bytes": 84660
       }
     ]
+  },
+  "/media/articles/whittier-alaska-route-decision.webp": {
+    "width": 1600,
+    "height": 1200,
+    "bytes": 358582,
+    "variants": [
+      {
+        "src": "/media/articles/whittier-alaska-route-decision-480.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 39282
+      },
+      {
+        "src": "/media/articles/whittier-alaska-route-decision-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 105200
+      },
+      {
+        "src": "/media/articles/whittier-alaska-route-decision.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 358582
+      }
+    ]
   }
 }

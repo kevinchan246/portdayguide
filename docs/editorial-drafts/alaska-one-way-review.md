@@ -1,0 +1,41 @@
+# Alaska one-way versus round-trip: editorial review
+
+Research date: October 8, 2026. Base main: 41b3ed32ba3b748263b5b5a96996e1a9b1d7490d. No AGENTS.md in the current tracked tree. Only unrelated PR #4 is open; existing article branches have merged outcomes. Do not touch #4.
+
+## Candidate decision and reader brief
+
+1. Cozumel transport for a five-person family: reject. The existing taxi-rates guide already explains passenger bands, multiple vehicles, separate return quotes and whole-party costs. AQ-02 in the growth runbook is retained, not a new gap.
+2. Alaska one-way versus round-trip: select the independently useful **airport/transfer feasibility and whole-party budget decision**, not another Alaska ports overview. The directly read [May 18, 2026 traveler question](https://www.reddit.com/r/Cruise/comments/1tgc0qd/one_way_cruise_to_alaska_vs_round_trip_and/) asks about logistics, pricing and airport connections. Re-read October 8. This qualitative question is not keyword volume. It also fulfils the whole-cruise pre-booking candidate review.
+
+Audience: family or small party comparing two actual seven-night sailings before a deposit. Scenario: Seattle/Vancouver round trip versus a Vancouver–Whittier/Seward one-way sailing in either direction. Core decision: does the preferred itinerary still work after the Alaska ground leg, flights, luggage, overnight needs and full-party cost are included? Constraints: exact terminal/date, cruise check-in/disembarkation, transfer capacity, airport reporting deadlines, nonidentical currencies/price units, seasonal service.
+
+Structure chosen before drafting: short conditional answer; decode both endpoints; test the last-day connection (including a concrete rail counterexample); calculate the break-even fare saving with a labelled hypothetical party example; decide whether the itinerary benefit warrants the difference; then booking-order checks. No generic attraction catalogue, repeated FAQ, prescribed card count or template ending. This sequence eliminates impossible flight plans before comparing prices.
+
+## Intent and structure comparison
+
+Actually read the current Alaska overview and FAQ in `lib/alaska-blog.ts`, plus the full Osaka Kaiyukan, Tokyo hotel transfer, Cozumel taxi and both West Bay/Seven Mile article components and their relevant registry body data. Compared `/blog/alaska-cruise-ports`, `/ports/osaka/kaiyukan-from-cruise-port`, `/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal`, `/ports/cozumel/taxi-rates`, `/ports/roatan/west-bay-beach-from-cruise-port`, `/ports/grand-cayman/seven-mile-beach-from-port`.
+
+The overview's October 7 revision now briefly says to compare flights/hotels/transfers, but does not resolve the airport endpoints, evening train versus flight conflict or provide the break-even calculation. Preserve it with one necessary reciprocal link, not a competing rewrite. Osaka works backward from aquarium entry; Tokyo follows city-to-terminal steps; Cozumel compares vehicle quotes; beach guides focus on return-to-ship constraints. The new article addresses an entire pre-booking itinerary and return-flight decision with an original cost difference example. Source-specific caveats replace generic risk paragraphs.
+
+## Initial product research
+
+- [Viator 207018P10](https://www.viator.com/tours/Whittier/Whittier-to-Anchorage-Direct-Transfer-Tour/d22320-207018P10): Pacific Alaska Tours, Whittier to Anchorage airport, approximately 1.5 hours, South Terminal drop-off, not wheelchair accessible in the listing, 24-hour cancellation shown. [Operator transfer](https://pacificalaskatours.com/whittier-tours/whittier-to-anchorage-cruise-ship-transfer/) confirms Whittier/Glacier Creek terminal pickup, May–September ship-day operation, direct airport or Hotel Captain Cook service. [Operator FAQ](https://pacificalaskatours.com/about/faq/) supplies terminal kiosk/staff signs, collection of own luggage, excess-bag confirmation, 10–15-minute check-in and own child seats. Direct-sale cancellation differs from Viator (48 hours versus 24); do not merge the policies. Suitable only as a conditional northbound cruise disembarkation transfer to investigate, not as a return-to-ship excursion or reverse transfer. No selected-date availability or current quote verified; no live price claim.
+- [Viator 5423ANCPRTAPTW_P](https://www.viator.com/tours/Whittier/Anchorage-Transfer-Whittier-Cruise-Port-to-Anchorage-Airport/d22320-5423ANCPRTAPTW_P): route fits but listing contains mutually inconsistent wheelchair claims; price is per person with stated vehicle occupancies, not automatically a vehicle total. Do not recommend this as a verified accessible family option.
+- Search also surfaced 160186P5 in the reverse direction and 460460P5/6111P14 with added sightseeing. Not selected: reverse direction does not serve northbound disembarkation, and longer sightseeing changes the airport timing decision. No claim that Viator lacks alternatives.
+- CruiseDirect/CJ approval and real tracking link remain absent from current source. Use official cruise-line itinerary information; no invented whole-cruise affiliate CTA or repeated account request.
+
+## Sources and precision limits
+
+Princess Alaska programme confirms round trips and Vancouver–Whittier one-way sailings. Visit Anchorage distinguishes Whittier (~60 miles/~1.5 hours) from Seward (~120 miles/~3 hours); these are approximate road references, not airport connection guarantees. Port of Seattle identifies different final approaches to Piers 66/91. YVR cruise guidance specifies airport reporting allowances. Alaska Railroad's currently published schedule is labelled 2027, but one Glacier Discovery operating-date line still says May 22–28, 2026. Do not silently correct that year or advertise unconfirmed May service. Published Whittier–Anchorage evening times illustrate why a train is not interchangeable with a morning transfer; Anchorage arrival is not airport arrival. Park Connection publishes designated-ship-day transfers, not daily service for every sailing.
+
+Release checks, exact photo source/deduplication, final product reread, CI/preview, production timestamp and GSC handoff will be appended as completed. No private analytics, orders, revenue or credentials belong here.
+
+## Photograph and distribution
+
+Selected Laura Alier's June 5, 2004 Whittier panorama: `https://commons.wikimedia.org/wiki/File:View_of_Whittier_Alaska,_Prince_William_Sound.jpg`, CC BY 4.0. Read original source/author/license; downloaded all 2,297,187 bytes at 2560×1920 and matched source SHA-1 `1f428733088ce9fc8f35efa4b1bf2e79c495849e`. Actual visual inspection shows the cruise ship, waterfront, settlement and mountains. It explains the separate Alaska endpoint and is explicitly archival, not a pickup map. Rejected the Gary Bembridge portrait and a small-boat marina photo as less suitable.
+
+Current 78 cover/source identities and source records contain no use of this source, author/file identity or original hash. Added 480/800/1600 responsive WebP images without enlargement and one 1000×1500 real-photo Pin; original scenic pixels retained, no AI. Article hero, directory, social metadata, schema and sitemap use one registry cover. Author-only credit links to the existing public attribution page. Full source/transform record is there and in `pinterest-image-sources.md`. Matching Pin uses this same article cover photograph; previous feed IDs and dates are unchanged. Pin asset created October 8, 13:30:07 UTC; actual deployment/import remain separate pending checks.
+
+## AI-search readiness scope
+
+Question: Should I book a one-way or round-trip Alaska cruise once flights, Whittier/Seward transfers and the total for my party are included? Conditions: actual endpoints and direction, selected sailing date/season, airport reporting time, luggage/mobility, common currency and correct party units. Inline primary sources and the October 8 check date support the answer; the cost example is explicitly hypothetical. Official Google AI-features, OpenAI bot overview and publisher FAQ were re-read. Preserve existing training controls. Crawlable body, self-canonical, robots/index rules, valid Article/Breadcrumb schema and internal links remain release checks, not proof of citations or indexing.

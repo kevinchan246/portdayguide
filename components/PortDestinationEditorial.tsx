@@ -20,7 +20,7 @@ export function DestinationOverview({ slug }: Destination) {
       <h3>Three booking checks before comparing prices</h3>
       <ul><li>Which cruise dock or meeting point does the pickup serve?</li><li>Does the advertised duration include every road transfer and the return to your ship area?</li><li>What happens if the ship arrives late or the operator cancels for conditions?</li></ul>
       <p>Do not buy a second fixed-time activity until the first operator’s return arrangements are clear. A combination trip can simplify coordination, but it is still a scheduled commitment rather than extra free time. Ask how long you actually get at the glacier and whether admission or other required charges are included.</p>
-      <p>Still comparing sailings? Use the <Link href="/blog/alaska-cruise-ports">Alaska cruise ports and routes guide</Link> to compare Juneau with the other stops on your itinerary before committing to excursions.</p>
+      <p>Still comparing sailings? Use the <Link href="/blog/alaska-cruise-ports">Alaska cruise ports and routes guide</Link> to compare Juneau with the other stops on your itinerary before committing to excursions. For the flights and transfer budget, compare <Link href="/blog/alaska-one-way-vs-round-trip">one-way versus round-trip Alaska cruises</Link> before booking.</p>
     </>}
   </div>;
 }
