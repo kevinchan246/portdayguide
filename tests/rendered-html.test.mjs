@@ -579,6 +579,17 @@ test("Viator price units come from API pricingPackageType and never default to p
   assert.doesNotMatch(topThings, /No close live match found|Matched from current Viator listing text|Matched live excursion/i);
 });
 
+test("generic intent cards version their query when editorial product fit changes", async () => {
+  const root = new URL("../", import.meta.url);
+  const [client, page] = await Promise.all([
+    readFile(new URL("components/IntentViatorCards.tsx", root), "utf8"),
+    readFile(new URL("app/ports/[slug]/[topic]/page.tsx", root), "utf8"),
+  ]);
+  assert.match(client, /contentVersion = version \? `&content=\$\{encodeURIComponent\(version\)\}`/);
+  assert.match(client, /\[portSlug, topic, version\]/);
+  assert.match(page, /version=\{guide\.modified\}/);
+});
+
 test("Viator recommendations search each attraction instead of only matching a short destination list", async () => {
   const root = new URL("../", import.meta.url);
   const [route, client, topThings] = await Promise.all([
