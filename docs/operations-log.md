@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-09 — Roatán terminal-page driver fit
+
+- Reviewed current main `cb8b30995a1cbaa383518292b12e9e53b3cf2622`, both operating runbooks, this log, recent commits and open PRs. October 8 PR #33 is one new-article package; it did not use the independent existing-page/feed allowance. Only unrelated PR #4 remains open. This Roatán revision is the single independent existing-page improvement in the current rolling seven-day window and does not use either new-article slot.
+- Re-read the public Roatán terminal-comparison page and its rendered Viator cards. The generic search returned four products, but three were island/activity tours rather than the page's core terminal-to-route decision. Restricted the page to verified private-transport product `113828P11`, while retaining campaign `pdg-roatan-terminal-comparison` and sponsored/nofollow handling.
+- Viator's public listing was checked October 9, 2026: it states cruise-port pickup, private transport, 1–6 hour duration, a displayed starting unit of per group up to six, 24-hour cancellation, stroller access and no wheelchair access. The reader copy now identifies the group unit and requires the selected terminal, pickup walk, vehicle/date, route and return time; it does not claim a beach pass, attraction ticket, date-specific inventory or guaranteed ship return.
+- The existing per-guide booking copy is now visible above generic intent cards, fixing a wiring omission on this page. The source list records the exact product page and check date. No private report figures, new URL, title/description/canonical, image, feed item, tracking field or campaign changed; no GSC indexing reminder is triggered for this existing canonical.
+- Release gates are lint, focused and full tests, production build, desktop/mobile inspection, exact-head CI and Netlify preview, exact-head merge, then production GET-only verification of the page, one product card, pricing context, canonical/indexability and affiliate parameters. No sponsored navigation or simulated event is permitted.
+
 ## 2026-10-07 — Acquisition maintenance; no content expansion
 
 - Read main `09292e23052b75e115c66288dac8d861264c9df0`, all three runbooks/logs and recent PRs #26–29; only unrelated #4 is open. The Alaska reader brief and CruiseDirect application packet already exist. Kaiyukan's product/photo revision and compact linked-author credits are published; do not repeat those owner-requested batches. The shared September 29 content observation allowance has elapsed, but evidence still determines work; preserve the independent weekly article slot.

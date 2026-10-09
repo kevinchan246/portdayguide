@@ -151,6 +151,16 @@ test("Roatán selection reserves both choices, excludes unrelated tours and neve
   assert.deepEqual(selectRoatanProducts([products[3]]), [products[3]]);
 });
 
+test("Roatán terminal comparison exposes one verified private-driver product with its pricing context", () => {
+  const guide = portIntentGuides.find(candidate => candidate.topic === "mahogany-bay-vs-coxen-hole");
+  assert.ok(guide);
+  assert.deepEqual(guide.viator.productCodes, ["113828P11"]);
+  assert.deepEqual(guide.viator.searchQueries, ["Roatan Private Transfers Airport Cruise Port or Hotel"]);
+  assert.match(guide.viator.copy, /per group for up to six travelers, not per person/i);
+  assert.match(guide.viator.copy, /Mahogany Bay\/Isla Tropicale or Coxen Hole/i);
+  assert.ok(guide.sources.some(source => source.url.endsWith("d4132-113828P11") && /checked October 9, 2026/.test(source.note)));
+});
+
 test("Cozumel driver selection rejects self-drive adventures and unrelated transport", () => {
   assert.ok(isCozumelDriverOption({ title: "Explore Cozumel your Way Private Island Tour with Pro Guide", description: "Your own air-conditioned vehicle and professional driver-guide." }));
   assert.ok(isCozumelDriverOption({ title: "Private Driver and Custom Tour", description: "Choose your stops." }));
