@@ -275,7 +275,7 @@ const guides: PortIntentGuide[] = [
     description: "Compare Roatán's Mahogany Bay and Coxen Hole cruise terminals by location, beach access, pickup rules, nearby atmosphere, and travel time to West Bay.",
     lede: "Roatán has two main cruise terminals, and they are not interchangeable pickup points. Mahogany Bay is a resort-style Carnival-family complex on the south shore; the Port of Roatán sits in Coxen Hole, the island's capital and working town.",
     quickAnswer: "Mahogany Bay is the easier stay-near-ship choice because its landscaped complex includes a cruise-passenger beach reached by a walking route or chairlift. Coxen Hole is better connected to local town life and independent operators. For West Bay, wildlife, or an island tour, either terminal still requires the correct pickup instructions and a substantial road-time buffer.",
-    reviewed: "July 2026",
+    reviewed: "October 9, 2026",
     facts: [
       { label: "Mahogany Bay", value: "South-shore cruise complex with port beach" },
       { label: "Coxen Hole", value: "Capital-town terminal with local street access" },
@@ -334,16 +334,21 @@ const guides: PortIntentGuide[] = [
     ],
     decision: "If the ship uses Mahogany Bay and your goal is a simple beach day, staying near the terminal is genuinely competitive. If the goal is West Bay, wildlife, reef, or local island life, compare excursions by exact terminal pickup rather than by headline price.",
     viator: {
-      heading: "Roatán tours with terminal pickup",
-      copy: "These results emphasize port pickup and island routes. Confirm whether the listing names Mahogany Bay/Isla Tropicale, Coxen Hole, or both before booking.",
-      query: "Roatan private island tour cruise port pickup Mahogany Bay Coxen Hole",
+      heading: "A private driver option for a terminal-specific route",
+      copy: "The verified listing below offers pickup from a Roatán cruise port and private transport for 1–6 hours. Its displayed starting price is per group for up to six travelers, not per person. Before paying, select the date and vehicle, name Mahogany Bay/Isla Tropicale or Coxen Hole, request the exact pickup instructions, and set the return time. This is transport, not a beach pass or attraction ticket.",
+      query: "Roatan Private Transfers Airport Cruise Port or Hotel",
+      searchQueries: ["Roatan Private Transfers Airport Cruise Port or Hotel"],
       campaign: "pdg-roatan-terminal-comparison",
+      matchTerms: ["private transfers"],
+      productCodes: ["113828P11"],
     },
     sources: [
       { label: "Roatán Tourism Bureau terminal guide", url: "https://roatantourismbureau.com/community-updates/cruise-ports-roatan-coxen-hole-mahogany-bay", note: "Terminal locations, cruise-line patterns, amenities, and transport context." },
       { label: "Roatán Tourism Bureau", url: "https://roatantourismbureau.com/", note: "Local destination and cruise schedule context." },
+      { label: "Viator private transport listing 113828P11", url: "https://www.viator.com/tours/Roatan/Roatan-Private-Transfers-Airport-Cruise-Port-or-Hotel/d4132-113828P11", note: "Cruise-port pickup, private-transport scope, duration, group pricing unit, accessibility and cancellation terms checked October 9, 2026." },
       { label: "PortdayGuide Roatán hub", url: "/ports/roatan", note: "Return buffer, mobility, weather, and activity planning." },
     ],
+    modified: "2026-10-09",
   },
   {
     sourcePortSlug: "roatan",
