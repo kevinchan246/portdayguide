@@ -121,7 +121,7 @@ export default async function PortIntentPage({ params }: { params: Promise<{ slu
 
         <section className="intent-verdict"><span>PortdayGuide verdict</span><h2>Who should choose this plan?</h2><p>{guide.decision}</p></section>
 
-        <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName={profile.name} heading={guide.viator.heading} intro={guide.viator.copy} />
+        <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName={profile.name} heading={guide.viator.heading} intro={guide.viator.copy} version={guide.modified} />
         </>}
 
         <section className="intent-sources"><span>Sources & verification</span><h2>What this guide is based on</h2><p>Sources reflect the review dates shown; transport estimates and editorial timing allowances are not guarantees. Prices, operations, sea conditions and terminal assignments can change. Follow your cruise line&apos;s instructions and check the posted information for your visit.</p><ul>{guide.sources.map((source) => <li key={source.url}>{source.url.startsWith("/") ? <Link href={source.url}>{source.label}</Link> : <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>}<span>{source.note}</span></li>)}</ul></section>

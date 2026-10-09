@@ -10,7 +10,7 @@ function currency(value: number, code: string) {
 
 type BookingFallback = { href: string; label: string; productCode: string; placement: string };
 
-export function IntentViatorCards({ portSlug, topic, portName, heading, intro, bookingNote, actionLabel, fallback }: { portSlug: string; topic: string; portName: string; heading: string; intro?: string; bookingNote?: string; actionLabel?: string; fallback?: BookingFallback }) {
+export function IntentViatorCards({ portSlug, topic, portName, heading, intro, bookingNote, actionLabel, fallback, version }: { portSlug: string; topic: string; portName: string; heading: string; intro?: string; bookingNote?: string; actionLabel?: string; fallback?: BookingFallback; version?: string }) {
   const isTokyoTransfer = portSlug === "yokohama-tokyo" && topic === "tokyo-to-yokohama-cruise-terminal";
   const isCozumelDriver = portSlug === "cozumel" && topic === "taxi-rates";
   const [data, setData] = useState<ViatorProductsPayload | null>(null);
@@ -18,14 +18,15 @@ export function IntentViatorCards({ portSlug, topic, portName, heading, intro, b
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`/api/viator/products?port=${encodeURIComponent(portSlug)}&intent=${encodeURIComponent(topic)}`, { signal: controller.signal })
+    const contentVersion = version ? `&content=${encodeURIComponent(version)}` : "";
+    fetch(`/api/viator/products?port=${encodeURIComponent(portSlug)}&intent=${encodeURIComponent(topic)}${contentVersion}`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error("Viator intent search failed");
         setData(await response.json() as ViatorProductsPayload);
       })
       .catch((error) => { if (error instanceof Error && error.name !== "AbortError") setFailed(true); });
     return () => controller.abort();
-  }, [portSlug, topic]);
+  }, [portSlug, topic, version]);
 
   const unavailable = failed || Boolean(data && !data.products.length);
   if (unavailable && !fallback) return null;
