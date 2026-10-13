@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-13 — Owner-requested article recommendation-card audit
+
+- The owner requested checking every other long-tail SEO article and applying the same card presentation where necessary. Started from main `0a60c8b283b9703f371c30c8b4d7a039ffc5b282`; only unrelated PR #4 is open. Audited all 16 articles in the current planning directory (11 port-topic articles and 5 blog articles, including the just-corrected Hobby page). Complete route/presentation and public technical evidence: [card audit](editorial-drafts/recommendation-card-audit-2026-10-13.md). This is a separately requested presentation batch, not another article or a routine allowance increase.
+- Converted the Alaska one-way/round-trip article's existing `207018P10` text callout into one full-width card using the established site style. Retained Whittier→ANC direction, seasonal/party/pickup/accessibility/cancellation/flight limits, and existing pid/campaign/placement. Its own Laura Alier Whittier photograph is explicitly June 2004 port context, with a separate linked-author credit; no coach or current pickup image is fabricated.
+- Converted Osaka's already-reviewed `467011P1` unavailable-inventory/no-JavaScript text entry into a single-column recommendation card. It identifies the nearby drum workshop and separate aquarium/transport purchases. Default live cards stay intact; the fallback does not borrow an aquarium photo or invent live price, rating or date inventory. Public product/operator sources were reread October 13 for the two revised entries. Other existing product cards are retained.
+- Canonicals, article/modified dates, covers/social/schema/sitemap, feed entries, Pins/GUIDs, pricing and campaigns remain intact. No new indexing reminder or social publication is triggered. This presentation audit does not establish selected-date availability, complete product relevance or new acquisition/revenue evidence.
+- Lint/build, existing rendered/affiliate/cover tests, desktop/mobile Alaska and Osaka normal/error/empty/no-JavaScript checks, exact-head CI/preview and GET-only production verification remain release gates. Final PR/commit/deployment evidence is recorded in the PR discussion. No private metrics, credentials or sponsored clicks.
+
 ## 2026-10-13 — Owner-requested Hobby recommendation card
 
 - The owner explicitly requested converting the new Hobby article's long Viator callout to the recommendation card style already used elsewhere on the site. Started from main `27d9f5acc9c989e4f5140c5f37300750d0927aff`; unrelated PR #4 remains untouched. This is a separately requested presentation follow-up to PR #36, not another article or an independently selected weekly old-page improvement.
