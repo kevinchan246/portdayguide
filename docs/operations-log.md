@@ -2,6 +2,15 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-13 — Hobby–Galveston overnight transport article
+
+- Started from main `b6864d4649e2e8535fec4712e05230e075af5fd3`; read runbooks/log, current content/sitemap/source registries, branches and recent PRs. Only unrelated #4 open. PR #33 (October 8) is one new-article package, #34 is the independent old-page allowance and #35 its verified cache repair. This is the second new-article package and second companion Pin in the rolling seven-day window; no independent old-page/feed work or second new article is reserved.
+- Switched from already-covered Cozumel larger-party taxi question; Alaska pre-purchase comparison is also covered by #33. Selected the independently evidenced Hobby airport/island hotel/terminal/return problem. Full sources, product exclusions, structure/completeness and compared article paths: [editorial review](editorial-drafts/hobby-galveston-review.md).
+- New canonical: `https://portdayguide.com/blog/hobby-airport-to-galveston-cruise`. Adds one English article, blog/sitemap discovery, necessary reciprocal MCO navigation, an independently sourced Terminal 10 hero with responsive variants and linked-name attribution, and one matching 2:3 real-photo Pin/RSS entry. Existing GUIDs/dates preserved. Pin import not yet observed.
+- Product `320728P1546` is a conditional port→HOU details entry; per-person unit and no verified date-specific inventory/family quote are explicit. It does not cover airport→hotel or hotel→port. No live product API/card or booking success is claimed.
+- Runbooks already include trial quota, image identity, AI search and indexing handoff rules; no standalone rules-only deployment required. Existing GSC requests are not repeated. New-URL reminder and actual production time/results will be recorded in the PR release discussion after validation; not preclaimed as submitted/indexed.
+- Quality gates include lint/build, rendered/affiliate/feed/cover tests, desktop/mobile inspection, exact-head CI/preview and GET-only production verification. No private metrics, credentials, account changes or sponsored clicks included.
+
 ## 2026-10-09 — Roatán terminal-page driver fit
 
 - Reviewed current main `cb8b30995a1cbaa383518292b12e9e53b3cf2622`, both operating runbooks, this log, recent commits and open PRs. October 8 PR #33 is one new-article package; it did not use the independent existing-page/feed allowance. Only unrelated PR #4 remains open. This Roatán revision is the single independent existing-page improvement in the current rolling seven-day window and does not use either new-article slot.

@@ -1,0 +1,11 @@
+# Hobby–Galveston article and Pin photograph
+
+Verified October 13, 2026. Target: `/blog/hobby-airport-to-galveston-cruise`.
+
+- Original: [Royal caribbean Terminal 10 Galveston Texas 2023.jpg](https://commons.wikimedia.org/wiki/File:Royal_caribbean_Terminal_10_Galveston_Texas_2023.jpg), own work by **Larry D. Moore**, August 21, 2023.
+- License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Source requests photographer name, license link and source link. Compact linked-author credit resolves to `/photo-credits#galveston-terminal-10`, which supplies original title/source, copyright line, license link and changes. No endorsement implied.
+- Downloaded complete 3001×2000 original, 3,716,959 bytes from the source's official upload URL. SHA-1 `ccdece9e00cc62a3e045dd820df5c967e1cfad68` matches the Commons checksum. Original inspected visually: actual terminal facade, embarking travelers/vehicles, no invented map/pickup signs. Photo date and terminal-specific scope are visible in the article.
+- Article WebP variants: 480×320 (29,420 bytes), 800×533 (65,016), 1600×1066 (181,120). Proportional resize/compression, no enlargement or scenery edits. Hero/card frames may crop. Alt identifies terminal and historical date.
+- The 1000×1500 companion Pin places the same full photograph at 1000px width within a code-rendered typography layout. No generated landscape, scenery replacement or claim of current curb assignments. Description identifies the author and directs to guide/source credits.
+- Compared current main's article covers, `port-photos.ts`, editorial/scenic/supplemental/article source credits and responsive manifest by original file identity. No existing Galveston original or checksum match. Visually compared the article-cover contact sheet, especially the other Royal Caribbean photograph: PortMiami Terminal A is a different building and photo, not a renamed Galveston original.
+- This article's hero, directory, OG/Twitter, schema, sitemap and Pin share this identity. No other destination article receives this cover. `tests/article-covers.test.mjs` checks actual rendered cross-surface consistency; desktop/mobile checks and final public asset GETs belong in the release record.

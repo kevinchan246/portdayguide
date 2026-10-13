@@ -140,5 +140,14 @@
     "author": "Laura Alier",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Whittier_Alaska,_Prince_William_Sound.jpg",
     "creditHref": "/photo-credits#whittier-alaska-route-decision"
+  },
+  "/blog/hobby-airport-to-galveston-cruise": {
+    "src": "/media/articles/galveston-terminal-10.webp",
+    "alt": "Passengers and vehicles outside Royal Caribbean Terminal 10 in Galveston in August 2023",
+    "width": 1600,
+    "height": 1066,
+    "author": "Larry D. Moore",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_caribbean_Terminal_10_Galveston_Texas_2023.jpg",
+    "creditHref": "/photo-credits#galveston-terminal-10"
   }
 }
