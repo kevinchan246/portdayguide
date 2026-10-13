@@ -350,9 +350,9 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(blog, /"@type":"CollectionPage"/i);
   assert.match(blog, /"@type":"ItemList"/i);
   const collection = schemasFrom(blog).find((schema) => schema["@type"] === "CollectionPage");
-  assert.equal(collection.mainEntity.numberOfItems, 15);
+  assert.equal(collection.mainEntity.numberOfItems, 16);
   const articleUrls = collection.mainEntity.itemListElement.map((item) => item.url);
-  assert.equal(new Set(articleUrls).size, 15, "planning directory must contain one entry per canonical article");
+  assert.equal(new Set(articleUrls).size, 16, "planning directory must contain one entry per canonical article");
   for (const url of articleUrls) assert.ok(blog.includes(`href="${new URL(url).pathname}"`), `${url}: schema entry must have a visible article link`);
   assert.match(blog, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
   assert.match(blog, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);
@@ -953,5 +953,24 @@ test("Alaska route decision separates real airport constraints from hypothetical
   assert.equal(schema.image, "https://portdayguide.com/media/articles/whittier-alaska-route-decision.webp");
   assert.ok(!schemasFrom(html).some(s => s["@type"] === "FAQPage"));
   for (const entry of ["/blog", "/blog/alaska-cruise-ports", "/ports/juneau"]) assert.ok((await render(entry)).includes(`href="${path}"`), entry);
+  assert.ok((await (await request("/sitemap.xml")).text()).includes(`https://portdayguide.com${path}`));
+});
+
+test("Hobby overnight guide preserves all three journeys and conditional return product", async () => {
+  const path = "/blog/hobby-airport-to-galveston-cruise";
+  const html = await render(path);
+  const body = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  assert.equal((body.match(/<h1\b/g) || []).length, 1);
+  assert.ok(body.includes(`rel="canonical" href="https://portdayguide.com${path}"`));
+  assert.match(body, /name="robots" content="index, follow"/);
+  for (const text of ["hotel-to-terminal ride", "$180", "$320–340", "Curb Zone 2", "Curb Zone 5", "1:30 p.m.", "No selected-date availability", "per person and varies with the party", "October 13, 2026"]) assert.ok(body.includes(text), text);
+  const link = body.match(/<a\b[^>]*href="[^"]*320728P1546\?[^>]+>/)?.[0];
+  assert.ok(link);
+  for (const text of ["pid=P00311056", "campaign=pdg-hobby-galveston-three-rides", 'rel="sponsored nofollow noopener noreferrer"']) assert.ok(link.includes(text));
+  assert.match(body, /href="\/photo-credits#galveston-terminal-10"[^>]*>Larry D. Moore<\/a>/);
+  const schema = schemasFrom(html).find(s => s["@type"] === "BlogPosting");
+  assert.equal(schema.mainEntityOfPage, `https://portdayguide.com${path}`);
+  assert.equal(schema.image, "https://portdayguide.com/media/articles/galveston-terminal-10.webp");
+  for (const entry of ["/blog", "/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral"]) assert.ok((await render(entry)).includes(`href="${path}"`), entry);
   assert.ok((await (await request("/sitemap.xml")).text()).includes(`https://portdayguide.com${path}`));
 });

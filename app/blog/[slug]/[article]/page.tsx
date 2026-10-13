@@ -153,6 +153,7 @@ export default async function McoToPortCanaveralPage({
           <strong>Transportation planning note</strong>
           <p>Road time is an estimate, and transfer fares require a current quote for your party and travel date. Confirm the current pickup point, total price, toll treatment, terminal, luggage capacity, accessibility, cancellation policy, and flight-delay terms with the provider before travel.</p>
         </aside>
+        <p>For a Texas departure with an overnight stop, see our <Link href="/blog/hobby-airport-to-galveston-cruise">Hobby Airport–Galveston guide to all three transfer legs</Link>.</p>
         <section className="blog-related-guides" aria-labelledby="related-guides-title">
           <Link className="blog-related-guide-card" href={blogPostPath} aria-label={`Read ${blogPost.title}`}>
             <figure className="blog-related-guide-image">

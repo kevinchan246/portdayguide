@@ -110,5 +110,16 @@
     "changes": "Archival photograph taken June 5, 2004. Article versions proportionally resized from the complete original and compressed as WebP; display frames may crop. The matching Pinterest graphic crops the same photograph and adds typography; no scene content was generated or replaced. Photo and Pin source credit: Laura Alier.",
     "sourceSha1": "1f428733088ce9fc8f35efa4b1bf2e79c495849e",
     "checked": "2026-10-08"
+  },
+  "galveston-terminal-10": {
+    "author": "Larry D. Moore",
+    "file": "Royal caribbean Terminal 10 Galveston Texas 2023.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_caribbean_Terminal_10_Galveston_Texas_2023.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "creditLine": "© 2023 Larry D. Moore.",
+    "changes": "Photographed August 21, 2023. Full original proportionally resized and compressed as WebP; display frames may crop. Matching Pinterest graphic combines the same unaltered photograph with typography. No scenery generated or replaced. Historical image does not establish current pickup arrangements.",
+    "sourceSha1": "ccdece9e00cc62a3e045dd820df5c967e1cfad68",
+    "checked": "2026-10-13"
   }
 }
