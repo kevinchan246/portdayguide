@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-13 — Owner-requested Hobby recommendation card
+
+- The owner explicitly requested converting the new Hobby article's long Viator callout to the recommendation card style already used elsewhere on the site. Started from main `27d9f5acc9c989e4f5140c5f37300750d0927aff`; unrelated PR #4 remains untouched. This is a separately requested presentation follow-up to PR #36, not another article or an independently selected weekly old-page improvement.
+- Reused `intent-viator-grid`/`intent-viator-card` styling for one full-width, server-rendered recommendation. Product `320728P1546` remains port→HOU only; public product details were reread October 13. No live price, review count, selected-date inventory or product API response is claimed. Material party/unit, vehicle, accessibility, cancellation and flight-fit conditions remain visible beside the card.
+- Reused this article's own licensed Terminal 10 photograph as explicitly dated port context, with responsive variants and a separate author-name link. This is not a photo of the transfer vehicle or a pickup map. The same-article reuse follows the existing source/identity record; no new image, cover, source, feed item, Pin, GUID, publication date, canonical or campaign is introduced.
+- Both runbooks retain the owner's future card-presentation preference. Existing affiliate pid, campaign, placement/product and sponsored/nofollow attributes are preserved. Existing-URL presentation changes do not trigger another indexing request.
+- Release gates: lint, production build, rendered/affiliate/cover suite, desktop/mobile card and credit checks, exact-head CI/preview, then production GET verification. Final results, PR/commit and deployment time are recorded in the PR release discussion. No private metrics or sponsored clicks.
+
 ## 2026-10-13 — Hobby–Galveston overnight transport article
 
 - Started from main `b6864d4649e2e8535fec4712e05230e075af5fd3`; read runbooks/log, current content/sitemap/source registries, branches and recent PRs. Only unrelated #4 open. PR #33 (October 8) is one new-article package, #34 is the independent old-page allowance and #35 its verified cache repair. This is the second new-article package and second companion Pin in the rolling seven-day window; no independent old-page/feed work or second new article is reserved.

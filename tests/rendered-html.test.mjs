@@ -967,6 +967,10 @@ test("Hobby overnight guide preserves all three journeys and conditional return 
   const link = body.match(/<a\b[^>]*href="[^"]*320728P1546\?[^>]+>/)?.[0];
   assert.ok(link);
   for (const text of ["pid=P00311056", "campaign=pdg-hobby-galveston-three-rides", 'rel="sponsored nofollow noopener noreferrer"']) assert.ok(link.includes(text));
+  assert.ok(link.includes('class="intent-viator-card"'));
+  assert.ok(link.includes('data-affiliate-placement="galveston-return-hou"'));
+  assert.ok(link.includes('data-affiliate-product="320728P1546"'));
+  assert.match(body, /View transfer details on Viator/);
   assert.match(body, /href="\/photo-credits#galveston-terminal-10"[^>]*>Larry D. Moore<\/a>/);
   const schema = schemasFrom(html).find(s => s["@type"] === "BlogPosting");
   assert.equal(schema.mainEntityOfPage, `https://portdayguide.com${path}`);

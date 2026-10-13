@@ -5,9 +5,25 @@
 .table th, .table td { text-align: left; vertical-align: top; padding: 14px; border-bottom: 1px solid #d9e4e4; }
 .table thead { background: #edf5f3; }
 .table caption { padding: 14px; text-align: left; font-weight: 700; }
-.transfer { padding: 22px; margin: 25px 0; background: #f0f6f4; border-left: 4px solid #16776e; border-radius: 8px; }
-.transfer h3 { margin-top: 0; }
-.transfer a { font-weight: 700; }
+.returnTransfer { margin: 28px 0; }
+.returnTransfer :global(.intent-viator-card) { grid-template-columns: 220px minmax(0, 1fr); border-color: #d9e4e4; text-decoration: none; box-shadow: 0 8px 24px rgba(8,45,76,.07); }
+.returnTransfer :global(.intent-viator-card):hover { border-color: #16776e; }
+.returnTransfer :global(.intent-viator-card):focus-visible { outline: 3px solid #087e85; outline-offset: 4px; }
+.returnTransfer :global(.intent-viator-card) h3 { font-size: 19px; line-height: 1.35; }
+.returnTransfer :global(.intent-viator-card) span,
+.returnTransfer :global(.intent-viator-card) b { font-size: 14px; }
+.returnTransfer :global(.intent-viator-card) strong { font-size: 16px; }
+.body .returnTransfer :global(.intent-viator-card) p { margin: 12px 0 0; font-family: inherit; font-size: 14px; line-height: 1.6; }
+.returnTransfer :global(.intent-viator-card) > .cardImage { position: relative; display: block; padding: 0; overflow: hidden; }
+.cardImage img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 54% center; }
+.cardImage small { position: absolute; bottom: 0; left: 0; right: 0; padding: 7px 9px; background: rgba(7,43,78,.84); color: white; font-size: 11px; line-height: 1.4; }
+.body .cardCredit { margin: 6px 0 16px; text-align: right; font-family: inherit; font-size: 12px; }
+.cardCredit a { color: #52676b; }
+.body .bookingNote { margin: 14px 0 0; font-family: inherit; font-size: 14px; line-height: 1.65; }
+@media (max-width:560px) {
+  .returnTransfer :global(.intent-viator-card) { grid-template-columns: minmax(0, 1fr); }
+  .returnTransfer :global(.intent-viator-card) > .cardImage { aspect-ratio: 16 / 9; }
+}
 .formula { padding: 18px 22px; background: #f6f2e9; border-radius: 10px; }
 .note { color: #52676b; font-size: .9em; }
 @media(max-width:600px) { .body { padding-left: 20px; padding-right: 20px; } .table th, .table td { padding: 10px; } .table table { min-width: 570px; } }
