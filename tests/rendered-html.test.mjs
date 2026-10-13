@@ -947,6 +947,10 @@ test("Alaska route decision separates real airport constraints from hypothetical
   const affiliate = body.match(/<a\b[^>]*href="[^"]*207018P10\?[^>]+>/)?.[0];
   assert.ok(affiliate);
   for (const parameter of ["pid=P00311056", "campaign=pdg-alaska-one-way-vs-round-trip", 'rel="sponsored nofollow noopener noreferrer"']) assert.ok(affiliate.includes(parameter));
+  assert.ok(affiliate.includes('class="intent-viator-card"'));
+  assert.ok(affiliate.includes('data-affiliate-placement="alaska-whittier-airport-transfer"'));
+  assert.ok(affiliate.includes('data-affiliate-product="207018P10"'));
+  assert.ok(body.includes("View transfer details on Viator"));
   assert.match(body, /href="\/photo-credits#whittier-alaska-route-decision"[^>]*>Laura Alier<\/a>/);
   const schema = schemasFrom(html).find(s => s["@type"] === "BlogPosting");
   assert.equal(schema.mainEntityOfPage, `https://portdayguide.com${path}`);

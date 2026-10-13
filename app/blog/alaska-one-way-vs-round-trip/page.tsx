@@ -49,14 +49,26 @@ export default function AlaskaRouteDecisionPage() {
       <p>The <a href={rail} target="_blank" rel="noopener noreferrer">Alaska Railroad&apos;s published schedule</a>, checked October 8, lists Glacier Discovery leaving Whittier at 6:45 p.m. and reaching Anchorage at 9 p.m.; Coastal Classic leaves Seward at 6 p.m. and reaches Anchorage at 10:15 p.m. These are Anchorage station arrivals, not airport drop-offs. Neither timetable supports an afternoon flight on the same day.</p>
       <p>The page labels the principal summer services 2027, but one early-season Glacier Discovery date line still says 2026. Confirm service for your exact day directly with the railroad, especially in May. Public scheduled trains and a cruise-line charter transfer can have different arrangements. Plan luggage handling, the station-to-airport leg and the airline&apos;s reporting time before relying on either.</p>
       <p>A morning coach may fit a different flight window. <a href="https://www.alaskacoach.com/schedules/" target="_blank" rel="noopener noreferrer">Park Connection&apos;s published 2027 timetable</a> lists Whittier–Anchorage at 9:45 a.m.–noon and Seward–Anchorage at 9:45 a.m.–12:30 p.m. on designated ship days. Verify the operating date, exact pickup and whether your booked stop is the airport or downtown; the city arrival time alone does not approve a flight.</p>
-      <aside className={styles.transfer} data-affiliate-placement="alaska-whittier-airport-transfer" data-affiliate-product="207018P10">
-        <h3>For a cruise ending in Whittier: investigate a direct airport coach</h3>
-        <p>Pacific Alaska Tours offers a seasonal Whittier-to-Anchorage direct transfer, also listed on Viator as product 207018P10. Its own page describes approximately 1½ hours, May–September operation tied to ship arrivals, and pickup at Whittier&apos;s cruise terminals. This is a one-way disembarkation transfer, not a return-to-ship outing or an Anchorage-to-port booking.</p>
-        <p>The <a href={operatorFaq} target="_blank" rel="noopener noreferrer">operator&apos;s FAQ</a> describes a Glacier Creek terminal kiosk and signed staff inside the terminal. Collect your bags first, confirm your terminal and departure, and arrive 10–15 minutes before pickup. Declare extra luggage and arrange your own suitable child seat if required. Viator marks this listing as not wheelchair accessible; do not assume storing a mobility aid means step-free boarding.</p>
-        <p>Viator lists Anchorage Airport&apos;s South Terminal and a 24-hour cancellation policy; the operator&apos;s direct-sale policy differs. Recheck the terms of the seller you use. <strong>No selected-date seats, flight compatibility or current total have been verified here.</strong> Enter your date and party, then obtain confirmation of the pickup and airport arrival before paying.</p>
-        <p><a href={transfer} target="_blank" rel="sponsored nofollow noopener noreferrer">Check this Whittier–Anchorage transfer on Viator ↗</a></p>
-        <p className={styles.note}>Service details: <a href={operator} target="_blank" rel="noopener noreferrer">Pacific Alaska Tours</a>. No live quote is shown. A Seward departure or southbound cruise needs its own correctly directed transfer.</p>
-      </aside>
+      <div className={styles.returnTransfer}>
+        <div className="intent-viator-grid">
+          <a className="intent-viator-card" href={transfer} data-affiliate-placement="alaska-whittier-airport-transfer" data-affiliate-product="207018P10" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Whittier to Anchorage direct cruise transfer, view details on Viator">
+            <div className={styles.cardImage}>
+              <LocalPhotoImage src={post.image} alt="Whittier waterfront in June 2004, shown as cruise-port context" width={post.imageWidth} height={post.imageHeight} sizes="(max-width: 560px) calc(100vw - 40px), 220px" />
+              <small>Whittier waterfront · June 2004</small>
+            </div>
+            <div>
+              <span>Seasonal cruise transfer · About 1½ hours</span>
+              <h3>Whittier cruise port → Anchorage Airport (ANC)</h3>
+              <p>Pacific Alaska Tours offers a direct motorcoach after disembarkation, with Anchorage Airport South Terminal drop-off.</p>
+              <strong>Check your sailing date and party price</strong>
+              <b>View transfer details on Viator ↗</b>
+            </div>
+          </a>
+        </div>
+        <p className={styles.cardCredit}><Link href={post.imageCreditHref}>{post.imageAuthor}</Link></p>
+        <p className={styles.bookingNote}>The <a href={operator} target="_blank" rel="noopener noreferrer">operator</a> describes May–September service tied to ship arrivals. This is a one-way Whittier disembarkation transfer; a Seward departure or southbound cruise needs its own correctly directed booking. The <a href={operatorFaq} target="_blank" rel="noopener noreferrer">operator&apos;s FAQ</a> describes a Glacier Creek terminal kiosk and signed staff. Collect your bags, confirm the terminal and arrive 10–15 minutes before pickup. Declare extra luggage and arrange your own suitable child seat if needed. Viator lists the service as not wheelchair accessible.</p>
+        <p className={styles.bookingNote}>Viator lists a 24-hour cancellation policy; direct-sale terms differ. <strong>No selected-date seats, flight compatibility or current total have been verified here.</strong> Check the terms of your seller, then confirm the pickup, airport arrival and complete party price before paying.</p>
+      </div>
       <p>For a cruise ending in Vancouver, airport time still matters. <a href="https://www.yvr.ca/en/passengers/navigate-yvr/cruise-ship-passengers/departing-cruise-ship-passengers" target="_blank" rel="noopener noreferrer">YVR&apos;s cruise-passenger guidance</a> asks travelers to check in three hours before USA/international departures and two hours before Canadian departures. Add disembarkation and the terminal-to-airport journey before that allowance; confirm your airline&apos;s current instructions.</p>
 
       <h2 id="whole-party-cost">How much cheaper must the one-way fare be?</h2>
