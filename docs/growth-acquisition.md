@@ -20,6 +20,10 @@ Owner request, September 22, 2026: automate the work that improves revenue effic
 - Pinterest's [official distribution guidance](https://help.pinterest.com/en/business/article/pin-performance-and-distribution) recommends consistent original content weekly, high-quality visuals, accurate landing-page context and avoiding duplicates. There is no adopted 5–10 Pins/day quota. Three to five variants may be considered as an optional experiment when they have distinct useful angles and fit the existing budget; they are not mandatory for every article.
 - Deployment of the two new feed variants does not prove Pinterest has imported them. Check actual Pins separately before reporting publication or performance.
 
+### October 13 recommendation presentation
+
+The owner requires Viator recommendations to use the site's existing card style rather than long text callouts. Follow the [card presentation rule](automated-operations.md#recommendation-card-presentation-october-13-owner-instruction) when delivering or revising relevant content. Preserve product-fit research, truthful price/availability context and existing attribution; card appearance does not establish API inventory or a booking.
+
 ## Source-backed distribution
 
 - Official native RSS instructions: <https://help.pinterest.com/en/business/article/auto-publish-pins-from-your-rss-feed>.

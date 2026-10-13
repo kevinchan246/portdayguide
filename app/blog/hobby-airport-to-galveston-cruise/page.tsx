@@ -62,13 +62,26 @@ export default function GalvestonTransferPage() {
       <h2>Work backward from the flight home</h2>
       <p>Do not choose a flight by adding one hour to the ship’s scheduled arrival. Add the time to leave the ship, collect bags, meet transport, travel to HOU and meet your airline’s check-in/security requirements, with room for delay. Ask your cruise line and transfer operator whether the specific flight works; use the stricter instruction.</p>
       <p>For its own Galveston transfer, <a href={carnival} target="_blank" rel="noopener noreferrer">Carnival currently requires return flights no earlier than 1:30 p.m.</a> This is a condition of that service, not a universal guarantee that a 1:30 p.m. flight is suitable for every ship or independent transfer. Recheck your sailing before buying air tickets.</p>
-      <aside className={styles.transfer} data-affiliate-placement="galveston-return-hou" data-affiliate-product="320728P1546">
-        <h3>A private return transfer to investigate</h3>
-        <p>Viator product <strong>320728P1546</strong>, supplied by taxiGo DMC, describes a <strong>one-way Port of Galveston → HOU</strong> private transfer with a nameplate meeting, approximately 55 minutes’ travel and fees/taxes included. It asks for the ship, terminal, bag count and pickup time. This covers the third ride only; it is not an airport-to-hotel or three-leg package.</p>
-        <p>The listing says infant seats are available and the service is not wheelchair accessible. It advertises cancellation up to 24 hours before the experience. Its headline price is <strong>per person and varies with the party</strong>, despite the vehicle being private. Enter everyone and confirm the total, suitable vehicle, exact meeting point, waiting policy and flight timing.</p>
-        <p><strong>No selected-date availability or family quote has been verified.</strong> The seller’s suggested pickup at least three hours before the flight still needs to fit disembarkation and your airline’s requirements. Obtain confirmation before paying.</p>
-        <p><a href={transfer} target="_blank" rel="sponsored nofollow noopener noreferrer">Check the Galveston-to-HOU transfer details on Viator ↗</a></p>
-      </aside>
+      <div className={styles.returnTransfer}>
+        <div className="intent-viator-grid">
+          <a className="intent-viator-card" href={transfer} data-affiliate-placement="galveston-return-hou" data-affiliate-product="320728P1546" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="Private transfer from Galveston port to HOU, view details on Viator">
+            <div className={styles.cardImage}>
+              <LocalPhotoImage src={post.image} alt="Galveston Terminal 10 in August 2023, shown as departure-port context" width={post.imageWidth} height={post.imageHeight} sizes="(max-width: 560px) calc(100vw - 40px), 220px" />
+              <small>Galveston Terminal 10 · 2023</small>
+            </div>
+            <div>
+              <span>Private return transfer · About 55 minutes</span>
+              <h3>Galveston cruise port → Hobby Airport (HOU)</h3>
+              <p>taxiGo DMC offers a one-way ride with a nameplate meeting and fees/taxes included. Confirm your ship, terminal, bags and pickup time.</p>
+              <strong>Check your date and whole-party price</strong>
+              <b>View transfer details on Viator ↗</b>
+            </div>
+          </a>
+        </div>
+        <p className={styles.cardCredit}><Link href={post.imageCreditHref}>{post.imageAuthor}</Link></p>
+        <p className={styles.bookingNote}>This covers the third ride only, not airport-to-hotel or all three journeys. The listing’s price is <strong>per person and varies with the party</strong>. Infant seats are listed; the service is not wheelchair accessible. Cancellation is advertised up to 24 hours before the experience.</p>
+        <p className={styles.bookingNote}><strong>No selected-date availability or family quote has been verified.</strong> Confirm the suitable vehicle, meeting point, waiting policy and total. The seller suggests pickup at least three hours before the flight; this still needs to fit disembarkation and your airline’s requirements.</p>
+      </div>
       <p>Before leaving home, save the three confirmations together: each date, pickup address, destination, passenger/bag count, total, cancellation cutoff and provider contact. An empty hotel-to-port row is the missing booking to resolve, even when both airport journeys say “confirmed.”</p>
       <p>If your sailing includes them, plan the separate shore days with our <Link href="/ports/cozumel/taxi-rates">Cozumel taxi budget guide</Link> and <Link href="/ports/roatan/mahogany-bay-vs-coxen-hole">Roatan terminal and pickup comparison</Link>. Still comparing departure plans? Our <Link href="/blog/future-of-cruise-ship-terminals/mco-to-port-canaveral">MCO–Port Canaveral transport guide</Link> covers that Florida airport route separately.</p>
     </article>
