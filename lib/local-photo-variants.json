@@ -1,4 +1,14 @@
 {
+  "/media/articles/long-beach-airport-terminal.webp": {
+    "width": 1600,
+    "height": 1200,
+    "bytes": 230894,
+    "variants": [
+      { "src": "/media/articles/long-beach-airport-terminal-480.webp", "width": 480, "height": 360, "bytes": 31032 },
+      { "src": "/media/articles/long-beach-airport-terminal-800.webp", "width": 800, "height": 600, "bytes": 74054 },
+      { "src": "/media/articles/long-beach-airport-terminal.webp", "width": 1600, "height": 1200, "bytes": 230894 }
+    ]
+  },
   "/media/blog/cruise-port-technology.jpg": {
     "width": 1600,
     "height": 1199,

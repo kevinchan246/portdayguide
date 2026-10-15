@@ -1,4 +1,14 @@
 {
+  "/blog/long-beach-airport-to-cruise-port": {
+    "src": "/media/articles/long-beach-airport-terminal.webp",
+    "alt": "Long Beach Airport's terminal and control tower viewed from the aircraft apron in 2009",
+    "width": 1600,
+    "height": 1200,
+    "author": "Melikamp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Long-Beach-airport-terminal.jpg",
+    "creditHref": "/photo-credits#long-beach-airport-terminal",
+    "position": "center 65%"
+  },
   "/blog/alaska-cruise-ports": {
     "src": "/media/editorial/downtown-juneau-docks.webp",
     "alt": "Downtown Juneau, cruise docks and Douglas Island viewed from the Mount Roberts Tramway in 2014",
