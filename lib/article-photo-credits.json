@@ -1,4 +1,14 @@
 {
+  "long-beach-airport-terminal": {
+    "author": "Melikamp",
+    "file": "Long-Beach-airport-terminal.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Long-Beach-airport-terminal.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Photographed in 2009. Full original proportionally resized and compressed as WebP; display frames may crop. The matching 1000×1500 Pinterest composition combines the same unaltered photograph with typography and is also offered under CC BY-SA 3.0. No scenery generated or replaced. Historical airport context, not a current pickup map.",
+    "checked": "2026-10-15",
+    "sourceSha1": "dff5c84e61bd182256c2e6684dcf544cc5d961d3"
+  },
   "grand-cayman-ship-from-tender": {
     "author": "Roger W",
     "file": "George Town - Equinox from Tender (5735601144).jpg",

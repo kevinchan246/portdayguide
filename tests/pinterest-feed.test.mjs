@@ -1,15 +1,16 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { inflateSync } from "node:zlib";
 import { PINTEREST_ITEMS, buildPinterestFeed, pinterestDestination } from "../lib/pinterest-feed.mjs";
 
 test("curated RSS uses stable unique IDs and one image per resource", () => {
   const xml = buildPinterestFeed();
   assert.equal(xml, buildPinterestFeed());
-  assert.equal(PINTEREST_ITEMS.length, 6);
-  assert.equal((xml.match(/<item>/g) || []).length, 6);
-  assert.equal((xml.match(/<media:content /g) || []).length, 6);
-  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, 6);
+  assert.equal(PINTEREST_ITEMS.length, 7);
+  assert.equal((xml.match(/<item>/g) || []).length, 7);
+  assert.equal((xml.match(/<media:content /g) || []).length, 7);
+  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, 7);
   assert.match(xml, /<rss version="2.0" xmlns:media="http:\/\/search.yahoo.com\/mrss\/">/);
   assert.match(xml, /<pubDate>Tue, 22 Sep 2026 03:45:00 GMT<\/pubDate>/);
   assert.throws(() => buildPinterestFeed([PINTEREST_ITEMS[0], PINTEREST_ITEMS[0]]), /unique/);
@@ -46,6 +47,20 @@ test("every advertised image exists and is an actual 1000 by 1500 PNG", async ()
     assert.equal(data.readUInt32BE(16), 1000);
     assert.equal(data.readUInt32BE(20), 1500);
     assert.ok(data.length < 20 * 1024 * 1024);
+    // Header-only checks can accept a truncated upload. Walk every chunk and
+    // decompress its image stream before advertising the file to Pinterest.
+    const idat = [];
+    let offset = 8, ended = false;
+    while (offset + 12 <= data.length) {
+      const length = data.readUInt32BE(offset), end = offset + 12 + length;
+      assert.ok(end <= data.length, `${item.id}: incomplete PNG chunk`);
+      const kind = data.toString("ascii", offset + 4, offset + 8);
+      if (kind === "IDAT") idat.push(data.subarray(offset + 8, offset + 8 + length));
+      offset = end;
+      if (kind === "IEND") { ended = true; break; }
+    }
+    assert.ok(ended && offset === data.length, `${item.id}: complete PNG end marker`);
+    assert.ok(inflateSync(Buffer.concat(idat)).length > 0, `${item.id}: decodable image stream`);
   }
 });
 

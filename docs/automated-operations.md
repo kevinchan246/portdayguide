@@ -112,6 +112,10 @@ No approved CruiseDirect/CJ account or real tracking link was found in the check
 
 The [October 6 application packet and integration gates](cruise-affiliate-integration.md) supplies the official signup route, a truthful website profile, the owner's one-time account steps and a scoped Alaska pilot. Existing Viator-only click collection must not be presented as CJ tracking. Confirm approved account terms and real links before changing code; do not repeat the account handoff on later healthy runs without new evidence.
 
+## Verified Pinterest publication — October 14
+
+Acquisition follow-up on October 14 verified six actual Pins on the public Cruise Port Guides & Tips board, including the Hobby–Galveston companion; [public evidence](https://github.com/kevinchan246/portdayguide/pull/36#issuecomment-6171191529). Exact individual outbound destinations/UTM remain unverified. Later feed additions need their own import check; public technical publication is not a traffic or revenue result.
+
 ## Recommendation card presentation — October 13 owner instruction
 
 Present recommended Viator products as cards matching the existing site recommendation design, with a relevant image, product title, concise fit information and a clear booking action. This applies to future articles and relevant revisions. A reviewed static recommendation can reuse the card styles without a live API call; do not invent a price, review, availability badge or API success. Keep material route, pricing-unit and date/party limitations beside the card. Use licensed same-article imagery as clearly labelled context when a usable product image is unavailable, with a separate clickable author credit. Preserve pid, campaign, placement/product attributes and sponsored/nofollow. Validate desktop/mobile presentation and GET-only production rendering through the normal release gates.
