@@ -355,6 +355,7 @@ test("Mahahual transport API excludes inland trips and beach admission without t
   assert.equal(guide.modified, "2026-10-16");
   assert.match(guide.viator.copy, /not a taxi-only transfer/);
   assert.match(guide.viator.copy, /only with the appropriate option/);
+  assert.match(guide.viator.copy, /prices per person/);
   const product = (productCode, title) => ({
     productCode, title, description: "Costa Maya port excursion with transportation.",
     productUrl: `https://www.viator.com/tours/Costa-Maya/Experience/d4345-${productCode}?pid=P123&campaign=${guide.viator.campaign}`,

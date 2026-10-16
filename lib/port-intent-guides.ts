@@ -178,7 +178,7 @@ const guides: PortIntentGuide[] = [
     decision: "Choose Mahahual when you want a less enclosed, more local-feeling beach day and accept a short independent taxi ride. Stay in the port complex when minimizing walking uncertainty and transport decisions matters more than local atmosphere.",
     viator: {
       heading: "Mahahual beach package: check the transport option",
-      copy: "Product and transport conditions checked October 16, 2026. This is a beach-day package, not a taxi-only transfer. Round-trip transport is included only with the appropriate option; a starting price does not establish your party's transport-inclusive total or available date.",
+      copy: "Product and transport conditions checked October 16, 2026. This is a beach-day package, not a taxi-only transfer. Round-trip transport is included only with the appropriate option. The listing prices per person; a starting price does not establish your transport-inclusive party total or available date.",
       query: "Costa Maya All Included Beach Break",
       searchQueries: ["Costa Maya All Included Beach Break"],
       campaign: "pdg-costa-maya-to-mahahual",
