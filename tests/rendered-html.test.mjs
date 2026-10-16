@@ -733,6 +733,11 @@ test("gives the beach transfer guides distinct bodies and one contextual booking
   assert.equal((beach.match(/data-editorial-photo="seven-mile-beach-north"/g) || []).length, 1);
   assert.match(beach, /Coolcaesar/);
   const standard = await render("/ports/costa-maya/to-mahahual");
+  assert.match(standard, /A beach package is not a taxi fare/);
+  assert.match(standard, /foldable wheelchairs/);
+  assert.match(standard, /not wheelchair-adapted/);
+  assert.match(standard, /no sailing-specific availability is verified here/);
+  assert.match(standard, /d4345-420443P5/);
   assert.match(standard, /Steps for the port day/);
   assert.doesNotMatch(standard, /data-beach-article=/);
 });

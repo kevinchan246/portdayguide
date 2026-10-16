@@ -349,6 +349,67 @@ test("Kaiyukan API only offers the verified nearby theater products and preserve
   }
 });
 
+test("Mahahual transport API excludes inland trips and beach admission without transport", async () => {
+  const guide = portIntentGuides.find(item => item.sourcePortSlug === "costa-maya" && item.topic === "to-mahahual");
+  assert.deepEqual(guide.viator.productCodes, ["420443P5"]);
+  assert.equal(guide.modified, "2026-10-16");
+  assert.match(guide.viator.copy, /not a taxi-only transfer/);
+  assert.match(guide.viator.copy, /only with the appropriate option/);
+  assert.match(guide.viator.copy, /prices per person/);
+  const product = (productCode, title) => ({
+    productCode, title, description: "Costa Maya port excursion with transportation.",
+    productUrl: `https://www.viator.com/tours/Costa-Maya/Experience/d4345-${productCode}?pid=P123&campaign=${guide.viator.campaign}`,
+    images: [{ variants: [{ width: 720, height: 480, url: "https://example.com/beach.jpg" }] }],
+    duration: { fixedDurationInMinutes: 300 },
+    pricing: { currency: "USD", summary: { fromPrice: 95 } },
+  });
+  const exports = {}, searches = [];
+  const imports = {
+    "@/lib/shorepath": { profilesBySlug: { "costa-maya": { name: "Costa Maya", country: "Mexico" } } },
+    "@/lib/port-intent-guides": { portIntentGuides: [guide] },
+    "@/lib/roatan-products": { selectRoatanProducts },
+    "@/lib/cozumel-transport": { isCozumelDriverOption },
+    "@/lib/tokyo-yokohama-transfer": { isTokyoToYokohamaPortTransfer },
+  };
+  const source = await readFile(new URL("../app/api/viator/products/route.ts", import.meta.url), "utf8");
+  runInNewContext(ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText, {
+    exports, require: name => { assert.ok(name in imports, name); return imports[name]; },
+    URL, Response, AbortSignal, console,
+    process: { env: { VIATOR_API_KEY: "test-only", VIATOR_API_ROOT: "https://api.sandbox.viator.com/partner" } },
+    fetch: async (url, options) => {
+      const path = new URL(url).pathname;
+      if (path === "/partner/destinations") return Response.json({ destinations: [
+        { destinationId: 1, name: "Mexico", type: "COUNTRY" },
+        { destinationId: 4345, name: "Costa Maya", type: "CITY", parentDestinationId: 1 },
+      ] });
+      const body = JSON.parse(options.body);
+      if (path === "/partner/search/freetext") {
+        assert.equal(body.productFiltering.destination, "4345");
+        assert.equal(new URL(url).searchParams.get("campaign-value"), guide.viator.campaign);
+        searches.push(body.searchTerm);
+        return Response.json({ products: { results: [
+          product("420443P5", "Costa Maya Shore Excursion: All-Inclusive Beach Break & Open Bar"),
+          product("223651P3", "Lagoon of 7 colors from Costa Maya - Boat Tour and transportation"),
+          product("441202P5", "Bacalar Lagoon 7 Colors Excursion from Costa Maya Cruise Port"),
+          product("5562311P1", "Costa Maya Private Beach Club Tour From Mahahual"),
+          product("unreviewed", "Mahahual beach with transportation"),
+        ] } });
+      }
+      assert.equal(path, "/partner/availability/schedules/bulk");
+      assert.deepEqual(body.productCodes, ["420443P5"]);
+      return Response.json({ availabilitySchedules: [] });
+    },
+  });
+  const response = await exports.GET(new Request(`https://example.com/api/viator/products?port=costa-maya&intent=to-mahahual&content=${guide.modified}`));
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.deepEqual(searches, guide.viator.searchQueries);
+  assert.deepEqual(payload.products.map(item => item.productCode), ["420443P5"]);
+  assert.equal(payload.products[0].pricingPackageType, null, "missing API unit must not be invented");
+  assert.equal(payload.campaign, "pdg-costa-maya-to-mahahual");
+  assert.equal(portIntentGuides.find(item => item.topic === "port-vs-mahahual").modified, "2026-10-07", "second page remains outside this single-page revision");
+});
+
 test("quote comparison never treats missing or invalid amounts as a free fare", () => {
   const quote = { passengers: "4", outward: "", back: "", taxiExtras: "0", driver: "", driverExtras: "0" };
   assert.deepEqual(compareTransportQuotes(quote), { people: 4, taxiTotal: null, driverTotal: null, difference: null });
