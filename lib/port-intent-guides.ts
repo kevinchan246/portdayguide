@@ -145,6 +145,13 @@ const guides: PortIntentGuide[] = [
         links: [{ href: "/ports/costa-maya/port-vs-mahahual", label: "Compare staying in Costa Maya port with visiting Mahahual", context: "Still deciding whether the taxi trip adds enough value?" }],
       },
       {
+        heading: "A beach package is not a taxi fare",
+        paragraphs: [
+          "The Nohoch Kay beach package below lists a five-hour outing with food, drinks and seating. Choose its option with round-trip transportation if you need the ride; the beach-only option requires your own transport. For the transport option, the listing schedules pickup outside Costa Maya port's main access one hour after ship arrival, no earlier than 9 AM ship time, and asks you to arrive ten minutes early.",
+          "A five-hour package needs more time than the four-hour minimum for a DIY outing above. Give the supplier your ship name and confirm return departure against all-aboard before paying. Vehicles accept foldable wheelchairs but are not wheelchair-adapted; confirm boarding assistance. Cancellation is advertised up to 24 hours beforehand. Check the per-person total, option and date; no sailing-specific availability is verified here.",
+        ],
+      },
+      {
         heading: "How much return buffer to keep",
         paragraphs: [
           "PortdayGuide's conservative planning suggestion is to reach the port entrance at least 90 minutes before official all-aboard. This is an editorial allowance, not a port rule or a return guarantee. Leave the beach earlier when several ships are in port, rain is developing, someone walks slowly, or the taxi supply looks thin; follow any earlier deadline from your ship.",
@@ -170,17 +177,20 @@ const guides: PortIntentGuide[] = [
     ],
     decision: "Choose Mahahual when you want a less enclosed, more local-feeling beach day and accept a short independent taxi ride. Stay in the port complex when minimizing walking uncertainty and transport decisions matters more than local atmosphere.",
     viator: {
-      heading: "Mahahual beach options with port transport",
-      copy: "These live results are limited to Mahahual or Costa Maya beach experiences that may reduce the transport planning burden. Verify the exact terminal meeting point and return schedule before booking.",
-      query: "Mahahual beach Costa Maya cruise port transportation",
+      heading: "Mahahual beach package: check the transport option",
+      copy: "Product and transport conditions checked October 16, 2026. This is a beach-day package, not a taxi-only transfer. Round-trip transport is included only with the appropriate option; a starting price does not establish your party's transport-inclusive total or available date.",
+      query: "Costa Maya All Included Beach Break",
+      searchQueries: ["Costa Maya All Included Beach Break"],
       campaign: "pdg-costa-maya-to-mahahual",
+      productCodes: ["420443P5"],
     },
     sources: [
+      { label: "Viator Nohoch Kay beach package, 420443P5", url: "https://www.viator.com/tours/Costa-Maya/Costa-Maya-All-Included-Beach-Break/d4345-420443P5", note: "Product options and pickup/access/cancellation conditions checked October 16, 2026; not a selected-date quote." },
       { label: "Cruzely Costa Maya port guide", url: "https://www.cruzely.com/port-guide-costa-maya-mahahual-mexico/", note: "Recent observed taxi time, fare, walking estimate, and port-crowding context." },
       { label: "Costa Maya Tourbase transport guide", url: "https://costamayatourbase.com/travel-tips/costa-maya-transportation-and-navigation-advice", note: "Independent cross-check for the short road transfer and walking estimate." },
       { label: "PortdayGuide Costa Maya hub", url: "/ports/costa-maya", note: "Terminal, return-margin, weather, mobility, and excursion context." },
     ],
-    modified: "2026-10-07",
+    modified: "2026-10-16",
   },
   {
     sourcePortSlug: "costa-maya",

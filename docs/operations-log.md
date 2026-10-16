@@ -2,6 +2,13 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-16 — Mahahual transport-page recommendation fit
+
+- Read main `a24df52e2f0063c78bf5d25c0f0386f24db0cb1a`, operating records, recent commits, branches and open PRs. Only unrelated #4 is open. Netlify's exact-main production deploy is ready; initial GET-only health passes 8/8. This is one independent existing-page improvement after October 9 Roatán leaves the rolling window; Hobby/LGB retain both new-article packages.
+- Resolved the October 13 audit's transport-page handoff: actual Mahahual API results contained inland Bacalar trips and a beach admission requiring its own taxi. Limit this one page to conditionally suitable `420443P5`, with precise search and an exact-code allowlist. Preserve the card component and existing campaign; explain transport versus beach-only options, pickup, return timing, vehicle limitations and date/party checks. [Product review and exclusions](editorial-drafts/mahahual-transport-product-review-2026-10-16.md). The separate Costa Maya comparison-page concern remains pending, not silently counted as fixed.
+- Retain the existing independently sourced Juan Ortega malecón photograph, responsive variants, author link and all other covers. No new URL, article, Pin, feed entry, GUID/date, tracking field or private report request. No duplicate GSC reminder, sales guarantee or revenue claim.
+- Required lint/build/rendered/API/cover/browser checks, exact-head CI/preview, merge and production deployment/GET verification are recorded in this change's PR release discussion. This preparation entry does not itself claim release.
+
 ## 2026-10-15 — LGB arrival transfer and correct cruise terminal
 
 - Started at main `9d2fc180e9d627ce08cb9d68648419d818378ad4`; read current instructions/logs, inventory, sitemap, branches and recent/open PRs. Only unrelated #4 open. October 8 #33 release at 13:46:16.884 UTC is outside the rolling seven days; #36 remains the one new-article package inside the window before this delivery. This is one new article/one companion Pin, no independent old-page improvement. #34 and owner/repair exceptions stay separately recorded.
