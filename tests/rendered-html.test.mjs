@@ -350,9 +350,9 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(blog, /"@type":"CollectionPage"/i);
   assert.match(blog, /"@type":"ItemList"/i);
   const collection = schemasFrom(blog).find((schema) => schema["@type"] === "CollectionPage");
-  assert.equal(collection.mainEntity.numberOfItems, 17);
+  assert.equal(collection.mainEntity.numberOfItems, 18);
   const articleUrls = collection.mainEntity.itemListElement.map((item) => item.url);
-  assert.equal(new Set(articleUrls).size, 17, "planning directory must contain one entry per canonical article");
+  assert.equal(new Set(articleUrls).size, 18, "planning directory must contain one entry per canonical article");
   for (const url of articleUrls) assert.ok(blog.includes(`href="${new URL(url).pathname}"`), `${url}: schema entry must have a visible article link`);
   assert.match(blog, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
   assert.match(blog, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);

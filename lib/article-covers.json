@@ -1,4 +1,14 @@
 {
+  "/blog/osaka-cruise-port-to-castle": {
+    "src": "/media/articles/osaka-castle-keep.webp",
+    "alt": "The white walls, green roofs and gold decorations of Osaka Castle keep beneath clouds in August 2024",
+    "width": 1600,
+    "height": 1200,
+    "author": "Takipoint123",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_August_2024.jpg",
+    "creditHref": "/photo-credits#osaka-castle-keep",
+    "position": "center"
+  },
   "/blog/long-beach-airport-to-cruise-port": {
     "src": "/media/articles/long-beach-airport-terminal.webp",
     "alt": "Long Beach Airport's terminal and control tower viewed from the aircraft apron in 2009",

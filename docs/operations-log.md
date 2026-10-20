@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-20 — Osaka Castle approach and museum decision
+
+- Started from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`; read runbooks/logs, route/sitemap/photo inventory, branches/recent PRs. Only unrelated #4 open. Before release, recheck coordination and enforce #36's seven-day expiry at **October20,14:11:16.099 UTC**; do not merge earlier. #39 remains a new-article package and #40 the independent old-page allowance. One new article and its matching Pin only; reciprocal Osaka/Kaiyukan links are part of that package.
+- Switched from the held Alaska pre-booking comparison and assessed the Yokohama airport direction before selecting a distinct Tempozan→castle approach/museum decision. [Individual review](editorial-drafts/osaka-castle-review-2026-10-20.md) records source limits, reader brief, independent structure, complete comparison with recent/related articles and product exclusions.
+- Proposed canonical `https://portdayguide.com/blog/osaka-cruise-port-to-castle`: direct C11→C18 approach, substantial park walk, published admission/age rules, conservative existing Osaka time model and a conditional3h guided alternative. Card `92163P251` uses a different JR station meeting, not port collection; entry option, per-person unit, access/cancellation and no verified selected-date inventory remain explicit. Official museum tickets stay primary.
+- [Independent main-keep photograph and matching 2:3 Pin](osaka-castle-image-sources.md), author-only linked credit, responsive variants and one stable RSS ID `osaka-castle-from-port-v1`; all earlier IDs/dates unchanged. Actual import is pending, not inferred from feed inclusion. Sync the October18 pilot's separate navigation/merchant gates during this necessary article PR; do not claim its specified navigation batch or affiliate activation completed.
+- Lint/build/full rendered/cover/feed/product assertions, desktop/mobile and exact-head CI/preview, quota/main recheck, merge and formal GET/ready-deployment checks remain release gates. Record actual production time and new-URL GSC reminder in the PR after verification; this preparation log does not claim publication, indexing, AI citation or income. No private business numbers, accounts or sponsored clicks.
+
 ## 2026-10-16 — Mahahual transport-page recommendation fit
 
 - Read main `a24df52e2f0063c78bf5d25c0f0386f24db0cb1a`, operating records, recent commits, branches and open PRs. Only unrelated #4 is open. Netlify's exact-main production deploy is ready; initial GET-only health passes 8/8. This is one independent existing-page improvement after October 9 Roatán leaves the rolling window; Hobby/LGB retain both new-article packages.

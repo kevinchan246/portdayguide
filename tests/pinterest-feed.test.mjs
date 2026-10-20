@@ -7,10 +7,10 @@ import { PINTEREST_ITEMS, buildPinterestFeed, pinterestDestination } from "../li
 test("curated RSS uses stable unique IDs and one image per resource", () => {
   const xml = buildPinterestFeed();
   assert.equal(xml, buildPinterestFeed());
-  assert.equal(PINTEREST_ITEMS.length, 7);
-  assert.equal((xml.match(/<item>/g) || []).length, 7);
-  assert.equal((xml.match(/<media:content /g) || []).length, 7);
-  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, 7);
+  assert.equal(PINTEREST_ITEMS.length, 8);
+  assert.equal((xml.match(/<item>/g) || []).length, 8);
+  assert.equal((xml.match(/<media:content /g) || []).length, 8);
+  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, 8);
   assert.match(xml, /<rss version="2.0" xmlns:media="http:\/\/search.yahoo.com\/mrss\/">/);
   assert.match(xml, /<pubDate>Tue, 22 Sep 2026 03:45:00 GMT<\/pubDate>/);
   assert.throws(() => buildPinterestFeed([PINTEREST_ITEMS[0], PINTEREST_ITEMS[0]]), /unique/);

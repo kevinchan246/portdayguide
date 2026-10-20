@@ -1,4 +1,14 @@
 {
+  "osaka-castle-keep": {
+    "author": "Takipoint123",
+    "file": "Osaka Castle August 2024.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_August_2024.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Photographed August 20, 2024. The article uses a 3072×2304 crop beginning 650 pixels from the top of the 3072×4080 original, resized and compressed as WebP, emphasizing the keep and omitting part of the foreground/base. Display frames may crop further. The matching 1000×1500 Pinterest composition uses the same full portrait photograph with typography overlays and is also offered under CC BY-SA 4.0. No generated scenery or retouching.",
+    "checked": "2026-10-20",
+    "sourceSha1": "3829801252a0f81185e04354e4c38339af4b03c8"
+  },
   "long-beach-airport-terminal": {
     "author": "Melikamp",
     "file": "Long-Beach-airport-terminal.jpg",

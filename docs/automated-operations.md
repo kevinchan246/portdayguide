@@ -112,6 +112,12 @@ No approved CruiseDirect/CJ account or real tracking link was found in the check
 
 The [October 6 application packet and integration gates](cruise-affiliate-integration.md) supplies the official signup route, a truthful website profile, the owner's one-time account steps and a scoped Alaska pilot. Existing Viator-only click collection must not be presented as CJ tracking. Confirm approved account terms and real links before changing code; do not repeat the account handoff on later healthy runs without new evidence.
 
+## October 18 whole-cruise pilot continuation
+
+The owner's scoped pilot plan separates existing-page navigation from merchant activation. Its Stage A is one specified two-page batch: one comparison-guide card in the Alaska overview, preserving its five existing port cards, plus Juneau/Skagway/Ketchikan cards in the one-way comparison. Check current main/PRs before continuing; a written plan does not prove these cards were deployed. Do not fold that separate batch into an unrelated new shore article or reset the existing articles' publication dates.
+
+During the following 28 days, add at most one genuinely distinct pre-booking route article, counted inside the normal article allowance, not a new quota. Stage B requires owner-supplied approval, actual CJ-generated links and applicable permitted terms. No placeholder link, prospective CJ tracking whitelist, real-time cruise feed/price or approval claim. Preserve Viator behavior and keep merchant reports separate. Observe navigation from actual production release and affiliate results from actual activation, each for28/56 complete days; use existing November13/December3/December13 reviews and retain the December3 cadence decision. No account/spending/schedule expansion.
+
 ## Verified Pinterest publication — October 14
 
 Acquisition follow-up on October 14 verified six actual Pins on the public Cruise Port Guides & Tips board, including the Hobby–Galveston companion; [public evidence](https://github.com/kevinchan246/portdayguide/pull/36#issuecomment-6171191529). Exact individual outbound destinations/UTM remain unverified. Later feed additions need their own import check; public technical publication is not a traffic or revenue result.
