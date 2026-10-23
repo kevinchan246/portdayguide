@@ -2,6 +2,13 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-23 — Costa Maya comparison-page recommendation fit
+
+- Started from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`; read both operating runbooks, this log, recent commits, production deployment and open PRs. PR #41 remains an unmerged Osaka Castle article package blocked on mobile visual QA; unrelated #4 stays untouched. The October 16 old-page release keeps the shared independent slot until after `2026-10-23T14:52:47.454Z`; this change must not merge before that gate.
+- Confirmed the pending comparison-page fault: the production `port-vs-mahahual` API returned one relevant Mahahual beach package plus Chacchoben and Bacalar excursions that do not answer the port-complex-versus-Mahahual decision. Restrict this page to reviewed `420443P5`, preserve its distinct campaign, use a precise search and version the request with the October 23 modification date. [Product review and exclusions](editorial-drafts/costa-maya-comparison-product-review-2026-10-23.md).
+- Keep the page's existing independent Larry D. Moore Costa Maya entrance photograph, linked-author credit and responsive variants. No new URL, article, Pin, feed item, GUID/date, private report request or duplicate GSC reminder. Product conditions are source-dated; no selected-date inventory, ship-return guarantee, revenue or ranking claim.
+- Required lint/build/rendered/API/cover/browser checks, exact-head CI/preview, merge after the rolling gate and production GET verification belong in the PR release discussion. This preparation entry does not itself claim release.
+
 ## 2026-10-16 — Mahahual transport-page recommendation fit
 
 - Read main `a24df52e2f0063c78bf5d25c0f0386f24db0cb1a`, operating records, recent commits, branches and open PRs. Only unrelated #4 is open. Netlify's exact-main production deploy is ready; initial GET-only health passes 8/8. This is one independent existing-page improvement after October 9 Roatán leaves the rolling window; Hobby/LGB retain both new-article packages.
