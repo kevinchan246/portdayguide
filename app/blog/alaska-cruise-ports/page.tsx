@@ -150,7 +150,7 @@ export default function AlaskaCruisePortsPage() {
       <article className="blog-article-body">
         <div dangerouslySetInnerHTML={{ __html: articleBeforeRouteGuide }} />
         <aside id="alaska-route-comparison" className={styles.routeGuide} aria-label="Compare one-way and round-trip Alaska cruises">
-          <PlanningArticleCards articles={[routeDecisionArticle]} />
+          <PlanningArticleCards articles={[routeDecisionArticle]} linkedCredits />
         </aside>
         {articleAfterRouteGuide && <div dangerouslySetInnerHTML={{ __html: articleAfterRouteGuide }} />}
         <AlaskaViatorPicks />

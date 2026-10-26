@@ -11,9 +11,10 @@ type PortScenicPhotoProps = {
   variant?: "card" | "hero";
   priority?: boolean;
   sizes?: string;
+  showCardCredit?: boolean;
 };
 
-export function PortScenicPhoto({ slug, name, country, variant = "card", priority = false, sizes }: PortScenicPhotoProps) {
+export function PortScenicPhoto({ slug, name, country, variant = "card", priority = false, sizes, showCardCredit = true }: PortScenicPhotoProps) {
   const photo = portPhotos[slug];
   const src = portPhotoPath(slug);
   const asset = localPhoto(src);
@@ -31,7 +32,7 @@ export function PortScenicPhoto({ slug, name, country, variant = "card", priorit
   // Keep the clickable credit above the hero overlay, outside the background's
   // negative/zero stacking context.
   if (variant === "hero") return <><div className="port-hero-photo" data-photo-source="Wikimedia Commons" aria-label={`Local scenery in ${name}${country ? `, ${country}` : ""}`}>{image}</div><small className="port-photo-caption"><Link href={`/photo-credits#${slug}`}>{credit.author}</Link></small></>;
-  // Cards are often inside one linked guide. Keep the author as plain text to
-  // avoid nested links; the shared footer opens the credit directory.
-  return <figure className="guide-card-image port-scenic-photo" data-photo-source="Wikimedia Commons">{image}<small className="port-card-photo-credit">{credit.author}</small></figure>;
+  // Keep the existing plain-text card credit by default. A parent providing
+  // a separate linked credit can hide this label without nesting links.
+  return <figure className="guide-card-image port-scenic-photo" data-photo-source="Wikimedia Commons">{image}{showCardCredit && <small className="port-card-photo-credit">{credit.author}</small>}</figure>;
 }

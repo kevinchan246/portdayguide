@@ -69,6 +69,8 @@ The owner requested a written plan followed by execution. The four-page Chinese 
 
 Reuse existing styling and the destination/article's licensed photographs with attribution. Preserve canonical URLs, original publication dates (July 27 and October 8), sourced body and Viator campaigns. A presentation-only change does not mechanically refresh factual check or modification dates. Record the actual production change time in the release evidence.
 
+Only these four new navigation cards enable separately clickable author-name credits using the existing `/photo-credits` records. The image's article link and the photographer's attribution link are siblings, never nested; the small credit does not cover the remaining image navigation area. Keep the original five overview port cards and all other discovery cards' existing presentation unchanged.
+
 This specifically requested two-page batch creates no recurring extra allowance, article, Pin, feed entry, GUID/date reset or duplicate indexing request. Subsequent work uses the shared rolling-seven-day allowance. During the first 28 complete days after verified Phase A production, at most one distinct new route article may occupy an existing article package; do not duplicate the Alaska airport/party-cost comparison. This ceiling does not reactivate disabled publishing or create another article/Pin slot.
 
 Phase A changes internal navigation and implementation records only: no placeholder booking button, invented offer, CJ URL, generic CJ-host allowlist, merchant event acceptance, tracking script or unused runtime configuration. Existing Viator collection is not whole-cruise, card-impression or internal-click tracking.

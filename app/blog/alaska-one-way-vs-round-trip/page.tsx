@@ -112,7 +112,7 @@ export default function AlaskaRouteDecisionPage() {
         <h2 id="alaska-shore-day-guides">Check the shore days on your shortlist.</h2>
         <p>Use the actual hours ashore on each sailing to check the transport, activities and return plan at these ports.</p>
       </div>
-      <PlanningArticleCards articles={shoreDayGuides} />
+      <PlanningArticleCards articles={shoreDayGuides} linkedCredits />
     </section>
     <section className="blog-back-link"><Link href="/blog">← More cruise planning guides</Link></section>
     <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify your sailing and booking conditions.</small></footer>
