@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LocalPhotoImage } from "@/components/LocalPhotoImage";
+import { PlanningArticleCards } from "@/components/PlanningArticleCards";
+import { alaskaCruisePortGuides } from "@/lib/alaska-blog";
 import { alaskaRoutePath, alaskaRoutePost as post } from "@/lib/alaska-route-decision";
 import { siteUrl } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -10,6 +12,15 @@ const rail = "https://alaskarailroad.com/ride-a-train/schedules";
 const operator = "https://pacificalaskatours.com/whittier-tours/whittier-to-anchorage-cruise-ship-transfer/";
 const operatorFaq = "https://pacificalaskatours.com/about/faq/";
 const transfer = "https://www.viator.com/tours/Whittier/Whittier-to-Anchorage-Direct-Transfer-Tour/d22320-207018P10?mcid=42383&pid=P00311056&campaign=pdg-alaska-one-way-vs-round-trip&medium=api&api_version=2.0";
+const shoreDayGuides = alaskaCruisePortGuides
+  .filter((guide) => ["juneau", "skagway", "ketchikan"].includes(guide.slug))
+  .map((guide) => ({
+    path: `/ports/${guide.slug}`,
+    title: guide.title,
+    description: guide.description,
+    category: "Alaska port planning",
+    portSlug: guide.slug,
+  }));
 export const metadata: Metadata = {
   title: post.seoTitle, description: post.description, alternates: { canonical },
   openGraph: { title: post.title, description: post.description, url: canonical, type: "article", publishedTime: post.published, modifiedTime: post.modified, images: [{ url: post.image, width: post.imageWidth, height: post.imageHeight, alt: post.imageAlt }] },
@@ -86,7 +97,7 @@ export default function AlaskaRouteDecisionPage() {
 
       <h2>Pay the difference only for an itinerary benefit you actually want</h2>
       <p>A one-way route can fit a deliberate Alaska land stay before or after sailing. A round trip can fit a traveler who wants one port of embarkation and no Southcentral Alaska transfer. Neither description makes one universally cheaper, more scenic or better for children.</p>
-      <p>Compare the actual scenic-cruising days and hours in port, not just the number of named destinations. A glacier viewed from the ship is not an extra day ashore; a short call may not fit the excursion that motivated your choice. Use the <Link href="/ports/juneau">Juneau</Link>, <Link href="/ports/skagway">Skagway</Link> and <Link href="/ports/ketchikan">Ketchikan guides</Link> to test the shore-day commitments. Keep ship size, cabin and the activities your party values in the decision alongside cost.</p>
+      <p>Compare the actual scenic-cruising days and hours in port, not just the number of named destinations. A glacier viewed from the ship is not an extra day ashore; a short call may not fit the excursion that motivated your choice. Use the port guides below to test the shore-day commitments. Keep ship size, cabin and the activities your party values in the decision alongside cost.</p>
       <h2>Before putting down the deposit</h2>
       <ol>
         <li><strong>Save the exact sailing.</strong> Record the ship, dates, both terminals, scenic days and usable port hours. Use the cruise line&apos;s own itinerary; a generic route map is not the contract.</li>
@@ -96,6 +107,13 @@ export default function AlaskaRouteDecisionPage() {
       </ol>
       <p>Choose the candidate whose full journey you can arrange comfortably. If the Alaska airport connection is still unresolved, settle it before a cheaper cabin price becomes a non-refundable commitment.</p>
     </article>
+    <section className="section" aria-labelledby="alaska-shore-day-guides">
+      <div className="section-heading discovery-heading">
+        <h2 id="alaska-shore-day-guides">Check the shore days on your shortlist.</h2>
+        <p>Use the actual hours ashore on each sailing to check the transport, activities and return plan at these ports.</p>
+      </div>
+      <PlanningArticleCards articles={shoreDayGuides} />
+    </section>
     <section className="blog-back-link"><Link href="/blog">← More cruise planning guides</Link></section>
     <footer><Link className="brand" href="/">PortdayGuide<span>.</span></Link><div><Link href="/ports">Port guides</Link><Link href="/blog">Blog</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><small>© 2026 PortdayGuide. Verify your sailing and booking conditions.</small></footer>
   </main>;

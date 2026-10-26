@@ -41,7 +41,9 @@ The [CruiseDirect program page](https://www.cruisedirect.com/affiliates), read O
 
 Use the approved advertiser and CJ account terms for commissionable components, exclusions, reversals, booking versus sailing dates, transaction locking, payment timing, thresholds/currency, permitted geography, deep links and website/social use. Do not publish a guaranteed settlement date or treat a newly booked cruise as paid commission. No live fare, coupon or inventory is supplied by this packet.
 
-## Small integration plan
+## Historical integration plan — October 6
+
+Retained as planning history. The October 8 route-comparison article already answers the earlier editorial handoff; do not recreate it. The current Phase A/B scope below controls further implementation.
 
 1. Finish the existing Alaska page's specific pre-booking answer using the [October 5 reader brief](growth-acquisition.md#october-5-pre-booking-question-and-editorial-handoff). Verify the actual sailing endpoints, airport connections and whole-party budget before placing a booking link. Preserve its canonical URL; do not also create the same answer in another article.
 2. Add one contextual, approved destination link after the route comparison. Keep the single footer disclosure and sponsored link attributes; check that the disclosure accurately covers whole-cruise bookings before activation. Preserve Viator campaigns. Do not insert it into the Cozumel taxi or Tokyo transfer pages.
@@ -50,6 +52,49 @@ Use the approved advertiser and CJ account terms for commissionable components, 
 5. Validate classification with synthetic links locally, without navigating sponsored URLs or posting simulated production events. Verify the rendered real link/attributes by GET, use required exact-head CI/Netlify preview, merge that reviewed head, and check production.
 6. Keep CJ and Viator reports separate. Website outbound events are neither unique visitors nor bookings. Review actual attributed, reversed, locked/completed and paid transactions using their own dates and definitions; missing data stays unavailable.
 
-## Current readiness
+## Readiness recorded October 6
 
 Main `80eee1b038e87ed76e5f63abc055057f644557af` contains no CruiseDirect/CJ tracking link or approved-account evidence. This packet adds no integration code, tracking script, new public page, feed entry, account, fee or subscription. Content and implementation must use the existing shared allowance; the weekly new-article slot stays reserved.
+
+## Alaska pilot — October 18 plan, October 25 execution retry
+
+The owner requested a written plan followed by execution. The four-page Chinese plan was completed and saved October 18; the October 25 retry continues that bounded work from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`. Neither date establishes production publication. Search discovery, internal navigation and whole-cruise monetization remain separate questions; cards or affiliate enrollment do not establish acquired visitors or revenue.
+
+### Phase A: two existing pages, four navigation cards in total
+
+| Existing page | Bounded change | Destination |
+| --- | --- | --- |
+| `/blog/alaska-cruise-ports` | Promote the inline comparison entry to one guide card; retain the five existing port cards. | `/blog/alaska-one-way-vs-round-trip` |
+| `/blog/alaska-one-way-vs-round-trip` | Add three related port-guide cards. | `/ports/juneau`, `/ports/skagway`, `/ports/ketchikan` |
+
+Reuse existing styling and the destination/article's licensed photographs with attribution. Preserve canonical URLs, original publication dates (July 27 and October 8), sourced body and Viator campaigns. A presentation-only change does not mechanically refresh factual check or modification dates. Record the actual production change time in the release evidence.
+
+This specifically requested two-page batch creates no recurring extra allowance, article, Pin, feed entry, GUID/date reset or duplicate indexing request. Subsequent work uses the shared rolling-seven-day allowance. During the first 28 complete days after verified Phase A production, at most one distinct new route article may occupy an existing article package; do not duplicate the Alaska airport/party-cost comparison. This ceiling does not reactivate disabled publishing or create another article/Pin slot.
+
+Phase A changes internal navigation and implementation records only: no placeholder booking button, invented offer, CJ URL, generic CJ-host allowlist, merchant event acceptance, tracking script or unused runtime configuration. Existing Viator collection is not whole-cruise, card-impression or internal-click tracking.
+
+### Phase B: actual approved-link gate
+
+Use the single account handoff above. Activate only after verified CruiseDirect advertiser approval, applicable current account terms and a real CJ-generated link for the permitted destination and website placement. The owner handles agreements and personal account setup; do not create another account or repeat the request on healthy runs without new evidence.
+
+Read the actual link and its permitted redirect destination before extending bounded merchant classification. Preserve the link exactly; add only program-permitted fixed non-personal placement/sub-ID values. Preserve old Viator records, current-page source rules, privacy opt-outs and the single shared disclosure, checked for whole-cruise scope. Apply sponsored attributes; no raw referrers, visitor identity or cross-page state.
+
+The official [program page](https://www.cruisedirect.com/affiliates) and [FAQ](https://www.cruisedirect.com/faq/affiliates), last checked October 18, describe 3% of commissionable cruise fare and a 45-day cookie; the feed remained described as coming soon. This is not 3% of the complete payment or verified live inventory. Confirm actual cancellation/reversal, locking, payment, geography and channel conditions before activation. Booking is not paid commission.
+
+Validate classification locally with synthetic fixtures. Inspect rendered real href/attributes by GET without navigating sponsored links, simulated production events or test purchases. Keep CJ and Viator reports separate; record actual activation independently of preparation, application and approval.
+
+### Observation and task coordination
+
+Keep original article dates for article-age comparisons. Start navigation observation at verified Phase A production and monetization observation only at Phase B activation. Review each at 28 and 56 complete days with timezone and exact window stated; exclude a partially exposed release day and the unfinished current day.
+
+Preserve November 13, December 3 and December 13 stage reviews; immature windows must show actual elapsed days and the next eligible window. As checked October 25, the SEO/article task is disabled; revenue and acquisition remain enabled through their existing December 13 end. Do not assume the SEO task will carry later reviews. If a 56-day window matures after those tasks end and no enabled task can cover it, arrange one dedicated read-only review after maturity, deduplicated against the pilot ledger. This is a post-publication scheduling action, not a claim that a review is already scheduled; do not restore SEO, extend recurring tasks or expand publishing. Preserve the existing December 3 cadence rules without implying the disabled task will run.
+
+Use page-level search/referral reports, internal-navigation evidence and actual merchant transactions only when available, with matching definitions. Phase A establishes no card-exposure or internal-click denominator. HTTP requests and outbound events are not unique visitors; clicks are not bookings. Missing access is unavailable, not zero; without a valid denominator report counts only, not conversion rates. Keep private metrics, exports and account material out of GitHub.
+
+At 28 complete days, inspect discoverability, usable evidence and concrete faults. At 56, compare like-for-like periods, sample size and maintenance effort to retain, adjust or pause expansion. Small samples or incomplete settlement do not establish market failure or success.
+
+### Release and rollback
+
+Use branch, lint/necessary regression and build checks, desktop/mobile inspection, reviewable PR, required CI/Netlify preview on the exact head, merge that head, then production GET verification. Record actual PR, commit, deployment time and checked URLs in the release comment. These instructions are not a claim of publication. Leave unrelated PRs #4, #41 and #42 untouched; reconcile later main evidence before merging instead of overwriting it.
+
+Revert a faulty navigation change or disable/revert only a later cruise-merchant integration, preserving both articles and Viator behavior. Insufficient evidence pauses expansion; it does not authorize paid traffic, filler content or third-party outreach.
