@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { PlanView } from "@/components/PlanView";
+import { trackMeasurement } from "@/lib/measurement-client.mjs";
 import {
   buildCruisePlan, encodePlan, interests, planAsText, portNames, portProfiles, portRegions, portsByRegion, profilesBySlug,
   type CruisePlan, type Interest, type Mobility, type Pace, type PlannerInput, type PortCallInput, type PortName, type WeatherForecast,
@@ -36,6 +37,11 @@ export function CruisePlanner() {
   const [savedTrips, setSavedTrips] = useState<CruisePlan[]>([]);
   const [status, setStatus] = useState("");
   const [formError, setFormError] = useState("");
+  const [generation, setGeneration] = useState(0);
+
+  useEffect(() => {
+    if (generation > 0) trackMeasurement({ type: "tool_complete", tool: "cruise-planner" });
+  }, [generation]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -74,6 +80,7 @@ export function CruisePlanner() {
     const basePlan = buildCruisePlan(plannerInput());
     setStatus(basePlan.days.some((day) => day.date) ? "Checking near-term weather…" : "");
     setPlan(basePlan);
+    setGeneration(count => count + 1);
     window.requestAnimationFrame(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" }));
     const forecasts = await Promise.all(basePlan.days.map(async (day) => {
       if (!day.date) return null;

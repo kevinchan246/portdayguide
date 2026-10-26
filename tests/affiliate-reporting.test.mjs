@@ -54,7 +54,7 @@ test("retries produce deterministic archives without double counting", async () 
   assert.equal(first.previous7Days.length, 0);
   assert.equal(first.dataSources.completedCommission, "not_collected");
   assert.equal("revenue" in first, false);
-  assert.equal(first.schemaVersion, 2);
+  assert.equal(first.schemaVersion, 3);
   assert.match(first.sourceScope, /no cross-page attribution/);
 });
 

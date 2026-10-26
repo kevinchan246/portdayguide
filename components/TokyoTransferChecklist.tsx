@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { trackMeasurement } from "@/lib/measurement-client.mjs";
 import styles from "./TokyoTransferChecklist.module.css";
 
 const canonicalUrl = "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal";
@@ -46,6 +47,9 @@ export function TokyoTransferChecklist() {
   const [copyFailed, setCopyFailed] = useState(false);
   const [printing, setPrinting] = useState(false);
   const completed = checked.filter(Boolean).length;
+  useEffect(() => {
+    if (completed === checks.length) trackMeasurement({ type: "tool_complete", tool: "tokyo-checklist" });
+  }, [completed]);
 
   useEffect(() => {
     if (!printing) return;

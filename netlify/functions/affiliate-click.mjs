@@ -1,5 +1,6 @@
 import { getStore } from "@netlify/blobs";
-import { AFFILIATE_STORE, validateAffiliateEvent } from "../../lib/affiliate-events.mjs";
+import { AFFILIATE_STORE } from "../../lib/affiliate-events.mjs";
+import { validateMeasurementEvent } from "../../lib/planning-events.mjs";
 
 const headers = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" };
 const response = status => new Response(null, { status, headers });
@@ -26,7 +27,7 @@ export function createHandler(openStore = getStore) {
         if (length > 2048) { await reader.cancel(); return response(413); }
         chunks.push(value);
       }
-      payload = validateAffiliateEvent(JSON.parse(Buffer.concat(chunks).toString("utf8")));
+      payload = validateMeasurementEvent(JSON.parse(Buffer.concat(chunks).toString("utf8")));
     } catch { return response(400); }
     if (!payload) return response(400);
     try {

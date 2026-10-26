@@ -2,6 +2,13 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-26 — Profit-focused decision paths and measurement draft
+
+- Owner requested execution of the profit-focused improvement plan. Refreshed main `f0a272aea8808f41776d18e9b7abbc473f398216`, open PRs and production evidence before editing an isolated branch. #43 is merged and production deploy `6adfaa0ae02971004222684d` is ready; #41/#42 still await mobile QA, #4 is unrelated. Preserve all four and other tasks' work.
+- Scope: small navigation/purchase-fit explanations on Cozumel taxis and the two Yokohama paths; honest unknown-price-unit copy on their existing cards; page arrivals and successful tool completion using the existing private click/report/retention pipeline. No new article, cover, canonical, Pin, feed item, merchant program, automation or schedule. Source review, file ownership, measurement definitions and manual acceptance are in [the draft review](editorial-drafts/profit-paths-measurement-2026-10-26.md).
+- Browser control was stopped by the environment because it could not reliably identify the current Windows browser URL. No bypass was attempted. Desktop and actual mobile visual QA remain required; draft/CI/GET checks are not substitutes. The coordinating task must also reconcile the one-time batch's publication allowance before release; this does not reuse #43's exception or expand recurring quotas.
+- No sponsored navigation, production analytics POST, booking or private business figures. Local tests and exact-head CI/preview outcomes belong in the PR. Until those gates and visual acceptance pass, no merge, production release or revenue effect is claimed.
+
 ## 2026-10-25 — Alaska pilot execution retry after the written plan
 
 - Continue the owner's October 18 written-plan-first request after the October 25 retry instruction, from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`. The four-page Chinese plan was completed and saved October 18; that date is not a production release. This is one specifically requested two-page batch, with no recurring allowance increase.
