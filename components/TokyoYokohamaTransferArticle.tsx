@@ -24,6 +24,7 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
       <h2 id="tokyo-transfer-answer">How do I get from Tokyo to Yokohama Cruise Terminal?</h2>
       <p>{guide.quickAnswer}</p>
       <p className={styles.scope}>This guide starts at a Tokyo hotel or city station and ends at your embarkation terminal. If you are arriving at Haneda or Narita, look up the airport-origin route separately before choosing a city transfer.</p>
+      <p>Already arriving by ship for a shore visit? Use the <Link href={nearbyGuide}>near-terminal Yokohama walking guide</Link>. A hotel-to-port car does not provide that return-to-ship outing.</p>
       <div className={styles.quickLinks}><a href="#hotel-to-port-transfers">Compare hotel-to-port transfers ↓</a><a href="#tokyo-transfer-checklist">Free embarkation checklist ↓</a></div>
     </section>
 
@@ -65,7 +66,7 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
     </section>
 
     <div id="hotel-to-port-transfers" className={styles.transferOptions}>
-      <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Tokyo to Yokohama" heading={guide.viator.heading} />
+      <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Tokyo to Yokohama" heading={guide.viator.heading} intro="For Tokyo city-hotel pickup to your Yokohama embarkation terminal. Confirm Osanbashi, Shinko or Daikoku by name, the pickup time and the vehicle for everyone and every suitcase. Airport pickup, the reverse journey and a shore tour are different bookings." bookingNote="Check the selected option's per-person or per-group unit and full party total, passenger and suitcase limits, tolls, waiting time, child seats, accessibility and cancellation terms. A displayed journey duration is not a guaranteed arrival time." />
     </div>
 
     <section aria-labelledby="transfer-costs">

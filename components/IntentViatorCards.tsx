@@ -13,6 +13,7 @@ type BookingFallback = { href: string; label: string; title: string; description
 export function IntentViatorCards({ portSlug, topic, portName, heading, intro, bookingNote, actionLabel, fallback, version }: { portSlug: string; topic: string; portName: string; heading: string; intro?: string; bookingNote?: string; actionLabel?: string; fallback?: BookingFallback; version?: string }) {
   const isTokyoTransfer = portSlug === "yokohama-tokyo" && topic === "tokyo-to-yokohama-cruise-terminal";
   const isCozumelDriver = portSlug === "cozumel" && topic === "taxi-rates";
+  const needsPartyQuote = isTokyoTransfer || isCozumelDriver || (portSlug === "yokohama-tokyo" && topic === "things-to-do-near-yokohama-cruise-terminal");
   const [data, setData] = useState<ViatorProductsPayload | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -43,7 +44,7 @@ export function IntentViatorCards({ portSlug, topic, portName, heading, intro, b
       return <a className="intent-viator-card" data-affiliate-placement={placement} data-affiliate-product={product.productCode} href={product.productUrl} target="_blank" rel="sponsored nofollow noopener" key={product.productCode}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={product.imageUrl} alt={product.imageAlt} loading="lazy" />
-        <div><span>{product.duration}{product.freeCancellation ? " · Free cancellation" : ""}</span><h3>{product.title}</h3><p>{product.rating !== null ? `${product.rating.toFixed(1)} ★ · ${product.reviewCount.toLocaleString()} reviews` : "New on Viator"}</p><strong>From {currency(product.price, product.currency)} {priceUnit || ""}</strong><b>{actionLabel || (isTokyoTransfer ? "Check transfer details ↗" : isCozumelDriver ? "Check driver & pickup ↗" : "View excursion ↗")}</b></div>
+        <div><span>{product.duration}{product.freeCancellation ? " · Free cancellation" : ""}</span><h3>{product.title}</h3><p>{product.rating !== null ? `${product.rating.toFixed(1)} ★ · ${product.reviewCount.toLocaleString()} reviews` : "New on Viator"}</p><strong>From {currency(product.price, product.currency)} {priceUnit || ""}</strong>{needsPartyQuote && !priceUnit && <p>Price unit not supplied. Confirm per-person or per-group pricing and your complete party total.</p>}<b>{actionLabel || (isTokyoTransfer ? "Check transfer details ↗" : isCozumelDriver ? "Check driver & pickup ↗" : "View excursion ↗")}</b></div>
       </a>;
     })}
   </div>;

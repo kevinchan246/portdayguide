@@ -760,7 +760,7 @@ test("publishes the Yokohama terminal-area article with affiliate and reciprocal
   assert.match(article, /Live booking options/i);
   assert.match(article, /Yokohama food tours near Osanbashi/i);
   assert.ok(article.indexOf("Dining and Shopping Near the Terminal") < article.indexOf("Live booking options"), "Viator module should sit inside the dining section");
-  assert.ok(article.indexOf("Live booking options") < article.indexOf("<h3>Yokohama Red Brick Warehouse</h3>"), "Dining Viator module should appear before the shopping-area subsections");
+  assert.ok(article.indexOf("Live booking options") < article.search(/<h3\b[^>]*>Yokohama Red Brick Warehouse<\/h3>/), "Dining Viator module should appear before the shopping-area subsections");
   assert.match(article, /href="\/ports\/yokohama-tokyo"/i);
   assert.match(article, /Complete port guide/i);
   assert.match(article, /\/media\/ports\/yokohama-tokyo\.jpg/i);
@@ -800,7 +800,9 @@ test("publishes a distinct Tokyo embarkation guide with terminal-specific routes
     assert.ok(visible.includes(text), `missing embarkation guidance: ${text}`);
   }
   assert.doesNotMatch(visible, /Port Day Fit|A cruise-safe sequence|Build my Yokohama|return timing on Viator/);
-  assert.match(visible, /Tokyo hotel pickup, the exact Yokohama terminal, luggage capacity/);
+  assert.match(visible, /Tokyo city-hotel pickup to your Yokohama embarkation terminal/);
+  assert.match(visible, /Confirm Osanbashi, Shinko or Daikoku by name/);
+  assert.match(visible, /passenger and suitcase limits/);
   assert.match(visible, /data-photo-source="Wikimedia Commons"/);
   assert.match(visible, /\/media\/articles\/tokyo-yokohama-osanbashi-approach/);
   assert.match(visible, /Matthide127/);
