@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-25 — Alaska pilot execution retry after the written plan
+
+- Continue the owner's October 18 written-plan-first request after the October 25 retry instruction, from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`. The four-page Chinese plan was completed and saved October 18; that date is not a production release. This is one specifically requested two-page batch, with no recurring allowance increase.
+- Scope: one overview-to-comparison card and three Juneau/Skagway/Ketchikan cards on the comparison page; retain the five overview port cards, original dates/canonicals, sourced body, licensed imagery and Viator campaigns. No article, Pin, feed entry, fake CJ link, runtime configuration, merchant tracker or duplicate indexing request. Unrelated PRs #4, #41 and #42 remain untouched; later main evidence must be reconciled before merge.
+- Visual review identified the reused discovery component's plain-text author labels. Enable a scoped optional linked-credit presentation only for the four new cards, using existing author/attribution records and separate sibling links for the article image and photographer. Preserve the historical card design elsewhere and the original five overview cards; updated preview checks must verify the four credit destinations and layout before release.
+- Updated the four operating/integration records from current main. Actual approval, current account terms and a generated CJ link still gate Phase B. Navigation and activation have separate 28/56-complete-day clocks; unavailable data is not zero. SEO/article is currently disabled, while acquisition/revenue retain their December 13 end. After publication, a later 56-day window without an enabled task requires one dedicated read-only review, not SEO reactivation or a recurring-schedule extension.
+- Required lint/build/regression, desktop/mobile, exact-head CI/Netlify preview, merge and production GET evidence belong in the PR release comment after they pass, including actual version, deployment time and four destinations. Preparation here does not claim deployment, acquired traffic or commercial results. No sponsored navigation, simulated production events or private metrics are included.
+
 ## 2026-10-16 — Mahahual transport-page recommendation fit
 
 - Read main `a24df52e2f0063c78bf5d25c0f0386f24db0cb1a`, operating records, recent commits, branches and open PRs. Only unrelated #4 is open. Netlify's exact-main production deploy is ready; initial GET-only health passes 8/8. This is one independent existing-page improvement after October 9 Roatán leaves the rolling window; Hobby/LGB retain both new-article packages.
