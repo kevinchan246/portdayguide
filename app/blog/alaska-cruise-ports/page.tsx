@@ -9,10 +9,27 @@ import {
 } from "@/lib/alaska-blog";
 import { AlaskaViatorPicks } from "@/components/AlaskaViatorPicks";
 import { LocalPhotoImage } from "@/components/LocalPhotoImage";
+import { PlanningArticleCards } from "@/components/PlanningArticleCards";
+import { alaskaRoutePath, alaskaRoutePost } from "@/lib/alaska-route-decision";
 import { commonsFilePageUrl, portPhotos, portPhotoPath } from "@/lib/port-photos";
 import { localPhotoSrcSet } from "@/lib/local-photos";
 import photoCredits from "@/lib/scenic-photo-credits.json";
 import { siteUrl } from "@/lib/seo";
+import styles from "./page.module.css";
+
+const routeDecisionArticle = {
+  path: alaskaRoutePath,
+  title: alaskaRoutePost.title,
+  description: alaskaRoutePost.description,
+  category: alaskaRoutePost.category,
+  image: {
+    src: alaskaRoutePost.image,
+    alt: alaskaRoutePost.imageAlt,
+    author: alaskaRoutePost.imageAuthor,
+    width: alaskaRoutePost.imageWidth,
+    height: alaskaRoutePost.imageHeight,
+  },
+};
 
 export const metadata: Metadata = {
   title: alaskaCruisePortsPost.seoTitle,
@@ -47,8 +64,8 @@ function ArrowIcon() {
 
 export default function AlaskaCruisePortsPage() {
   const pageUrl = `${siteUrl}${alaskaCruisePortsPath}`;
-  // Keep the sourced article copy in its editorial module; enhance only the
-  // local image delivery and compact credits at this rendering boundary.
+  // Preserve the sourced article copy while enhancing its images and the
+  // existing route-comparison link at this rendering boundary.
   let articleHtml = alaskaCruisePortsHtml.replace(/<img src="(\/media\/ports\/[^"<>]+\.jpg)"([^>]*)>/g, (image, src: string) => {
     const srcSet = localPhotoSrcSet(src);
     return srcSet ? `<picture><source type="image/webp" srcset="${srcSet}" sizes="(max-width: 800px) calc(100vw - 48px), 820px">${image}</picture>` : image;
@@ -62,6 +79,9 @@ export default function AlaskaCruisePortsPage() {
   const viatorInsertionIndex = articleHtml.indexOf(viatorInsertionAnchor);
   const articleBeforeViator = viatorInsertionIndex >= 0 ? articleHtml.slice(0, viatorInsertionIndex) : articleHtml;
   const articleAfterViator = viatorInsertionIndex >= 0 ? articleHtml.slice(viatorInsertionIndex) : "";
+  const [articleBeforeRouteGuide, articleAfterRouteGuide] = articleBeforeViator.split(
+    /<p>Choosing between two specific sailings\?[\s\S]*?<\/p>/,
+  );
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -128,7 +148,11 @@ export default function AlaskaCruisePortsPage() {
     <div className="blog-article-layout">
       <aside className="blog-toc" aria-label="Article contents"><span>In this article</span><ol>{alaskaCruisePortsPost.toc.map((item) => <li key={item.id}><a href={`#${item.id}`}>{item.label}</a></li>)}</ol></aside>
       <article className="blog-article-body">
-        <div dangerouslySetInnerHTML={{ __html: articleBeforeViator }} />
+        <div dangerouslySetInnerHTML={{ __html: articleBeforeRouteGuide }} />
+        <aside id="alaska-route-comparison" className={styles.routeGuide} aria-label="Compare one-way and round-trip Alaska cruises">
+          <PlanningArticleCards articles={[routeDecisionArticle]} linkedCredits />
+        </aside>
+        {articleAfterRouteGuide && <div dangerouslySetInnerHTML={{ __html: articleAfterRouteGuide }} />}
         <AlaskaViatorPicks />
         {articleAfterViator && <div dangerouslySetInnerHTML={{ __html: articleAfterViator }} />}
         <aside className="blog-editorial-note"><strong>PortdayGuide planning note</strong><p>Cruise routes, ports of call, berth assignments, excursions, access conditions, and wildlife sightings vary by sailing. Confirm the current itinerary and every port-day booking with the cruise line and operator before travel.</p></aside>

@@ -1,0 +1,10 @@
+.routeGuide { margin: 30px 0; }
+.routeGuide :global(.planning-article-grid) { grid-template-columns: minmax(0, 1fr); }
+.routeGuide :global(.planning-article-card) { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+.routeGuide :global(.planning-article-image) { aspect-ratio: auto; min-height: 230px; }
+.routeGuide :global(.planning-article-copy h3) { margin: 0; }
+.routeGuide :global(.planning-article-copy a) { text-decoration: none; }
+@media (max-width: 600px) {
+  .routeGuide :global(.planning-article-card) { grid-template-columns: minmax(0, 1fr); }
+  .routeGuide :global(.planning-article-image) { aspect-ratio: 16 / 10; min-height: 0; }
+}
