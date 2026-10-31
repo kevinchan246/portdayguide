@@ -350,9 +350,9 @@ test("publishes a crawlable blog hub and SEO article with same-origin images", a
   assert.match(blog, /"@type":"CollectionPage"/i);
   assert.match(blog, /"@type":"ItemList"/i);
   const collection = schemasFrom(blog).find((schema) => schema["@type"] === "CollectionPage");
-  assert.equal(collection.mainEntity.numberOfItems, 17);
+  assert.equal(collection.mainEntity.numberOfItems, 18);
   const articleUrls = collection.mainEntity.itemListElement.map((item) => item.url);
-  assert.equal(new Set(articleUrls).size, 17, "planning directory must contain one entry per canonical article");
+  assert.equal(new Set(articleUrls).size, 18, "planning directory must contain one entry per canonical article");
   for (const url of articleUrls) assert.ok(blog.includes(`href="${new URL(url).pathname}"`), `${url}: schema entry must have a visible article link`);
   assert.match(blog, /href="\/ports\/osaka\/kaiyukan-from-cruise-port"/i);
   assert.match(blog, /href="\/ports\/yokohama-tokyo\/tokyo-to-yokohama-cruise-terminal"/i);
@@ -740,6 +740,12 @@ test("gives the beach transfer guides distinct bodies and one contextual booking
   assert.match(standard, /d4345-420443P5/);
   assert.match(standard, /Steps for the port day/);
   assert.doesNotMatch(standard, /data-beach-article=/);
+  const comparison = await render("/ports/costa-maya/port-vs-mahahual");
+  assert.match(comparison, /One bundled Mahahual option to compare/);
+  assert.match(comparison, /not admission to the Costa Maya port complex/);
+  assert.match(comparison, /only when that option is selected/);
+  assert.match(comparison, /not wheelchair-adapted/);
+  assert.match(comparison, /"dateModified":"2026-10-23"/);
 });
 
 test("publishes the Yokohama terminal-area article with affiliate and reciprocal guide links", async () => {

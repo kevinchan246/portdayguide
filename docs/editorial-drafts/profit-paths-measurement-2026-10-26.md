@@ -1,6 +1,10 @@
 # Cozumel / Yokohama decision paths and bounded measurement — October 26, 2026
 
-## Ownership and release hold
+## October 31 acceptance update
+
+The coordinating task confirmed this as the separately requested October 26 owner batch, without any recurring quota change. The owner subsequently confirmed both desktop and mobile previews for `c132d575`. Those confirmations supersede the historical allowance/visual holds below. The release integration preserves the inspected UI and measurement implementation while retaining the already-published #41/#42 work and complete test union. Exact-head CI/preview and production verification remain required; actual release evidence belongs in PR #44 and the operations log. Production event persistence/report generation is not proven by visual acceptance or tests.
+
+## Original ownership and release hold (October 26 record)
 
 This draft implements the owner's current request to execute the profit-focused plan: protect existing useful search paths, improve purchase fit, finish mobile acceptance and fill only the measurement needed for decisions. It is a bounded new request, not a change to recurring quotas. Final release-allowance reconciliation remains pending with the coordinating task; do not borrow the separate Alaska pilot exception.
 

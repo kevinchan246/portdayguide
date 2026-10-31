@@ -1,3 +1,4 @@
+import { osakaCastlePath, osakaCastlePost } from "@/lib/osaka-castle";
 import { longBeachTransferPath, longBeachTransferPost } from "@/lib/long-beach-transfer";
 import { galvestonTransferPath, galvestonTransferPost } from "@/lib/galveston-transfer";
 import { alaskaRoutePath, alaskaRoutePost } from "@/lib/alaska-route-decision";
@@ -104,6 +105,7 @@ export const terminalTransferGuides = [
 ] as const;
 
 export const blogPosts = [
+  { ...osakaCastlePost, path: osakaCastlePath },
   { ...longBeachTransferPost, path: longBeachTransferPath },
   { ...galvestonTransferPost, path: galvestonTransferPath },
   { ...alaskaRoutePost, path: alaskaRoutePath },
