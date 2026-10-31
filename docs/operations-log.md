@@ -2,6 +2,12 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-27 — PR #42 conflict reconciliation; release held
+
+- Refreshed main `f0a272aea8808f41776d18e9b7abbc473f398216`, PR #42 head `786efd8dc5704c0e01d90c4fddc4f7c03b76c3d0`, open PRs, comments, task status and production deployment before this isolated reconciliation. The revenue task is idle and no competing conflict-resolution claim was found. PR #44 remains owned and draft at `c132d575`; PR #41 and unrelated #4 remain untouched.
+- Merge current main into PR #42 without rewriting history. Resolve only the operations-log conflict: retain the complete October 25 Alaska entry and the October 23 Costa Maya entry, with all older entries intact. Carry main's existing files unchanged; preserve PR #42's product selection, source-dated caveats, attribution, tests and ordinary existing-page classification. No new factual refresh, article, measurement change or recurring allowance.
+- Mobile visual QA remains outstanding; the previous desktop check covered the old head only. No browser attempt, sponsored navigation, production event, merge to main, production deploy, automation change or outreach is part of this reconciliation. The final commit, tests and exact-head CI/preview evidence belong in PR #42. Recheck current source facts, main/ownership, allowance and all visual/release gates before any later publication.
+
 ## 2026-10-25 — Alaska pilot execution retry after the written plan
 
 - Continue the owner's October 18 written-plan-first request after the October 25 retry instruction, from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`. The four-page Chinese plan was completed and saved October 18; that date is not a production release. This is one specifically requested two-page batch, with no recurring allowance increase.
@@ -9,6 +15,13 @@ This is a public technical log. Business metrics and private reports belong in p
 - Visual review identified the reused discovery component's plain-text author labels. Enable a scoped optional linked-credit presentation only for the four new cards, using existing author/attribution records and separate sibling links for the article image and photographer. Preserve the historical card design elsewhere and the original five overview cards; updated preview checks must verify the four credit destinations and layout before release.
 - Updated the four operating/integration records from current main. Actual approval, current account terms and a generated CJ link still gate Phase B. Navigation and activation have separate 28/56-complete-day clocks; unavailable data is not zero. SEO/article is currently disabled, while acquisition/revenue retain their December 13 end. After publication, a later 56-day window without an enabled task requires one dedicated read-only review, not SEO reactivation or a recurring-schedule extension.
 - Required lint/build/regression, desktop/mobile, exact-head CI/Netlify preview, merge and production GET evidence belong in the PR release comment after they pass, including actual version, deployment time and four destinations. Preparation here does not claim deployment, acquired traffic or commercial results. No sponsored navigation, simulated production events or private metrics are included.
+
+## 2026-10-23 — Costa Maya comparison-page recommendation fit
+
+- Started from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`; read both operating runbooks, this log, recent commits, production deployment and open PRs. PR #41 remains an unmerged Osaka Castle article package blocked on mobile visual QA; unrelated #4 stays untouched. The October 16 old-page release keeps the shared independent slot until after `2026-10-23T14:52:47.454Z`; this change must not merge before that gate.
+- Confirmed the pending comparison-page fault: the production `port-vs-mahahual` API returned one relevant Mahahual beach package plus Chacchoben and Bacalar excursions that do not answer the port-complex-versus-Mahahual decision. Restrict this page to reviewed `420443P5`, preserve its distinct campaign, use a precise search and version the request with the October 23 modification date. [Product review and exclusions](editorial-drafts/costa-maya-comparison-product-review-2026-10-23.md).
+- Keep the page's existing independent Larry D. Moore Costa Maya entrance photograph, linked-author credit and responsive variants. No new URL, article, Pin, feed item, GUID/date, private report request or duplicate GSC reminder. Product conditions are source-dated; no selected-date inventory, ship-return guarantee, revenue or ranking claim.
+- Required lint/build/rendered/API/cover/browser checks, exact-head CI/preview, merge after the rolling gate and production GET verification belong in the PR release discussion. This preparation entry does not itself claim release.
 
 ## 2026-10-16 — Mahahual transport-page recommendation fit
 

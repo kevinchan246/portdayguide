@@ -740,6 +740,12 @@ test("gives the beach transfer guides distinct bodies and one contextual booking
   assert.match(standard, /d4345-420443P5/);
   assert.match(standard, /Steps for the port day/);
   assert.doesNotMatch(standard, /data-beach-article=/);
+  const comparison = await render("/ports/costa-maya/port-vs-mahahual");
+  assert.match(comparison, /One bundled Mahahual option to compare/);
+  assert.match(comparison, /not admission to the Costa Maya port complex/);
+  assert.match(comparison, /only when that option is selected/);
+  assert.match(comparison, /not wheelchair-adapted/);
+  assert.match(comparison, /"dateModified":"2026-10-23"/);
 });
 
 test("publishes the Yokohama terminal-area article with affiliate and reciprocal guide links", async () => {
