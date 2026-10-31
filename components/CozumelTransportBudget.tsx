@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { trackMeasurement } from "@/lib/measurement-client.mjs";
 import { compareTransportQuotes, type TransportQuote } from "@/lib/cozumel-transport";
 import styles from "./CozumelTaxiArticle.module.css";
 import jumpStyles from "./IntentBookingLinks.module.css";
@@ -9,6 +10,10 @@ export function CozumelTransportBudget() {
   const [quote, setQuote] = useState<TransportQuote>({ passengers: "4", outward: "", back: "", taxiExtras: "0", driver: "", driverExtras: "0" });
   const [currency, setCurrency] = useState("USD");
   const result = compareTransportQuotes(quote);
+  const comparisonComplete = result?.difference !== null && result?.difference !== undefined;
+  useEffect(() => {
+    if (comparisonComplete) trackMeasurement({ type: "tool_complete", tool: "cozumel-budget" });
+  }, [comparisonComplete]);
   const format = (amount: number) => new Intl.NumberFormat("en-US", { style: "currency", currency }).format(amount);
   const field = (key: keyof TransportQuote, label: string) => <label>{label}<input type="number" inputMode="decimal" min="0" max="100000" step="0.01" value={quote[key]} onChange={event => setQuote({ ...quote, [key]: event.target.value })} /></label>;
   return <section className={styles.budget} aria-labelledby="transport-budget-title">
@@ -27,6 +32,7 @@ export function CozumelTransportBudget() {
         <p><strong>Taxis:</strong> {result.taxiTotal === null ? "Enter both fares and extras." : `${format(result.taxiTotal)} total · ${format(result.taxiTotal / result.people)} per traveler`}</p>
         <p><strong>Driver/package:</strong> {result.driverTotal === null ? "Enter a confirmed quote and extras." : `${format(result.driverTotal)} total · ${format(result.driverTotal / result.people)} per traveler`}</p>
         {result.difference !== null && <p>{result.difference === 0 ? "The entered totals are equal." : `The driver/package is ${format(Math.abs(result.difference))} ${result.difference > 0 ? "more" : "less"} for the whole party.`} Compare pickup, included time and return arrangements before deciding.</p>}
+        {comparisonComplete && <p><a href="#cozumel-driver-checks">Check what the driver quote includes</a> before paying. For one destination, separate taxis may already cover your plan.</p>}
       </>}
     </div>
     <small>This compares your inputs; it does not fetch current taxi fares or convert currencies. Changing the currency clears the amounts. Amounts must be non-negative, with at most two decimal places. Nothing entered here is saved.</small>

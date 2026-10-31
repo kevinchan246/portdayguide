@@ -2,9 +2,9 @@ import styles from "./IntentBookingLinks.module.css";
 
 export function CozumelCostLinks() {
   return <nav className={styles.costTools} aria-label="Cozumel transport cost tools">
-    <span>Plan your taxi budget</span>
+    <span>Start with your pier and party size</span>
     <a className={styles.calculator} href="#cozumel-fare-references">See fares by destination <span aria-hidden="true">↓</span></a>
-    <a className={styles.driverCheck} href="#transport-budget-title">Compare your whole-party cost</a>
+    <a className={styles.driverCheck} href="#transport-budget-title">Have quotes? Compare the round-trip total</a>
     <a className={styles.driverCheck} href="#cozumel-driver-checks">Review private-driver inclusions</a>
   </nav>;
 }

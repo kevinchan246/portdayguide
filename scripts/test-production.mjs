@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
 import process from "node:process";
+import { fileURLToPath } from "node:url";
 
 const host = "127.0.0.1";
 const port = process.env.TEST_PORT ?? "4173";
@@ -7,7 +8,7 @@ const baseUrl = `http://${host}:${port}`;
 const nextBin = new URL("../node_modules/next/dist/bin/next", import.meta.url);
 const logs = [];
 
-const server = spawn(process.execPath, [nextBin.pathname, "start", "-H", host, "-p", port], {
+const server = spawn(process.execPath, [fileURLToPath(nextBin), "start", "-H", host, "-p", port], {
   cwd: new URL("../", import.meta.url),
   env: { ...process.env, VIATOR_API_KEY: "" },
   stdio: ["ignore", "pipe", "pipe"],
@@ -40,7 +41,7 @@ function stopServer() {
 
 try {
   await waitForServer();
-  const tests = spawn(process.execPath, ["--experimental-strip-types", "--test", "tests/rendered-html.test.mjs", "tests/osaka-castle-render.test.mjs", "tests/long-beach-render.test.mjs", "tests/article-covers.test.mjs", "tests/affiliate.test.mjs", "tests/affiliate-reporting.test.mjs", "tests/site-health.test.mjs", "tests/osaka-planning.test.mjs", "tests/pinterest-feed.test.mjs"], {
+  const tests = spawn(process.execPath, ["--experimental-strip-types", "--test", "tests/rendered-html.test.mjs", "tests/osaka-castle-render.test.mjs", "tests/long-beach-render.test.mjs", "tests/article-covers.test.mjs", "tests/affiliate.test.mjs", "tests/affiliate-reporting.test.mjs", "tests/planning-events.test.mjs", "tests/profit-paths-render.test.mjs", "tests/site-health.test.mjs", "tests/osaka-planning.test.mjs", "tests/pinterest-feed.test.mjs"], {
     cwd: new URL("../", import.meta.url),
     env: { ...process.env, TEST_BASE_URL: baseUrl, VIATOR_API_KEY: "" },
     stdio: "inherit",

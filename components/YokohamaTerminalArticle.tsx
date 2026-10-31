@@ -3,6 +3,7 @@ import { IntentViatorCards } from "@/components/IntentViatorCards";
 import { PlanningArticlePhoto } from "@/components/PlanningArticlePhoto";
 import { PortScenicPhoto } from "@/components/PortScenicPhoto";
 import type { PortIntentGuide } from "@/lib/port-intent-guides";
+import jumpStyles from "./IntentBookingLinks.module.css";
 
 type AttractionPhotoProps = {
   imageUrl: string;
@@ -27,6 +28,13 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
     <div className="intent-editorial-copy">
       <p><strong>From Osanbashi, choose Yamashita Park and Chinatown for a park-and-food walk, or the Red Brick Warehouse and Minato Mirai for a waterfront outing.</strong> These are alternative directions for a compact port day. Choose one main area, check the time left after disembarkation, and keep the return to your ship in the plan.</p>
       <aside className="intent-editorial-note"><strong>Confirm your terminal first.</strong><p>This guide is centered on Osanbashi Pier. Yokohama calls can also use Shinko or Daikoku, whose first-mile transport is different. Use the exact terminal in your cruise documents before following a walking or pickup plan.</p></aside>
+      <nav className={jumpStyles.costTools} aria-label="Choose your Yokohama visit">
+        <span>Choose the next step for your visit</span>
+        <a className={jumpStyles.calculator} href="#yokohama-park-food">Park and Chinatown walk</a>
+        <a className={jumpStyles.driverCheck} href="#yokohama-waterfront">Red Brick Warehouse and Minato Mirai</a>
+        <Link className={jumpStyles.driverCheck} href="/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal#tokyo-transfer-checklist">Boarding from a Tokyo hotel? Use the transfer checklist</Link>
+      </nav>
+      <p>A Tokyo hotel-to-terminal transfer is for embarkation. For a shore visit, keep the ship-to-sights-to-ship route and all-aboard time together. Daikoku requires a vehicle connection; do not apply Osanbashi walking directions to that berth. Check the <a href="https://www.city.yokohama.lg.jp/lang/overseas/port/cruise/terminal_info.html" target="_blank" rel="noopener noreferrer">official terminal map and access guidance</a>.</p>
 
       <section aria-labelledby="terminal-overview">
         <h2 id="terminal-overview">Start with the time you actually have ashore</h2>
@@ -54,7 +62,7 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
         <h3>Cultural landmarks</h3>
         <p>Yokohama&apos;s cultural attractions offer a view of the city&apos;s international history and modern creativity. Three well-known options are Yokohama Chinatown, the Cup Noodles Museum, and Sankeien Garden.</p>
 
-        <h3>Yokohama Chinatown</h3>
+        <h3 id="yokohama-park-food" tabIndex={-1} className={jumpStyles.target}>Yokohama Chinatown</h3>
         <AttractionPhoto
           imageUrl="https://images.unsplash.com/photo-1529921725089-e25882771425?auto=format&fit=crop&w=1600&q=82"
           photoUrl="https://unsplash.com/photos/people-walking-pass-blue-chinese-gate-z2C9acfjvws?utm_source=portdayguide&utm_medium=referral"
@@ -126,9 +134,9 @@ export function YokohamaTerminalArticle({ guide, hub }: { guide: PortIntentGuide
           <li>International restaurants and waterfront cafes</li>
         </ul>
 
-        <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Yokohama" heading={guide.viator.heading} />
+        <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Yokohama" heading={guide.viator.heading} intro="Prefer a guided outing? Confirm the actual meeting point and full duration first. A Yokohama activity is not automatically a cruise-terminal pickup or a Tokyo hotel transfer." bookingNote="Check whether transport and admissions are included, whether the price is per person or per group, and whether the meeting and finish points fit your berth and all-aboard time. Confirm any luggage or mobility needs with the operator." />
 
-        <h3>Yokohama Red Brick Warehouse</h3>
+        <h3 id="yokohama-waterfront" tabIndex={-1} className={jumpStyles.target}>Yokohama Red Brick Warehouse</h3>
         <AttractionPhoto
           imageUrl="https://images.unsplash.com/photo-1608391141847-c02a3b11b077?auto=format&fit=crop&w=1600&q=82"
           photoUrl="https://unsplash.com/photos/city-skyline-across-body-of-water-during-daytime-EugO2lOSPG0?utm_source=portdayguide&utm_medium=referral"
