@@ -11,6 +11,7 @@ import { PortTravelerPulse } from "@/components/PortTravelerPulse";
 import { TopThingsExcursions } from "@/components/TopThingsExcursions";
 import { ViatorDestinationLink } from "@/components/ViatorDestinationLink";
 import { alaskaCruisePortsPath, alaskaCruisePortsPost } from "@/lib/alaska-blog";
+import { osakaCastlePath, osakaCastlePost } from "@/lib/osaka-castle";
 import { guideReadMinutes, guideUpdatedIso, highlightPlanningNote } from "@/lib/editorial";
 import { intentGuidePath, intentGuidesForPort } from "@/lib/port-intent-guides";
 import { portInsight } from "@/lib/port-insights";
@@ -203,6 +204,7 @@ export default async function PortGuidePage({ params }: { params: Promise<{ slug
       ? <Link href={intentGuidePath(guide)} key={guide.topic} className="port-topic-card-featured"><PlanningArticlePhoto path={intentGuidePath(guide)} /><div><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>{guide.template === "tokyo-yokohama-transfer" ? "Read the Tokyo to Yokohama transfer guide →" : "Read the Yokohama guide →"}</b></div></Link>
       : <Link href={intentGuidePath(guide)} key={guide.topic}><span>{guide.eyebrow}</span><h3>{guide.title}</h3><p>{guide.description}</p><b>Read the decision guide →</b></Link>)}</div></section>}
 
+    {profile.slug === "osaka" && <section className="section port-topic-cluster" aria-labelledby="osaka-castle-link"><div className="section-heading compact"><h2 id="osaka-castle-link">Choosing the castle from Tempozan?</h2></div><div><Link href={osakaCastlePath} className="port-topic-card-featured"><PlanningArticlePhoto path={osakaCastlePath} /><div><span>{osakaCastlePost.category}</span><h3>{osakaCastlePost.title}</h3><p>{osakaCastlePost.excerpt}</p><b>Plan the approach and museum decision →</b></div></Link></div></section>}
     {isCayman && <LocalItineraries slug={profile.slug} />}
     {edition ? <LocalTransport slug={profile.slug} /> : <>    <section className="section port-reality" id="transport">
       <div className="section-heading compact"><p className="eyebrow"><span /> Transport & shore-day planning</p><h2>How to get around {profile.name} cruise port</h2><p>{isCozumel ? "Most visitors walk from Punta Langosta, use an authorized taxi or private transfer, or prebook a shore excursion. Choose based on your exact terminal and the return plan—not only the advertised attraction." : "Start with the assigned berth, then check the route, pickup and complete return before choosing transport."}</p></div>
