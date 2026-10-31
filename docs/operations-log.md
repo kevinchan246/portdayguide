@@ -2,12 +2,25 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-10-31 — Serial publication acceptance and Osaka integration
+
+- The owner confirmed all three preview heads on desktop and mobile on October 31: #41 `9ae79c3`, #42 `c06ca705`, and #44 `c132d575`. This user-device acceptance supersedes the historical visual holds below; it is not agent browser certification. The restricted browser channel remains unused.
+- #42 published as `923c1a7763e42b78d1f0348f5fcbc18e32ff93eb`, Netlify deploy `6ae6710b73fe3d939d3b6b39`, at `2026-10-31T22:52:34.551Z`. Production page and eight health checks passed. The product GET initially returned 503; one bounded recheck returned 200 with only reviewed `420443P5` and the existing campaign. No sponsored navigation or simulated measurement events. This publication consumes the ordinary existing-page improvement slot.
+- Non-destructively integrate that published main into #41, retaining both complete logs and Costa Maya assertions. Preserve the accepted Osaka article, assets and all reader-facing files byte-for-byte. Revalidate the combined tree and its exact-head CI/preview before publication; record the resulting commit/deployment separately after success.
+- Rechecked official museum, port/Metro and public Viator sources on October 31: the source-dated Osaka admission/access, meeting location, three-hour tour and optional admission caveats remain consistent. The preceding seven-day history contains no ordinary new-article package, so #41 may use one new article/companion Pin slot. #43 and #44 remain separately requested owner batches; no recurring allowance, schedule or task state changes.
+
 ## 2026-10-31 — PR #41 conflict reconciliation; visual release gate retained
 
 - Refreshed main `f0a272aea8808f41776d18e9b7abbc473f398216`, PR #41 head `c77780c7e1bfad60fe997ec78e20840a3664ff7d`, open PRs, comments, available task status and production deployment before this isolated reconciliation. Revenue, acquisition and SEO tasks were idle and no competing repair claim was found. #42 remains at `c06ca705`, #44 remains owned and draft at `c132d575`, and unrelated #4 is untouched.
 - Merge current main into the existing article branch without rewriting history. Resolve the sole Git conflict in this log by retaining the complete October 25 Alaska entry, October 20 Osaka entry and all older entries. Keep the two runbooks exactly as current main: its newer October 25 pilot rules supersede the duplicated October 18 sections from the article branch. No schedule, enabled state or recurring allowance changes.
 - Preserve the original Osaka article, reciprocal links, source-dated product recommendation, metadata, photo/credit records, responsive images, Pin/feed records and tests. This is conflict reconciliation, not a new article package or a factual refresh. One local lint/build/full-suite pass and the final branch update's exact-head CI/preview are recorded in PR #41; no manual CI rerun is planned unless a failure needs it.
 - Final-version desktop/mobile visual QA and linked-credit inspection remain release gates; the historical desktop check covered the old head only. No retry of the restricted browser, sponsored navigation, production event, merge to main, production deployment, approval, outreach or GSC reminder. Recheck current facts, main/ownership, rolling allowance and all acceptance checks before any later publication.
+
+## 2026-10-27 — PR #42 conflict reconciliation; release held
+
+- Refreshed main `f0a272aea8808f41776d18e9b7abbc473f398216`, PR #42 head `786efd8dc5704c0e01d90c4fddc4f7c03b76c3d0`, open PRs, comments, task status and production deployment before this isolated reconciliation. The revenue task is idle and no competing conflict-resolution claim was found. PR #44 remains owned and draft at `c132d575`; PR #41 and unrelated #4 remain untouched.
+- Merge current main into PR #42 without rewriting history. Resolve only the operations-log conflict: retain the complete October 25 Alaska entry and the October 23 Costa Maya entry, with all older entries intact. Carry main's existing files unchanged; preserve PR #42's product selection, source-dated caveats, attribution, tests and ordinary existing-page classification. No new factual refresh, article, measurement change or recurring allowance.
+- Mobile visual QA remains outstanding; the previous desktop check covered the old head only. No browser attempt, sponsored navigation, production event, merge to main, production deploy, automation change or outreach is part of this reconciliation. The final commit, tests and exact-head CI/preview evidence belong in PR #42. Recheck current source facts, main/ownership, allowance and all visual/release gates before any later publication.
 
 ## 2026-10-25 — Alaska pilot execution retry after the written plan
 
@@ -16,6 +29,13 @@ This is a public technical log. Business metrics and private reports belong in p
 - Visual review identified the reused discovery component's plain-text author labels. Enable a scoped optional linked-credit presentation only for the four new cards, using existing author/attribution records and separate sibling links for the article image and photographer. Preserve the historical card design elsewhere and the original five overview cards; updated preview checks must verify the four credit destinations and layout before release.
 - Updated the four operating/integration records from current main. Actual approval, current account terms and a generated CJ link still gate Phase B. Navigation and activation have separate 28/56-complete-day clocks; unavailable data is not zero. SEO/article is currently disabled, while acquisition/revenue retain their December 13 end. After publication, a later 56-day window without an enabled task requires one dedicated read-only review, not SEO reactivation or a recurring-schedule extension.
 - Required lint/build/regression, desktop/mobile, exact-head CI/Netlify preview, merge and production GET evidence belong in the PR release comment after they pass, including actual version, deployment time and four destinations. Preparation here does not claim deployment, acquired traffic or commercial results. No sponsored navigation, simulated production events or private metrics are included.
+
+## 2026-10-23 — Costa Maya comparison-page recommendation fit
+
+- Started from main `5a81b5fbe5c8188ebc9864a8a0b934d698575881`; read both operating runbooks, this log, recent commits, production deployment and open PRs. PR #41 remains an unmerged Osaka Castle article package blocked on mobile visual QA; unrelated #4 stays untouched. The October 16 old-page release keeps the shared independent slot until after `2026-10-23T14:52:47.454Z`; this change must not merge before that gate.
+- Confirmed the pending comparison-page fault: the production `port-vs-mahahual` API returned one relevant Mahahual beach package plus Chacchoben and Bacalar excursions that do not answer the port-complex-versus-Mahahual decision. Restrict this page to reviewed `420443P5`, preserve its distinct campaign, use a precise search and version the request with the October 23 modification date. [Product review and exclusions](editorial-drafts/costa-maya-comparison-product-review-2026-10-23.md).
+- Keep the page's existing independent Larry D. Moore Costa Maya entrance photograph, linked-author credit and responsive variants. No new URL, article, Pin, feed item, GUID/date, private report request or duplicate GSC reminder. Product conditions are source-dated; no selected-date inventory, ship-return guarantee, revenue or ranking claim.
+- Required lint/build/rendered/API/cover/browser checks, exact-head CI/preview, merge after the rolling gate and production GET verification belong in the PR release discussion. This preparation entry does not itself claim release.
 
 ## 2026-10-20 — Osaka Castle approach and museum decision
 
