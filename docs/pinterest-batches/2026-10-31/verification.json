@@ -1,10 +1,10 @@
 {
-  "visualRevision": "2026-11-01-real-scenic-editorial",
-  "checkedAt": "2026-11-01T21:12:09.951Z",
+  "visualRevision": "2026-11-01-place-name-only",
+  "checkedAt": "2026-11-01T23:53:12.284Z",
   "assetValidation": "Passed: 6 full PNG decodes at 1000 x 1500; asset/source hashes; 3 landing pages x 2 distinct angles; six distinct photographs; destination anchors match October 31 technical audit.",
-  "identityValidation": "All 6 IDs, complete destination URLs, board mappings, release orders and null publication fields equal previous draft commit cddc2a4. All 6 image hashes changed.",
+  "identityValidation": "All 6 IDs, complete destination URLs, board mappings, release orders and null publication fields equal previous draft commit 4eeec73. All 6 image hashes changed.",
   "liveBoundary": "Application, public assets, live feed, package/config/workflow paths equal origin/main. Eight-item feed hash remains 9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451.",
-  "visualInspection": "All six inspected at 1000 x 1500 and in 300px-wide contact sheet; crop, headline/CTA contrast and visible credits reviewed. No scene generation or retouching.",
+  "visualInspection": "All six inspected at 1000 x 1500 and in 300px-wide contact sheet; exact two-element text inventory (place name + small portdayguide.com), correct photo location, crop and contrast reviewed; caption-only credits and source/license links verified. No scene generation or retouching.",
   "lint": "Scoped ESLint passed for render.mjs and write-copy.mjs.",
   "build": "No full local build requested or run for this docs/assets-only revision.",
   "publication": "Not published, not scheduled, draft PR only."

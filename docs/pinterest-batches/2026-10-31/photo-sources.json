@@ -14,7 +14,9 @@
     "downloadWidth": 3000,
     "downloadHeight": 2250,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   },
   "cozumel_aerial": {
     "author": "Luis Flores",
@@ -31,7 +33,9 @@
     "downloadWidth": 2267,
     "downloadHeight": 4030,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   },
   "mahahual_aerial": {
     "author": "Steve Matthews",
@@ -48,7 +52,9 @@
     "downloadWidth": 3000,
     "downloadHeight": 1688,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   },
   "mahahual_palms": {
     "author": "Leafar Perez",
@@ -65,7 +71,9 @@
     "downloadWidth": 3000,
     "downloadHeight": 2250,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   },
   "yokohama_sunset": {
     "author": "Sebastian Schuster",
@@ -82,7 +90,9 @@
     "downloadWidth": 3000,
     "downloadHeight": 4000,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   },
   "yokohama_reflections": {
     "author": "Sunil Poudel",
@@ -99,6 +109,8 @@
     "downloadWidth": 3648,
     "downloadHeight": 4560,
     "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
-    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching."
+    "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+    "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+    "attributionTermsChecked": "2026-11-01"
   }
 }
