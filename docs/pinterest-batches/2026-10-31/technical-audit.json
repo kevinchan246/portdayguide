@@ -162,6 +162,13 @@
     "currentImport": "not inspected; earlier account/public access block not retried",
     "lastHistoricalEvidence": "Six Pins recorded in acquisition runbook: original two plus scenic pair, Alaska and Hobby; LGB/Osaka import unverified",
     "individualPinDestinations": "unverified",
-    "analytics": "unavailable"
+    "analytics": "unavailable",
+    "november1AccountEvidence": {
+      "source": "Owner-provided screenshot, communicated by coordinator on 2026-11-01",
+      "displayedCards": 8,
+      "lgbPresent": true,
+      "osakaPresent": true,
+      "scope": "Presence in the displayed account view only; no independent public, permalink, destination, analytics or conversion verification"
+    }
   }
 }

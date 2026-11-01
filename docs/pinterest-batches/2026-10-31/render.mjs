@@ -1,113 +1,68 @@
-// Draft-only, deterministic layout extension of scripts/generate-share-cards.mjs.
-// Reuses existing licensed pixels. Does not write public/, feeds or application files.
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { createHash } from "node:crypto";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
-import sharp from "sharp";
-import { PINTEREST_ITEMS, pinterestDestination, escapeXml as esc } from "../../../lib/pinterest-feed.mjs";
-
-const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, "../../..");
-const batch = JSON.parse(await readFile(path.join(here, "pins.json"), "utf8"));
-const credits = {
-  ...JSON.parse(await readFile(path.join(root, "lib/scenic-photo-credits.json"), "utf8")),
-  ...JSON.parse(await readFile(path.join(root, "lib/article-photo-credits.json"), "utf8")),
-};
-const out = path.join(here, "assets");
-await mkdir(out, { recursive: true });
-const ink = "#103A45", cream = "#FFF9EF", teal = "#006B67", gold = "#FFD18C";
-const text = (x, y, value, size = 36, color = ink, weight = 400, extra = "") =>
-  `<text x="${x}" y="${y}" font-family="Arial, sans-serif" font-size="${size}" font-weight="${weight}" fill="${color}" ${extra}>${esc(value)}</text>`;
-const rect = (x,y,w,h,color) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${color}"/>`;
-const svg = (body,w=1000,h=1500) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${body}</svg>`;
-const overlays = (body) => ({ input: Buffer.from(svg(body)), left: 0, top: 0 });
-
-async function fitText(value, initial, maximum = 884) {
-  let size = initial;
-  while (size > 20) {
-    // Inspect the output width after trim, rather than input metadata.
-    const { info } = await sharp(Buffer.from(svg(text(0,130,value,size,ink,700),1600,180))).trim().png().toBuffer({resolveWithObject:true});
-    if (info.width <= maximum) return size;
-    size -= 2;
-  }
-  throw new Error(`Text does not fit: ${value}`);
+// Draft-only native photo compositions. Never writes public/, feeds or application files.
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+import sharp from 'sharp';
+import {PINTEREST_ITEMS,pinterestDestination,escapeXml as esc} from '../../../lib/pinterest-feed.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../../..');
+const batch=JSON.parse(await readFile(path.join(here,'pins.json'),'utf8'));
+const credits=JSON.parse(await readFile(path.join(here,'photo-sources.json'),'utf8'));
+await mkdir(path.join(here,'assets'),{recursive:true});
+const cream='#FFF9EF',ink='#102A31';
+const text=(x,y,value,size=36,{color=cream,font='Arial',weight=400,anchor='start',spacing=0,italic=false}={})=>`<text x="${x}" y="${y}" font-family="${font}" font-size="${size}" font-weight="${weight}" fill="${color}" text-anchor="${anchor}" letter-spacing="${spacing}"${italic?' font-style="italic"':''}>${esc(value)}</text>`;
+const svg=(body,w=1000,h=1500)=>`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${body}</svg>`;
+const hash=b=>createHash('sha256').update(b).digest('hex');
+async function checkedText(x,y,value,size,options={},maximum=864){
+  // Reject overflow instead of silently shrinking native Georgia/Arial typography.
+  const measure={...options,anchor:'start'};
+  const {info}=await sharp(Buffer.from(svg(text(30,180,value,size,measure),2000,230))).trim().png().toBuffer({resolveWithObject:true});
+  if(info.width>maximum)throw new Error(`Text exceeds ${maximum}px: ${value} (${info.width}px)`);
+  return text(x,y,value,size,options);
 }
-
-const manifest = [];
-const seen = new Set(PINTEREST_ITEMS.map(x => x.id));
-for (const pin of batch.pins) {
-  if (seen.has(pin.id)) throw new Error(`Duplicate/live ID: ${pin.id}`);
-  seen.add(pin.id);
-  if (pin.title.length > 100 || pin.description.length > 500) throw new Error(`Copy too long: ${pin.id}`);
-  if (pin.publishedAt) throw new Error("Drafts must not have publication dates");
-  const layout = [];
-  const sourceEvidence = [];
-  async function photo(key, file, y, height, position="centre") {
-    const buffer = await readFile(path.join(root,file));
-    const meta = await sharp(buffer).metadata();
-    const scale = Math.max(1000/meta.width, height/meta.height);
-    if (scale > 1) throw new Error(`Photo would upscale: ${file}`);
-    const image = await sharp(buffer).resize(1000,height,{fit:"cover",position}).png().toBuffer();
-    layout.push({input:image,left:0,top:y});
-    sourceEvidence.push({key,localPath:file,sha256:createHash("sha256").update(buffer).digest("hex"),width:meta.width,height:meta.height,...credits[key],batchSourceChecked:"2026-10-31"});
-  }
-  let body = "";
-  if (pin.layout === "photo-top") {
-    await photo(pin.photo,pin.photoFile,0,690,pin.cropPosition);
-    body += rect(0,642,1000,48,ink);
-    body += text(42,675,pin.photoCaption,23,"#FFFFFF");
-    body += text(960,675,pin.credit,23,"#FFFFFF",400,'text-anchor="end"');
-    body += rect(58,744,9,25,teal)+text(85,766,pin.eyebrow,25,teal,700);
-    for (let i=0;i<pin.headline.length;i++) body += text(58,868+i*101,pin.headline[i],await fitText(pin.headline[i],92),ink,700,'letter-spacing="-2"');
-    pin.support.forEach((s,i)=>body+=text(62,1150+i*47,s,36,ink));
-  } else if (pin.layout === "title-top") {
-    body += rect(0,0,1000,420,ink);
-    body += rect(58,61,9,25,gold)+text(85,83,pin.eyebrow,25,gold,700);
-    for (let i=0;i<pin.headline.length;i++) body += text(58,208+i*110,pin.headline[i],await fitText(pin.headline[i],94),cream,700,'letter-spacing="-2"');
-    await photo(pin.photo,pin.photoFile,420,620,pin.cropPosition);
-    body += rect(0,992,1000,48,ink);
-    body += text(42,1025,pin.photoCaption,23,"#FFFFFF");
-    body += text(960,1025,pin.credit,23,"#FFFFFF",400,'text-anchor="end"');
-    pin.support.forEach((s,i)=>body+=text(60,1120+i*54,s,40,ink,i===0?700:400));
-  } else if (pin.layout === "comparison") {
-    body += rect(0,0,1000,400,ink);
-    body += rect(58,61,9,25,gold)+text(85,83,pin.eyebrow,25,gold,700);
-    for (let i=0;i<pin.headline.length;i++) body += text(58,205+i*108,pin.headline[i],await fitText(pin.headline[i],96),cream,700,'letter-spacing="-2"');
-    await photo(pin.photo,pin.photoFile,400,330,"south");
-    await photo(pin.secondPhoto,pin.secondPhotoFile,810,330,"centre");
-    body += rect(0,689,1000,41,ink)+text(35,718,"Port entrance / 2023",22,"#FFFFFF")+text(965,718,"Larry D. Moore",22,"#FFFFFF",400,'text-anchor="end"');
-    body += rect(0,730,1000,80,"#E1ECE5")+text(58,783,pin.support[0],39,ink,700);
-    body += rect(0,1099,1000,41,ink)+text(35,1128,"Mahahual malecon / 2008",22,"#FFFFFF")+text(965,1128,"Juan Ortega",22,"#FFFFFF",400,'text-anchor="end"');
-    body += rect(0,1140,1000,80,"#E1ECE5")+text(58,1193,pin.support[1],39,ink,700);
-  } else throw new Error(`Unknown layout: ${pin.layout}`);
-
-  body += `<rect x="58" y="1265" width="884" height="104" rx="6" fill="${teal}"/>`;
-  body += text(94,1332,pin.cta,await fitText(pin.cta,40,740),"#FFFFFF",700);
-  body += `<path d="M864 1316 H902 M888 1302 L902 1316 L888 1330" stroke="#FFFFFF" stroke-width="4" fill="none"/>`;
-  body += rect(58,1414,884,1,"#D2DAD2")+text(58,1462,"PortdayGuide",32,ink,700)+text(942,1460,"portdayguide.com",27,ink,400,'text-anchor="end"');
-
-  const file = `${pin.id}.png`;
-  const png = await sharp({create:{width:1000,height:1500,channels:3,background:cream}}).composite([...layout,overlays(body)]).png({compressionLevel:9}).toBuffer();
-  await writeFile(path.join(out,file),png);
-  // A full decode catches truncated/corrupt pixels, not merely a valid PNG header.
-  const decoded = await sharp(png).raw().toBuffer({resolveWithObject:true});
-  if (decoded.info.width!==1000 || decoded.info.height!==1500) throw new Error("Wrong dimensions");
-  manifest.push({id:pin.id,file:`assets/${file}`,bytes:png.length,sha256:createHash("sha256").update(png).digest("hex"),width:1000,height:1500,title:pin.title,description:pin.description,alt:pin.alt,destination:pinterestDestination(pin),board:batch.board,releaseOrder:pin.releaseOrder,publishedAt:null,actualPinUrl:null,compositionLicense:pin.compositionLicense||"Original typography/layout by PortdayGuide; photographs retain their listed licenses",sources:sourceEvidence});
+const manifest=[],seen=new Set(PINTEREST_ITEMS.map(x=>x.id));
+for(const pin of batch.pins){
+  if(seen.has(pin.id))throw new Error(`Duplicate/live ID: ${pin.id}`);seen.add(pin.id);
+  if(pin.title.length>100||pin.description.length>500)throw new Error(`Copy too long: ${pin.id}`);
+  if(pin.publishedAt)throw new Error('Drafts must not have publication dates');
+  const source=await readFile(path.join(root,pin.photoFile)),meta=await sharp(source).metadata();
+  const scale=Math.max(1000/meta.width,1500/meta.height);
+  if(scale>1)throw new Error(`Photo would upscale: ${pin.photoFile}`);
+  const width=Math.round(1000/scale),height=Math.round(1500/scale);
+  const crop={left:Math.round((meta.width-width)*pin.cropX),top:Math.round((meta.height-height)*.5),width,height};
+  const photograph=await sharp(source).extract(crop).resize(1000,1500).png().toBuffer();
+  const centered=['palms','sunset','night'].includes(pin.layout),x=centered?500:68,anchor=centered?'middle':'start';
+  const topOpacity=pin.layout==='sunset'?.35:pin.layout==='aerial'?.52:pin.layout==='night'?0:.32;
+  let body=`<defs><linearGradient id="top" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset=".48" stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset="1" stop-color="#071E29" stop-opacity="0"/></linearGradient><linearGradient id="bottom" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#061F28" stop-opacity="0"/><stop offset=".38" stop-color="#061F28" stop-opacity=".65"/><stop offset="1" stop-color="#061F28" stop-opacity=".93"/></linearGradient></defs><rect width="1000" height="530" fill="url(#top)"/><rect y="900" width="1000" height="600" fill="url(#bottom)"/>`;
+  body+=await checkedText(x,90,pin.eyebrow,27,{anchor,spacing:4,weight:500});
+  if(pin.destinationLabel){
+    const size=pin.destinationLabel.startsWith('Yoko')?126:140;
+    body+=await checkedText(x,240,pin.destinationLabel,size,{font:'Georgia',anchor,spacing:-3});
+  }else body+=await checkedText(68,237,'Cozumel',145,{font:'Georgia',italic:true,spacing:-3});
+  for(let i=0;i<pin.headline.length;i++)body+=await checkedText(x,pin.headlineY+i*110,pin.headline[i],pin.headlineSize[i],{font:'Georgia',anchor,spacing:-2});
+  body+=await checkedText(x,1322,`${pin.cta}  →`,34,{anchor});
+  body+=`<path d="M${centered?438:68} 1350 H${centered?562:192}" stroke="${cream}" stroke-width="1" opacity=".7"/>`;
+  body+=text(68,1420,'PortdayGuide',31,{spacing:.3});
+  body+=text(932,1420,'CRUISE DAY NOTES',21,{anchor:'end',spacing:3});
+  body+=await checkedText(68,1470,`Photo: ${pin.credit} / ${credits[pin.photo].platform}`,29,{color:'#F5F2EB'},864);
+  const png=await sharp(photograph).composite([{input:Buffer.from(svg(body)),left:0,top:0}]).png({compressionLevel:9}).toBuffer();
+  const file=`assets/${pin.id}.png`;await writeFile(path.join(here,file),png);
+  const decoded=await sharp(png).raw().toBuffer({resolveWithObject:true});
+  if(decoded.info.width!==1000||decoded.info.height!==1500)throw new Error('Wrong dimensions');
+  manifest.push({id:pin.id,file,bytes:png.length,sha256:hash(png),width:1000,height:1500,title:pin.title,description:pin.description,alt:pin.alt,destination:pinterestDestination(pin),board:batch.board,releaseOrder:pin.releaseOrder,publishedAt:null,actualPinUrl:null,compositionLicense:'Original typography/layout by PortdayGuide; photographs retain their listed platform licenses',crop,sources:[{key:pin.photo,...credits[pin.photo],sha256:hash(source),width:meta.width,height:meta.height}]});
 }
-
-// 300 px per Pin is a realistic small preview. The original six images remain full size.
 const sheet=[];
-let sheetLabel=text(24,45,"PortdayGuide / Six draft Pins",28,ink,700)+text(24,78,"Review only — not scheduled or published",18,ink);
-for (let i=0;i<manifest.length;i++) {
+let label=text(28,48,'PortdayGuide / The cruise day edit',30,{color:ink,font:'Georgia'})+text(28,82,'Six revised scenic drafts · Review only · Not scheduled or published',18,{color:ink});
+for(let i=0;i<manifest.length;i++){
   const x=24+(i%3)*324,y=110+Math.floor(i/3)*498;
   sheet.push({input:await sharp(path.join(here,manifest[i].file)).resize(300,450).png().toBuffer(),left:x,top:y});
-  sheetLabel+=text(x,y+477,`${String(i+1).padStart(2,"0")} / ${batch.pins[i].id.split("-")[0]}`,18,ink,700);
+  label+=text(x,y+477,`${String(i+1).padStart(2,'0')} / ${i<2?'COZUMEL':i<4?'COSTA MAYA':'YOKOHAMA'}`,17,{color:ink,spacing:1});
 }
-sheet.push({input:Buffer.from(svg(sheetLabel,996,1118)),left:0,top:0});
-await sharp({create:{width:996,height:1118,channels:3,background:"#EAEFEA"}}).composite(sheet).png().toFile(path.join(here,"contact-sheet.png"));
-await writeFile(path.join(here,"manifest.json"),JSON.stringify({status:batch.status,baseCommit:batch.baseCommit,pins:manifest},null,2)+"\n");
-const cols=["id","title","description","alt","destination","board","releaseOrder"];
-const cell = v => `"${String(v??"").replaceAll('"','""')}"`;
-await writeFile(path.join(here,"publishing-copy.csv"),"\uFEFF"+[cols.join(","),...manifest.map(p=>cols.map(k=>cell(p[k])).join(","))].join("\r\n")+"\r\n");
-console.log(JSON.stringify({status:batch.status,pins:manifest.map(p=>({id:p.id,bytes:p.bytes,titleLength:p.title.length,descriptionLength:p.description.length})),contactSheet:"contact-sheet.png",liveFeedItems:PINTEREST_ITEMS.length},null,2));
+sheet.push({input:Buffer.from(svg(label,996,1118)),left:0,top:0});
+await sharp({create:{width:996,height:1118,channels:3,background:'#F4F1EB'}}).composite(sheet).png().toFile(path.join(here,'contact-sheet.png'));
+await writeFile(path.join(here,'manifest.json'),JSON.stringify({status:batch.status,baseCommit:batch.baseCommit,visualRevision:batch.visualRevision,pins:manifest},null,2)+'\n');
+const cols=['id','title','description','alt','destination','board','releaseOrder'];
+const cell=v=>`"${String(v??'').replaceAll('"','""')}"`;
+await writeFile(path.join(here,'publishing-copy.csv'),'\uFEFF'+[cols.join(','),...manifest.map(p=>cols.map(k=>cell(p[k])).join(','))].join('\r\n')+'\r\n');
+await import('./write-copy.mjs');
+console.log(JSON.stringify({status:batch.status,pins:manifest.map(p=>({id:p.id,bytes:p.bytes,titleLength:p.title.length,descriptionLength:p.description.length})),liveFeedItems:PINTEREST_ITEMS.length},null,2));

@@ -1,8 +1,16 @@
-# PortdayGuide: six useful Pinterest drafts
+# PortdayGuide: six scenic Pinterest drafts
 
 **Review only. No Pin is published or scheduled by this change.** Six finished 1000 x 1500 PNGs, English publishing copy, direct destinations, photo rights and a staged publication plan are included. The application, live RSS, existing images, GUIDs, dates and automation schedules are unchanged.
 
 ![All six draft Pins](contact-sheet.png)
+
+## November 1 visual revision
+
+Recomposed the same six draft identities after the owner requested a more Instagram-style travel editorial look. Six different real photographs fill the frame: Cozumel beach and sweeping coast, Mahahual from above and at water level, Yokohama sunset and illuminated waterfront reflections. Short Georgia headlines, restrained branding and transparent gradients replace the former large blocks and checklist-like body copy. No scenery was generated, replaced or retouched.
+
+New photo selection required new source files because the original taxi/terminal/promenade images did not deliver the requested scenic appeal. [Photo source register](photo-sources.json) records the verified primary source pages, photographer, location, platform license, download URL and download checksum. The six local WebP inputs are in the sources directory; these are draft inputs, not a stock photo collection or a claim that these new sources already appear in the site's public rights register. Source and license pages were checked November 1, 2026.
+
+The revisions do not constitute approval to publish. PR #45 stays draft. Existing six IDs, destination parameters, anchors, proposed order and null actual publication fields are retained. All live files and operating schedules remain unchanged.
 
 ## Scope and ownership
 
@@ -17,16 +25,16 @@ Prepared against main `91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c`. Read the curre
 - Production RSS: HTTP 200, **8 items**, byte-for-byte equal to the current main feed builder. Eight destinations and eight images return 200; all eight image bytes match the checkout.
 - Three selected landing pages: HTTP 200, correct self-canonical, indexable, working destination anchors and links to photo credits. No page selection change was necessary.
 - Existing source parameters remain `pinterest / organic_social / portdayguide_guides`. New drafts use the same convention and one distinct `utm_content` per creative, equal to its immutable ID.
-- The acquisition runbook records **six historically observed Pins**: the original two, the two September scenic variants, Alaska and Hobby. Domain claim, saved native RSS and the public board were previously verified. This is historical evidence, not a new account inspection. LGB and Osaka import, individual Pin URLs and actual outbound destinations remain unverified.
+- The acquisition runbook previously recorded six observed Pins. **New owner screenshot evidence on November 1 shows eight cards in the displayed account, including LGB and Osaka.** Their presence in that account view is confirmed. Public logged-out visibility, individual Pin permalinks, actual outbound destinations and conversions remain unverified. No new browser inspection was attempted.
 - The previously blocked Pinterest inspection was not retried. Feed availability, robots allowance and owned-page GETs do not prove Pinterestbot retrieval, a successful import, real visits or revenue.
 - The existing Osaka feed date is October 20; actual site release was October 31. It is preserved, not treated as its Pinterest publication date. No existing ID, date or image was refreshed to manufacture a new Pin.
 
-## Finished files
+## Finished files and verification
 
 - [Publishing copy and preview for each Pin](copy-and-sources.md): exact English title, description, alt text, destination, angle and linked rights.
 - [CSV](publishing-copy.csv): review/publishing reference, **not** an automatic Pinterest bulk-upload specification.
 - [Manifest](manifest.json): full destinations, image and source SHA-256 hashes, dimensions, credit/license records, publication order and null actual publication fields.
-- [Editable brief](pins.json) and [renderer](render.mjs): deterministic native layouts extending the approach used by `scripts/generate-share-cards.mjs`. Existing photographs are resized/cropped without generative retouching or scene replacement. No new image service or credentials.
+- [Editable brief](pins.json) and [renderer](render.mjs): deterministic native layouts extending the approach used by `scripts/generate-share-cards.mjs`. Verified real photographs are resized/cropped without generative retouching or scene replacement. The renderer uses locally available Georgia and Arial; fonts are not redistributed. No new image service or credentials.
 - `assets/`: six full-size PNGs. `contact-sheet.png`: all six at 300 pixels wide, with large headlines and practical CTAs checked for readability.
 
 Rebuild locally with installed repository dependencies:
@@ -35,7 +43,7 @@ Rebuild locally with installed repository dependencies:
 node docs/pinterest-batches/2026-10-31/render.mjs
 ```
 
-The renderer writes only this draft directory. It rejects duplicate live IDs, overlong copy and photo enlargement, decodes every resulting PNG in full, and writes hashes. The headline, CTA, selected photograph and decision differ between each page's variants. Every factual promise is supported by the destination implementation identified in `pins.json`. No live fare, savings, selected-date availability, first-hand visit or return guarantee is promised.
+The renderer writes only this draft directory. It rejects duplicate live IDs, overlong copy and photo enlargement, decodes every resulting PNG in full, and writes hashes. The headline, CTA, selected photograph and decision differ between each page's variants. All six were visually inspected at 1000 x 1500 and in the 300-pixel contact sheet. The final contrast pass strengthens only the transparent text overlays; scene pixels remain otherwise unchanged. Author credits remain legible at full size and present in the mobile preview. Asset validation checks full decodes and hashes, six distinct photos/IDs/UTMs, three pages with two angles, unchanged destinations against the earlier draft and a byte-stable eight-item feed. Every factual promise is supported by the destination implementation identified in `pins.json`. No live fare, savings, selected-date availability, first-hand visit or return guarantee is promised.
 
 ## Publication proposal — held for coordinator review
 
@@ -56,11 +64,11 @@ For each cleared slot, the existing acquisition owner must:
 
 1. Re-read main, open PRs and current ownership. Check the ledger, RSS and actual Pinterest evidence for this immutable ID/image/title/destination. A pending or uncertain prior import is not permission to upload it again.
 2. Copy **only that Pin** to `/public/media/share/<id>.png`. Add one item to the existing editorial feed list using the exact title, description, path and anchor in `pins.json`, `imagePath: /media/share/<id>.png`, and a factual first-feed-publication timestamp. Retain all earlier entries and dates. Never install this draft manifest as the live feed or add all six at once. No new feed, board or task is necessary.
-3. Preserve the full source/license/change information in the public rights record, especially the CC BY-SA 4.0 license on `yokohama-name-your-terminal-v1`. Keep the Pin's visible author names and attribution-bearing description. Native RSS maps title/description/image; it does not establish that custom alt text is imported. Use the supplied alt text only through a supported existing-Pin accessibility field, if available, without recreating the Pin.
+3. Preserve the full source/license/change information in the public rights record, using the new Pexels/Unsplash source records for this revision. Keep the Pin's visible author names and attribution-bearing description. Native RSS maps title/description/image; it does not establish that custom alt text is imported. Use the supplied alt text only through a supported existing-Pin accessibility field, if available, without recreating the Pin.
 4. Apply ordinary scoped PR, CI/preview and production checks once per substantive publication. Keep old feed entries byte-stable. Confirm the intended production image, URL, anchor, canonical and source parameters via GET; do not navigate sponsored links or POST test analytics.
 5. Record feed deployment separately from the observed Pin ID, URL, board and actual publication timestamp. Pinterest says RSS imports may take up to 24 hours. If import remains unverified, keep it pending and pause further expansion; do not reset the GUID/date or add a manual duplicate. Verify `Visit site`'s destination by reading its href, without creating a test affiliate click.
 
-The smallest account-evidence handoff is the current board view showing the LGB and Osaka entries, with their **Copy link** Pin URLs; an account owner can also inspect the native RSS status for a specific error. No new account, domain claim or RSS connection is needed. A Pinterest analytics export becomes necessary for a traffic assessment, not for finishing these drafts. Do not ask again for previously supplied account setup or unrelated financial files.
+The owner has already supplied the eight-card account view; do not request that screenshot again. The remaining smallest account-evidence handoff is the **Copy link** permalink for an existing card (including LGB/Osaka as needed), followed by reading its actual destination in an authorized account session. An account owner can inspect native RSS status only if a specific pending import needs diagnosis. No new account, domain claim or RSS connection is needed. A Pinterest analytics export becomes necessary for a traffic assessment, not for finishing these drafts. Do not ask again for previously supplied account setup or unrelated financial files.
 
 ## What to measure
 
