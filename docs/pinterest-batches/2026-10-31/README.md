@@ -4,9 +4,20 @@
 
 ![All six draft Pins](contact-sheet.png)
 
-## November 1 visual revision
+## November 2 typography and palette refinement
 
-Recomposed the same six draft identities after the owner requested a more Instagram-style travel editorial look. Six different real photographs fill the frame: Cozumel beach and sweeping coast, Mahahual from above and at water level, Yokohama sunset and illuminated waterfront reflections. The latest owner direction removes all promotional overlay copy and on-image credits. Each image contains exactly the accurate place name (Cozumel, Mahahual or Yokohama) in Georgia and a much smaller portdayguide.com mark. The six photographs and their distinct views are retained, with only localized transparent gradients for legibility. No scenery was generated, replaced or retouched.
+Six different real photographs fill the frame: Cozumel beach and sweeping coast, Mahahual from above and at water level, Yokohama sunset and illuminated waterfront reflections. Each image contains exactly its accurate place name (Cozumel, Mahahual or Yokohama) and a much smaller portdayguide.com mark. The latest refinement makes the labels another step smaller and coordinates typography and color with each photograph. Cozumel and Mahahual use regular Baskerville Old Face at 100 px; Yokohama uses Segoe UI Light at 90 px. The photographs, crops and 26 px website marks are retained. No scenery was generated, replaced or retouched.
+
+| View | Place-name color | Visual fit |
+| --- | --- | --- |
+| Cozumel beach | Warm sand ivory `#E6D8C2` | Picks up the beach and thatch. |
+| Cozumel coast | Cool sea-foam gray `#D0DCDD` | Fits the surf and blue-gray cloud cover. |
+| Mahahual aerial | Muted sage ivory `#D2DBCB` | Coordinates with palms and pale beach. |
+| Mahahual palms | Soft sea-glass ivory `#D4DED6` | Echoes the shallow water. |
+| Yokohama sunset | Deep desaturated blue-gray `#344A52` | Uses the skyline's shadow tones against the original pale dusk sky. |
+| Yokohama night | Muted silver-blue `#B9CED7` | Picks up the waterfront reflections. |
+
+Tracking is restrained (0.5-0.8 px), without outlines, shadows or labels. Mahahual's water-level view changes only the place-name alignment from centered to left-aligned, moving it clear of the bright cloud into blue-sky negative space. Its baseline stays fixed. The dusk view removes the old top darkening gradient to support dark lettering against the original sky; all other overlays are unchanged. Every pixel below the top 500 px is identical to the preceding draft, including each website mark.
 
 New photo selection required new source files because the original taxi/terminal/promenade images did not deliver the requested scenic appeal. [Photo source register](photo-sources.json) records the verified primary source pages, photographer, location, platform license, download URL and download checksum. The six local WebP inputs are in the sources directory; these are draft inputs, not a stock photo collection or a claim that these new sources already appear in the site's public rights register. Source and license pages were checked November 1, 2026. The [Unsplash License](https://unsplash.com/license) and [Pexels License](https://www.pexels.com/license/) do not require on-image attribution. Each final publishing description retains the photographer, source URL, license URL and a crop/gradient/type modification notice; no photo replacement was necessary.
 
@@ -34,7 +45,7 @@ Prepared against main `91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c`. Read the curre
 - [Publishing copy and preview for each Pin](copy-and-sources.md): exact English title, description, alt text, destination, angle and linked rights.
 - [CSV](publishing-copy.csv): review/publishing reference, **not** an automatic Pinterest bulk-upload specification.
 - [Manifest](manifest.json): full destinations, image and source SHA-256 hashes, dimensions, credit/license records, publication order and null actual publication fields.
-- [Editable brief](pins.json) and [renderer](render.mjs): deterministic native layouts extending the approach used by `scripts/generate-share-cards.mjs`. Verified real photographs are resized/cropped without generative retouching or scene replacement. The renderer uses locally available Georgia and Arial; fonts are not redistributed. No new image service or credentials.
+- [Editable brief](pins.json) and [renderer](render.mjs): deterministic native layouts extending the approach used by `scripts/generate-share-cards.mjs`. Verified real photographs are resized/cropped without generative retouching or scene replacement. Per-image typography, color and alignment are recorded in `placeStyle`. The renderer uses locally installed Baskerville Old Face, Segoe UI Light and Arial; fonts are not redistributed and must be installed to reproduce the same type rendering. No new image service or credentials.
 - `assets/`: six full-size PNGs. `contact-sheet.png`: all six at 300 pixels wide, with only place names and small website marks. The contact sheet also has no additional labels or headings.
 
 Rebuild locally with installed repository dependencies:
@@ -43,7 +54,7 @@ Rebuild locally with installed repository dependencies:
 node docs/pinterest-batches/2026-10-31/render.mjs
 ```
 
-The renderer writes only this draft directory. It rejects duplicate live IDs, overlong copy and photo enlargement, decodes every resulting PNG in full, and writes hashes. The two variants per page use different photographs and practical angles in their titles/descriptions. Hooks, instructions and credits appear only in the publishing copy. All six were visually inspected at 1000 x 1500 and in the 300-pixel contact sheet. The large lower text gradients were removed to reveal the scenery; only subtle place-name/footer gradients remain. The November 2 refinement reduces place labels by one visual size step: 126 to 104 px for Yokohama and 140 to 116 px for Cozumel/Mahahual (about 17% smaller). Baselines, alignment, photography, crops, gradients and the 26 px website mark remain unchanged. All six final images contain exactly two typeset text elements. Credits and source/license links are checked in the captions, not the image pixels. Asset validation checks full decodes and hashes, six distinct photos/IDs/UTMs, three pages with two angles, unchanged destinations against the earlier draft and a byte-stable eight-item feed. Every factual promise is supported by the destination implementation identified in `pins.json`. No live fare, savings, selected-date availability, first-hand visit or return guarantee is promised.
+The renderer writes only this draft directory. It rejects duplicate live IDs, overlong copy and photo enlargement, decodes every resulting PNG in full, and writes hashes. The two variants per page use different photographs and practical angles in their titles/descriptions. Hooks, instructions and credits appear only in the publishing copy. All six were visually inspected at 1000 x 1500 and in the 300-pixel contact sheet. This refinement reduces place labels from 116 to 100 px for Cozumel/Mahahual (13.79%) and from 104 to 90 px for Yokohama (13.46%). All six final images contain exactly two typeset text elements. Credits and source/license links are checked in the captions, not the image pixels. Asset validation checks full decodes and hashes, six distinct photos/IDs/UTMs, three pages with two angles, unchanged destinations and captions against the preceding draft and a byte-stable eight-item feed. A separate read-only design reviewer also inspected all six full-size images, thumbnails and the previous contact sheet. No blocking visual issues were found; the busier Mahahual aerial retains its current contrast. [Verification record](verification.json) includes the image-specific findings. Every factual promise is supported by the destination implementation identified in `pins.json`. No live fare, savings, selected-date availability, first-hand visit or return guarantee is promised.
 
 ## Publication proposal — held for coordinator review
 

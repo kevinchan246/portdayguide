@@ -1,13 +1,13 @@
 {
   "status": "draft-not-published",
   "baseCommit": "91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c",
-  "visualRevision": "2026-11-02-smaller-place-names",
+  "visualRevision": "2026-11-02-refined-type-and-photo-palette",
   "pins": [
     {
       "id": "cozumel-beach-pass-transport-v1",
       "file": "assets/cozumel-beach-pass-transport-v1.png",
-      "bytes": 2941229,
-      "sha256": "18d84bcfee758a2e8ece89cc696359c3746e7fa50c2ad213f056e199f8b0382e",
+      "bytes": 2943331,
+      "sha256": "3f4fc8c73552aac6fb676ccb5f156b8e0c2831a50a97f822e7b0184bcb0f0a1f",
       "width": 1000,
       "height": 1500,
       "title": "Cozumel beach pass booked: does it include your taxi?",
@@ -22,7 +22,19 @@
         "Cozumel",
         "portdayguide.com"
       ],
-      "placeFontSize": 116,
+      "placeStyle": {
+        "font": "Baskerville Old Face",
+        "size": 100,
+        "weight": 400,
+        "color": "#E6D8C2",
+        "spacing": 0.6,
+        "x": 68,
+        "y": 240,
+        "anchor": "start",
+        "topOpacity": 0.32,
+        "paletteReference": "Warm sand and thatch; muted ivory rather than bright white."
+      },
+      "placeFontSize": 100,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -60,8 +72,8 @@
     {
       "id": "cozumel-driver-inclusions-v1",
       "file": "assets/cozumel-driver-inclusions-v1.png",
-      "bytes": 3496347,
-      "sha256": "0a0becde7d0ff1dfedac9b7fe1457dafa7de8f24627d375f07ac9be17eed6cf1",
+      "bytes": 3500485,
+      "sha256": "e5e196a5d8215439761b18fa442b387f263494c36d2f08e58b5fc883d342a1c8",
       "width": 1000,
       "height": 1500,
       "title": "Cozumel taxi or private driver? Compare the same day",
@@ -76,7 +88,19 @@
         "Cozumel",
         "portdayguide.com"
       ],
-      "placeFontSize": 116,
+      "placeStyle": {
+        "font": "Baskerville Old Face",
+        "size": 100,
+        "weight": 400,
+        "color": "#D0DCDD",
+        "spacing": 0.6,
+        "x": 68,
+        "y": 240,
+        "anchor": "start",
+        "topOpacity": 0.32,
+        "paletteReference": "Cool sea foam and the blue-gray cloud cover."
+      },
+      "placeFontSize": 100,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -114,8 +138,8 @@
     {
       "id": "costa-maya-port-or-town-v1",
       "file": "assets/costa-maya-port-or-town-v1.png",
-      "bytes": 4096963,
-      "sha256": "853f74ebe839bd098e87f48c4ab956cf2dbffb418780e3bbac89004d2a0e0381",
+      "bytes": 4107860,
+      "sha256": "7f94b53112ebf9208d5d1ab5092d26b885dd995dd20dad314c8a18d86183226f",
       "width": 1000,
       "height": 1500,
       "title": "Costa Maya port or Mahahual? Choose your cruise-day setting",
@@ -130,7 +154,19 @@
         "Mahahual",
         "portdayguide.com"
       ],
-      "placeFontSize": 116,
+      "placeStyle": {
+        "font": "Baskerville Old Face",
+        "size": 100,
+        "weight": 400,
+        "color": "#D2DBCB",
+        "spacing": 0.5,
+        "x": 68,
+        "y": 240,
+        "anchor": "start",
+        "topOpacity": 0.52,
+        "paletteReference": "Muted sage-ivory from palms and the pale beach."
+      },
+      "placeFontSize": 100,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -168,8 +204,8 @@
     {
       "id": "costa-maya-return-budget-v1",
       "file": "assets/costa-maya-return-budget-v1.png",
-      "bytes": 2831015,
-      "sha256": "7f799b8362702217b04373685bdf612a7f951026a6ad49e246df25e42e50b0cf",
+      "bytes": 2840492,
+      "sha256": "853b44567b46dbbfb02aa31bcc4abad2c105157a50e9d8ae5d321f2d13db2489",
       "width": 1000,
       "height": 1500,
       "title": "Mahahual beach day from Costa Maya: plan your return first",
@@ -184,7 +220,20 @@
         "Mahahual",
         "portdayguide.com"
       ],
-      "placeFontSize": 116,
+      "placeStyle": {
+        "font": "Baskerville Old Face",
+        "size": 100,
+        "weight": 400,
+        "color": "#D4DED6",
+        "spacing": 0.6,
+        "x": 68,
+        "y": 240,
+        "anchor": "start",
+        "topOpacity": 0.32,
+        "paletteReference": "Soft sea-glass ivory, coordinated with shallow water.",
+        "positionReason": "Move the place name from centered to left-aligned in the clear blue-sky negative space, away from the bright cloud. Baseline and photograph stay fixed."
+      },
+      "placeFontSize": 100,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -222,8 +271,8 @@
     {
       "id": "yokohama-name-your-terminal-v1",
       "file": "assets/yokohama-name-your-terminal-v1.png",
-      "bytes": 2590299,
-      "sha256": "9da4cf88c941b20de417f45d550d51afabafd5722b4bcb75ffb2b57250087ebf",
+      "bytes": 2652484,
+      "sha256": "95f8bb24d6987c91ae67dc47774c8ce63f94a5fb3965998ef0b4ac41ed60b4c2",
       "width": 1000,
       "height": 1500,
       "title": "Tokyo to Yokohama cruise port: which of the three terminals?",
@@ -238,7 +287,20 @@
         "Yokohama",
         "portdayguide.com"
       ],
-      "placeFontSize": 104,
+      "placeStyle": {
+        "font": "Segoe UI Light",
+        "size": 90,
+        "weight": 300,
+        "color": "#344A52",
+        "spacing": 0.8,
+        "x": 500,
+        "y": 240,
+        "anchor": "middle",
+        "topOpacity": 0,
+        "paletteReference": "Deep desaturated blue-gray matching the skyline shadows.",
+        "overlayReason": "Remove only the existing top darkening overlay so dark type sits naturally against the original pale dusk sky."
+      },
+      "placeFontSize": 90,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -276,8 +338,8 @@
     {
       "id": "tokyo-yokohama-seats-and-bags-v1",
       "file": "assets/tokyo-yokohama-seats-and-bags-v1.png",
-      "bytes": 2047105,
-      "sha256": "849eebcd2e8aa7ce3988d99e04fa7e5e89cd77b8e9211c86a0376bc616d6b9a2",
+      "bytes": 2048209,
+      "sha256": "5492a4373ff077f34ec63911a26b62c2b2e427c0757f8b700d8c94b8bd2259ca",
       "width": 1000,
       "height": 1500,
       "title": "Tokyo hotel to Yokohama cruise: confirm seats and bags",
@@ -292,7 +354,19 @@
         "Yokohama",
         "portdayguide.com"
       ],
-      "placeFontSize": 104,
+      "placeStyle": {
+        "font": "Segoe UI Light",
+        "size": 90,
+        "weight": 300,
+        "color": "#B9CED7",
+        "spacing": 0.8,
+        "x": 500,
+        "y": 240,
+        "anchor": "middle",
+        "topOpacity": 0,
+        "paletteReference": "Muted silver-blue from the waterfront reflections."
+      },
+      "placeFontSize": 90,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {

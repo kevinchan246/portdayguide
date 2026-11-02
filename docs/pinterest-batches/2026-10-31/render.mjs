@@ -14,7 +14,7 @@ const text=(x,y,value,size=36,{color=cream,font='Arial',weight=400,anchor='start
 const svg=(body,w=1000,h=1500)=>`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${body}</svg>`;
 const hash=b=>createHash('sha256').update(b).digest('hex');
 async function checkedText(x,y,value,size,options={},maximum=864){
-  // Reject overflow instead of silently shrinking native Georgia/Arial typography.
+  // Reject overflow instead of silently shrinking the chosen native display typography.
   const measure={...options,anchor:'start'};
   const {info}=await sharp(Buffer.from(svg(text(30,180,value,size,measure),2000,230))).trim().png().toBuffer({resolveWithObject:true});
   if(info.width>maximum)throw new Error(`Text exceeds ${maximum}px: ${value} (${info.width}px)`);
@@ -31,11 +31,10 @@ for(const pin of batch.pins){
   const width=Math.round(1000/scale),height=Math.round(1500/scale);
   const crop={left:Math.round((meta.width-width)*pin.cropX),top:Math.round((meta.height-height)*.5),width,height};
   const photograph=await sharp(source).extract(crop).resize(1000,1500).png().toBuffer();
-  const centered=['palms','sunset','night'].includes(pin.layout),x=centered?500:68,anchor=centered?'middle':'start';
-  const placeSize=pin.destinationLabel==='Yokohama'?104:116;
-  const topOpacity=pin.layout==='sunset'?.35:pin.layout==='aerial'?.52:pin.layout==='night'?0:.32;
+  const style=pin.placeStyle;
+  const {x,y,anchor,font,size:placeSize,weight,color,spacing,topOpacity}=style;
   let body=`<defs><linearGradient id="top" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset=".48" stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset="1" stop-color="#071E29" stop-opacity="0"/></linearGradient><linearGradient id="footer" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#061F28" stop-opacity="0"/><stop offset="1" stop-color="#061F28" stop-opacity=".6"/></linearGradient></defs><rect width="1000" height="500" fill="url(#top)"/><rect y="1280" width="1000" height="220" fill="url(#footer)"/>`;
-  body+=await checkedText(x,240,pin.destinationLabel,placeSize,{font:'Georgia',anchor,spacing:-3,italic:pin.layout==='beach'});
+  body+=await checkedText(x,y,pin.destinationLabel,placeSize,{font,weight,color,anchor,spacing});
   body+=await checkedText(500,1440,pin.websiteMark,26,{anchor:'middle',spacing:1.2});
   const onImageText=[pin.destinationLabel,pin.websiteMark];
   if(!['Cozumel','Mahahual','Yokohama'].includes(onImageText[0])||onImageText[1]!=='portdayguide.com'||(body.match(/<text /g)||[]).length!==2)throw new Error('Only place and website may be typeset');
@@ -43,7 +42,7 @@ for(const pin of batch.pins){
   const file=`assets/${pin.id}.png`;await writeFile(path.join(here,file),png);
   const decoded=await sharp(png).raw().toBuffer({resolveWithObject:true});
   if(decoded.info.width!==1000||decoded.info.height!==1500)throw new Error('Wrong dimensions');
-  manifest.push({id:pin.id,file,bytes:png.length,sha256:hash(png),width:1000,height:1500,title:pin.title,description:pin.description,alt:pin.alt,destination:pinterestDestination(pin),board:batch.board,releaseOrder:pin.releaseOrder,publishedAt:null,actualPinUrl:null,onImageText,placeFontSize:placeSize,websiteFontSize:26,compositionLicense:'Original typography/layout by PortdayGuide; photographs retain their listed platform licenses',crop,sources:[{key:pin.photo,...credits[pin.photo],sha256:hash(source),width:meta.width,height:meta.height}]});
+  manifest.push({id:pin.id,file,bytes:png.length,sha256:hash(png),width:1000,height:1500,title:pin.title,description:pin.description,alt:pin.alt,destination:pinterestDestination(pin),board:batch.board,releaseOrder:pin.releaseOrder,publishedAt:null,actualPinUrl:null,onImageText,placeStyle:style,placeFontSize:placeSize,websiteFontSize:26,compositionLicense:'Original typography/layout by PortdayGuide; photographs retain their listed platform licenses',crop,sources:[{key:pin.photo,...credits[pin.photo],sha256:hash(source),width:meta.width,height:meta.height}]});
 }
 const sheet=[];
 for(let i=0;i<manifest.length;i++){
