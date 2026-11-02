@@ -32,7 +32,7 @@ for(const pin of batch.pins){
   const crop={left:Math.round((meta.width-width)*pin.cropX),top:Math.round((meta.height-height)*.5),width,height};
   const photograph=await sharp(source).extract(crop).resize(1000,1500).png().toBuffer();
   const centered=['palms','sunset','night'].includes(pin.layout),x=centered?500:68,anchor=centered?'middle':'start';
-  const placeSize=pin.destinationLabel==='Yokohama'?126:140;
+  const placeSize=pin.destinationLabel==='Yokohama'?104:116;
   const topOpacity=pin.layout==='sunset'?.35:pin.layout==='aerial'?.52:pin.layout==='night'?0:.32;
   let body=`<defs><linearGradient id="top" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset=".48" stop-color="#071E29" stop-opacity="${topOpacity}"/><stop offset="1" stop-color="#071E29" stop-opacity="0"/></linearGradient><linearGradient id="footer" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#061F28" stop-opacity="0"/><stop offset="1" stop-color="#061F28" stop-opacity=".6"/></linearGradient></defs><rect width="1000" height="500" fill="url(#top)"/><rect y="1280" width="1000" height="220" fill="url(#footer)"/>`;
   body+=await checkedText(x,240,pin.destinationLabel,placeSize,{font:'Georgia',anchor,spacing:-3,italic:pin.layout==='beach'});

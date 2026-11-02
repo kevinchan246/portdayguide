@@ -1,13 +1,13 @@
 {
   "status": "draft-not-published",
   "baseCommit": "91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c",
-  "visualRevision": "2026-11-01-place-name-only",
+  "visualRevision": "2026-11-02-smaller-place-names",
   "pins": [
     {
       "id": "cozumel-beach-pass-transport-v1",
       "file": "assets/cozumel-beach-pass-transport-v1.png",
-      "bytes": 2933067,
-      "sha256": "0dddd0bca8aeae0d6d2a7783556348a74b5965e119419593a39cacf5afba1e54",
+      "bytes": 2941229,
+      "sha256": "18d84bcfee758a2e8ece89cc696359c3746e7fa50c2ad213f056e199f8b0382e",
       "width": 1000,
       "height": 1500,
       "title": "Cozumel beach pass booked: does it include your taxi?",
@@ -22,7 +22,7 @@
         "Cozumel",
         "portdayguide.com"
       ],
-      "placeFontSize": 140,
+      "placeFontSize": 116,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -60,8 +60,8 @@
     {
       "id": "cozumel-driver-inclusions-v1",
       "file": "assets/cozumel-driver-inclusions-v1.png",
-      "bytes": 3494081,
-      "sha256": "29c27286a202d032effd8278400101ef4d40fb5eb2ea8d5054654235ce6a9cd4",
+      "bytes": 3496347,
+      "sha256": "0a0becde7d0ff1dfedac9b7fe1457dafa7de8f24627d375f07ac9be17eed6cf1",
       "width": 1000,
       "height": 1500,
       "title": "Cozumel taxi or private driver? Compare the same day",
@@ -76,7 +76,7 @@
         "Cozumel",
         "portdayguide.com"
       ],
-      "placeFontSize": 140,
+      "placeFontSize": 116,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -114,8 +114,8 @@
     {
       "id": "costa-maya-port-or-town-v1",
       "file": "assets/costa-maya-port-or-town-v1.png",
-      "bytes": 4084988,
-      "sha256": "c6830c9c5011ea78e697abe8de6eb7a4ddb02db36e8ec8334b163a8174331783",
+      "bytes": 4096963,
+      "sha256": "853f74ebe839bd098e87f48c4ab956cf2dbffb418780e3bbac89004d2a0e0381",
       "width": 1000,
       "height": 1500,
       "title": "Costa Maya port or Mahahual? Choose your cruise-day setting",
@@ -130,7 +130,7 @@
         "Mahahual",
         "portdayguide.com"
       ],
-      "placeFontSize": 140,
+      "placeFontSize": 116,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -168,8 +168,8 @@
     {
       "id": "costa-maya-return-budget-v1",
       "file": "assets/costa-maya-return-budget-v1.png",
-      "bytes": 2825728,
-      "sha256": "cbf3e0f140878553b5743a169892f4a26a25c126339aa7d01bae7ea264f1f336",
+      "bytes": 2831015,
+      "sha256": "7f799b8362702217b04373685bdf612a7f951026a6ad49e246df25e42e50b0cf",
       "width": 1000,
       "height": 1500,
       "title": "Mahahual beach day from Costa Maya: plan your return first",
@@ -184,7 +184,7 @@
         "Mahahual",
         "portdayguide.com"
       ],
-      "placeFontSize": 140,
+      "placeFontSize": 116,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -222,8 +222,8 @@
     {
       "id": "yokohama-name-your-terminal-v1",
       "file": "assets/yokohama-name-your-terminal-v1.png",
-      "bytes": 2589756,
-      "sha256": "1517c91bb83d0726fad3d3bf4761c92a40bed6a40179a0b86a91987f8636df73",
+      "bytes": 2590299,
+      "sha256": "9da4cf88c941b20de417f45d550d51afabafd5722b4bcb75ffb2b57250087ebf",
       "width": 1000,
       "height": 1500,
       "title": "Tokyo to Yokohama cruise port: which of the three terminals?",
@@ -238,7 +238,7 @@
         "Yokohama",
         "portdayguide.com"
       ],
-      "placeFontSize": 126,
+      "placeFontSize": 104,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {
@@ -276,8 +276,8 @@
     {
       "id": "tokyo-yokohama-seats-and-bags-v1",
       "file": "assets/tokyo-yokohama-seats-and-bags-v1.png",
-      "bytes": 2047684,
-      "sha256": "ac78ea9bcadd70f8d02a655774db4ca4c016d318042fbcd9f07ce51e70ffe841",
+      "bytes": 2047105,
+      "sha256": "849eebcd2e8aa7ce3988d99e04fa7e5e89cd77b8e9211c86a0376bc616d6b9a2",
       "width": 1000,
       "height": 1500,
       "title": "Tokyo hotel to Yokohama cruise: confirm seats and bags",
@@ -292,7 +292,7 @@
         "Yokohama",
         "portdayguide.com"
       ],
-      "placeFontSize": 126,
+      "placeFontSize": 104,
       "websiteFontSize": 26,
       "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
       "crop": {

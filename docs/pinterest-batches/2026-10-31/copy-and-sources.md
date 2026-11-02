@@ -1,6 +1,6 @@
 # Exact publishing copy and image rights
 
-Six revised scenic drafts, November 1, 2026. No actual Pin URL or publication date exists. Use the original 1000 x 1500 PNGs, not the contact-sheet thumbnails. Each finished image contains only the accurate place name and a small portdayguide.com mark. Useful hooks and photographer attribution appear in the publishing copy below.
+Six revised scenic drafts, November 2, 2026. No actual Pin URL or publication date exists. Use the original 1000 x 1500 PNGs, not the contact-sheet thumbnails. Each finished image contains only the accurate place name and a small portdayguide.com mark. Useful hooks and photographer attribution appear in the publishing copy below.
 
 ## 01 — Cozumel beach pass booked: does it include your taxi?
 

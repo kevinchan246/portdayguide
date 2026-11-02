@@ -2,7 +2,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 const here=new URL('./',import.meta.url);
 const batch=JSON.parse(await readFile(new URL('pins.json',here),'utf8'));
 const manifest=JSON.parse(await readFile(new URL('manifest.json',here),'utf8'));
-let md='# Exact publishing copy and image rights\n\nSix revised scenic drafts, November 1, 2026. No actual Pin URL or publication date exists. Use the original 1000 x 1500 PNGs, not the contact-sheet thumbnails. Each finished image contains only the accurate place name and a small portdayguide.com mark. Useful hooks and photographer attribution appear in the publishing copy below.\n\n';
+let md='# Exact publishing copy and image rights\n\nSix revised scenic drafts, November 2, 2026. No actual Pin URL or publication date exists. Use the original 1000 x 1500 PNGs, not the contact-sheet thumbnails. Each finished image contains only the accurate place name and a small portdayguide.com mark. Useful hooks and photographer attribution appear in the publishing copy below.\n\n';
 for(let i=0;i<manifest.pins.length;i++){
  const p=manifest.pins[i],b=batch.pins[i];
  md+=`## ${String(i+1).padStart(2,'0')} — ${p.title}\n\n![${p.alt}](${p.file})\n\n- **ID:** \`${p.id}\`\n- **Board:** [${p.board}](${batch.boardUrl})\n- **Destination:** [Open the relevant guide](${p.destination})\n- **Title:** ${p.title}\n- **Description:** ${p.description}\n- **Alt text:** ${p.alt}\n- **Decision:** ${b.angle}\n- **Landing-page support:** ${b.evidence}\n- **Release order:** ${p.releaseOrder}; held for review.\n\n`;
