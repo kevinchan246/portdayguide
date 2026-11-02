@@ -1,0 +1,331 @@
+{
+  "status": "draft-not-published",
+  "baseCommit": "91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c",
+  "visualRevision": "2026-11-02-smaller-place-names",
+  "pins": [
+    {
+      "id": "cozumel-beach-pass-transport-v1",
+      "file": "assets/cozumel-beach-pass-transport-v1.png",
+      "bytes": 2941229,
+      "sha256": "18d84bcfee758a2e8ece89cc696359c3746e7fa50c2ad213f056e199f8b0382e",
+      "width": 1000,
+      "height": 1500,
+      "title": "Cozumel beach pass booked: does it include your taxi?",
+      "description": "Beach pass booked: taxi included? Check admission and both taxi rides, then compare your own quotes in the Cozumel group-cost tool. No live fares. Photo: The Travel Nook / Unsplash (2018). Source: https://unsplash.com/photos/2FoqQ0EPwLg License: https://unsplash.com/license Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Thatched beach umbrella, loungers and turquoise sea at Nachi Cocom, Cozumel. The only overlaid words are \"Cozumel\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/cozumel/taxi-rates?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=cozumel-beach-pass-transport-v1#cozumel-fare-references",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 2,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Cozumel",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 116,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 960,
+        "top": 0,
+        "width": 1500,
+        "height": 2250
+      },
+      "sources": [
+        {
+          "key": "cozumel_beach",
+          "author": "The Travel Nook",
+          "location": "Nachi Cocom beach, Cozumel",
+          "sourcePageDate": "2018-05-25",
+          "sourceUrl": "https://unsplash.com/photos/2FoqQ0EPwLg",
+          "downloadUrl": "https://images.unsplash.com/photo-1527206363095-ca2f054128b0?auto=format&fit=crop&fm=jpg&q=90&w=3000",
+          "platform": "Unsplash",
+          "license": "Unsplash License",
+          "licenseUrl": "https://unsplash.com/license",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/cozumel_beach.webp",
+          "downloadSha256": "498ca18a85d34ec7f58de5196b6087675dc61726605859137cc168afdb3c211a",
+          "downloadWidth": 3000,
+          "downloadHeight": 2250,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "efd4b483d8f9173aba711767cac403a9e34db3df735eaeda300dbfd4081903ea",
+          "width": 3000,
+          "height": 2250
+        }
+      ]
+    },
+    {
+      "id": "cozumel-driver-inclusions-v1",
+      "file": "assets/cozumel-driver-inclusions-v1.png",
+      "bytes": 3496347,
+      "sha256": "0a0becde7d0ff1dfedac9b7fe1457dafa7de8f24627d375f07ac9be17eed6cf1",
+      "width": 1000,
+      "height": 1500,
+      "title": "Cozumel taxi or private driver? Compare the same day",
+      "description": "One beach or several stops? Compare two Cozumel taxi rides with reserved driver hours for the same party and route. Check waiting, admissions and the return. Photo: Luis Flores / Pexels (2023). Source: https://www.pexels.com/photo/beach-by-caribbean-sea-16846471/ License: https://www.pexels.com/license/ Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Sweeping Cozumel coastline with pale sand, blue water and green coastal vegetation. The only overlaid words are \"Cozumel\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/cozumel/taxi-rates?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=cozumel-driver-inclusions-v1#transport-budget-title",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 5,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Cozumel",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 116,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 0,
+        "top": 234,
+        "width": 1688,
+        "height": 2532
+      },
+      "sources": [
+        {
+          "key": "cozumel_aerial",
+          "author": "Luis Flores",
+          "location": "San Miguel de Cozumel, Q.R., Mexico",
+          "sourcePageDate": "2023-05-16",
+          "sourceUrl": "https://www.pexels.com/photo/beach-by-caribbean-sea-16846471/",
+          "downloadUrl": "https://images.pexels.com/photos/16846471/pexels-photo-16846471.jpeg?cs=srgb&fm=jpg",
+          "platform": "Pexels",
+          "license": "Pexels License",
+          "licenseUrl": "https://www.pexels.com/license/",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/cozumel_aerial.webp",
+          "downloadSha256": "0b6eb95c9356b2ca0fa006dbb93641d2190cc98d08ef2cc3e5354842e8620f4d",
+          "downloadWidth": 2267,
+          "downloadHeight": 4030,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "b9ecce9d11fadaa43f1debefb3d4559f3dffee8fa8d7427463ba022d771d604b",
+          "width": 1688,
+          "height": 3000
+        }
+      ]
+    },
+    {
+      "id": "costa-maya-port-or-town-v1",
+      "file": "assets/costa-maya-port-or-town-v1.png",
+      "bytes": 4096963,
+      "sha256": "853f74ebe839bd098e87f48c4ab956cf2dbffb418780e3bbac89004d2a0e0381",
+      "width": 1000,
+      "height": 1500,
+      "title": "Costa Maya port or Mahahual? Choose your cruise-day setting",
+      "description": "Stay in Costa Maya port or take a taxi to Mahahual? Compare atmosphere, mobility and transport each way. This aerial photo shows the beachfront town of Mahahual. Photo: Steve Matthews / Unsplash (2026). Source: https://unsplash.com/photos/WxlfTD4vTwU License: https://unsplash.com/license Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Overhead view of Mahahual with shallow green-blue water, beach and waterfront buildings. The only overlaid words are \"Mahahual\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/costa-maya/port-vs-mahahual?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=costa-maya-port-or-town-v1#quick-answer-title",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 1,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Mahahual",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 116,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 1181,
+        "top": 0,
+        "width": 1125,
+        "height": 1688
+      },
+      "sources": [
+        {
+          "key": "mahahual_aerial",
+          "author": "Steve Matthews",
+          "location": "Costa Maya, Mahahual, Quintana Roo, Mexico",
+          "sourcePageDate": "2026-08-20",
+          "sourceUrl": "https://unsplash.com/photos/WxlfTD4vTwU",
+          "downloadUrl": "https://images.unsplash.com/photo-1787259295457-0921cef6d722?auto=format&fit=crop&fm=jpg&q=90&w=3000",
+          "platform": "Unsplash",
+          "license": "Unsplash License",
+          "licenseUrl": "https://unsplash.com/license",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/mahahual_aerial.webp",
+          "downloadSha256": "04d257163efe072f847b43ac92944ddfc573dafc3a4fa06d5d7448490fea2f8b",
+          "downloadWidth": 3000,
+          "downloadHeight": 1688,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "37f814242088c85f32e71f14e85990ec62e250ecec98fba51a41ad1ba03b7f03",
+          "width": 3000,
+          "height": 1688
+        }
+      ]
+    },
+    {
+      "id": "costa-maya-return-budget-v1",
+      "file": "assets/costa-maya-return-budget-v1.png",
+      "bytes": 2831015,
+      "sha256": "7f799b8362702217b04373685bdf612a7f951026a6ad49e246df25e42e50b0cf",
+      "width": 1000,
+      "height": 1500,
+      "title": "Mahahual beach day from Costa Maya: plan your return first",
+      "description": "A Mahahual beach day from Costa Maya? Allow for the pier walk and return journey, budget both taxi rides and beach costs, then set a leave-the-beach alarm. Photo: Leafar Perez / Unsplash (2020). Source: https://unsplash.com/photos/1iFNLNoa9gQ License: https://unsplash.com/license Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Clear shallow water and a palm-lined beach in Mahahual. The only overlaid words are \"Mahahual\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/costa-maya/port-vs-mahahual?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=costa-maya-return-budget-v1#quick-answer-title",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 4,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Mahahual",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 116,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 825,
+        "top": 0,
+        "width": 1500,
+        "height": 2250
+      },
+      "sources": [
+        {
+          "key": "mahahual_palms",
+          "author": "Leafar Perez",
+          "location": "Mahahual beach; Calle Malecon, Mexico",
+          "sourcePageDate": "2020-06-30",
+          "sourceUrl": "https://unsplash.com/photos/1iFNLNoa9gQ",
+          "downloadUrl": "https://images.unsplash.com/photo-1593476727560-f8ae920562f8?auto=format&fit=crop&fm=jpg&q=90&w=3000",
+          "platform": "Unsplash",
+          "license": "Unsplash License",
+          "licenseUrl": "https://unsplash.com/license",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/mahahual_palms.webp",
+          "downloadSha256": "6a78c0b1b875c7fe40196db9b8b55b72b4053f21ef93738be18a35540280bb30",
+          "downloadWidth": 3000,
+          "downloadHeight": 2250,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "ed77a51d41468aedf4f49ed2b491008fd71a842229407ac3c46a7b6eff131fe2",
+          "width": 3000,
+          "height": 2250
+        }
+      ]
+    },
+    {
+      "id": "yokohama-name-your-terminal-v1",
+      "file": "assets/yokohama-name-your-terminal-v1.png",
+      "bytes": 2590299,
+      "sha256": "9da4cf88c941b20de417f45d550d51afabafd5722b4bcb75ffb2b57250087ebf",
+      "width": 1000,
+      "height": 1500,
+      "title": "Tokyo to Yokohama cruise port: which of the three terminals?",
+      "description": "Osanbashi, Shinko or Daikoku? Confirm the terminal before your Tokyo-to-Yokohama cruise transfer: the final connection depends on it. Photo shows the city, not a terminal entrance. Photo: Sebastian Schuster / Unsplash (2025). Source: https://unsplash.com/photos/DBr7MB-nVnA License: https://unsplash.com/license Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Yokohama skyline at sunset, including the Landmark Tower and colorful Ferris wheel. The only overlaid words are \"Yokohama\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=yokohama-name-your-terminal-v1#confirm-yokohama-terminal",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 3,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Yokohama",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 104,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 125,
+        "top": 0,
+        "width": 2000,
+        "height": 3000
+      },
+      "sources": [
+        {
+          "key": "yokohama_sunset",
+          "author": "Sebastian Schuster",
+          "location": "Yokohama, Kanagawa, Japan",
+          "sourcePageDate": "2025-08-14",
+          "sourceUrl": "https://unsplash.com/photos/DBr7MB-nVnA",
+          "downloadUrl": "https://images.unsplash.com/photo-1755214832304-a25ceeef1f07?auto=format&fit=crop&fm=jpg&q=90&w=3000",
+          "platform": "Unsplash",
+          "license": "Unsplash License",
+          "licenseUrl": "https://unsplash.com/license",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/yokohama_sunset.webp",
+          "downloadSha256": "d1328aeef9d96b9251e393eb4157403486ebe49c898eb08599515d9c105151c0",
+          "downloadWidth": 3000,
+          "downloadHeight": 4000,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "b6b465f468d65a6a5344503b44876fe1539b2b07869d473655f09f147aa8e596",
+          "width": 2250,
+          "height": 3000
+        }
+      ]
+    },
+    {
+      "id": "tokyo-yokohama-seats-and-bags-v1",
+      "file": "assets/tokyo-yokohama-seats-and-bags-v1.png",
+      "bytes": 2047105,
+      "sha256": "849eebcd2e8aa7ce3988d99e04fa7e5e89cd77b8e9211c86a0376bc616d6b9a2",
+      "width": 1000,
+      "height": 1500,
+      "title": "Tokyo hotel to Yokohama cruise: confirm seats and bags",
+      "description": "Seats booked, bags confirmed? Plan your Tokyo hotel-to-Yokohama cruise transfer with the free departure checklist: people, luggage, pickup, terminal and check-in time. Waterfront scenery is not a pickup point. Photo: Sunil Poudel / Pexels (2020). Source: https://www.pexels.com/photo/night-view-of-yokohama-city-5615414/ License: https://www.pexels.com/license/ Cropped; gradients and type added. Guide includes affiliate links.",
+      "alt": "Yokohama waterfront at night, with an illuminated Ferris wheel and blue and gold reflections. The only overlaid words are \"Yokohama\" and a smaller \"portdayguide.com\".",
+      "destination": "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=tokyo-yokohama-seats-and-bags-v1#tokyo-transfer-checklist",
+      "board": "Cruise Port Guides & Tips",
+      "releaseOrder": 6,
+      "publishedAt": null,
+      "actualPinUrl": null,
+      "onImageText": [
+        "Yokohama",
+        "portdayguide.com"
+      ],
+      "placeFontSize": 104,
+      "websiteFontSize": 26,
+      "compositionLicense": "Original typography/layout by PortdayGuide; photographs retain their listed platform licenses",
+      "crop": {
+        "left": 212,
+        "top": 0,
+        "width": 2000,
+        "height": 3000
+      },
+      "sources": [
+        {
+          "key": "yokohama_reflections",
+          "author": "Sunil Poudel",
+          "location": "Yokohama, Japan",
+          "sourcePageDate": "2020-10-16",
+          "sourceUrl": "https://www.pexels.com/photo/night-view-of-yokohama-city-5615414/",
+          "downloadUrl": "https://images.pexels.com/photos/5615414/pexels-photo-5615414.jpeg?cs=srgb&fm=jpg",
+          "platform": "Pexels",
+          "license": "Pexels License",
+          "licenseUrl": "https://www.pexels.com/license/",
+          "sourceChecked": "2026-11-01",
+          "localPath": "docs/pinterest-batches/2026-10-31/sources/yokohama_reflections.webp",
+          "downloadSha256": "917cde63387a5b60a8f0d699e37059504fe09115ec61773635821e59ef71736c",
+          "downloadWidth": 3648,
+          "downloadHeight": 4560,
+          "rightsEvidence": "Source page identifies the photographer and location and labels the photo free under the linked license; license page permits free commercial reuse and modification. Attribution is retained as a courtesy. No endorsement is implied.",
+          "processing": "Proportional resize and WebP encoding only; final crop and translucent typography overlays are separate. No generation, scene replacement or retouching.",
+          "attributionPlacement": "Caption only: photographer, source URL, license URL and modification notice are included in the publishing description. The platform license does not require on-image attribution.",
+          "attributionTermsChecked": "2026-11-01",
+          "sha256": "a78c2507cd4222e117087f11baadd2d2c18a1aa1d1d724e36375339589d4f361",
+          "width": 2400,
+          "height": 3000
+        }
+      ]
+    }
+  ]
+}
