@@ -1,0 +1,26 @@
+{
+  "visualRevision": "2026-11-02-refined-type-and-photo-palette",
+  "checkedAt": "2026-11-02T19:46:11.992Z",
+  "assetValidation": "Passed: 6 full PNG decodes at 1000 x 1500; asset/source hashes; 3 landing pages x 2 distinct angles; six distinct photographs; destination anchors match October 31 technical audit.",
+  "identityValidation": "All 6 IDs, complete destination URLs, board mappings, release orders and null publication fields equal previous draft commit 3aeb4bc. Titles, descriptions, alt text, photo sources, crops and 26 px website marks remain identical. All 6 image hashes changed.",
+  "typeAndColor": "Cozumel/Mahahual: regular Baskerville Old Face 100 px, reduced from 116 px (13.79%). Yokohama: Segoe UI Light 90 px, reduced from 104 px (13.46%). Six individual muted photo-derived colors and restrained 0.5-0.8 px tracking; exact values in each manifest placeStyle.",
+  "pixelPreservation": "All pixels below y=500 are byte-identical to 3aeb4bc, including website marks. For five Pins all pixels outside y=80..250 are byte-identical. Yokohama sunset also removes the previous top darkening gradient, exposing the original pale sky for dark blue-gray lettering. Only Mahahual palms changes alignment from center to left in clear blue sky; all baselines remain y=240.",
+  "liveBoundary": "Application, public assets, live feed, package/config/workflow paths equal origin/main. Eight-item feed hash remains 9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451.",
+  "visualInspection": "All six inspected at 1000 x 1500 and in 300px-wide contact sheet for type/color harmony, readable place names, accurate locations, crop and exact two-element text inventory (place name + small portdayguide.com). Caption-only credits and source/license links retained. No scene generation or retouching.",
+  "lint": "Scoped ESLint passed for render.mjs and write-copy.mjs.",
+  "build": "No full local build requested or run for this docs/assets-only revision.",
+  "publication": "Not published, not scheduled, draft PR only.",
+  "independentVisualReview": {
+    "scope": "Separate read-only design reviewer inspected all six 1000 x 1500 PNGs, the 300 px thumbnails and the preceding contact sheet.",
+    "result": "No blocking visual issues. All six place names remain readable and the scenery remains dominant. Keep current typography/palette; do not reduce contrast further on the busier Mahahual aerial image.",
+    "perImage": [
+      "Cozumel beach: warm sand type coordinates with thatch and beach; regular serif is calmer than prior italic.",
+      "Cozumel coast: cool gray type fits cloud cover and surf; thumbnail remains clear.",
+      "Mahahual aerial: sage ivory suits palms and shallow water; existing gradient supports the complex background.",
+      "Mahahual palms: left-aligned text avoids the bright cloud and sits in clear sky.",
+      "Yokohama sunset: deep blue-gray light type fits skyline shadows and the un-darkened dusk sky.",
+      "Yokohama night: silver-blue light type coordinates with reflections and remains quieter than city lights."
+    ],
+    "textInventory": "Only place name and small portdayguide.com are typeset. Original photographed city signs are scenery, not added text."
+  }
+}

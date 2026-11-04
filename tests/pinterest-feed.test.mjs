@@ -2,18 +2,59 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { inflateSync } from "node:zlib";
+import { createHash } from "node:crypto";
 import { PINTEREST_ITEMS, buildPinterestFeed, pinterestDestination } from "../lib/pinterest-feed.mjs";
 
 test("curated RSS uses stable unique IDs and one image per resource", () => {
   const xml = buildPinterestFeed();
   assert.equal(xml, buildPinterestFeed());
-  assert.equal(PINTEREST_ITEMS.length, 8);
-  assert.equal((xml.match(/<item>/g) || []).length, 8);
-  assert.equal((xml.match(/<media:content /g) || []).length, 8);
-  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, 8);
+  assert.ok(PINTEREST_ITEMS.length >= 9);
+  assert.equal((xml.match(/<item>/g) || []).length, PINTEREST_ITEMS.length);
+  assert.equal((xml.match(/<media:content /g) || []).length, PINTEREST_ITEMS.length);
+  assert.equal((xml.match(/<guid isPermaLink="false">/g) || []).length, PINTEREST_ITEMS.length);
   assert.match(xml, /<rss version="2.0" xmlns:media="http:\/\/search.yahoo.com\/mrss\/">/);
   assert.match(xml, /<pubDate>Tue, 22 Sep 2026 03:45:00 GMT<\/pubDate>/);
   assert.throws(() => buildPinterestFeed([PINTEREST_ITEMS[0], PINTEREST_ITEMS[0]]), /unique/);
+});
+
+test("approved six-Pin queue preserves pixels, copy, earlier RSS and staggered ownership", async () => {
+  const root = new URL("../docs/pinterest-batches/2026-10-31/", import.meta.url);
+  const manifest = JSON.parse(await readFile(new URL("manifest.json", root), "utf8"));
+  const ledger = JSON.parse(await readFile(new URL("release-ledger.json", root), "utf8"));
+  const credits = JSON.parse(await readFile(new URL("../lib/pinterest-photo-credits.json", import.meta.url), "utf8"));
+  assert.equal(ledger.approvedHead, "664f07595bb5c1fba15335202c017a8ae10a5553");
+  assert.equal(ledger.pins.length, 6);
+  assert.equal(new Set(ledger.pins.map(p => p.targetDate)).size, 6);
+  const ids = new Set(ledger.pins.map(p => p.id));
+  const earlier = PINTEREST_ITEMS.filter(p => !ids.has(p.id));
+  assert.equal(earlier.length, 8);
+  assert.equal(createHash("sha256").update(buildPinterestFeed(earlier)).digest("hex"), "9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451");
+  const pageTimes = new Map();
+  for (const queued of ledger.pins) {
+    const approved = manifest.pins.find(p => p.id === queued.id);
+    assert.ok(approved);
+    assert.equal(queued.destination, approved.destination);
+    const image = await readFile(new URL(`../public${queued.imagePath}`, import.meta.url));
+    assert.equal(createHash("sha256").update(image).digest("hex"), approved.sha256);
+    assert.ok(image.equals(await readFile(new URL(approved.file, root))));
+    const source = approved.sources[0], credit = credits[queued.creditAnchor];
+    for (const key of ["author", "sourceUrl", "license", "licenseUrl"]) assert.equal(credit[key], source[key]);
+    for (const value of [source.author, source.sourceUrl, source.licenseUrl, "Cropped; gradients and type added."]) assert.ok(approved.description.includes(value));
+    const live = PINTEREST_ITEMS.find(p => p.id === queued.id);
+    if (queued.status === "queued-for-existing-acquisition-run") {
+      assert.equal(live, undefined, "Queued dates must not leak into static RSS");
+      assert.equal(queued.feedItemDate, null);
+    } else {
+      assert.ok(live);
+      assert.equal(live.title, approved.title); assert.equal(live.description, approved.description);
+      assert.equal(pinterestDestination(live), approved.destination);
+      assert.equal(live.imagePath, queued.imagePath); assert.equal(live.publishedAt, queued.feedItemDate);
+    }
+    const planned = new Date(queued.feedItemDate || `${queued.targetDate}T15:30:00Z`).getTime();
+    const page = new URL(queued.destination).pathname;
+    if (pageTimes.has(page)) assert.ok(planned - pageTimes.get(page) >= 14 * 86400000, "Same-page variants require 14 complete days");
+    pageTimes.set(page, planned);
+  }
 });
 
 test("feed titles, descriptions and destination query strings are XML escaped", () => {
@@ -65,6 +106,21 @@ test("every advertised image exists and is an actual 1000 by 1500 PNG", async ()
 });
 
 if (process.env.TEST_BASE_URL) {
+  test("approved staged images and complete photo credits are available", async () => {
+    const ledger = JSON.parse(await readFile(new URL("../docs/pinterest-batches/2026-10-31/release-ledger.json", import.meta.url), "utf8"));
+    const response = await fetch(`${process.env.TEST_BASE_URL}/photo-credits`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    const credits = JSON.parse(await readFile(new URL("../lib/pinterest-photo-credits.json", import.meta.url), "utf8"));
+    for (const pin of ledger.pins) {
+      assert.ok(html.includes(`id="${pin.creditAnchor}"`));
+      assert.ok(html.includes(credits[pin.creditAnchor].sourceUrl));
+      assert.ok(html.includes(credits[pin.creditAnchor].licenseUrl));
+      const image = await fetch(`${process.env.TEST_BASE_URL}${pin.imagePath}`);
+      assert.equal(image.status, 200);
+      assert.equal(createHash("sha256").update(Buffer.from(await image.arrayBuffer())).digest("hex"), pin.sha256);
+    }
+  });
   test("production route serves RSS and all linked images", async () => {
     const response = await fetch(`${process.env.TEST_BASE_URL}/feeds/pinterest.xml`);
     assert.equal(response.status, 200);

@@ -1,0 +1,174 @@
+{
+  "checkedAt": "2026-10-31T23:38:26.982Z",
+  "baseCommit": "91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c",
+  "method": "Public GET only; no browser, affiliate navigation or analytics POST",
+  "feed": {
+    "status": 200,
+    "count": 8,
+    "exactlyMatchesMainSource": true,
+    "sha256": "9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451"
+  },
+  "existing": [
+    {
+      "id": "osaka-castle-from-port-v1",
+      "publishedAt": "2026-10-20T13:46:33Z",
+      "destination": "https://portdayguide.com/blog/osaka-cruise-port-to-castle?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=osaka-castle-from-port-v1#castle-approach",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "lgb-correct-cruise-port-v1",
+      "publishedAt": "2026-10-15T14:00:23Z",
+      "destination": "https://portdayguide.com/blog/long-beach-airport-to-cruise-port?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=lgb-correct-cruise-port-v1#correct-port",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "tokyo-yokohama-transfer-checklist-v1",
+      "publishedAt": "2026-09-22T03:45:00Z",
+      "destination": "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=tokyo-yokohama-transfer-checklist-v1#tokyo-transfer-checklist",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "cozumel-whole-party-taxi-budget-v1",
+      "publishedAt": "2026-09-22T03:45:00Z",
+      "destination": "https://portdayguide.com/ports/cozumel/taxi-rates?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=cozumel-whole-party-taxi-budget-v1#transport-budget-title",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "cozumel-scenic-taxi-budget-v1",
+      "publishedAt": "2026-09-30T22:54:43Z",
+      "destination": "https://portdayguide.com/ports/cozumel/taxi-rates?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=cozumel-scenic-taxi-budget-v1#transport-budget-title",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "tokyo-yokohama-scenic-transfer-v1",
+      "publishedAt": "2026-09-30T22:54:43Z",
+      "destination": "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=tokyo-yokohama-scenic-transfer-v1#tokyo-transfer-checklist",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "alaska-one-way-vs-round-trip-v1",
+      "publishedAt": "2026-10-08T13:30:07Z",
+      "destination": "https://portdayguide.com/blog/alaska-one-way-vs-round-trip?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=alaska-one-way-vs-round-trip-v1#whole-party-cost",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    },
+    {
+      "id": "hobby-galveston-three-rides-v1",
+      "publishedAt": "2026-10-13T13:53:00Z",
+      "destination": "https://portdayguide.com/blog/hobby-airport-to-galveston-cruise?utm_source=pinterest&utm_medium=organic_social&utm_campaign=portdayguide_guides&utm_content=hobby-galveston-three-rides-v1#three-rides",
+      "pageStatus": 200,
+      "imageStatus": 200,
+      "imageMatchesRepository": true
+    }
+  ],
+  "pages": [
+    {
+      "path": "/ports/cozumel/taxi-rates",
+      "status": 200,
+      "canonical": "https://portdayguide.com/ports/cozumel/taxi-rates",
+      "indexable": true,
+      "anchors": [
+        {
+          "id": "cozumel-fare-references",
+          "exists": true
+        },
+        {
+          "id": "transport-budget-title",
+          "exists": true
+        }
+      ],
+      "photoCreditsLink": true
+    },
+    {
+      "path": "/ports/costa-maya/port-vs-mahahual",
+      "status": 200,
+      "canonical": "https://portdayguide.com/ports/costa-maya/port-vs-mahahual",
+      "indexable": true,
+      "anchors": [
+        {
+          "id": "quick-answer-title",
+          "exists": true,
+          "checkedAt": "2026-10-31T23:42:20.733Z"
+        }
+      ],
+      "photoCreditsLink": true,
+      "currentCostaMayaCopy": true
+    },
+    {
+      "path": "/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal",
+      "status": 200,
+      "canonical": "https://portdayguide.com/ports/yokohama-tokyo/tokyo-to-yokohama-cruise-terminal",
+      "indexable": true,
+      "anchors": [
+        {
+          "id": "confirm-yokohama-terminal",
+          "exists": true
+        },
+        {
+          "id": "tokyo-transfer-checklist",
+          "exists": true
+        }
+      ],
+      "photoCreditsLink": true
+    }
+  ],
+  "photoCredits": {
+    "status": 200,
+    "entries": [
+      {
+        "id": "cozumel-punta-langosta-taxi",
+        "exists": true
+      },
+      {
+        "id": "cozumel-international-terminal-2023",
+        "exists": true
+      },
+      {
+        "id": "costa-maya-port-vs-mahahual",
+        "exists": true
+      },
+      {
+        "id": "costa-maya-to-mahahual",
+        "exists": true
+      },
+      {
+        "id": "yokohama-tokyo",
+        "exists": true
+      },
+      {
+        "id": "tokyo-yokohama-osanbashi-approach",
+        "exists": true
+      }
+    ]
+  },
+  "robots": {
+    "status": 200,
+    "body": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nHost: https://portdayguide.com\nSitemap: https://portdayguide.com/sitemap.xml\n"
+  },
+  "pinterest": {
+    "currentImport": "not inspected; earlier account/public access block not retried",
+    "lastHistoricalEvidence": "Six Pins recorded in acquisition runbook: original two plus scenic pair, Alaska and Hobby; LGB/Osaka import unverified",
+    "individualPinDestinations": "unverified",
+    "analytics": "unavailable",
+    "november1AccountEvidence": {
+      "source": "Owner-provided screenshot, communicated by coordinator on 2026-11-01",
+      "displayedCards": 8,
+      "lgbPresent": true,
+      "osakaPresent": true,
+      "scope": "Presence in the displayed account view only; no independent public, permalink, destination, analytics or conversion verification"
+    }
+  }
+}

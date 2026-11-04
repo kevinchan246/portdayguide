@@ -1,5 +1,17 @@
 # PortdayGuide operating instructions
 
+## Approved six-Pin batch - November 4, 2026
+
+The owner approved the final six scenic images and explicitly instructed publication on November 4. This resolves the earlier PR #45 batch-allocation hold as a specifically approved one-time batch; recurring allowances and article reservations remain unchanged. The accepted creative/caption source is commit `664f07595bb5c1fba15335202c017a8ae10a5553`. Never rerender or rewrite those approved images, titles, descriptions or credits during release.
+
+Use only the existing native RSS connection and **Cruise Port Guides & Tips** board. The current release adds only `costa-maya-port-or-town-v1`; the other five assets are staged, not feed items or confirmed Pins. [Release ledger](pinterest-batches/2026-10-31/release-ledger.json) is authoritative for the six IDs, image hashes, full destinations and states. The original eight feed entries, including Osaka and LGB, remain byte-stable. The owner's November 1 account screenshot confirms eight cards in that account view, not their public permalinks or conversion results.
+
+The operator selected November 6, 9, 20, 23 and 25 at 09:30 America/Chicago for the remaining five, within existing acquisition runs. These are conditional target slots, not Pinterest-native scheduled posts or dates individually chosen by the owner. Preserve at least 14 days between variants of one landing page. No missed-slot catch-up or task extension beyond December 13.
+
+Before each later release, refresh main/open PRs/this ledger and check actual prior import through authorized evidence. If still unverified after 24 hours, hold remaining items and request the exact new Pin permalink once; do not bypass the existing Pinterest Access Denied/browser restriction, reset GUID/date or manually upload a duplicate. Once evidence resolves the hold, use the next suitable existing run and shift later dates to retain spacing. Add at most one due item by copying its exact approved fields into `PINTEREST_ITEMS`, with a factual feed-preparation timestamp and immutable image path. Run current feed/image/credit tests, CI/preview, merge only the verified head and record production deploy time separately from actual Pin publication. Update the ledger in that same substantive release. A staged asset or RSS entry does not prove Pinterest publication.
+
+The existing acquisition task owns this queue. Other tasks must not independently release these IDs or change their approved images/captions. Do not alter recurring schedules or re-enable SEO. No new page or GSC indexing request is created.
+
 Owner authorization: on 2026-09-14 the owner approved starting the agreed low-maintenance affiliate operating plan. This document scopes recurring work, preserves context, and records the distinction between deployed capabilities and verified results.
 
 ## Current cadence and audit authorization (October 7, 2026)

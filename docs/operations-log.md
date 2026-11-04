@@ -2,6 +2,16 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-11-04 - Approved six-Pin batch and first RSS release
+
+- Refreshed main `91aa1d7`, PR #45 accepted head `664f07595bb5c1fba15335202c017a8ae10a5553`, current operating records, open PRs and task state. Acquisition is idle; only #45 and unrelated #4 are open. Production preflight health passes 8/8 and the original eight-item RSS hash is `9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451`.
+- The owner explicitly approved the final six images and instructed publication on November 4. This records the one-time batch allocation previously held by the acquisition reviews; it does not expand recurring quotas. Preserve accepted PNG/caption/source bytes from `664f075`; only the first Mahahual setting-choice item enters RSS in this change. The remaining five approved assets are staged for the existing acquisition queue; no future timestamps are inserted into RSS.
+- [Release ledger](pinterest-batches/2026-10-31/release-ledger.json) records the operator-selected conditional November 6/9/20/23/25 slots, 14-day same-page spacing, single RSS path and actual-import hold. This does not create or change an automation. Existing task instructions already require reading these runbooks. No independent scheduling API confirmation was available in this execution environment; the ledger is the handoff, not a claim of Pinterest-native scheduling.
+- Added six complete public photo-credit entries using the existing credits layout. Re-read the primary Unsplash/Pexels licenses on November 4; caption-only attribution remains compatible, and the approved captions retain author/source/license/change notices. No photo, crop, on-image type, title, description, alt text or tracking change.
+- New feed ID `costa-maya-port-or-town-v1`, date `2026-11-04T21:50:53Z` records feed preparation; verified deployment time belongs in the release evidence. Original eight items/PNGs remain unchanged. Required lint/build/rendered/feed/source checks and exact-head CI/preview precede merge. Record actual production deploy and GET evidence in PR #45; this preparation entry does not claim a completed deployment.
+- Existing Pinterest public/account inspection remains blocked by the earlier Access Denied and restricted-browser condition; neither is retried. The November 1 eight-card owner screenshot remains valid. The new Pin permalink, actual import time and outbound destination need authorized evidence; no traffic/order/earnings claim, sponsored navigation, simulated event, outreach or new GSC request.
+
+
 ## 2026-10-31 — Owner batch acceptance and final serial integration
 
 - The owner's October 26 execution request specifically authorizes #44's bounded manual Cozumel/Yokohama/measurement batch as an individually requested owner batch under the existing rule. This supersedes the draft's pending allowance wording; it does not borrow #43's exception or raise any recurring quota. #42 remains one ordinary existing-page improvement and #41 one article/companion Pin package. No automation schedule or enabled state changes.
