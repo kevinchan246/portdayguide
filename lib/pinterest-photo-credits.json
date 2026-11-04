@@ -1,0 +1,62 @@
+{
+  "cozumel-beach-pass-transport-v1": {
+    "author": "The Travel Nook",
+    "file": "Nachi Cocom beach, Cozumel",
+    "sourceUrl": "https://unsplash.com/photos/2FoqQ0EPwLg",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "checked": "2026-11-01",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  },
+  "cozumel-driver-inclusions-v1": {
+    "author": "Luis Flores",
+    "file": "San Miguel de Cozumel, Q.R., Mexico",
+    "sourceUrl": "https://www.pexels.com/photo/beach-by-caribbean-sea-16846471/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "checked": "2026-11-04",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  },
+  "costa-maya-port-or-town-v1": {
+    "author": "Steve Matthews",
+    "file": "Costa Maya, Mahahual, Quintana Roo, Mexico",
+    "sourceUrl": "https://unsplash.com/photos/WxlfTD4vTwU",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "checked": "2026-11-01",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  },
+  "costa-maya-return-budget-v1": {
+    "author": "Leafar Perez",
+    "file": "Mahahual beach; Calle Malecon, Mexico",
+    "sourceUrl": "https://unsplash.com/photos/1iFNLNoa9gQ",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "checked": "2026-11-01",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  },
+  "yokohama-name-your-terminal-v1": {
+    "author": "Sebastian Schuster",
+    "file": "Yokohama, Kanagawa, Japan",
+    "sourceUrl": "https://unsplash.com/photos/DBr7MB-nVnA",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "checked": "2026-11-01",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  },
+  "tokyo-yokohama-seats-and-bags-v1": {
+    "author": "Sunil Poudel",
+    "file": "Yokohama, Japan",
+    "sourceUrl": "https://www.pexels.com/photo/night-view-of-yokohama-city-5615414/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "checked": "2026-11-04",
+    "changes": "Portrait crop, proportional downsize, subtle gradients and original place-name/website typography. The photographed scene is unchanged. This is an archival destination view, not a terminal or pickup-location identification.",
+    "licenseChecked": "2026-11-04"
+  }
+}

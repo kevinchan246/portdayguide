@@ -3,6 +3,7 @@ import Link from "next/link";
 import scenicCredits from "@/lib/scenic-photo-credits.json";
 import articleCredits from "@/lib/article-photo-credits.json";
 import supplementalCredits from "@/lib/supplemental-photo-credits.json";
+import pinterestCredits from "@/lib/pinterest-photo-credits.json";
 import editorialPhotos from "@/lib/editorial-photos.json";
 import { commonsFilePageUrl } from "@/lib/port-photos";
 import { websiteMetadata } from "@/lib/seo";
@@ -32,7 +33,7 @@ const editorialCredits: [string, Credit][] = Object.values(editorialPhotos).flat
   licenseUrl: photo.licenseUrl,
   changes: "Resized, cropped to a 3:2 display frame and compressed as WebP. The photographed scene is unchanged.",
 }]);
-const credits: [string, Credit][] = [...Object.entries(scenicCredits), ...editorialCredits, ...Object.entries(supplementalCredits), ...Object.entries(articleCredits)];
+const credits: [string, Credit][] = [...Object.entries(scenicCredits), ...editorialCredits, ...Object.entries(supplementalCredits), ...Object.entries(articleCredits), ...Object.entries(pinterestCredits)];
 
 export default function PhotoCreditsPage() {
   return <main className="legal-page">

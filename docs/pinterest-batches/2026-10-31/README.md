@@ -1,6 +1,6 @@
 # PortdayGuide: six scenic Pinterest drafts
 
-**Review only. No Pin is published or scheduled by this change.** Six finished 1000 x 1500 PNGs, English publishing copy, direct destinations, photo rights and a staged publication plan are included. The application, live RSS, existing images, GUIDs, dates and automation schedules are unchanged.
+**Owner approved the six final creatives on November 4.** The immutable creative snapshot below is retained; current publication state and the revised staggered plan are in [release-ledger.json](release-ledger.json). Only the first item is included in the initial release; later items depend on the existing acquisition task and actual-import checks. Six finished 1000 x 1500 PNGs, English publishing copy, direct destinations, photo rights and a staged publication plan are included. The original eight feed entries, existing images, GUIDs/dates and automation schedules are unchanged.
 
 ![All six draft Pins](contact-sheet.png)
 
@@ -21,7 +21,7 @@ Tracking is restrained (0.5-0.8 px), without outlines, shadows or labels. Mahahu
 
 New photo selection required new source files because the original taxi/terminal/promenade images did not deliver the requested scenic appeal. [Photo source register](photo-sources.json) records the verified primary source pages, photographer, location, platform license, download URL and download checksum. The six local WebP inputs are in the sources directory; these are draft inputs, not a stock photo collection or a claim that these new sources already appear in the site's public rights register. Source and license pages were checked November 1, 2026. The [Unsplash License](https://unsplash.com/license) and [Pexels License](https://www.pexels.com/license/) do not require on-image attribution. Each final publishing description retains the photographer, source URL, license URL and a crop/gradient/type modification notice; no photo replacement was necessary.
 
-The revisions do not constitute approval to publish. PR #45 stays draft. Existing six IDs, destination parameters, anchors, proposed order and null actual publication fields are retained. All live files and operating schedules remain unchanged.
+Historical visual revision status: the drafts were held until the owner explicitly approved publication on November 4. That later approval supersedes the hold. The six IDs, destination parameters, anchors, approved copy and image bytes remain fixed. The manifest preserves the pre-release creative snapshot; release-ledger.json and subsequent PR production evidence track distribution separately. Operating schedules remain unchanged.
 
 ## Scope and ownership
 
@@ -48,7 +48,7 @@ Prepared against main `91aa1d7de0a81d4bff0f0a29bc9f3c59f9ca2a9c`. Read the curre
 - [Editable brief](pins.json) and [renderer](render.mjs): deterministic native layouts extending the approach used by `scripts/generate-share-cards.mjs`. Verified real photographs are resized/cropped without generative retouching or scene replacement. Per-image typography, color and alignment are recorded in `placeStyle`. The renderer uses locally installed Baskerville Old Face, Segoe UI Light and Arial; fonts are not redistributed and must be installed to reproduce the same type rendering. No new image service or credentials.
 - `assets/`: six full-size PNGs. `contact-sheet.png`: all six at 300 pixels wide, with only place names and small website marks. The contact sheet also has no additional labels or headings.
 
-Rebuild locally with installed repository dependencies:
+Historical pre-approval rebuild command (do not rerender approved release assets):
 
 ```sh
 node docs/pinterest-batches/2026-10-31/render.mjs
@@ -56,7 +56,9 @@ node docs/pinterest-batches/2026-10-31/render.mjs
 
 The renderer writes only this draft directory. It rejects duplicate live IDs, overlong copy and photo enlargement, decodes every resulting PNG in full, and writes hashes. The two variants per page use different photographs and practical angles in their titles/descriptions. Hooks, instructions and credits appear only in the publishing copy. All six were visually inspected at 1000 x 1500 and in the 300-pixel contact sheet. This refinement reduces place labels from 116 to 100 px for Cozumel/Mahahual (13.79%) and from 104 to 90 px for Yokohama (13.46%). All six final images contain exactly two typeset text elements. Credits and source/license links are checked in the captions, not the image pixels. Asset validation checks full decodes and hashes, six distinct photos/IDs/UTMs, three pages with two angles, unchanged destinations and captions against the preceding draft and a byte-stable eight-item feed. A separate read-only design reviewer also inspected all six full-size images, thumbnails and the previous contact sheet. No blocking visual issues were found; the busier Mahahual aerial retains its current contrast. [Verification record](verification.json) includes the image-specific findings. Every factual promise is supported by the destination implementation identified in `pins.json`. No live fare, savings, selected-date availability, first-hand visit or return guarantee is promised.
 
-## Publication proposal — held for coordinator review
+## Historical publication proposal - superseded November 4
+
+**The old proposed dates below are historical and must not execute. Use the November 4 release ledger and current operating runbooks.**
 
 Use the **existing native RSS connection only**, targeting the existing public board **Cruise Port Guides & Tips**. Do not also manually upload these images. The owner review must cover this six-Pin one-time batch allocation; it does not increase recurring quotas or take either new-article Pin reservation. The ordinary existing-page slot is already used by the October 31 Costa Maya release. If this batch allocation is not cleared, keep the drafts held rather than borrowing that slot.
 
