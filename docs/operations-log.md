@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-11-06 - Approved six-Pin batch, second RSS release
+
+- Refreshed current main `b764e196072ea3270e9f1c0c8f835b21827516a4`, both runbooks, the six-item ledger, approved manifest/copy, recent commits, open PRs and production state. Only unrelated PR #4 is open. This is the second item in the owner's separately approved six-image batch, not a recurring allowance increase or a new article/page.
+- The owner's November 5 account **Created** screenshot visibly matches `costa-maya-port-or-town-v1` by image and title. Record the first item's November 4 feed deployment at `2026-11-04T21:58:17.126Z` and its observed account appearance. Permanent Pin URL, exact publication time, target board and complete Visit site/UTM remain unknown; the screenshot is not evidence of traffic, orders or revenue.
+- Add only `cozumel-beach-pass-transport-v1` to the owned native RSS, using the exact approved title, description, image, destination and stable ID from accepted head `664f07595bb5c1fba15335202c017a8ae10a5553`. Feed date `2026-11-06T16:09:23Z` records preparation, not Pinterest import. The other four approved assets remain staged and absent from the feed.
+- Original eight feed entries and the first approved batch item retain their IDs, dates and fields. Same-page spacing remains at least 14 days; the next conditional target is November 9, only after actual evidence that this second item imported. No manual upload, GUID/date reset, platform scheduling, account change, outreach, private statistic or GSC request.
+- Required lint/build/rendered/feed/source checks, exact-head CI/preview, merge and production GET verification precede release. Actual production deploy time and later Pin observation remain separate evidence in the PR discussion; this preparation entry does not claim either.
+
 ## 2026-11-04 - Approved six-Pin batch and first RSS release
 
 - Refreshed main `91aa1d7`, PR #45 accepted head `664f07595bb5c1fba15335202c017a8ae10a5553`, current operating records, open PRs and task state. Acquisition is idle; only #45 and unrelated #4 are open. Production preflight health passes 8/8 and the original eight-item RSS hash is `9080a0782c221d3a11fbd710efade38581e50d6702fdd68333ec38a6e7adb451`.
