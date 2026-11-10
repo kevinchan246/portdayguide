@@ -10,6 +10,7 @@ import styles from "./TokyoYokohamaTransferArticle.module.css";
 const accessUrl = "https://osanbashi.jp/en/access/";
 const terminalUrl = "https://www.city.yokohama.lg.jp/lang/overseas/port/cruise/terminal_info.html";
 const nearbyGuide = "/ports/yokohama-tokyo/things-to-do-near-yokohama-cruise-terminal";
+const transferFallbackUrl = "https://www.viator.com/tours/Tokyo/Private-Transfer-from-Tokyo-city-hotels-to-Yokohama-Cruise-Port/d334-320728P219?mcid=42383&pid=P00311056&campaign=pdg-tokyo-to-yokohama-cruise-terminal&medium=api&api_version=2.0";
 
 const origins = [
   { name: "Tokyo Station", route: "JR Tokaido Line → Yokohama → Minatomirai Line", detail: "The terminal lists about 25 minutes for the Tokyo–Yokohama rail leg. At Yokohama, change to the Minatomirai Line for your waterfront station." },
@@ -66,7 +67,21 @@ export function TokyoYokohamaTransferArticle({ guide, hub }: { guide: PortIntent
     </section>
 
     <div id="hotel-to-port-transfers" className={styles.transferOptions}>
-      <IntentViatorCards portSlug={guide.sourcePortSlug} topic={guide.topic} portName="Tokyo to Yokohama" heading={guide.viator.heading} intro="For Tokyo city-hotel pickup to your Yokohama embarkation terminal. Confirm Osanbashi, Shinko or Daikoku by name, the pickup time and the vehicle for everyone and every suitcase. Airport pickup, the reverse journey and a shore tour are different bookings." bookingNote="Check the selected option's per-person or per-group unit and full party total, passenger and suitcase limits, tolls, waiting time, child seats, accessibility and cancellation terms. A displayed journey duration is not a guaranteed arrival time." />
+      <IntentViatorCards
+        portSlug={guide.sourcePortSlug}
+        topic={guide.topic}
+        portName="Tokyo to Yokohama"
+        heading={guide.viator.heading}
+        intro="For Tokyo city-hotel pickup to your Yokohama embarkation terminal. Confirm Osanbashi, Shinko or Daikoku by name, the pickup time and the vehicle for everyone and every suitcase. Airport pickup, the reverse journey and a shore tour are different bookings."
+        bookingNote="Check the selected option's per-person or per-group unit and full party total, passenger and suitcase limits, tolls, waiting time, child seats, accessibility and cancellation terms. A displayed journey duration is not a guaranteed arrival time."
+        fallback={{
+          href: transferFallbackUrl,
+          title: "Private transfer from Tokyo hotels to Yokohama Cruise Port",
+          description: "A Tokyo city-hotel pickup for a one-way Yokohama cruise-port drop-off. Confirm the named terminal, pickup time, vehicle, every passenger and every bag before booking.",
+          label: "Check the Tokyo-to-Yokohama transfer on Viator",
+          productCode: "320728P219",
+          placement: "tokyo-hotel-port-transfers",
+        }} />
     </div>
 
     <section aria-labelledby="transfer-costs">

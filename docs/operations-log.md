@@ -2,6 +2,14 @@
 
 This is a public technical log. Business metrics and private reports belong in private storage and owner-only communication.
 
+## 2026-11-10 - Tokyo transfer honest booking fallback
+
+- Refreshed current main `4b1ef3c2f5b9d97b43d8c5a4babe78126071726d`, both runbooks, this log, recent commits/PRs and the current Netlify production deploy. No competing content PR is open. The Alaska navigation pilot has only 14 complete Chicago days through November 9; its 28-day review remains November 24 and is not evaluated early.
+- GET-only production checks returned 200 for the Cozumel, Osaka and Costa Maya product sets with their previously reviewed selections. The focused Tokyo hotel-to-Yokohama endpoint returned `503 temporarily_unavailable` on the initial request and one bounded retry. The page had no reviewed static fallback, so a temporary upstream/API failure removed its only booking option. This is a verified availability-path defect, not evidence that the Viator product is unavailable.
+- Re-read the public Viator listing for `320728P219` on November 10. It remains a one-way Tokyo city-hotel pickup to Yokohama Cruise Port, asks for pickup time, luggage count, ship and terminal, lists luggage help, is not wheelchair accessible and states cancellation up to 24 hours in advance. Its displayed starting price is not copied; selected-date sales status, vehicle capacity, exact berth service and party price still require confirmation.
+- Add the same reviewed product as an honest no-image fallback with the existing `P00311056` pid, `pdg-tokyo-to-yokohama-cruise-terminal` campaign, `tokyo-hotel-port-transfers` placement and sponsored/nofollow attributes. The live API remains primary. The fallback appears only after failure/empty inventory or without JavaScript and explicitly asks for terminal, pickup, passengers and bags; it does not claim a live quote, price, inventory or guaranteed arrival.
+- Preserve the existing canonical, article date/body, photographs/credits, route guidance, checklist, disclosure and all other recommendations. No new URL, Pin, feed item, tracking field, CJ link, account request or GSC reminder. No sponsored link or production event is opened. Lint, rendered/focused/full tests, build, exact-head CI/preview and production GET verification remain release gates; this entry alone does not claim deployment.
+
 ## 2026-11-06 - Approved six-Pin batch, second RSS release
 
 - Refreshed current main `b764e196072ea3270e9f1c0c8f835b21827516a4`, both runbooks, the six-item ledger, approved manifest/copy, recent commits, open PRs and production state. Only unrelated PR #4 is open. This is the second item in the owner's separately approved six-image batch, not a recurring allowance increase or a new article/page.
