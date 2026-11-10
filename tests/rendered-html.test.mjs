@@ -809,6 +809,13 @@ test("publishes a distinct Tokyo embarkation guide with terminal-specific routes
   assert.match(visible, /Tokyo city-hotel pickup to your Yokohama embarkation terminal/);
   assert.match(visible, /Confirm Osanbashi, Shinko or Daikoku by name/);
   assert.match(visible, /passenger and suitcase limits/);
+  const fallback = visible.match(/<noscript>[\s\S]*?data-affiliate-product="320728P219"[\s\S]*?<\/noscript>/)?.[0];
+  assert.ok(fallback, "a verified Tokyo-to-Yokohama transfer remains available when the live quote fails or JavaScript is disabled");
+  assert.match(fallback, /d334-320728P219\?/);
+  assert.match(fallback, /campaign=pdg-tokyo-to-yokohama-cruise-terminal/);
+  assert.match(fallback, /data-affiliate-placement="tokyo-hotel-port-transfers"/);
+  assert.match(fallback, /rel="sponsored nofollow noopener"/);
+  assert.match(fallback, /Confirm the named terminal, pickup time, vehicle, every passenger and every bag/);
   assert.match(visible, /data-photo-source="Wikimedia Commons"/);
   assert.match(visible, /\/media\/articles\/tokyo-yokohama-osanbashi-approach/);
   assert.match(visible, /Matthide127/);
